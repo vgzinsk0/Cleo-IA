@@ -1,0 +1,59 @@
+===========================================================================
+COMPREHENSIVE CLEO 5 MODULAR PLUGINS ENVIRONMENT (CLEO_PLUGINS MOUNT)
+===========================================================================
+The target GTA San Andreas v1.0 US / SAMP environment has 11 native extensions active inside the 'cleo_plugins' directory. The AI must read this document to understand the purpose, usage criteria, and specific capabilities of each module to generate ultra-optimized scripts.
+
+1. CLEO+.cleo
+   - Description: The massive community extension that adds hundreds of modern opcodes to support advanced scripting structures, complex player status tracking, and compatibility layers.
+   - When to use: When creating complex gameplay modifications, custom menus, custom entity handling, or scripts requiring multiplayer synchronization hooks.
+   - How to use: Directly call CLEO+ compatible expanded commands.
+
+2. NewOpcodes.cleo
+   - Description: Core legacy/modern bridge plugin that registers dynamic mathematical, file handling, and structural data opcodes.
+   - When to use: When processing bitwise operations, custom data stream manipulation, or structural system validations.
+   - How to use: Used implicitly by the Sanny Builder 4 compiler to structure logic blocks.
+
+3. SA.Audio.cleo
+   - Description: Dedicated native audio engine module. Allows loading, triggering, positional 3D panning, and volume manipulation of external audio streams (.mp3, .wav, .ogg).
+   - When to use: When adding custom sound effects, radio stations, background music, or custom voice lines triggered by specific script events.
+   - How to use: Invoke native audio commands like 'play_sound' or stream handlers without requiring standard game sound banks.
+
+4. SA.DebugUtils.cleo
+   - Description: Integrated testing and developer diagnostic utilities extension.
+   - When to use: Essential during script building to catch structural logic bugs, stack leaks, or parameter mismatch errors.
+   - How to use: Call the 'TRACE(format, ...)' macro to push data to runtime logs or display inline debug strings on screen via DebugUtils configurations.
+
+5. SA.FileSystemOperations.cleo
+   - Description: Native file stream and operating system directory management utility.
+   - When to use: When the script needs to search for paths, create directories, duplicate, rename, or delete files directly in the game root folder.
+   - How to use: Leverage virtual path prefixes ('cleo:', 'user:', 'root:') alongside integrated file macros.
+
+6. SA.GameEntities.cleo
+   - Description: Advanced entity interaction engine for precise handling of Peds (actors), Vehicles, and Objects.
+   - When to use: When building scripts that modify vehicle parts, track precise bone structures of pedestrians, or manipulate object placement matrices dynamically.
+   - How to use: Access structural handles directly bypassing old SCM target limitations.
+
+7. SA.IniFiles.cleo
+   - Description: Structured data configuration parser for INI files.
+   - When to use: When you want to allow players to customize hotkeys, settings, toggles, or custom data without touching the compiled .cs script.
+   - How to use: Use the inline read/write commands to open, parse keys, and save configurations into separate '.ini' files.
+
+8. SA.Input.cleo
+   - Description: Direct Windows input and game control capturing hook (Keyboard, Mouse, Gamepad).
+   - When to use: When checking for key combinations, mouse coordinates for custom screen cursors, or overriding player control states safely in SAMP.
+   - How to use: Execute 'key_pressed' or relative coordinate checking functions.
+
+9. SA.Math.cleo
+   - Description: High-level mathematical, trigonometric, matrix, and vector calculation engine.
+   - When to use: Crucial for advanced modding such as Aimbots (calculating delta 3D distances), custom radar rendering, or physics manipulation of vehicles.
+   - How to use: Use advanced trigonometric operations (sine, cosine, arctan, vector distance calculations) compiled natively for 32-bit floats.
+
+10. SA.MemoryOperations.cleo
+    - Description: The definitive engineering core for Memory Hacking and Runtime Injections. Bypasses legacy opcodes (0A8C/0A8D).
+    - When to use: Mandatory for any operation involving editing memory pointers, structs, hooks, writing values, or backing up system variables.
+    - How to use: Use explicit inline syntax: 'variable = read_memory [address] size vp' and 'write_memory [address] size value vp' using decimal or structured inputs to prevent signed type corruption.
+
+11. SA.Text.cleo
+    - Description: On-screen string text rendering, custom HUD fonts, and message priority stream manager.
+    - When to use: When displaying localized texts, status reports, menu lines, or notifications on the player's screen with high render priority.
+    - How to use: Trigger high priority strings utilizing text token formatting ('~G~', '~R~', '~n~') directly.
