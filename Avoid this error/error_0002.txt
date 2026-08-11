@@ -1,3 +1,6 @@
+===========================================================================
+STRICT SYNTAX LOCAL VARIABLES (SANNY BUILDER 4 / CLEO 5)
+===========================================================================
 
 2. SAFE LOCAL VARIABLE MANAGEMENT (RESTRICTION ON OVERWRITING):
 - NEVER reuse the same local variable for two different logical functions within the same script structure (e.g., using 0@ for the Toggle status and then assignment of memory addresses like 0@ = 0xC69754).
