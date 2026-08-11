@@ -1,0 +1,19 @@
+===========================================================================
+ERROR_0003: INVALID MEMORY READING SINTAX AND VARIABLE ASSIGNMENT (ERROR 0014)
+===========================================================================
+
+1. INVALID COMPILER EXPRESSION (Error 0014):
+- NEVER use direct local variable-to-variable assignments like '1@ = 5@' or '2@ = 5@' inside codeblocks. Sanny Builder 4 filters this expression as incomplete or unrecognized type matching, resulting in: "Incorrect expression. One of the variables is unknown, or types are incompatible."
+
+2. CRITICAL MEMORY LEAK & SINTAX BUG (0A8D READ_MEMORY):
+- NEVER inject pseudo-keywords like 'save_to' inside opcode structures (e.g., '0A8D: read_memory 3@ size 4 virtual_protect 0 save_to 5@'). Sanny Builder 4 does not support artificial suffixes for data storage.
+- ALWAYS place the destination variable directly after the opcode declaration utilizing the assignment formatting style.
+
+3. CORRECT ARCHITECTURE EXAMPLE FOR SB4:
+- Instead of using a secondary bridge variable, read and back up data directly into the permanent registers:
+  
+  // CORRECT APPROACH:
+  0A8D: 1@ = read_memory 3@ size 4 virtual_protect 0 // Backup Recoil directly to 1@
+  0A8D: 2@ = read_memory 4@ size 4 virtual_protect 0 // Backup Spread directly to 2@
+
+- This keeps memory operations compact, complies with compiler engine regulations, and maintains total stability for CLEO 5.4.
