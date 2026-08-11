@@ -1,0 +1,47 @@
+{$CLEO .cs}
+
+//-------------MAIN---------------
+thread "GOD" 
+
+:16
+wait 0 
+0AB0:   key_pressed 35 
+jf @16 
+0ACD: show_text_highpriority "~G~GODMODE: ON" time 1000
+wait 1000
+018C: play_sound 1139 at 0.0 0.0 0.0 
+
+:99
+wait 0 
+8AB0:   not key_pressed 35 
+jf @99 
+wait 0 
+Actor.SetImmunities($PLAYER_ACTOR, 1, 1, 1, 1, 1)
+0A8C: write_memory 4928287 size 6 value -1869574000 virtual_protect 1 
+
+:149
+wait 0 
+0AB0:   key_pressed 35 
+jf @149 
+0ACD: show_text_highpriority "~R~GODMODE: OFF" time 1000
+Actor.SetImmunities($PLAYER_ACTOR, 0, 0, 0, 0, 0)
+wait 1000
+018C: play_sound 1139 at 0.0 0.0 0.0 
+0@ = 137 
+0A8C: write_memory 4928287 size 1 value 0@ virtual_protect 1 
+0@ = 150 
+0A8C: write_memory 4928288 size 1 value 0@ virtual_protect 1 
+0@ = 64 
+0A8C: write_memory 4928289 size 1 value 0@ virtual_protect 1 
+0@ = 5 
+0A8C: write_memory 4928290 size 1 value 0@ virtual_protect 1 
+0@ = 0 
+0A8C: write_memory 4928291 size 1 value 0@ virtual_protect 1 
+0@ = 0 
+0A8C: write_memory 4928292 size 1 value 0@ virtual_protect 1 
+
+:377
+wait 0 
+8AB0:   not key_pressed 35 
+jf @377 
+jump @16 
