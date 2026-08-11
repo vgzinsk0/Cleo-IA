@@ -1,0 +1,84 @@
+: Documentation
+CLEO Library Documentation - Learn about CLEO scripts, opcodes, and plugins
+
+4 leitura mínimaVer original
+Documentation
+This page goes into general overview of CLEO Library and its features.
+
+For information on CLEO 5, visit CLEO 5 page.
+
+For information on CLEO Redux, visit the CLEO Redux website.
+
+Overview
+CLEO extends a target game with a lightweight runtime for custom scripts and plugins. It keeps your game save-compatible while letting you add new features without touching the original scripts.
+
+Multiple games supported.
+Does not modify the original game files and can be safely removed.
+Ships with plugins for debugging, memory manipulation, audio control, text utilities, and more.
+Ready to install? Visit Downloads page.
+
+Requirements
+Grand Theft Auto: San Andreas (PC) v1.0 US. Hoodlum or Compact exe will work.
+Silent's ASI Loader or equivalent.
+Installation
+Download the latest release archive and extract it into your game directory (the one containing main executable file).
+
+Launch the game; when installed correctly, CLEO shows the version in the corner. If you do not see it, confirm your ASI loader is active and that CLEO.asi is in the root game folder.
+
+Uninstall
+Remove CLEO.asi from the game folder.
+Optionally delete the CLEO folder if you no longer want custom scripts.
+Scripts
+What are CLEO scripts?
+A CLEO script is a custom script written for the Grand Theft Auto games series by Rockstar Games. While these games already provide a very rich gameplay experience, they can be easily expanded by adding new features or tweaking existing ones. These scripts can be compiled with a compiler such as Sanny Builder into a single binary file with the extension .cs (Custom Script). Anyone can learn to write their own scripts and share them freely with other CLEO users!
+
+CLEO provides a huge range of features for scripts to add anything from brand new game features and missions to game engine enhancements or even entire in-game applications (such as DYOM) to allow users to modify their own game, all within scripts which are tiny in size and easy to download and install. Features such as brand new opcode libraries, easy game integration, a sound system, mission loader, game saving abilities and plugin support allow for an endless set of possibilities to add something new to your Grand Theft Auto game.
+
+Where to download CLEO scripts?
+There are the links to the sites hosting a big enough collection of CLEO scripts. Note that the CLEO library developers do not maintain those sites and are in no way responsible for its content.
+
+Installing scripts
+The CLEO Library allows adding new scripts without needing to start a new game. You can add a new script at any stage of the game or delete an existing one.
+
+To install a CLEO script you need to copy the file with the extension .cs to the CLEO folder. Some scripts may have different extensions such as .cm for CLEO missions, or .cs4 for CLEO4-compatible scripts, but the installation process is the same.
+
+Another popular modding tool, ModLoader, allows installing CLEO scripts into separate folders inside the modloader directory. Some scripts may not work properly when installed this way, so if you experience issues, try installing them directly into the CLEO folder. Always consult the script's documentation to find if the script is compatible with ModLoader.
+
+To remove the script, just delete the appropriate file from the CLEO directory.
+
+Writing scripts
+Writing a CLEO script is easy (if you know how to make scripts for GTA at all). With Sanny Builder you can simply use the directive {$CLEO} at the beginning of your script and compile. The resulting file will be copied to the CLEO directory and will be given the extension specified by the directive (.cs by default).
+
+The process for a CLEO mission is similar, except the compiled script must have the .cm extension which can be specified using {$CLEO .cm}. The mission can then be started by a CLEO script using opcode 0A94.
+
+There are a few basic rules to follow when writing custom CLEO scripts as they differ from SCM scripts:
+
+One file - one script. CLEO only supports one script per file. If you need to launch additional scripts, use opcode 0A92 with the path to another .cs file.
+Never use global variables, except for well-known ones such as $ONMISSION. Minimize dependency on the SCM to avoid conflicts.
+CLEO scripts have the same limitations as the SCM scripts. They have 32 local variables and 2 auto-incrementing timers (TIMERA and TIMERB).
+
+Opcodes
+Opcodes or commands are the basic instructions used in CLEO scripts to perform various actions within the game. Some examples may include creating in-game entities, changing player stats, or printing text on the screen.
+
+Check out Sanny Builder Library to find information about CLEO opcodes.
+
+Plugins
+CLEO plugins are dynamic libraries with the .CLEO extension, created using the CLEO SDK. They provide additional functionality to the scripting runtime, usually in a form of new opcodes.
+
+To install a CLEO plugin you need to copy the .CLEO file to the CLEO\CLEO_PLUGINS folder.
+
+To remove the plugin, just delete it from the CLEO\CLEO_PLUGINS folder.
+
+CLEO ships many ready-to-use plugins for memory management, text utilities, audio processing, and more. Visit Sanny Builder Library to see the full list. Some plugins are developed by third parties and may require separate installation. See the Download section for additional CLEO plugins.
+
+Troubleshooting
+Common issues
+Game does not start: check that you have a compatible GTA San Andreas version (1.0 US).
+No CLEO message in the menu: check that CLEO.asi is in the game root and ASI Loader is installed. cleo.log file should be created in the root folder.
+Script crashes: follow error message instructions, if any. Try disabling other scripts to isolate conflicts. If you think it's a CLEO bug, report it on GitHub.
+Unexpected behavior in CLEO5: check CLEO 5 documentation for known behavior differences from CLEO 4 which may affect some scripts.
+Logs
+Default log file: cleo.log in the root directory. Always check it for errors and warnings.
+CLEO 5 has additional logs. CLEO Redux's log file is called cleo_redux.log.
+
+Resources
