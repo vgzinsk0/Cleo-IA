@@ -1,0 +1,62 @@
+{$CLEO .cs}
+
+script_name 'NORECOIL'
+
+// --- VARIÁVEIS LOCAIS (Limite estrito: 32) ---
+// 0@ = Estado do Toggle (0=OFF, 1=ON)
+// 1@ = Backup do valor original do Camera Recoil (float)
+// 2@ = Backup do valor original do Weapon Spread (float)
+
+0@ = 0 // Inicia desligado (OFF)
+
+:MAIN_LOOP
+wait 0
+
+if
+    is_player_playing $PLAYER_CHAR
+jf @MAIN_LOOP
+
+// Detecta pressão da tecla INSERT (VK 45)
+if
+    0AB0: key_pressed 45
+jf @MAIN_LOOP
+
+// === ANTI-SPAM: WAIT_KEY_RELEASE ===
+:WAIT_KEY_UP
+wait 0
+if
+    8AB0: not key_pressed 45
+jf @WAIT_KEY_UP
+
+// --- LÓGICA DE TOGGLE ---
+if
+    0@ == 0
+then
+    0@ = 1 // Ativa o estado ON
+
+    // Feedbacks Visuais e Sonoros
+    0ACD: show_text_highpriority "~G~NO RECOIL: ON~n~~G~NO SPREAD: ON" time 2000
+    018C: play_sound 1139 at 0.0 0.0 0.0
+
+    // 1. BACKUP DOS VALORES ORIGINAIS
+    // Usando a sintaxe nativa estável de atribuição de float por ponteiro do SB4
+    1@ = read_memory 0x5511A0 size 4 vp 0
+    2@ = read_memory 0x550FE0 size 4 vp 0
+
+    // 2. APLICAÇÃO DOS VALORES (Zera o recuo e o espalhamento)
+    // Escreve direto usando a nova formatação curta que ignora o interpretador legado
+    write_memory 0x5511A0 size 4 value 0.0 vp 1
+    write_memory 0x550FE0 size 4 value 0.0 vp 1
+else
+    0@ = 0 // Desativa o estado OFF
+
+    // Feedbacks Visuais e Sonoros
+    0ACD: show_text_highpriority "~R~NO RECOIL: OFF~n~~R~NO SPREAD: OFF" time 2000
+    018C: play_sound 1139 at 0.0 0.0 0.0
+
+    // 3. RESTAURAÇÃO DOS BACKUPS
+    write_memory 0x5511A0 size 4 value 1@ vp 1
+    write_memory 0x550FE0 size 4 value 2@ vp 1
+end
+
+jump @MAIN_LOOP
