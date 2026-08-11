@@ -1,0 +1,580 @@
+: SDK
+CLEO 5 SDK Documentation - Create custom plugins for GTA San Andreas
+
+9 leitura mínimaVer original
+SDK Documentation
+CLEO 5 SDK allows developers to create new opcodes for GTA San Andreas.
+
+Version Information
+Current Version: 5.4.0
+
+The SDK uses a versioning system with main, major, and minor components:
+
+#define CLEO_VERSION_MAIN   5
+#define CLEO_VERSION_MAJOR  4
+#define CLEO_VERSION_MINOR  0
+The combined version is calculated as: 0x05040000
+
+Enumerations
+Version Enums
+eCLEO_Version - Represents different CLEO versions for compatibility checking.
+
+CLEO_VER_3	
+CLEO version 3.x (0x03000000)
+CLEO_VER_4_MIN	
+Minimum CLEO 4 version (0x04000000)
+CLEO_VER_4_2	
+CLEO version 4.2 (0x04020000)
+CLEO_VER_4_3	
+CLEO version 4.3 (0x04030000)
+CLEO_VER_4_4	
+CLEO version 4.4 (0x04040000)
+CLEO_VER_4	
+Alias for CLEO_VER_4_4
+CLEO_VER_5	
+CLEO version 5.x (0x05000000)
+CLEO_VER_CUR	
+Current CLEO version
+eGameVersion - Identifies the game version.
+
+GV_US10	
+1.0 US version
+GV_US11	
+1.01 US version (not supported)
+GV_EU10	
+1.0 EU version
+GV_EU11	
+1.01 EU version
+GV_STEAM	
+Steam version
+GV_TOTAL	
+Total number of versions
+GV_UNK	
+Unknown version (-1)
+Callbacks
+eCallbackId - Callback types for event handling.
+
+GameBegin (0)
+void WINAPI OnGameBegin(DWORD saveSlot)	
+Game session started (-1 if new game)
+GameProcessBefore (1)
+void WINAPI OnGameProcessBefore()	
+Before frame processing
+GameProcessAfter (14)
+void WINAPI OnGameProcessAfter()	
+After frame processing
+GameEnd (2)
+void WINAPI OnGameEnd()	
+Game session ended
+ScriptsLoaded (3)
+void WINAPI OnScriptsLoaded()	
+All scripts loaded
+ScriptsFinalize (4)
+void WINAPI OnScriptsFinalize()	
+Scripts deleted
+ScriptRegister (5)
+void WINAPI OnScriptRegister(CRunningScript*)	
+Script created
+ScriptUnregister (6)
+void WINAPI OnScriptUnregister(CRunningScript*)	
+Before script deletion
+ScriptProcessBefore (7)
+bool WINAPI OnScriptProcessBefore(CRunningScript*)	
+Before script processing
+ScriptProcessAfter (15)
+void WINAPI OnScriptProcessAfter(CRunningScript*)	
+After script processing
+ScriptOpcodeProcessBefore (8)
+OpcodeResult WINAPI OnScriptOpcodeProcessBefore(CRunningScript*, DWORD)	
+Before opcode execution
+ScriptOpcodeProcessAfter (9)
+OpcodeResult WINAPI OnScriptOpcodeProcessAfter(CRunningScript*, DWORD, OpcodeResult)	
+After opcode execution
+ScriptDraw (10)
+void WINAPI OnScriptDraw(bool beforeFade)	
+Script drawing
+DrawingFinished (11)
+void WINAPI OnDrawingFinished()	
+After rendering, before screen presentation
+Log (12)
+void OnLog(eLogLevel level, const char* msg)	
+Log message event
+MainWindowFocus (13)
+void WINAPI OnMainWindowFocus(bool active)	
+Window focus changed
+Other Enums
+eLogLevel - Log severity levels.
+
+None	
+No logging
+Error	
+Errors and warnings
+Debug	
+Debug mode/user traces
+Default	
+All log messages
+OpcodeResult - Opcode execution results.
+
+OR_NONE (-2)	
+No result
+OR_ERROR (-1)	
+Error occurred
+OR_CONTINUE (0)	
+Continue execution
+OR_INTERRUPT (1)	
+Interrupt execution
+eLogicalOperation - Logical operations for conditional expressions.
+
+NONE (0)	
+No operation
+ANDS_1–ANDS_8 (1-8)	
+Number of AND operators
+ORS_1–ORS_8 (21-28)	
+Number of OR operators
+Constants
+String Length
+MAX_STR_LEN: Maximum string parameter length (255 characters)
+Virtual Path Prefixes
+root:	
+Game root directory
+user:	
+Game save directory
+.	
+Current script directory
+cleo:	
+game\cleo directory
+modules:	
+game\cleo\cleo_modules directory
+Data Structures
+SCRIPT_VAR Union
+A union for storing different parameter types:
+
+union SCRIPT_VAR {
+    DWORD dwParam;    // 32-bit unsigned integer
+    short wParam;     // 16-bit signed integer
+    WORD usParam;     // 16-bit unsigned integer
+    BYTE ucParam;     // 8-bit unsigned integer
+    char cParam;      // 8-bit signed char
+    bool bParam;      // Boolean
+    int nParam;       // 32-bit signed integer
+    float fParam;     // 32-bit float
+    void* pParam;     // Generic pointer
+    char* pcParam;    // String pointer
+};
+StringList Structure
+Container for string arrays:
+
+struct StringList {
+    DWORD count;      // Number of strings
+    char** strings;   // Array of string pointers
+};
+CRunningScript Class
+The main class representing a running script instance.
+
+Class Members
+| Member             | Type              | Offset | Description                    |
+| -------------------| ------------------| ------ | ------------------------------ |
+| Next               | CRunningScript*   | 0x00   | Next script in queue           |
+| Previous           | CRunningScript*   | 0x04   | Previous script in queue       |
+| Name               | char[8]           | 0x08   | Script name (from 03A4 opcode) |
+| BaseIP             | void*             | 0x10   | Script base pointer            |
+| CurrentIP          | BYTE*             | 0x14   | Current instruction pointer    |
+| Stack              | BYTE*[8]          | 0x18   | Return stack                   |
+| SP                 | WORD              | 0x38   | Stack pointer                  |
+| LocalVar           | SCRIPT_VAR[32]    | 0x3C   | Local variables                |
+| Timers             | DWORD[2]          | 0xBC   | Script timers                  |
+| bIsActive          | bool              | 0xC4   | Active status                  |
+| bCondResult        | bool              | 0xC5   | Condition result               |
+| bUseMissionCleanup | bool              | 0xC6   | Mission cleanup flag           |
+| bIsExternal        | bool              | 0xC7   | External script flag           |
+| bTextBlockOverride | bool              | 0xC8   | Text block override            |
+| bExternalType      | BYTE              | 0xC9   | External type                  |
+| WakeTime           | DWORD             | 0xCC   | Wake time after wait           |
+| LogicalOp          | eLogicalOperation | 0xD0   | Logical operation              |
+| NotFlag            | bool              | 0xD2   | NOT flag                       |
+| bWastedBustedCheck | bool              | 0xD3   | Wasted/busted check            |
+| bWastedOrBusted    | bool              | 0xD4   | Player wasted/busted           |
+| SceneSkipIP        | void*             | 0xD8   | Scene skip label               |
+| bIsMission         | bool              | 0xDC   | Mission script flag            |
+| ScmFunction        | WORD              | 0xDD   | SCM function ID                |
+| bIsCustom          | bool              | 0xDF   | CLEO script flag               |
+                
+Key Methods
+Status Methods
+bool IsActive()	
+Check if script is active
+bool IsExternal()	
+Check if script is external
+bool IsMission()	
+Check if script is a mission
+bool IsCustom()	
+Check if script is a CLEO script
+Variable Access
+SCRIPT_VAR* GetVarPtr()	
+Get pointer to local variables
+int GetIntVar(int i)	
+Get integer variable value
+void SetIntVar(int i, int v)	
+Set integer variable value
+void SetFloatVar(int i, float v)	
+Set float variable value
+Script Control
+void Jump(int offset)	
+Jump to label
+OpcodeResult Suspend()	
+Suspend script execution forever
+void SetConditionResult(bool result)	
+Set condition result
+Data Reading
+BYTE ReadByte()	
+Read byte and advance pointer
+WORD ReadWord()	
+Read word and advance pointer
+DWORD ReadDword()	
+Read dword and advance pointer
+eDataType PeekDataType()	
+Peek next data type without advancing
+Type Checking Functions
+IsImmInteger(eDataType)	
+Check if type is immediate integer (byte/word/dword)
+IsImmFloat(eDataType)	
+Check if type is immediate float
+IsImmString(eDataType)	
+Check if type is immediate string
+IsVarString(eDataType)	
+Check if type is string variable
+IsVariable(eDataType)	
+Check if type can carry int/float/pointer
+IsArray(eDataType)	
+Check if type is an array
+Type Conversion Functions
+ToStr(eDataType)	
+Convert data type to string representation
+ToKindStr(eDataType, eArrayDataType)	
+Get simplified type kind string
+SDK Functions
+Version and System Information
+DWORD WINAPI CLEO_GetVersion()	
+Returns the CLEO version number
+LPCSTR WINAPI CLEO_GetVersionStr()	
+Returns version string (e.g., "5.0.0-alpha.1")
+eGameVersion WINAPI CLEO_GetGameVersion()	
+Returns the detected game version
+Opcode Functions
+BOOL WINAPI CLEO_RegisterOpcode(WORD opcode, CustomOpcodeHandler callback)	
+Register a custom opcode handler
+BOOL WINAPI CLEO_RegisterCommand(const char* commandName, CustomOpcodeHandler callback)	
+Register a command by name (uses sa.json for opcode mapping)
+OpcodeResult WINAPI CLEO_CallNativeOpcode(CRunningScript* script, WORD opcode)	
+Call native opcode handler; script IP must point to parameter data
+Script Management
+Script Information
+BOOL WINAPI CLEO_IsScriptRunning(const CRunningScript* thread)	
+Check if a script is currently running
+BOOL WINAPI CLEO_IsValidScriptPtr(const CRunningScript* thread)	
+Check if a script pointer is valid, including inactive or pending-deletion scripts
+LPCSTR WINAPI CLEO_GetScriptFilename(const CRunningScript* thread)	
+Get script filename (returns nullptr if invalid)
+void WINAPI CLEO_GetScriptInfoStr(CRunningScript* thread, bool currLineInfo, char* buf, DWORD bufSize)	
+Get formatted script information string
+Script Creation and Control
+CRunningScript* WINAPI CLEO_CreateCustomScript(CRunningScript* fromThread, const char* filePath, int label)	
+Create a new custom script
+void WINAPI CLEO_TerminateScript(CRunningScript* thread)	
+Terminate a running script
+CRunningScript* WINAPI CLEO_GetScriptByName(const char* threadName, BOOL standardScripts, BOOL customScripts, DWORD resultIndex = 0)	
+Find script by name (call repeatedly for multiple results)
+Parameter Handling
+Reading Parameters
+DWORD WINAPI CLEO_GetIntOpcodeParam(CRunningScript* thread)	
+Read integer parameter and advance script
+float WINAPI CLEO_GetFloatOpcodeParam(CRunningScript* thread)	
+Read float parameter and advance script
+LPCSTR WINAPI CLEO_ReadStringOpcodeParam(CRunningScript* thread, char* buff = nullptr, int buffSize = 0)	
+Read string parameter into buffer (null-terminated)
+void WINAPI CLEO_RetrieveOpcodeParams(CRunningScript* thread, int count)	
+Read multiple parameters into opcodeParams array
+Writing Parameters
+void WINAPI CLEO_SetIntOpcodeParam(CRunningScript* thread, DWORD value)	
+Write integer parameter
+void WINAPI CLEO_SetFloatOpcodeParam(CRunningScript* thread, float value)	
+Write float parameter
+void WINAPI CLEO_WriteStringOpcodeParam(CRunningScript* thread, const char* str)	
+Write string parameter
+Peeking Parameters (Non-advancing)
+DWORD WINAPI CLEO_PeekIntOpcodeParam(CRunningScript* thread)	
+Peek integer value without advancing script
+float WINAPI CLEO_PeekFloatOpcodeParam(CRunningScript* thread)	
+Peek float value without advancing script
+Utility Functions
+File System Functions
+void WINAPI CLEO_ResolvePath(CRunningScript* thread, char* inOutPath, DWORD pathMaxLen)	
+Convert virtual path to absolute file system path
+StringList WINAPI CLEO_ListDirectory(CRunningScript* thread, const char* searchPath, BOOL listDirs, BOOL listFiles)	
+List directory contents (supports wildcards)
+LPCSTR WINAPI CLEO_GetGameDirectory()	
+Get absolute game directory path without trailing path separator
+LPCSTR WINAPI CLEO_GetUserDirectory()	
+Get absolute user files directory path without trailing path separator
+LPCSTR WINAPI CLEO_GetLogDirectory()	
+Get absolute log files directory path without trailing path separator
+Other Utility Functions
+void WINAPI CLEO_Log(eLogLevel level, const char* msg)	
+Add message to CLEO log
+void WINAPI CLEO_RegisterCallback(eCallbackId id, void* func)	
+Register a callback function
+void WINAPI CLEO_UnregisterCallback(eCallbackId id, void* func)	
+Unregister a callback function
+void WINAPI CLEO_StringListFree(StringList list)	
+Free resources used by StringList container
+Usage Examples
+Registering a Custom Opcode
+OpcodeResult __stdcall MyOpcodeHandler(CRunningScript* script) {
+    // Read parameters
+    int param1 = CLEO_GetIntOpcodeParam(script);
+    float param2 = CLEO_GetFloatOpcodeParam(script);
+
+    // Process...
+
+    // Set result
+    CLEO_SetIntOpcodeParam(script, result);
+
+    return OR_CONTINUE;
+}
+
+// Register the opcode
+CLEO_RegisterOpcode(0x0DD0, MyOpcodeHandler);
+Creating a Custom Script
+CRunningScript* newScript = CLEO_CreateCustomScript(
+    parentScript,
+    "cleo:\\MyScript.cs",
+    0  // start label
+);
+
+if (newScript) {
+    // Script created successfully
+}
+Working with Callbacks
+void WINAPI OnGameBegin(DWORD saveSlot) {
+    if (saveSlot == -1) {
+        // New game started
+    } else {
+        // Game loaded from save slot
+    }
+}
+
+// Register callback
+CLEO_RegisterCallback(eCallbackId::GameBegin, OnGameBegin);
+CLEO_Utils Helper Library
+The CLEO_Utils.h header provides utility functions and macros to simplify CLEO plugin development with error handling, parameter validation, and common operations.
+
+Setup Requirements
+To use CLEO_Utils.h in your CLEO plugin project, configure your build settings:
+
+Additional Include Directories:
+$(PLUGIN_SDK_DIR)\plugin_sa\
+$(PLUGIN_SDK_DIR)\shared\game\
+$(PLUGIN_SDK_DIR)\plugin_sa\game_sa\
+Preprocessor Definitions:
+GTASA
+TARGET_NAME=R"($(TargetName))"
+Logging and Error Handling
+Basic Logging Macros
+TRACE(format, ...)	
+Log message to file (can be displayed on screen via DebugUtils.ini)
+LOG_WARNING(script, format, ...)	
+Display warning on screen and log to file (not shown for legacy scripts)
+SHOW_ERROR(format, ...)	
+Show message box and log to file
+SHOW_ERROR_COMPAT(format, ...)	
+Show error with legacy mode compatibility tip
+Condition Result Macro
+OPCODE_CONDITION_RESULT(value)  // Set opcode's logical result
+Opcode Parameter Macros
+These macros simplify parameter handling in opcode implementations with automatic type validation and error handling. They expand to multiple lines, so cannot be used where single statements are expected (e.g., if conditions without braces).
+
+Parameter Inspection
+OPCODE_PEEK_PARAM_TYPE()	
+Get next parameter type without advancing
+OPCODE_PEEK_VARARG_COUNT()	
+Get count of remaining variable arguments
+OPCODE_SKIP_PARAMS(count)	
+Skip X parameters
+OPCODE_SKIP_VARARG_PARAMS()	
+Skip all remaining variable arguments
+Reading Input Parameters
+All read macros perform type validation and suspend the script on error.
+
+Basic Types:
+OPCODE_READ_PARAM_BOOL()           // Read boolean value
+OPCODE_READ_PARAM_INT8()           // Read signed 8-bit integer
+OPCODE_READ_PARAM_UINT8()          // Read unsigned 8-bit integer
+OPCODE_READ_PARAM_INT16()          // Read signed 16-bit integer
+OPCODE_READ_PARAM_UINT16()         // Read unsigned 16-bit integer
+OPCODE_READ_PARAM_INT()            // Read signed 32-bit integer
+OPCODE_READ_PARAM_UINT()           // Read unsigned 32-bit integer
+OPCODE_READ_PARAM_FLOAT()          // Read float value
+OPCODE_READ_PARAM_ANY32()          // Read any 32-bit value (int or float)
+String Parameters:
+OPCODE_READ_PARAM_STRING(varName)
+// Creates: const char* varName pointing to null-terminated string
+
+OPCODE_READ_PARAM_STRING_LEN(varName, maxLength)
+// Creates: const char* varName with length clamped to maxLength
+
+OPCODE_READ_PARAM_STRING_FORMATTED(varName)
+// Reads format string and var-args
+// Creates: char varName[] with formatted text
+// Creates: char* varNameOk (nullptr if invalid)
+
+OPCODE_READ_PARAMS_FORMATTED(format, varName)
+// Uses provided format for var-args
+// Creates: char varName[] with formatted text
+// Creates: char* varNameOk (nullptr if invalid)
+
+OPCODE_READ_PARAM_FILEPATH(varName)
+// Creates: const char* varName with resolved and validated file path
+Validated Handle Parameters:
+OPCODE_READ_PARAM_PTR()             // Read and validate memory pointer
+OPCODE_READ_PARAM_OBJECT_HANDLE()   // Read and validate object handle
+OPCODE_READ_PARAM_PED_HANDLE()      // Read and validate ped/actor handle
+OPCODE_READ_PARAM_VEHICLE_HANDLE()  // Read and validate vehicle handle
+OPCODE_READ_PARAM_PLAYER_ID()       // Read and validate player ID
+Output Variable Parameters (for mixed param order):
+OPCODE_READ_PARAM_OUTPUT_VAR_INT()    // Get int* for later writing
+OPCODE_READ_PARAM_OUTPUT_VAR_FLOAT()  // Get float* for later writing
+OPCODE_READ_PARAM_OUTPUT_VAR_ANY32()  // Get SCRIPT_VAR* for later writing
+OPCODE_READ_PARAM_OUTPUT_VAR_STRING() // Get StringParamBufferInfo for later writing
+Writing Output Parameters
+All write macros perform type validation and suspend the script on error.
+
+OPCODE_WRITE_PARAM_BOOL(value)
+OPCODE_WRITE_PARAM_INT8(value)
+OPCODE_WRITE_PARAM_UINT8(value)
+OPCODE_WRITE_PARAM_INT16(value)
+OPCODE_WRITE_PARAM_UINT16(value)
+OPCODE_WRITE_PARAM_INT(value)
+OPCODE_WRITE_PARAM_UINT(value)
+OPCODE_WRITE_PARAM_FLOAT(value)
+OPCODE_WRITE_PARAM_ANY32(value)
+OPCODE_WRITE_PARAM_STRING(value)
+OPCODE_WRITE_PARAM_STRING_INFO(info, value)  // Using StringParamBufferInfo
+OPCODE_WRITE_PARAM_PTR(value)
+String Utilities
+String Manipulation Functions
+std::string StringPrintf(const char* format, ...)	
+Returns std::string; format string with printf-style arguments
+bool StringStartsWith(const std::string_view str, const std::string_view prefix, bool caseSensitive = true)	
+Returns bool; check if string starts with prefix
+bool StringEndsWith(const std::string_view str, const std::string_view suffix, bool caseSensitive = true)	
+Returns bool; check if string ends with suffix
+void StringSplit(const std::string_view str, const std::string_view delimiters, std::vector<std::string>& output)	
+Split string by delimiters into vector
+void StringRemoveFormatting(std::string& str)	
+Remove GTA text formatting sequences (e.g., ~r~, ~b~)
+void StringToLower(std::string& str)	
+Convert string to lowercase
+std::string ScriptInfoStr(CLEO::CRunningScript* thread)	
+Returns std::string; get formatted script information string
+File Path Utilities
+Path Manipulation Functions
+void FilepathNormalize(std::string& path, bool normalizeCase = true)	
+Normalize path: collapse parent refs, fix separators, optionally lowercase
+void FilepathRemoveParent(std::string& path, const std::string_view base)	
+Remove parent directory prefix from path
+const std::string_view FilepathGetParent(const std::string_view str)	
+Returns std::string_view; get path without last element
+bool FilepathIsSafe(CLEO::CRunningScript* thread, const char* path)	
+Returns bool; verify path is within game directories
+std::string GetConfigFilename()	
+Returns std::string; get this plugin's config file path
+Validation Functions
+Handle Validation
+bool IsObjectHandleValid(DWORD handle)	
+Returns bool; validate game object handle
+bool IsPedHandleValid(DWORD handle)	
+Returns bool; validate character/ped handle
+bool IsVehicleHandleValid(DWORD handle)	
+Returns bool; validate vehicle handle
+bool IsPlayerIdValid(int id)	
+Returns bool; validate player ID (-1, 0, or 1)
+Script Version Check
+bool IsLegacyScript(CLEO::CRunningScript* thread)	
+Returns bool; check if script version is pre-CLEO 5
+bool PluginCheckCleoVersion()	
+Returns bool; verify CLEO version compatibility
+Memory Utilities
+Memory Patching
+class MemPatch	
+Class for saving and restoring memory patches
+MemPatch MemPatchJump(size_t position, void* jumpTarget)	
+Returns MemPatch; create JMP patch at position, returns original bytes
+void* MemPatchCall(size_t position, void* newFunction)	
+Returns void*; create CALL patch at position, returns original target
+String List Creation
+template<typename T> StringList CreateStringList(const T& container)	
+Convert container of strings to CLEO StringList
+Usage Examples with CLEO_Utils.h
+Custom Opcode with Parameter Validation
+OpcodeResult __stdcall opcode_CreateEffect(CRunningScript* thread)
+{
+    // Read and validate parameters
+    auto pedHandle = OPCODE_READ_PARAM_PED_HANDLE();
+    auto effectId = OPCODE_READ_PARAM_INT();
+    auto duration = OPCODE_READ_PARAM_FLOAT();
+    OPCODE_READ_PARAM_STRING(effectName);
+
+    // Process the effect...
+    bool success = CreateEffect(pedHandle, effectId, duration, effectName);
+
+    // Set condition result
+    OPCODE_CONDITION_RESULT(success);
+
+    // Write output
+    OPCODE_WRITE_PARAM_INT(effectHandle);
+
+    return OR_CONTINUE;
+}
+Safe File Operations
+OpcodeResult __stdcall opcode_ReadFile(CRunningScript* thread)
+{
+    OPCODE_READ_PARAM_FILEPATH(filepath);  // Automatically validated
+    auto* outputVar = OPCODE_READ_PARAM_OUTPUT_VAR_STRING();
+
+    if (FilepathIsSafe(thread, filepath))
+    {
+        std::string content = ReadFileContent(filepath);
+        OPCODE_WRITE_PARAM_STRING_INFO(outputVar, content.c_str());
+    }
+    else
+    {
+        LOG_WARNING(thread, "Unsafe file path: %s", filepath);
+        return thread->Suspend();
+    }
+
+    return OR_CONTINUE;
+}
+Formatted String Reading
+OpcodeResult __stdcall opcode_PrintFormatted(CRunningScript* thread)
+{
+    OPCODE_READ_PARAM_STRING_FORMATTED(message);
+
+    if (messageOk)  // Automatically created by macro
+    {
+        DisplayMessage(message);
+    }
+    else
+    {
+        SHOW_ERROR("Invalid format string in script %s",
+                   ScriptInfoStr(thread).c_str());
+        return thread->Suspend();
+    }
+
+    return OR_CONTINUE;
+}
+Notes
+CLEO 5 supports GTA SA 1.0 US only
+Use CLEO_ResolvePath for file operations to ensure ModLoader compatibility
+String buffers have a maximum length of 255 characters (MAX_STR_LEN)
+CLEO_Utils.h macros expand to multiple lines - use braces with if statements
+Memory addresses below 0x10000 are considered invalid (Windows reserved)
