@@ -1,0 +1,344 @@
+CLEO 5 Changelog
+CLEO 5 for GTA San Andreas — complete changelog and version history.
+
+9 leitura mínimaVer original
+CLEO 5
+Download
+The latest version of CLEO 5 is always available on GitHub.
+
+Top Features
+CLEO Modules
+Modular code with import/export support in Sanny Builder 4 — share and update code independently.
+
+{$CLEO .mod}
+
+export function sum(a: int, b: int): int
+    int result = a + b
+    return result
+end
+Import example:
+
+{$CLEO .cs}
+wait 2000
+
+import sum from "my.mod"
+
+int res = sum(10, 20)
+print_help_formatted "10 + 20 = %d" res
+
+terminate_custom_script
+Learn more: Import/Export Documentation
+
+Improved Functions & Runtime
+New return helpers: CLEO_RETURN_WITH and CLEO_RETURN_FAIL.
+SCM functions can use RETURN, return strings, and keep an isolated GOSUB stack.
+Native commands accept string pointers (example: PRINT_HELP 0x008599EC).
+Virtual path prefixes for file ops: root:, user:, cleo:, .\.
+Improved error handling and runtime checks to prevent common mistakes and game crashes.
+Debugging & Logs
+Built-in Debug Utilities with tracing, breakpoints, and script logging (cleo_script.log), plus optional legacy debug opcodes.
+
+debug_on
+
+trace "Hello world!"
+wait {time} 1000
+breakpoint "Time is: %d" TIMERA
+Audio, Plugins & SDK
+Improved 3D audio (Doppler, correct volume handling), added new commands in all plugins (FileSystemOperations, MemoryOperations, Math, Text) and expanded SDK helpers.
+
+Changelog
+CLEO 5.4
+New Subtitles Behavior
+PRINT_STRING and PRINT_FORMATTED now queue messages correctly
+CLEO messages are now added to the Brief Menu history and respect the ADD_NEXT_MESSAGE_TO_PREVIOUS_BRIEFS flag
+subtitles starting with ~z~ are now hidden when the "Show Subtitles" option is disabled
+CLEO Config
+added LogDirectory option to configure where cleo.log and cleo_script.log are stored
+config is recreated automatically if missing, new keys are appended to existing configs, and the config reloads on a new game session
+Runtime and Stability
+path validation has been hardened to block access outside the game root and settings directories
+READ_MEMORY_WITH_OFFSET and WRITE_MEMORY_WITH_OFFSET now match READ_MEMORY and WRITE_MEMORY behavior
+fixed an issue causing scripts to load and execute twice on a new game session
+CLEO 5.3
+Error Handling
+Some non-critical errors are now reported as warnings instead of suspending the script. To report them as errors again, set StrictValidation = 1 (see Config section for details). StrictValidation is highly recommended for development and debugging to catch issues early.
+
+Also onscreen messages have been disabled by default; to enable them, set DebugUtils.ScreenLog.Level (see Config section for details).
+
+String Formatting
+String formatting has been thoroughly revised and improved:
+
+support uppercase modifiers (%D %C %S), that previously caused crashes or were ignored
+providing 0 for format string now errors instead of crashing the game
+add support for hh length modifier, which represents a signed char (-128..127) (e.g. "%hhd") in addition to already supported h and l
+%p formats the address in lowercase, %P formats the address in uppercase
+CLEO 4.4.4 Behavior
+
+{0AD1:} print_formatted_now {format} "hi %D" {time} 5000 {args} 100 // "hi D"
+{0AD1:} print_formatted_now {format} "hi %C" {time} 5000 {args} 0x41 // "hi A"
+{0AD1:} print_formatted_now {format} "hi %S" {time} 5000 {args} 'world' // Game crash
+{0AD1:} print_formatted_now {format} "hi %F" {time} 5000 {args} 42.5 // "hi 42.50000"
+{0AD1:} print_formatted_now {format} "hi %p" {time} 5000 {args} 0x123ABC // "hi 00123ABC"
+{0AD1:} print_formatted_now {format} "hi %P" {time} 5000 {args} 0x123ABC // "hi 00123ABC"
+{0AD1:} print_formatted_now {format} 0 {time} 5000 // Game crash
+CLEO 5.3 Behavior
+
+{0AD1:} print_formatted_now {format} "hi %D" {time} 5000 {args} 100 // "hi 100"
+{0AD1:} print_formatted_now {format} "hi %S" {time} 5000 {args} 'world' // "hi world"
+{0AD1:} print_formatted_now {format} "hi %p" {time} 5000 {args} 0x123ABC // "hi 00123abc"
+{0AD1:} print_formatted_now {format} 0 {time} 5000 // Script suspended
+Other Improvements
+moved CLEO core and plugin settings into a shared configuration file (CLEO\.cleo_config.ini)
+keyboard input is now ignored when the game window is not focused
+increased text length limit from 255 to 399 for:
+CLEO 5.2
+Script Logs
+CLEO 5.2 adds built-in script logging via the Debug Utilities plugin. It allows you to record script commands to a log file for debugging and analysis. See Logs section for setup details.
+
+Memory Usage Limits
+The Memory Operations plugin sets various memory limits for scripts. Default limits are:
+
+MemoryAllocations = 2000 memory blocks per script
+MemoryTotalSize = 16 MB per script
+Exceeding these limits will result in runtime warnings, helping to prevent excessive memory usage and leaks.
+
+TXD Sprite Corruption Fix
+The infamous CLEO 4 bug causing texture sprites to become invisible or display junk graphics has been fixed. Scripts can now safely use sprites from multiple TXDs without risk of corruption or memory leaking. For more technical details, see Script-TXD Issues.
+
+More Improvements
+Stack overflow check added to gosub and gosub_if_false commands to prevent crashes.
+Added check for preceding gosub call in 0AA1 (return_if_false) to ensure proper usage.
+Added error message when script crashes in SAMP due to coding issues (previously the script would silently stop or report "Opcode Not Found").
+CLEO removes trailing whitespace from FXT entries that prevent them from being displayed in-game.
+0AD4 (scan_string) command now supports string pointers as output type.
+CLEO 5.1
+Calling Game Functions as a Condition
+Commands CALL_FUNCTION, CALL_FUNCTION_RETURN, CALL_METHOD, and CALL_METHOD_RETURN now set condition results for cleaner code.
+
+if CGarages_IsPointWithinHideOutGarage(pos)
+then
+    trace "In a garage"
+end
+
+function CGarages_IsPointWithinHideOutGarage<cdecl, 0x448900>(point: int {CVector}): logical
+Also useful for pointer validation:
+
+if int pCheatCar = CCheat_VehicleCheat(#NRG500)
+then
+    Car hCheatCar = get_vehicle_ref {address} pCheatCar
+    Blip hCarBlip = add_blip_for_car {vehicle} hCheatCar
+end
+
+function CCheat_VehicleCheat<cdecl, 0x43A0B0>(vehicleModelId: int): int
+Improved Error Reporting
+Error messages now show "previously called" info from the current script only and appear in more places.
+
+Warnings when 3D_AUDIO_STREAM commands are used with non-3D audio streams.
+
+Better error messages for scripts that run beyond their end without terminate_this_script or goto.
+
+CLEO 5.0
+CLEO Modules
+New way to organize and share code in CLEO 5. Sanny Builder 4 supports modules using import and export syntax.
+
+Create a module with exported functions:
+
+{$CLEO .mod}
+
+export function sum(a: int, b: int): int
+    int result = a + b
+    return result
+end
+Import the module in your script:
+
+{$CLEO .cs}
+wait 2000
+
+import sum from "my.mod"
+
+int res = sum(10, 20)
+print_help_formatted "10 + 20 = %d" res
+
+terminate_custom_script
+Learn more: Import/Export Documentation
+
+Better Functions
+function GET_PLAYER_CAR: optional int
+    if not does_char_exist $scplayer
+    then
+        cleo_return_fail
+    end
+
+    if not is_char_sitting_in_any_car $scplayer
+    then
+        cleo_return_fail
+    end
+
+    int car_handle = store_car_char_is_in_no_save $scplayer
+    cleo_return_with true {args} car_handle
+end
+Enhanced Runtime
+CLEO extends string pointer support to native commands; for example PRINT_HELP 0x008599EC can show text using a GXT key.
+
+Script commands support special path prefixes: root:, cleo:, user:, and .\.
+
+int f = open_file {filePathName} "user:\gta_sa.set" {mode} "rb"
+int f = open_file {filePathName} ".\config.ini" {mode} "rb"
+CLEO 5 validates parameters upfront and provides detailed error messages; for maximum CLEO 4 compatibility, use .cs4 extension.
+
+Audio Enhancements
+New audio commands provide better control over streams and Doppler effect support for 3D audio.
+Audio now follows game volume settings and speed changes for proper synchronization.
+Improved 3D audio with proper source size support and distance decay matching in-game sound.
+Fixed sound glitches and crashes for smoother playback.
+See the Audio Demo script for examples.
+
+Debug Utilities
+New debug commands for tracing, logging, breakpoints, and support for Rockstar's debug opcodes.
+
+debug_on
+
+trace "Hello world!"
+wait {time} 1000
+trace "Time: %d, ~g~Variable: %d" TIMERA 0@
+breakpoint "Time is: %d" TIMERA
+Plugins & SDK
+Dozens of new methods and helper functions in the SDK.
+Plugins and config files moved to cleo_plugins folder.
+FileSystemOperations plugin includes commands to copy file content to memory, dump memory to file, or get script filename.
+Math plugin with opcodes for bit manipulation and RNG.
+MemoryOperations plugin with enhanced memory access and validation features.
+Text plugin with opcodes for text manipulation, formatted text display, and FXT handling.
+CLEO 4 Compatibility
+CLEO 5 adds error checks and validation to prevent scripts from crashing the game and to help developers spot bugs. For older scripts, CLEO 4 compatibility mode disables these checks for maximum compatibility.
+
+How to enable
+Rename script extension from .cs to .cs4.
+For main.scm: set the MainScmLegacyMode property in .cleo_config.ini.
+Scripts spawned from a legacy-mode script inherit the same mode.
+Behavior differences
+INI handling: CLEO 5 reports invalid keys/missing values; CLEO 4 returns defaults without errors. Visit our wiki for additional details and to find a list of mods with known issues.
+Parameter validation: CLEO 5 validates parameter types and reports errors; CLEO 4 performs no validation.
+Out-of-bounds execution: CLEO 5 prevents execution past the last instruction; CLEO 4 does not.
+SCM functions & RETURN: CLEO 5 allows SCM functions to exit with RETURN; CLEO 4 does not.
+Output & input counts: CLEO 5 reports mismatch between expected and actual number of arguments in function calls; CLEO 4 silently provides default values or skips arguments.
+Audio streams: CLEO 5 uses dynamic volume for different stream types; CLEO 4 uses the same volume for all streams. Visit SBL for details.
+String scanning & buffers: CLEO 5 validates target sizes to prevent overflow; CLEO 4 does not.
+File handle validation: CLEO 5 requires valid open handles for CLOSE_FILE; CLEO 4 performs no validation.
+Subtitles: CLEO 5 makes commands PRINT_STRING/PRINT_FORMATTED/PRINT_STRING_NOW/PRINT_FORMATTED_NOW respect the "Show Subtitles" option in the game settings and update the Brief menu; CLEO 4 does not.
+Config
+CLEO 5 settings can be customized through the .cleo_config.ini file located in the CLEO directory.
+
+Setting	
+Values / Default
+DebugMode
+Default debug mode state for all scripts	
+0 off (default) · 1 on
+MainScmLegacyMode
+Legacy mode for main scripts	
+0 off (default) · 3 CLEO3 · 4 CLEO4
+PluginBlacklist
+Comma-separated deprecated plugins to skip	
+Default: FileSystemOperations.cleo, GxtHook.cleo, IniFiles.cleo, IntOperations.cleo
+StrictValidation
+Enable argument validation	
+0 off (.cs4 behavior) · 1 enabled (default)
+DebugUtils.General.LegacyDebugOpcodes
+Enable legacy debug opcodes 0662, 0663, 0664	
+0 off (default) · 1 on
+DebugUtils.Limits.Command
+Max instructions per render frame	
+0 no limit · >0 cap (default 2000000)
+DebugUtils.Limits.Time
+Max lag time per render frame (seconds)	
+0 no limit · >0 cap (default 5)
+DebugUtils.ScreenLog.Level
+On-screen log verbosity	
+0 off · 1 debug (default) · 2 errors/warnings · 3 all
+DebugUtils.ScreenLog.MessageTime
+Min display time per message (ms)	
+Default 3000
+DebugUtils.ScreenLog.MessagesMax
+Max visible messages	
+Default 32
+DebugUtils.ScreenLog.FontSize
+Screen log font size	
+Default 56
+DebugUtils.ScreenLog.FontStyle
+Screen log font face	
+0 Gothic · 1 Subtitles (default) · 2 Menu · 3 Pricedown
+DebugUtils.ScreenLog.ColorError
+RGBA color for error messages	
+Default 0xFF30EEFF
+DebugUtils.ScreenLog.ColorDebug
+RGBA color for debug messages	
+Default 0xFFEE30FF
+DebugUtils.ScreenLog.ColorSystem
+RGBA color for system messages	
+Default 0xDDDDDDFF
+DebugUtils.ScriptLog.Enabled
+Log scripts to cleo_script.log	
+0 never (default) · 1 on crash · 2 always
+DebugUtils.ScriptLog.MaxSize
+Max log size before clearing (MB)	
+0 no limit · >0 cap (default 250)
+DebugUtils.ScriptLog.OnlyCustomScripts
+Limit logging to custom scripts	
+-1 auto (default) · 0 all · 1 custom only
+DebugUtils.ScriptLog.OnlyDebugScripts
+Log only scripts with debug_on	
+0 all (default) · 1 debug_on only
+DebugUtils.ScriptLog.Offsets
+Add code offsets to log entries	
+0 off · 1 on (default)
+DebugUtils.ScriptLog.Opcodes
+Add opcode numbers to log entries	
+0 off (default) · 1 on
+MemoryOperations.Limits.MemoryAllocations
+Max memory blocks per script	
+0 no limit · >0 cap · <0 plugin mode (default -5)
+MemoryOperations.Limits.MemoryTotalSize
+Max total memory per script (MB)	
+0 no limit · >0 cap (default 16)
+Audio.General.AudioDevice
+Select audio device	
+-1 auto (default) · >=0 device index (see cleo.log)
+Audio.General.AllowNetworkSources
+Allow streaming from http(s)	
+0 off · 1 on (default)
+Audio.General.LegacyModeDefaultStreamType
+Default volume type for legacy scripts	
+0 None (default) · 1 SFX · 2 Music · 3 UI
+After modifying the config file, start a new game or load a saved game for changes to take effect.
+
+To reset to default settings, simply delete the .cleo_config.ini file and start a new game session.
+
+Logs
+Default log file: cleo.log. Always enabled.
+Additional script log: cleo_script.log. Can be enabled via DebugUtils.ScriptLog.Enabled in .cleo_config.ini
+Logging Modes
+DebugUtils.ScriptLog.Enabled = 0 - No logging (Default)
+DebugUtils.ScriptLog.Enabled = 1 - Creates a log on game crash
+DebugUtils.ScriptLog.Enabled = 2 - Creates a log on game start
+Additional Options
+Filter by script type (custom scripts only or everything)
+Log only scripts using debug_on command
+Include code offsets and opcode numbers
+Set file size limits (default 250 MB)
+See Config section for details.
+By default, both logs are located in the game root. This location can be changed by setting the LogDirectory property in .cleo_config.ini. Example:
+
+[General]
+LogDirectory = cleo\cleo_logs
+FAQ
+Is CLEO 5 compatible with existing scripts?
+It depends — most scripts work, but CLEO 5 adds safety checks that may reveal bugs. If a script fails, try renaming .cs to .cs4 to enable compatibility mode.
+
+My script crashes with CLEO 5 but works with CLEO 4. What should I do?
+First try changing the script extension to .cs4. If issues persist, open a ticket: create an issue, or ask on Discord.
+
+What's the difference between .CS and .CS4?
+.cs4 enables CLEO4 compatibility mode, which relaxes many CLEO5 checks to better mimic CLEO4 behavior. See Compatibility Mode section for details.
+
+How can I develop my own opcodes?
+Use the CLEO SDK and review the examples shipped with CLEO.
