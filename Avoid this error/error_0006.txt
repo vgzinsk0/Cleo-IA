@@ -1,0 +1,23 @@
+===========================================================================
+ERROR_0006: INVALID IDE MODEL NAME FOR WEAPONS (UNKNOWN MODEL ERROR)
+===========================================================================
+
+1. INTERNAL MODEL NAME MISMATCH:
+- NEVER assume weapon model names based on their generic names. Inside GTA San Andreas database files ('default.ide'), specific weapons use historical engine development codenames.
+- Using '#SHOTGUN' will throw a compiler failure stating "Unknown model #SHOTGUN".
+
+2. CORRECT WEAPON MODEL IDE MAPPING:
+- For the standard pump-action shotgun, ALWAYS use the official model name: #CHROMEGUN
+- For other common weapons, ensure strict adherence to the game's internal IDE names:
+  * Colt 45 Pistol -> #COLT45
+  * Silenced Pistol -> #SILENCED
+  * Desert Eagle -> #DESERT_EAGLE
+  * Tec9 -> #TEC9
+  * Uzi -> #MICRO_UZI
+  * MP5 -> #MP5LNG
+  * M4 Carbine -> #M4
+  * AK47 Rifle -> #AK47
+  * Sniper Rifle -> #SNIPER
+
+3. REINFORCEMENT:
+- Cross-reference all weapon requests with internal IDE text mapping before compiling to ensure 100% token validation.
