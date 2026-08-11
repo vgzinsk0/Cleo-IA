@@ -1,0 +1,52 @@
+{$CLEO .cs}
+
+nop 
+30@ = 0
+write_debug "#########################"
+write_debug "___By AnaoMenu___"
+write_debug "discord.gg/4yjRE8Z9UH"
+write_debug "#########################"
+31@ = 0
+
+:Noname_120
+wait 0
+if 
+  test_cheat "piu"
+goto_if_false @Noname_343
+if 
+  31@ == 0
+goto_if_false @Noname_255
+print_string_now "~r~+" {time} 500
+22@ = 22
+
+:Noname_178
+cleo_call @Noname_350 {numArgs} 4 {args} 22@ 56 2.0 4 
+22@ += 1
+  22@ > 32
+goto_if_false @Noname_178
+add_one_off_sound 0.0 {y} 0.0 {z} 0.0 {soundId} ScriptSound.SoundRouletteAddCash
+31@ = 1
+goto @Noname_343
+
+:Noname_255
+print_string_now "~r~-" {time} 500
+22@ = 22
+
+:Noname_273
+cleo_call @Noname_350 {numArgs} 4 {args} 22@ 56 1.0 4 
+22@ += 1
+  22@ > 32
+goto_if_false @Noname_273
+add_one_off_sound 0.0 {y} 0.0 {z} 0.0 {soundId} ScriptSound.SoundRouletteRemoveCash
+31@ = 0
+
+:Noname_343
+goto @Noname_120
+
+:Noname_350
+0@ += 36
+0@ *= 112
+0@ += 13150904
+add_int_lvar_to_int_lvar 0@ += 1@
+write_memory 0@ {size} 3@ {value} 2@ {vp} False
+cleo_return 0 {retParams} 

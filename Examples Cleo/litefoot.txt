@@ -1,0 +1,56 @@
+{$CLEO .cs}
+
+wait 0
+
+:Noname_4
+wait 0
+  is_player_playing 0
+goto_if_false @Noname_4
+
+:Noname_19
+wait 0
+if and
+  not is_char_in_any_car $scplayer
+  not is_char_in_air $scplayer
+  is_key_pressed KeyCode.RightButton
+goto_if_false @Noname_212
+if 
+  is_key_pressed KeyCode.RightButton
+goto_if_false @Noname_212
+
+:Noname_63
+  is_key_pressed KeyCode.RightButton
+goto_if_false @Noname_86
+wait 150
+goto @Noname_63
+
+:Noname_86
+1@ = 0
+if 
+  1@ <> -1
+goto_if_false @Noname_212
+0@ = get_current_char_weapon $scplayer
+
+:Noname_119
+wait 0
+set_current_char_weapon $scplayer {weaponType} WeaponType.Unarmed
+wait 50
+1@ = get_current_char_weapon $scplayer
+if or
+  1@ == 0
+  1@ == 1
+goto_if_false @Noname_174
+goto @Noname_181
+
+:Noname_174
+goto @Noname_119
+
+:Noname_181
+set_current_char_weapon $scplayer {weaponType} 0@
+wait 50
+set_current_char_weapon $scplayer {weaponType} WeaponType.Unarmed
+wait 50
+1@ = get_current_char_weapon $scplayer
+
+:Noname_212
+goto @Noname_19

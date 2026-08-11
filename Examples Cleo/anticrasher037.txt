@@ -1,0 +1,361 @@
+{$CLEO .cs}
+
+nop 
+wait 2000
+script_name "AN"
+use_text_commands True
+31@ = 0
+
+:AN_24
+wait 0
+if 
+  is_key_pressed KeyCode.X
+goto_if_false @AN_149
+if 
+  31@ == 0
+goto_if_false @AN_108
+print_formatted_now "~w~~h~Anti-Lag ~y~On" {time} 500
+31@ = 1
+wait 200
+goto @AN_149
+
+:AN_108
+print_formatted_now "~w~~h~Anti-Lag ~r~Off" {time} 500
+31@ = 0
+wait 200
+
+:AN_149
+if 
+  31@ == 1
+goto_if_false @AN_262
+if and
+  2@ = get_char_player_is_targeting $player1
+  not is_current_char_weapon $scplayer {weaponType} WeaponType.Sniper
+goto_if_false @AN_213
+cleo_call @AN_269 {numArgs} 1 {args} 2@ 
+goto @AN_262
+
+:AN_213
+if and
+  is_current_char_weapon $scplayer {weaponType} WeaponType.Sniper
+cleo_call @AN_1952 {numArgs} 1 {args} 150.0 2@ 
+goto_if_false @AN_262
+cleo_call @AN_269 {numArgs} 1 {args} 2@ 
+
+:AN_262
+goto @AN_24
+
+:AN_269
+set_lvar_int_to_lvar_int 2@ = 0@
+if and
+  does_char_exist 2@
+  is_button_pressed PadId.Pad1 {buttonId} Button.RightShoulder1
+goto_if_false @AN_574
+if and
+  not is_char_dead 2@
+  is_char_on_screen 2@
+goto_if_false @AN_574
+6@ = get_ped_pointer 2@
+6@ += 68
+3@ = read_memory 6@ {size} 4 {vp} False
+6@ += 4
+4@ = read_memory 6@ {size} 4 {vp} False
+6@ += 4
+5@ = read_memory 6@ {size} 4 {vp} False
+6@, 7@, 8@ = get_char_coordinates 2@
+10@ = 5
+11@ = 5
+add_int_lvar_to_int_lvar 10@ += 11@
+cset_lvar_float_to_lvar_int 10@ =# 10@
+12@ = 17.0
+12@ /= 360.0
+mult_float_lvar_by_float_lvar 3@ *= 12@
+mult_float_lvar_by_float_lvar 4@ *= 12@
+mult_float_lvar_by_float_lvar 5@ *= 12@
+mult_float_lvar_by_float_lvar 3@ *= 10@
+mult_float_lvar_by_float_lvar 4@ *= 10@
+mult_float_lvar_by_float_lvar 5@ *= 10@
+add_float_lvar_to_float_lvar 6@ += 3@
+add_float_lvar_to_float_lvar 7@ += 4@
+add_float_lvar_to_float_lvar 8@ += 5@
+if 
+  is_current_char_weapon $scplayer {weaponType} WeaponType.Sniper
+goto_if_false @AN_552
+cleo_call @AN_579 {numArgs} 1 {args} 2@ 
+
+:AN_552
+cleo_call @AN_957 {numArgs} 4 {args} 2@ 6@ 7@ 8@ 
+
+:AN_574
+cleo_return 0 {retParams} 
+
+:AN_579
+31@ = 6.0
+29@ = 255
+28@ = 55
+27@ = 1.0
+if 
+  31@ > 8.0
+goto_if_false @AN_642
+30@ = 1
+
+:AN_642
+if 
+  31@ < 6.0
+goto_if_false @AN_670
+30@ = 0
+
+:AN_670
+if 
+  30@ == 0
+goto_if_false @AN_698
+31@ += 0.05
+
+:AN_698
+if 
+  30@ == 1
+goto_if_false @AN_726
+31@ -= 0.05
+
+:AN_726
+1@, 2@, 3@ = get_offset_from_char_in_world_coords 0@ {xOffset} 0.0 {yOffset} 0.0 {zOffset} 0.0
+cleo_call @AN_2345 {numArgs} 3 {args} 1@ 2@ 3@ 4@ 5@ 
+set_lvar_float_to_lvar_float 1@ = 4@
+add_float_lvar_to_float_lvar 1@ += 31@
+draw_rect 1@ {y} 5@ {width} 27@ {height} 8.0 {r} 28@ {g} 29@ {b} 25 {a} 255
+set_lvar_float_to_lvar_float 1@ = 4@
+sub_float_lvar_from_float_lvar 1@ -= 31@
+draw_rect 1@ {y} 5@ {width} 27@ {height} 8.0 {r} 28@ {g} 29@ {b} 25 {a} 255
+set_lvar_float_to_lvar_float 1@ = 5@
+add_float_lvar_to_float_lvar 1@ += 31@
+draw_rect 4@ {y} 1@ {width} 8.0 {height} 27@ {r} 28@ {g} 29@ {b} 25 {a} 255
+set_lvar_float_to_lvar_float 1@ = 5@
+sub_float_lvar_from_float_lvar 1@ -= 31@
+draw_rect 4@ {y} 1@ {width} 8.0 {height} 27@ {r} 28@ {g} 29@ {b} 25 {a} 255
+cleo_return 0 {retParams} 
+
+:AN_957
+set_lvar_float_to_lvar_float 4@ = 1@
+set_lvar_float_to_lvar_float 5@ = 2@
+set_lvar_float_to_lvar_float 6@ = 3@
+1@, 2@, 3@ = get_active_camera_coordinates 
+7@, 8@, 9@ = get_offset_from_char_in_world_coords $scplayer {xOffset} 0.0 {yOffset} 0.0 {zOffset} 0.0
+sub_float_lvar_from_float_lvar 1@ -= 4@
+sub_float_lvar_from_float_lvar 2@ -= 5@
+abs_var_float 1@
+abs_var_float 2@
+set_lvar_float_to_lvar_float 10@ = 1@
+set_lvar_float_to_lvar_float 11@ = 2@
+mult_float_lvar_by_float_lvar 10@ *= 10@
+mult_float_lvar_by_float_lvar 11@ *= 11@
+add_float_lvar_to_float_lvar 10@ += 11@
+10@ = sqrt 10@
+set_lvar_float_to_lvar_float 11@ = 1@
+set_lvar_float_to_lvar_float 12@ = 10@
+div_float_lvar_by_float_lvar 11@ /= 12@
+call_function 4327328 {numArgs} 1 {pop} 1 {args} 11@ 
+12@ = pop_float 
+call_function 4775488 {numArgs} 1 {pop} 1 {args} 11@ 
+13@ = pop_float 
+if 
+cleo_call @AN_1852 {numArgs} 0 {args} 16@ 
+goto_if_false @AN_1291
+if 
+cleo_call @AN_1353 {numArgs} 7 {args} 4@ 5@ 7@ 8@ 12@ 13@ 16@ 15@ 
+goto_if_false @AN_1291
+if 
+cleo_call @AN_1296 {numArgs} 6 {args} 4@ 5@ 6@ 7@ 8@ 9@ 
+goto_if_false @AN_1291
+15@ += 0.0387
+write_memory 11989592 {size} 4 {value} 15@ {vp} False
+
+:AN_1291
+cleo_return 0 {retParams} 
+
+:AN_1296
+if 
+  is_line_of_sight_clear 3@ {fromY} 4@ {fromZ} 5@ {toX} 0@ {toY} 1@ {toZ} 2@ {buildings} True {cars} False {chars} False {objects} False {particles} False
+goto_if_false @AN_1346
+  is_pc_version 
+goto @AN_1348
+
+:AN_1346
+  is_australian_game 
+
+:AN_1348
+cleo_return 0 {retParams} 
+
+:AN_1353
+if 
+  6@ == 5
+goto_if_false @AN_1418
+7@ = 0.011
+8@ = 0.011
+9@ = 1.5595
+10@ = 1.582
+goto @AN_1588
+
+:AN_1418
+if 
+  6@ == 6
+goto_if_false @AN_1548
+if 
+  is_current_char_weapon $scplayer {weaponType} WeaponType.Sniper
+goto_if_false @AN_1501
+7@ = 0.039
+8@ = 0.039
+9@ = 1.532
+10@ = 1.61
+goto @AN_1541
+
+:AN_1501
+7@ = 0.02
+8@ = 0.02
+9@ = 1.5507
+10@ = 1.5907
+
+:AN_1541
+goto @AN_1588
+
+:AN_1548
+7@ = -0.003
+8@ = -0.003
+9@ = 1.572
+10@ = 1.568
+
+:AN_1588
+if and
+  is_float_lvar_greater_than_float_lvar 2@ > 0@
+  is_float_lvar_greater_than_float_lvar 3@ > 1@
+goto_if_false @AN_1631
+sub_float_lvar_from_float_lvar 5@ -= 8@
+set_lvar_float_to_lvar_float 15@ = 5@
+
+:AN_1631
+if and
+  is_float_lvar_greater_than_float_lvar 2@ > 0@
+  not is_float_lvar_greater_or_equal_to_float_lvar 3@ >= 1@
+goto_if_false @AN_1684
+5@ *= -1.0
+sub_float_lvar_from_float_lvar 5@ -= 7@
+set_lvar_float_to_lvar_float 15@ = 5@
+
+:AN_1684
+if and
+  not is_float_lvar_greater_or_equal_to_float_lvar 2@ >= 0@
+  is_float_lvar_greater_than_float_lvar 3@ > 1@
+goto_if_false @AN_1727
+add_float_lvar_to_float_lvar 4@ += 9@
+set_lvar_float_to_lvar_float 15@ = 4@
+
+:AN_1727
+if and
+  not is_float_lvar_greater_or_equal_to_float_lvar 2@ >= 0@
+  not is_float_lvar_greater_or_equal_to_float_lvar 3@ >= 1@
+goto_if_false @AN_1780
+4@ *= -1.0
+sub_float_lvar_from_float_lvar 4@ -= 10@
+set_lvar_float_to_lvar_float 15@ = 4@
+
+:AN_1780
+11@ = read_memory 11989592 {size} 4 {vp} False
+sub_float_lvar_from_float_lvar 11@ -= 15@
+if and
+  11@ < 0.18
+  11@ > -0.18
+goto_if_false @AN_1842
+  is_pc_version 
+goto @AN_1844
+
+:AN_1842
+  is_australian_game 
+
+:AN_1844
+cleo_return 1 {retParams} 15@ 
+
+:AN_1852
+0@ = get_ped_pointer $scplayer
+0@ += 1816
+1@ = read_memory 0@ {size} 1 {vp} False
+if or
+  1@ == 2
+  1@ == 3
+  1@ == 4
+  1@ == 5
+  1@ == 6
+  1@ == 7
+goto_if_false @AN_1942
+  is_pc_version 
+goto @AN_1944
+
+:AN_1942
+  is_australian_game 
+
+:AN_1944
+cleo_return 1 {retParams} 1@ 
+
+:AN_1952
+28@ = 0.0
+
+:AN_1962
+29@ = read_memory 12010640 {size} 4 {vp} False
+29@ += 4
+29@ = read_memory 29@ {size} 4 {vp} False
+30@ = 0
+
+:AN_2002
+31@ = read_memory 29@ {size} 1 {vp} False
+29@ += 1
+if and
+  31@ >= 0
+  128 > 31@
+goto_if_false @AN_2288
+add_int_lvar_to_int_lvar 31@ += 30@
+if 
+  does_char_exist 31@
+goto_if_false @AN_2288
+if 
+  not is_int_var_equal_to_int_lvar $scplayer == 31@
+goto_if_false @AN_2288
+27@, 26@, 25@ = get_offset_from_char_in_world_coords 31@ {xOffset} 0.0 {yOffset} 0.0 {zOffset} 0.0
+24@, 23@, 22@ = get_active_camera_coordinates 
+if and
+  is_line_of_sight_clear 27@ {fromY} 26@ {fromZ} 25@ {toX} 24@ {toY} 23@ {toZ} 22@ {buildings} True {cars} False {chars} False {objects} False {particles} False
+  not is_char_in_any_car 31@
+  not is_char_dead 31@
+  is_char_on_screen 31@
+goto_if_false @AN_2288
+10@, 11@, 12@ = get_offset_from_char_in_world_coords 31@ {xOffset} 0.0 {yOffset} 0.0 {zOffset} 0.0
+cleo_call @AN_2345 {numArgs} 3 {args} 10@ 11@ 12@ 13@ 14@ 
+15@ = get_distance_between_coords_2d 339.1 {fromY} 179.1 {toX} 13@ {toZ} 14@
+if 
+  is_float_lvar_greater_or_equal_to_float_lvar 28@ >= 15@
+goto_if_false @AN_2288
+cleo_return 1 {retParams} 31@ 
+
+:AN_2288
+30@ += 256
+  30@ > 35584
+goto_if_false @AN_2002
+28@ += 8.0
+  is_int_lvar_greater_than_int_lvar 28@ > 0@
+goto_if_false @AN_1962
+cleo_return 1 {retParams} -1 
+
+:AN_2345
+14@ = get_var_pointer 0@
+15@ = get_var_pointer 3@
+16@ = get_var_pointer 6@
+17@ = get_var_pointer 9@
+call_function 7392816 {numArgs} 6 {pop} 6 {args} 0 0 17@ 16@ 15@ 14@ 
+12@ = 640.0
+13@ = 448.0
+14@ = read_memory 12677188 {size} 4 {vp} False
+15@ = read_memory 12677192 {size} 4 {vp} False
+cset_lvar_float_to_lvar_int 14@ =# 14@
+cset_lvar_float_to_lvar_int 15@ =# 15@
+div_float_lvar_by_float_lvar 12@ /= 14@
+div_float_lvar_by_float_lvar 13@ /= 15@
+mult_float_lvar_by_float_lvar 3@ *= 12@
+mult_float_lvar_by_float_lvar 4@ *= 13@
+cleo_return 2 {retParams} 3@ 4@ 

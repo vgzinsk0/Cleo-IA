@@ -1,0 +1,30 @@
+{$CLEO .cs}
+Alloc($PLAYER_ACTOR, 3)
+Alloc($PLAYER_CHAR, 2)
+
+script_name 'REPAIR'
+
+:REPAIR_11
+wait 100
+if 
+  is_player_playing $PLAYER_CHAR
+goto_if_false @REPAIR_38
+goto @REPAIR_45
+
+:REPAIR_38
+goto @REPAIR_11
+
+:REPAIR_45
+wait 0
+if and
+  is_char_in_any_car $PLAYER_ACTOR
+  is_key_pressed KeyCode.R
+goto_if_false @REPAIR_108
+1@ = store_car_char_is_in_no_save $PLAYER_ACTOR
+fix_car 1@
+print_now 'RREPAIR' {time} 3000 {flag} 1
+mark_car_as_no_longer_needed 1@
+wait 200
+
+:REPAIR_108
+goto @REPAIR_45

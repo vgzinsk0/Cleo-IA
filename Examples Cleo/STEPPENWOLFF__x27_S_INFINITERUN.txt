@@ -1,0 +1,46 @@
+{$CLEO .cs}
+
+// --- Credits ---
+// Mod by: Steppenwolff
+// Activation: ALT + W
+
+0000: NOP 
+13@ = 0 // Toggle variable (0 = OFF, 1 = ON)
+
+:Main_Loop
+0001: wait 0 ms 
+
+// --- Toggle Logic: ALT (18) + W (87) ---
+00D6: if AND
+0AB0: key_pressed 18 // ALT
+0AB0: key_pressed 87 // W
+004D: jump_if_false @Check_Run 
+
+00D6: if 
+0039: 13@ == 0 
+004D: jump_if_false @Turn_OFF 
+13@ = 1 
+0ACD: show_text_highpriority "~w~STEPPENWOLFF'S RUN: ~g~ON" time 1500 //
+0002: jump @Anti_Spam 
+
+:Turn_OFF
+13@ = 0 
+0ACD: show_text_highpriority "~w~STEPPENWOLFF'S RUN: ~r~OFF" time 1500 
+
+:Anti_Spam
+0001: wait 500 ms 
+
+:Check_Run
+00D6: if 
+0039: 13@ == 1 
+004D: jump_if_false @Main_Loop 
+
+// --- Infinite Run Logic ---
+00D6: if 
+056D: actor $PLAYER_ACTOR defined //
+004D: jump_if_false @Main_Loop 
+
+// 0330: set_player $PLAYER_CHAR infinite_run 1
+0330: set_player $PLAYER_CHAR infinite_run 1 
+
+0002: jump @Main_Loop
