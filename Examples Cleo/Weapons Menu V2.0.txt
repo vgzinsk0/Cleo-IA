@@ -1,0 +1,1284 @@
+{$CLEO .cs}
+Alloc($PLAYER_ACTOR, 3)
+Alloc($Help_Chat_Shown, 125)
+Alloc($PLAYER_CHAR, 2)
+
+script_name 'PWPMV2'
+nop 
+write_debug "WPMV2"
+21@ = 0
+if 
+  is_game_version_original 
+goto_if_false @PWPMV2_59
+11@ = 9867536
+goto @PWPMV2_69
+
+:PWPMV2_59
+11@ = 9877392
+
+:PWPMV2_69
+wait 20
+if 
+  is_player_playing $PLAYER_CHAR
+goto_if_false @PWPMV2_69
+if 
+  can_player_start_mission $PLAYER_CHAR
+goto_if_false @PWPMV2_69
+if 
+  does_char_exist $PLAYER_ACTOR
+goto_if_false @PWPMV2_69
+if 
+  not is_char_in_any_car $PLAYER_ACTOR
+goto_if_false @PWPMV2_69
+21@ = 0
+wait 0
+0@ = read_memory 11@ {size} 4 {vp} False
+if or
+  is_int_lvar_equal_to_constant 0@ == 1095912787
+  is_int_lvar_equal_to_constant 0@ == 1196772947
+goto_if_false @PWPMV2_69
+print_help 'CHEAT1' // Cheat activated
+goto @PWPMV2_209
+
+:PWPMV2_209
+use_text_commands True
+display_radar False
+display_hud False
+set_player_control $PLAYER_CHAR {state} False
+set_everyone_ignore_player $PLAYER_CHAR {state} True
+attach_camera_to_char $PLAYER_ACTOR {xOffset} 1.0 {yOffset} 2.0 {zOffset} 0.2 {xRotation} 0.0 {yRotation} -0.5 {zRotation} 0.0 {tilt} 0.0 {switchStyle} SwitchType.JumpCut
+wait 200
+write_memory 11@ {size} 4 {value} 0 {vp} False
+21@ = 1
+goto @PWPMV2_307
+
+:PWPMV2_307
+wait 200
+8@ = 0
+print_help_forever 'WARDH3' // Use ~k~~GO_FORWARD~ and ~k~~GO_BACK~ to select an item.~N~~k~~PED_SPRINT~ View~N~~k~~VEHICLE_ENTER_EXIT~ Back
+1@ = create_menu 'PWMPH1' {topLeftX} 29.0 {topLeftY} 170.0 {width} 180.0 {numColumns} 1 {interactive} True {background} True {alignment} Align.Left
+set_menu_column 1@ {column} 0 {title} 'PLA_19' {row0} 'PWPMHM' {row1} 'GUN1' {row2} 'GUN2' {row3} 'PWMPHS' {row4} 'GUN5' {row5} 'GUN6' {row6} 'PWMPHH' {row7} 'GUN7' {row8} 'PWMPHE' {row9} 'PWMPHG' {row10} 'PWMPJE' {row11} 'PWPMX3' // SELECT // Pistols // Shotguns // Assault // Rifles // Thrown
+goto @PWPMV2_498
+
+:PWPMV2_498
+wait 10
+if or
+  not is_player_playing $PLAYER_CHAR
+  not does_char_exist $PLAYER_ACTOR
+goto_if_false @PWPMV2_535
+delete_menu 1@
+goto @PWPMV2_8325
+
+:PWPMV2_535
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Triangle
+goto_if_false @PWPMV2_564
+delete_menu 1@
+goto @PWPMV2_8325
+
+:PWPMV2_564
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Cross
+goto_if_false @PWPMV2_1004
+2@ = get_menu_item_selected 1@
+2@ += 1
+if 
+  2@ == 1
+goto_if_false @PWPMV2_630
+delete_menu 1@
+wait 100
+goto @PWPMV2_1011
+
+:PWPMV2_630
+if 
+  2@ == 2
+goto_if_false @PWPMV2_664
+delete_menu 1@
+wait 100
+goto @PWPMV2_1811
+
+:PWPMV2_664
+if 
+  2@ == 3
+goto_if_false @PWPMV2_698
+delete_menu 1@
+wait 100
+goto @PWPMV2_2279
+
+:PWPMV2_698
+if 
+  2@ == 4
+goto_if_false @PWPMV2_732
+delete_menu 1@
+wait 100
+goto @PWPMV2_2747
+
+:PWPMV2_732
+if 
+  2@ == 5
+goto_if_false @PWPMV2_766
+delete_menu 1@
+wait 100
+goto @PWPMV2_3215
+
+:PWPMV2_766
+if 
+  2@ == 6
+goto_if_false @PWPMV2_800
+delete_menu 1@
+wait 100
+goto @PWPMV2_3622
+
+:PWPMV2_800
+if 
+  2@ == 7
+goto_if_false @PWPMV2_834
+delete_menu 1@
+wait 100
+goto @PWPMV2_4029
+
+:PWPMV2_834
+if 
+  2@ == 8
+goto_if_false @PWPMV2_868
+delete_menu 1@
+wait 100
+goto @PWPMV2_4558
+
+:PWPMV2_868
+if 
+  2@ == 9
+goto_if_false @PWPMV2_902
+delete_menu 1@
+wait 100
+goto @PWPMV2_5124
+
+:PWPMV2_902
+if 
+  2@ == 10
+goto_if_false @PWPMV2_936
+delete_menu 1@
+wait 100
+goto @PWPMV2_5766
+
+:PWPMV2_936
+if 
+  2@ == 11
+goto_if_false @PWPMV2_970
+delete_menu 1@
+wait 100
+goto @PWPMV2_6399
+
+:PWPMV2_970
+if 
+  2@ == 12
+goto_if_false @PWPMV2_1004
+delete_menu 1@
+wait 100
+goto @PWPMV2_6794
+
+:PWPMV2_1004
+goto @PWPMV2_498
+
+:PWPMV2_1011
+wait 200
+8@ = 1
+1@ = create_menu 'PWPMHM' {topLeftX} 29.0 {topLeftY} 170.0 {width} 180.0 {numColumns} 1 {interactive} True {background} True {alignment} Align.Left
+set_menu_column 1@ {column} 0 {title} 'PLA_19' {row0} 'PWPM00' {row1} 'PWPM01' {row2} 'PWPM02' {row3} 'PWPM03' {row4} 'PWPM04' {row5} 'PWPM05' {row6} 'PWPM06' {row7} 'PWPM07' {row8} 'PWPM08' {row9} 'DUMMY' {row10} 'DUMMY' {row11} 'DUMMY' // SELECT
+
+:PWPMV2_1184
+wait 10
+if or
+  not is_player_playing $PLAYER_CHAR
+  not does_char_exist $PLAYER_ACTOR
+goto_if_false @PWPMV2_1221
+delete_menu 1@
+goto @PWPMV2_8325
+
+:PWPMV2_1221
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Triangle
+goto_if_false @PWPMV2_1250
+delete_menu 1@
+goto @PWPMV2_307
+
+:PWPMV2_1250
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Cross
+goto_if_false @PWPMV2_1804
+2@ = get_menu_item_selected 1@
+2@ += 1
+if 
+  2@ == 1
+goto_if_false @PWPMV2_1340
+4@ = 331
+7@ = 1
+10@ = 1
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_1184
+
+:PWPMV2_1340
+if 
+  2@ == 2
+goto_if_false @PWPMV2_1398
+4@ = 333
+7@ = 2
+10@ = 1
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_1184
+
+:PWPMV2_1398
+if 
+  2@ == 3
+goto_if_false @PWPMV2_1456
+4@ = 334
+7@ = 3
+10@ = 1
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_1184
+
+:PWPMV2_1456
+if 
+  2@ == 4
+goto_if_false @PWPMV2_1514
+4@ = 335
+7@ = 4
+10@ = 1
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_1184
+
+:PWPMV2_1514
+if 
+  2@ == 5
+goto_if_false @PWPMV2_1572
+4@ = 336
+7@ = 5
+10@ = 1
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_1184
+
+:PWPMV2_1572
+if 
+  2@ == 6
+goto_if_false @PWPMV2_1630
+4@ = 337
+7@ = 6
+10@ = 1
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_1184
+
+:PWPMV2_1630
+if 
+  2@ == 7
+goto_if_false @PWPMV2_1688
+4@ = 338
+7@ = 7
+10@ = 1
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_1184
+
+:PWPMV2_1688
+if 
+  2@ == 8
+goto_if_false @PWPMV2_1746
+4@ = 339
+7@ = 8
+10@ = 1
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_1184
+
+:PWPMV2_1746
+if 
+  2@ == 9
+goto_if_false @PWPMV2_1804
+4@ = 341
+7@ = 9
+10@ = 1
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_1184
+
+:PWPMV2_1804
+goto @PWPMV2_1184
+
+:PWPMV2_1811
+wait 200
+8@ = 1
+16@ = 1
+1@ = create_menu 'GUN1' {topLeftX} 29.0 {topLeftY} 170.0 {width} 180.0 {numColumns} 1 {interactive} True {background} True {alignment} Align.Left // Pistols
+set_menu_column 1@ {column} 0 {title} 'PLA_19' {row0} 'PISTOL' {row1} 'PISTSL' {row2} 'DEAGLE' {row3} 'DUMMY' {row4} 'DUMMY' {row5} 'DUMMY' {row6} 'DUMMY' {row7} 'DUMMY' {row8} 'DUMMY' {row9} 'DUMMY' {row10} 'DUMMY' {row11} 'DUMMY' // SELECT // 9mm // Silenced 9mm // Desert Eagle
+
+:PWPMV2_1991
+wait 10
+if or
+  not is_player_playing $PLAYER_CHAR
+  not does_char_exist $PLAYER_ACTOR
+goto_if_false @PWPMV2_2028
+delete_menu 1@
+goto @PWPMV2_8325
+
+:PWPMV2_2028
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Triangle
+goto_if_false @PWPMV2_2057
+delete_menu 1@
+goto @PWPMV2_307
+
+:PWPMV2_2057
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Cross
+goto_if_false @PWPMV2_2272
+2@ = get_menu_item_selected 1@
+2@ += 1
+if 
+  2@ == 1
+goto_if_false @PWPMV2_2150
+4@ = 346
+7@ = 22
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_1991
+
+:PWPMV2_2150
+if 
+  2@ == 2
+goto_if_false @PWPMV2_2211
+4@ = 347
+7@ = 23
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_1991
+
+:PWPMV2_2211
+if 
+  2@ == 3
+goto_if_false @PWPMV2_2272
+4@ = 348
+7@ = 24
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_1991
+
+:PWPMV2_2272
+goto @PWPMV2_1991
+
+:PWPMV2_2279
+wait 200
+8@ = 1
+16@ = 2
+1@ = create_menu 'GUN2' {topLeftX} 29.0 {topLeftY} 170.0 {width} 180.0 {numColumns} 1 {interactive} True {background} True {alignment} Align.Left // Shotguns
+set_menu_column 1@ {column} 0 {title} 'PLA_19' {row0} 'SHOTGN1' {row1} 'SHOTGN3' {row2} 'SHOTGN2' {row3} 'DUMMY' {row4} 'DUMMY' {row5} 'DUMMY' {row6} 'DUMMY' {row7} 'DUMMY' {row8} 'DUMMY' {row9} 'DUMMY' {row10} 'DUMMY' {row11} 'DUMMY' // SELECT // Shotgun // Sawnoff Shotgun // Combat Shotgun
+
+:PWPMV2_2459
+wait 10
+if or
+  not is_player_playing $PLAYER_CHAR
+  not does_char_exist $PLAYER_ACTOR
+goto_if_false @PWPMV2_2496
+delete_menu 1@
+goto @PWPMV2_8325
+
+:PWPMV2_2496
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Triangle
+goto_if_false @PWPMV2_2525
+delete_menu 1@
+goto @PWPMV2_307
+
+:PWPMV2_2525
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Cross
+goto_if_false @PWPMV2_2740
+2@ = get_menu_item_selected 1@
+2@ += 1
+if 
+  2@ == 1
+goto_if_false @PWPMV2_2618
+4@ = 349
+7@ = 25
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_2459
+
+:PWPMV2_2618
+if 
+  2@ == 2
+goto_if_false @PWPMV2_2679
+4@ = 350
+7@ = 26
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_2459
+
+:PWPMV2_2679
+if 
+  2@ == 3
+goto_if_false @PWPMV2_2740
+4@ = 351
+7@ = 27
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_2459
+
+:PWPMV2_2740
+goto @PWPMV2_2459
+
+:PWPMV2_2747
+wait 200
+8@ = 1
+16@ = 3
+1@ = create_menu 'GUN4' {topLeftX} 29.0 {topLeftY} 170.0 {width} 180.0 {numColumns} 1 {interactive} True {background} True {alignment} Align.Left // SMG
+set_menu_column 1@ {column} 0 {title} 'PLA_19' {row0} 'UZI' {row1} 'TEC9' {row2} 'GUN4' {row3} 'DUMMY' {row4} 'DUMMY' {row5} 'DUMMY' {row6} 'DUMMY' {row7} 'DUMMY' {row8} 'DUMMY' {row9} 'DUMMY' {row10} 'DUMMY' {row11} 'DUMMY' // SELECT // Micro SMG // Tec9 // SMG
+
+:PWPMV2_2927
+wait 10
+if or
+  not is_player_playing $PLAYER_CHAR
+  not does_char_exist $PLAYER_ACTOR
+goto_if_false @PWPMV2_2964
+delete_menu 1@
+goto @PWPMV2_8325
+
+:PWPMV2_2964
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Triangle
+goto_if_false @PWPMV2_2993
+delete_menu 1@
+goto @PWPMV2_307
+
+:PWPMV2_2993
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Cross
+goto_if_false @PWPMV2_3208
+2@ = get_menu_item_selected 1@
+2@ += 1
+if 
+  2@ == 1
+goto_if_false @PWPMV2_3086
+4@ = 352
+7@ = 28
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_2927
+
+:PWPMV2_3086
+if 
+  2@ == 2
+goto_if_false @PWPMV2_3147
+4@ = 372
+7@ = 32
+10@ = 999999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_2927
+
+:PWPMV2_3147
+if 
+  2@ == 3
+goto_if_false @PWPMV2_3208
+4@ = 353
+7@ = 29
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_2927
+
+:PWPMV2_3208
+goto @PWPMV2_2927
+
+:PWPMV2_3215
+wait 200
+8@ = 1
+16@ = 4
+1@ = create_menu 'GUN5' {topLeftX} 29.0 {topLeftY} 170.0 {width} 180.0 {numColumns} 1 {interactive} True {background} True {alignment} Align.Left // Assault
+set_menu_column 1@ {column} 0 {title} 'PLA_19' {row0} 'STWE009' {row1} 'STWE010' {row2} 'DUMMY' {row3} 'DUMMY' {row4} 'DUMMY' {row5} 'DUMMY' {row6} 'DUMMY' {row7} 'DUMMY' {row8} 'DUMMY' {row9} 'DUMMY' {row10} 'DUMMY' {row11} 'DUMMY' // SELECT // AK47 // M4
+
+:PWPMV2_3395
+wait 10
+if or
+  not is_player_playing $PLAYER_CHAR
+  not does_char_exist $PLAYER_ACTOR
+goto_if_false @PWPMV2_3432
+delete_menu 1@
+goto @PWPMV2_8325
+
+:PWPMV2_3432
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Triangle
+goto_if_false @PWPMV2_3461
+delete_menu 1@
+goto @PWPMV2_307
+
+:PWPMV2_3461
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Cross
+goto_if_false @PWPMV2_3615
+2@ = get_menu_item_selected 1@
+2@ += 1
+if 
+  2@ == 1
+goto_if_false @PWPMV2_3554
+4@ = 355
+7@ = 30
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_3395
+
+:PWPMV2_3554
+if 
+  2@ == 2
+goto_if_false @PWPMV2_3615
+4@ = 356
+7@ = 31
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_3395
+
+:PWPMV2_3615
+goto @PWPMV2_3395
+
+:PWPMV2_3622
+wait 200
+8@ = 1
+16@ = 5
+1@ = create_menu 'GUN6' {topLeftX} 29.0 {topLeftY} 170.0 {width} 180.0 {numColumns} 1 {interactive} True {background} True {alignment} Align.Left // Rifles
+set_menu_column 1@ {column} 0 {title} 'PLA_19' {row0} 'RIFLE' {row1} 'SNIPE' {row2} 'DUMMY' {row3} 'DUMMY' {row4} 'DUMMY' {row5} 'DUMMY' {row6} 'DUMMY' {row7} 'DUMMY' {row8} 'DUMMY' {row9} 'DUMMY' {row10} 'DUMMY' {row11} 'DUMMY' // SELECT // Rifle // Sniper rifle
+
+:PWPMV2_3802
+wait 10
+if or
+  not is_player_playing $PLAYER_CHAR
+  not does_char_exist $PLAYER_ACTOR
+goto_if_false @PWPMV2_3839
+delete_menu 1@
+goto @PWPMV2_8325
+
+:PWPMV2_3839
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Triangle
+goto_if_false @PWPMV2_3868
+delete_menu 1@
+goto @PWPMV2_307
+
+:PWPMV2_3868
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Cross
+goto_if_false @PWPMV2_4022
+2@ = get_menu_item_selected 1@
+2@ += 1
+if 
+  2@ == 1
+goto_if_false @PWPMV2_3961
+4@ = 357
+7@ = 33
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_3802
+
+:PWPMV2_3961
+if 
+  2@ == 2
+goto_if_false @PWPMV2_4022
+4@ = 358
+7@ = 34
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_3802
+
+:PWPMV2_4022
+goto @PWPMV2_3802
+
+:PWPMV2_4029
+wait 200
+8@ = 1
+16@ = 6
+1@ = create_menu 'PWMPHH' {topLeftX} 29.0 {topLeftY} 170.0 {width} 180.0 {numColumns} 1 {interactive} True {background} True {alignment} Align.Left
+set_menu_column 1@ {column} 0 {title} 'PLA_19' {row0} 'PWPM09' {row1} 'PWPM10' {row2} 'PWPM11' {row3} 'PWPM12' {row4} 'DUMMY' {row5} 'DUMMY' {row6} 'DUMMY' {row7} 'DUMMY' {row8} 'DUMMY' {row9} 'DUMMY' {row10} 'DUMMY' {row11} 'DUMMY' // SELECT
+
+:PWPMV2_4209
+wait 10
+if or
+  not is_player_playing $PLAYER_CHAR
+  not does_char_exist $PLAYER_ACTOR
+goto_if_false @PWPMV2_4246
+delete_menu 1@
+goto @PWPMV2_8325
+
+:PWPMV2_4246
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Triangle
+goto_if_false @PWPMV2_4275
+delete_menu 1@
+goto @PWPMV2_307
+
+:PWPMV2_4275
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Cross
+goto_if_false @PWPMV2_4551
+2@ = get_menu_item_selected 1@
+2@ += 1
+if 
+  2@ == 1
+goto_if_false @PWPMV2_4368
+4@ = 359
+7@ = 35
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_4209
+
+:PWPMV2_4368
+if 
+  2@ == 2
+goto_if_false @PWPMV2_4429
+4@ = 360
+7@ = 36
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_4209
+
+:PWPMV2_4429
+if 
+  2@ == 3
+goto_if_false @PWPMV2_4490
+4@ = 361
+7@ = 37
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_4209
+
+:PWPMV2_4490
+if 
+  2@ == 4
+goto_if_false @PWPMV2_4551
+4@ = 362
+7@ = 38
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_4209
+
+:PWPMV2_4551
+goto @PWPMV2_4209
+
+:PWPMV2_4558
+wait 200
+8@ = 1
+16@ = 7
+1@ = create_menu 'GUN7' {topLeftX} 29.0 {topLeftY} 170.0 {width} 180.0 {numColumns} 1 {interactive} True {background} True {alignment} Align.Left // Thrown
+set_menu_column 1@ {column} 0 {title} 'PLA_19' {row0} 'PWPM13' {row1} 'GRENADE' {row2} 'PWPM14' {row3} 'PWPM15' {row4} 'DUMMY' {row5} 'DUMMY' {row6} 'DUMMY' {row7} 'DUMMY' {row8} 'DUMMY' {row9} 'DUMMY' {row10} 'DUMMY' {row11} 'DUMMY' // SELECT // Grenades
+
+:PWPMV2_4738
+wait 10
+if or
+  not is_player_playing $PLAYER_CHAR
+  not does_char_exist $PLAYER_ACTOR
+goto_if_false @PWPMV2_4775
+delete_menu 1@
+goto @PWPMV2_8325
+
+:PWPMV2_4775
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Triangle
+goto_if_false @PWPMV2_4804
+delete_menu 1@
+goto @PWPMV2_307
+
+:PWPMV2_4804
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Cross
+goto_if_false @PWPMV2_5117
+2@ = get_menu_item_selected 1@
+2@ += 1
+if 
+  2@ == 1
+goto_if_false @PWPMV2_4897
+4@ = 344
+7@ = 18
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_4738
+
+:PWPMV2_4897
+if 
+  2@ == 2
+goto_if_false @PWPMV2_4958
+4@ = 342
+7@ = 16
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_4738
+
+:PWPMV2_4958
+if 
+  2@ == 3
+goto_if_false @PWPMV2_5019
+4@ = 343
+7@ = 17
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_4738
+
+:PWPMV2_5019
+if 
+  2@ == 4
+goto_if_false @PWPMV2_5117
+3@ = 364
+4@ = 363
+7@ = 39
+10@ = 99999
+gosub @PWPMV2_8384
+4@ = 364
+7@ = 40
+10@ = 1
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_4738
+
+:PWPMV2_5117
+goto @PWPMV2_4738
+
+:PWPMV2_5124
+wait 200
+8@ = 1
+16@ = 8
+1@ = create_menu 'PWMPHE' {topLeftX} 29.0 {topLeftY} 170.0 {width} 180.0 {numColumns} 1 {interactive} True {background} True {alignment} Align.Left
+set_menu_column 1@ {column} 0 {title} 'PLA_19' {row0} 'PWPM16' {row1} 'PWPM17' {row2} 'PWPM18' {row3} 'PWPM19' {row4} 'PWPM20' {row5} 'PWPM21' {row6} 'DUMMY' {row7} 'DUMMY' {row8} 'DUMMY' {row9} 'DUMMY' {row10} 'DUMMY' {row11} 'DUMMY' // SELECT
+
+:PWPMV2_5304
+wait 10
+if or
+  not is_player_playing $PLAYER_CHAR
+  not does_char_exist $PLAYER_ACTOR
+goto_if_false @PWPMV2_5341
+delete_menu 1@
+goto @PWPMV2_8325
+
+:PWPMV2_5341
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Triangle
+goto_if_false @PWPMV2_5370
+delete_menu 1@
+goto @PWPMV2_307
+
+:PWPMV2_5370
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Cross
+goto_if_false @PWPMV2_5759
+2@ = get_menu_item_selected 1@
+2@ += 1
+if 
+  2@ == 1
+goto_if_false @PWPMV2_5463
+4@ = 365
+7@ = 41
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_5304
+
+:PWPMV2_5463
+if 
+  2@ == 2
+goto_if_false @PWPMV2_5524
+4@ = 366
+7@ = 42
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_5304
+
+:PWPMV2_5524
+if 
+  2@ == 3
+goto_if_false @PWPMV2_5585
+4@ = 367
+7@ = 43
+10@ = 99999
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_5304
+
+:PWPMV2_5585
+if 
+  2@ == 4
+goto_if_false @PWPMV2_5643
+4@ = 368
+7@ = 44
+10@ = 1
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_5304
+
+:PWPMV2_5643
+if 
+  2@ == 5
+goto_if_false @PWPMV2_5701
+4@ = 369
+7@ = 45
+10@ = 1
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_5304
+
+:PWPMV2_5701
+if 
+  2@ == 6
+goto_if_false @PWPMV2_5759
+4@ = 371
+7@ = 46
+10@ = 1
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_5304
+
+:PWPMV2_5759
+goto @PWPMV2_5304
+
+:PWPMV2_5766
+wait 200
+8@ = 1
+16@ = 9
+1@ = create_menu 'PWMPHG' {topLeftX} 29.0 {topLeftY} 170.0 {width} 180.0 {numColumns} 1 {interactive} True {background} True {alignment} Align.Left
+set_menu_column 1@ {column} 0 {title} 'PLA_19' {row0} 'PWPM22' {row1} 'PWPM23' {row2} 'PWPM24' {row3} 'PWPM25' {row4} 'PWPM26' {row5} 'PWPM27' {row6} 'DUMMY' {row7} 'DUMMY' {row8} 'DUMMY' {row9} 'DUMMY' {row10} 'DUMMY' {row11} 'DUMMY' // SELECT
+
+:PWPMV2_5946
+wait 10
+if or
+  not is_player_playing $PLAYER_CHAR
+  not does_char_exist $PLAYER_ACTOR
+goto_if_false @PWPMV2_5983
+delete_menu 1@
+goto @PWPMV2_8325
+
+:PWPMV2_5983
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Triangle
+goto_if_false @PWPMV2_6012
+delete_menu 1@
+goto @PWPMV2_307
+
+:PWPMV2_6012
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Cross
+goto_if_false @PWPMV2_6392
+2@ = get_menu_item_selected 1@
+2@ += 1
+if 
+  2@ == 1
+goto_if_false @PWPMV2_6102
+4@ = 321
+7@ = 10
+10@ = 1
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_5946
+
+:PWPMV2_6102
+if 
+  2@ == 2
+goto_if_false @PWPMV2_6160
+4@ = 322
+7@ = 11
+10@ = 1
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_5946
+
+:PWPMV2_6160
+if 
+  2@ == 3
+goto_if_false @PWPMV2_6218
+4@ = 323
+7@ = 12
+10@ = 1
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_5946
+
+:PWPMV2_6218
+if 
+  2@ == 4
+goto_if_false @PWPMV2_6276
+4@ = 324
+7@ = 13
+10@ = 1
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_5946
+
+:PWPMV2_6276
+if 
+  2@ == 5
+goto_if_false @PWPMV2_6334
+4@ = 325
+7@ = 14
+10@ = 1
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_5946
+
+:PWPMV2_6334
+if 
+  2@ == 6
+goto_if_false @PWPMV2_6392
+4@ = 326
+7@ = 15
+10@ = 1
+gosub @PWPMV2_8384
+wait 75
+goto @PWPMV2_5946
+
+:PWPMV2_6392
+goto @PWPMV2_5946
+
+:PWPMV2_6399
+wait 200
+16@ = 10
+1@ = create_menu 'PWPMJE' {topLeftX} 29.0 {topLeftY} 170.0 {width} 180.0 {numColumns} 1 {interactive} True {background} True {alignment} Align.Left
+set_menu_column 1@ {column} 0 {title} 'PLA_19' {row0} 'PWPMJE' {row1} 'DUMMY' {row2} 'DUMMY' {row3} 'DUMMY' {row4} 'DUMMY' {row5} 'DUMMY' {row6} 'DUMMY' {row7} 'DUMMY' {row8} 'DUMMY' {row9} 'DUMMY' {row10} 'DUMMY' {row11} 'DUMMY' // SELECT
+
+:PWPMV2_6572
+wait 10
+if or
+  not is_player_playing $PLAYER_CHAR
+  not does_char_exist $PLAYER_ACTOR
+goto_if_false @PWPMV2_6609
+delete_menu 1@
+goto @PWPMV2_8325
+
+:PWPMV2_6609
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Triangle
+goto_if_false @PWPMV2_6638
+delete_menu 1@
+goto @PWPMV2_307
+
+:PWPMV2_6638
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Cross
+goto_if_false @PWPMV2_6742
+2@ = get_menu_item_selected 1@
+2@ += 1
+if 
+  2@ == 1
+goto_if_false @PWPMV2_6742
+if 
+  not is_player_using_jetpack $PLAYER_CHAR
+goto_if_false @PWPMV2_6730
+gosub @PWPMV2_8557
+delete_menu 1@
+goto @PWPMV2_307
+goto @PWPMV2_6742
+
+:PWPMV2_6730
+delete_menu 1@
+goto @PWPMV2_307
+
+:PWPMV2_6742
+goto @PWPMV2_6572
+write_debug "UNDER CONSTRUCTION"
+write_debug "HNA SCRIPT BY ADLER"
+
+:PWPMV2_6794
+wait 200
+16@ = 11
+1@ = create_menu 'PWPMX3' {topLeftX} 29.0 {topLeftY} 170.0 {width} 180.0 {numColumns} 1 {interactive} True {background} True {alignment} Align.Left
+set_menu_column 1@ {column} 0 {title} 'PLA_19' {row0} 'PWPMX1' {row1} 'PWPMX2' {row2} 'DUMMY' {row3} 'DUMMY' {row4} 'DUMMY' {row5} 'DUMMY' {row6} 'DUMMY' {row7} 'DUMMY' {row8} 'DUMMY' {row9} 'DUMMY' {row10} 'DUMMY' {row11} 'DUMMY' // SELECT
+
+:PWPMV2_6967
+wait 10
+if or
+  not is_player_playing $PLAYER_CHAR
+  not does_char_exist $PLAYER_ACTOR
+goto_if_false @PWPMV2_7004
+delete_menu 1@
+goto @PWPMV2_8325
+
+:PWPMV2_7004
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Triangle
+goto_if_false @PWPMV2_7033
+delete_menu 1@
+goto @PWPMV2_307
+
+:PWPMV2_7033
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Cross
+goto_if_false @PWPMV2_8318
+2@ = get_menu_item_selected 1@
+2@ += 1
+if 
+  2@ == 1
+goto_if_false @PWPMV2_7700
+wait 100
+delete_menu 1@
+clear_help 
+set_help_message_box_size 400
+1@ = create_menu 'PWPMX3' {topLeftX} 29.0 {topLeftY} 170.0 {width} 180.0 {numColumns} 1 {interactive} False {background} True {alignment} Align.Left
+set_menu_column 1@ {column} 0 {title} 'PLA_19' {row0} 'PWPMX1' {row1} 'PWPMX2' {row2} 'DUMMY' {row3} 'DUMMY' {row4} 'DUMMY' {row5} 'DUMMY' {row6} 'DUMMY' {row7} 'DUMMY' {row8} 'DUMMY' {row9} 'DUMMY' {row10} 'DUMMY' {row11} 'DUMMY' // SELECT
+print_help_forever 'PWPMX7'
+set_lvar_int_to_var_int 31@ = $Help_Chat_Shown
+29@ = get_char_health $PLAYER_ACTOR
+30@ = get_float_stat StatId.MaxHealth
+30@ /= 5.69
+cset_lvar_int_to_lvar_float 30@ =# 30@
+set_var_int_to_lvar_int $Help_Chat_Shown = 29@
+display_nth_onscreen_counter_with_string $Help_Chat_Shown {display} CounterDisplay.Number {slot} 1 {text} 'PWPMX1'
+
+:PWPMV2_7338
+wait 0
+if and
+  is_key_pressed KeyCode.Right
+  not is_key_pressed KeyCode.Left
+goto_if_false @PWPMV2_7450
+if 
+  not is_key_pressed KeyCode.Shift
+goto_if_false @PWPMV2_7390
+29@ += 1
+goto @PWPMV2_7397
+
+:PWPMV2_7390
+29@ += 10
+
+:PWPMV2_7397
+if 
+  is_int_lvar_greater_than_int_lvar 29@ > 30@
+goto_if_false @PWPMV2_7424
+set_lvar_int_to_lvar_int 29@ = 30@
+
+:PWPMV2_7424
+set_var_int_to_lvar_int $Help_Chat_Shown = 29@
+display_nth_onscreen_counter_with_string $Help_Chat_Shown {display} CounterDisplay.Number {slot} 1 {text} 'PWPMX1'
+
+:PWPMV2_7450
+if and
+  is_key_pressed KeyCode.Left
+  not is_key_pressed KeyCode.Right
+goto_if_false @PWPMV2_7556
+if 
+  not is_key_pressed KeyCode.Shift
+goto_if_false @PWPMV2_7498
+29@ -= 1
+goto @PWPMV2_7505
+
+:PWPMV2_7498
+29@ -= 10
+
+:PWPMV2_7505
+if 
+  0 > 29@
+goto_if_false @PWPMV2_7530
+29@ = 0
+
+:PWPMV2_7530
+set_var_int_to_lvar_int $Help_Chat_Shown = 29@
+display_nth_onscreen_counter_with_string $Help_Chat_Shown {display} CounterDisplay.Number {slot} 1 {text} 'PWPMX1'
+
+:PWPMV2_7556
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Triangle
+goto_if_false @PWPMV2_7599
+print_with_number_now 'PWPMX8' {num} 29@ {duration} 5000 {flag} 1
+goto @PWPMV2_7657
+
+:PWPMV2_7599
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Cross
+goto_if_false @PWPMV2_7650
+set_char_health $PLAYER_ACTOR {health} 29@
+print_with_number_now 'PWPMX9' {num} 29@ {duration} 5000 {flag} 1
+goto @PWPMV2_7657
+
+:PWPMV2_7650
+goto @PWPMV2_7338
+
+:PWPMV2_7657
+clear_onscreen_counter $Help_Chat_Shown
+set_var_int_to_lvar_int $Help_Chat_Shown = 31@
+clear_help 
+delete_menu 1@
+set_help_message_box_size 200
+print_help_forever 'WARDH3' // Use ~k~~GO_FORWARD~ and ~k~~GO_BACK~ to select an item.~N~~k~~PED_SPRINT~ View~N~~k~~VEHICLE_ENTER_EXIT~ Back
+goto @PWPMV2_6794
+
+:PWPMV2_7700
+if 
+  2@ == 2
+goto_if_false @PWPMV2_8318
+wait 100
+delete_menu 1@
+clear_help 
+set_help_message_box_size 400
+1@ = create_menu 'PWPMX3' {topLeftX} 29.0 {topLeftY} 170.0 {width} 180.0 {numColumns} 1 {interactive} False {background} True {alignment} Align.Left
+set_menu_column 1@ {column} 0 {title} 'PLA_19' {row0} 'PWPMX1' {row1} 'PWPMX2' {row2} 'DUMMY' {row3} 'DUMMY' {row4} 'DUMMY' {row5} 'DUMMY' {row6} 'DUMMY' {row7} 'DUMMY' {row8} 'DUMMY' {row9} 'DUMMY' {row10} 'DUMMY' {row11} 'DUMMY' // SELECT
+print_help_forever 'PWPMX4'
+set_lvar_int_to_var_int 31@ = $Help_Chat_Shown
+29@ = get_char_armour $PLAYER_ACTOR
+30@ = get_player_max_armour $PLAYER_CHAR
+set_var_int_to_lvar_int $Help_Chat_Shown = 29@
+display_nth_onscreen_counter_with_string $Help_Chat_Shown {display} CounterDisplay.Number {slot} 1 {text} 'PWPMX2'
+
+:PWPMV2_7956
+wait 0
+if and
+  is_key_pressed KeyCode.Right
+  not is_key_pressed KeyCode.Left
+goto_if_false @PWPMV2_8068
+if 
+  not is_key_pressed KeyCode.Shift
+goto_if_false @PWPMV2_8008
+29@ += 1
+goto @PWPMV2_8015
+
+:PWPMV2_8008
+29@ += 10
+
+:PWPMV2_8015
+if 
+  is_int_lvar_greater_than_int_lvar 29@ > 30@
+goto_if_false @PWPMV2_8042
+set_lvar_int_to_lvar_int 29@ = 30@
+
+:PWPMV2_8042
+set_var_int_to_lvar_int $Help_Chat_Shown = 29@
+display_nth_onscreen_counter_with_string $Help_Chat_Shown {display} CounterDisplay.Number {slot} 1 {text} 'PWPMX2'
+
+:PWPMV2_8068
+if and
+  is_key_pressed KeyCode.Left
+  not is_key_pressed KeyCode.Right
+goto_if_false @PWPMV2_8174
+if 
+  not is_key_pressed KeyCode.Shift
+goto_if_false @PWPMV2_8116
+29@ -= 1
+goto @PWPMV2_8123
+
+:PWPMV2_8116
+29@ -= 10
+
+:PWPMV2_8123
+if 
+  0 > 29@
+goto_if_false @PWPMV2_8148
+29@ = 0
+
+:PWPMV2_8148
+set_var_int_to_lvar_int $Help_Chat_Shown = 29@
+display_nth_onscreen_counter_with_string $Help_Chat_Shown {display} CounterDisplay.Number {slot} 1 {text} 'PWPMX2'
+
+:PWPMV2_8174
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Triangle
+goto_if_false @PWPMV2_8217
+print_with_number_now 'PWPMX5' {num} 29@ {duration} 5000 {flag} 1
+goto @PWPMV2_8275
+
+:PWPMV2_8217
+if 
+  is_button_pressed PadId.Pad1 {buttonId} Button.Cross
+goto_if_false @PWPMV2_8268
+add_armour_to_char $PLAYER_ACTOR {amount} 29@
+print_with_number_now 'PWPMX6' {num} 29@ {duration} 5000 {flag} 1
+goto @PWPMV2_8275
+
+:PWPMV2_8268
+goto @PWPMV2_7956
+
+:PWPMV2_8275
+clear_onscreen_counter $Help_Chat_Shown
+set_var_int_to_lvar_int $Help_Chat_Shown = 31@
+clear_help 
+delete_menu 1@
+set_help_message_box_size 200
+print_help_forever 'WARDH3' // Use ~k~~GO_FORWARD~ and ~k~~GO_BACK~ to select an item.~N~~k~~PED_SPRINT~ View~N~~k~~VEHICLE_ENTER_EXIT~ Back
+goto @PWPMV2_6794
+
+:PWPMV2_8318
+goto @PWPMV2_6967
+
+:PWPMV2_8325
+delete_menu 1@
+display_radar True
+display_hud True
+set_player_control $PLAYER_CHAR {state} True
+clear_help 
+use_text_commands False
+set_camera_behind_player 
+restore_camera_jumpcut 
+gosub @PWPMV2_8440
+wait 2000
+21@ = 0
+goto @PWPMV2_69
+terminate_this_custom_script 
+hex
+ 50
+end
+
+:PWPMV2_8384
+request_model 4@
+
+:PWPMV2_8389
+  not has_model_loaded 4@
+goto_if_false @PWPMV2_8412
+wait 0
+goto @PWPMV2_8389
+
+:PWPMV2_8412
+wait 0
+give_weapon_to_char $PLAYER_ACTOR {weaponType} 7@ {ammo} 99999
+wait 4
+mark_model_as_no_longer_needed 4@
+return 
+
+:PWPMV2_8440
+0@ = 0
+1@ = 0
+2@ = 0
+4@ = 0
+7@ = 0
+8@ = 0
+10@ = 0
+16@ = 0
+wait 0
+return 
+write_debug "20-Rel-WPMV2-dev-10"
+write_debug "Copyright (C) The_Siggi 2010"
+
+:PWPMV2_8557
+request_model #JETPACK
+
+:PWPMV2_8562
+wait 4
+if 
+  has_model_loaded #JETPACK
+goto_if_false @PWPMV2_8562
+task_jetpack $PLAYER_ACTOR
+wait 0
+mark_model_as_no_longer_needed #JETPACK
+return 
