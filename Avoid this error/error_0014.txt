@@ -1,0 +1,20 @@
+===========================================================================
+ERROR_0014: PARAMETER OVERFLOW IN PRINT_STRING COMMAND (OPCODE 0ACC VS 00BC)
+===========================================================================
+
+1. COMPILER FAILURE:
+- Using 'print_string' with text, display time, AND styling flags (e.g., 'print_string "Text" time 2000 flag 1') causes compiler error: "Too many actual parameters. Expected 2 params."
+- 'print_string' maps to Opcode 0ACC, which strictly expects only 2 parameters: the string text and duration.
+
+2. INCORRECT USAGE:
+  print_string "Municao Infinita: ATIVADO" time 2000 flag 1
+
+3. CORRECT USAGE:
+- Option A (For simple text display - Opcode 0ACC):
+  print_string "Municao Infinita: ATIVADO" 2000
+
+- Option B (For formatted text with display flags - Opcode 00BC):
+  00BC: print_formatted_now "Municao Infinita: ATIVADO" time 2000 flag 1
+
+4. REINFORCEMENT FOR AI GENERATION:
+- Never pass 'time' or 'flag' labels to 'print_string'. If 'flag 1' is required for GTA SA HUD rendering, ALWAYS use '00BC: print_formatted_now'.
