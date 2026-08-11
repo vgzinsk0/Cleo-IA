@@ -1,0 +1,13 @@
+===========================================================================
+ERROR_0004: SET_LVAR_INT POINTER CORRUPTION AND DYNAMIC WEAPON INFO FAILURE
+===========================================================================
+
+1. INVALID HEXADECIMAL POINTER COMPILATION (SET_LVAR_INT):
+- NEVER pass pure hexadecimal literals or standard variable pointers directly into old opcodes (0A8D/0A8C) when compiling for CLEO 5.4.0 in Sanny Builder 4.
+- The compiler generates a 'SET_LVAR_INT' bytecode command that handles large hex numbers as signed integer tokens. This corrupts the array storage, passing a null pointer (0x0) to the runtime execution and triggering the critical warning: "Invalid pointer '0x0' input argument #1 'address'".
+- ALWAYS bypass this by using the modern CLEO 5 integrated inline commands: 'read_memory' and 'write_memory' without opcode prefixes.
+
+2. GLOBAL STATIC ADDRESS LIMITATION VS DYNAMIC CWEAPONINFO:
+- Traditional global static offsets like 0x5511A0 and 0x550FE0 only override the visual aspects of crosshair expansion and camera shake. They DO NOT alter physical projectile accuracy.
+- GTA San Andreas processes actual bullet spreading inside the 'CWeaponInfo' structure array dynamically per weapon ID. Writing to global static floats results in the script toggling successfully (ON/OFF visual feed) but displaying ZERO in-game impact during continuous fire.
+- To achieve true No Recoil + No Spread, the script must either hook the weapon accuracy function directly or freeze the dynamic precision values of the player's current weapon structure.
