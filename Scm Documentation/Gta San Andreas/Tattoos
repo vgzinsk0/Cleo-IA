@@ -1,0 +1,98 @@
+# Tattoos
+
+```
+Player.SetClothes($PLAYER_CHAR, <texture>, <model>, <body part>)
+```
+
+## Lower left arm
+
+| Texture | Model   | [Body Part](/scm-documentation/sa/player-body-parts.md) | Tattoo Name | Image                                                               |
+| ------- | ------- | ------------------------------------------------------- | ----------- | ------------------------------------------------------------------- |
+| 4weed   | 4WEED   | 4                                                       | Weed        | <img src="/files/-MCcLxFYteXFowakvUsT" alt="" data-size="original"> |
+| 4rip    | 4RIP    | 4                                                       | Grave       | <img src="/files/-MCcMR9fYYQN381K6jEI" alt="" data-size="original"> |
+| 4spider | 4SPIDER | 4                                                       | Spider      | <img src="/files/-MCcMSmC2lUnxZ3wECHf" alt="" data-size="original"> |
+
+## Upper left arm
+
+| Texture | Model   | [Body Part](/scm-documentation/sa/player-body-parts.md) | Tattoo Name | Image                                                               |
+| ------- | ------- | ------------------------------------------------------- | ----------- | ------------------------------------------------------------------- |
+| 5gun    | 5GUN    | 5                                                       | Gun         | <img src="/files/-MCcMUZcTf7zxgStVPgz" alt="" data-size="original"> |
+| 5cross  | 5CROSS  | 5                                                       | Cross       | <img src="/files/-MCcQl7oCKTpjW3m3AyS" alt="" data-size="original"> |
+| 5cross2 | 5CROSS2 | 5                                                       | Rose        | <img src="/files/-MCcQfZDsKEnkFXRFLGn" alt="" data-size="original"> |
+| 5cross3 | 5CROSS3 | 5                                                       | Clown       | <img src="/files/-MCcQpKFr1DamEu7I8D6" alt="" data-size="original"> |
+
+## Upper right arm
+
+| Texture | Model   | [Body Part](/scm-documentation/sa/player-body-parts.md) | Tattoo Name | Image                                                               |
+| ------- | ------- | ------------------------------------------------------- | ----------- | ------------------------------------------------------------------- |
+| 6aztec  | 6AZTEC  | 6                                                       | Aztec       | <img src="/files/-MCcQsxOXDMsY8DRKuxi" alt="" data-size="original"> |
+| 6crown  | 6CROWN  | 6                                                       | Web         | <img src="/files/-MCcQydtvwUp4ojd8eOo" alt="" data-size="original"> |
+| 6clown  | 6CLOWN  | 6                                                       | Clown       | <img src="/files/-MCcR5r0jjQhYEL86MOb" alt="" data-size="original"> |
+| 6africa | 6AFRICA | 6                                                       | Africa      | <img src="/files/-MCcR7pgX43HqlYt9_CQ" alt="" data-size="original"> |
+
+## Lower right arm
+
+| Texture | Model   | [Body Part](/scm-documentation/sa/player-body-parts.md) | Tattoo Name | Image                                                               |
+| ------- | ------- | ------------------------------------------------------- | ----------- | ------------------------------------------------------------------- |
+| 7cross  | 7CROSS  | 7                                                       | Cross       | <img src="/files/-MCcRBbaKyXc7j4TYU4Z" alt="" data-size="original"> |
+| 7cross2 | 7CROSS2 | 7                                                       | Cross       | <img src="/files/-MCcRDO930TVRyKusJtX" alt="" data-size="original"> |
+| 7cross3 | 7CROSS3 | 7                                                       | Cross       | <img src="/files/-MCcRGAtigkzpQtgCNOu" alt="" data-size="original"> |
+| 7mary   | 7MARY   | 7                                                       | Mary        | <img src="/files/-MCcRKvJ40few6X4K1Nw" alt="" data-size="original"> |
+
+## Back top
+
+| Texture   | Model   | [Body Part](/scm-documentation/sa/player-body-parts.md) | Tattoo Name | Image                                                               |
+| --------- | ------- | ------------------------------------------------------- | ----------- | ------------------------------------------------------------------- |
+| 8sa       | 8SA     | 8                                                       | Grove St .  | <img src="/files/-MCcRR2a7aWbKRtjNyxA" alt="" data-size="original"> |
+| 8sa2      | 8SA2    | 8                                                       | San Andreas | <img src="/files/-MCcRUXegN9mqBBIYPCq" alt="" data-size="original"> |
+| 8sa3      | 8SA3    | 8                                                       | San Fierro  | <img src="/files/-MCcRXu7Gtmk_kL4bD1h" alt="" data-size="original"> |
+| 8westside | 8WESTSD | 8                                                       | Westside    | <img src="/files/-MCcR_MdgPquZmOnzQa6" alt="" data-size="original"> |
+| 8santos   | 8SANTOS | 8                                                       | Los Santos  | <img src="/files/-MCcRb4zxx2gP_FliWSO" alt="" data-size="original"> |
+| 8poker    | 8POKER  | 8                                                       | Card        | <img src="/files/-MCcRdSP7FL6_yxpLlXc" alt="" data-size="original"> |
+| 8gun      | 8GUN    | 8                                                       | Gun         | <img src="/files/-MCcRfW2i8Mg4z0FBhxW" alt="" data-size="original"> |
+
+## Left chest
+
+| Texture  | Model  | [Body Part](/scm-documentation/sa/player-body-parts.md) | Tattoo Name | Image                                                               |
+| -------- | ------ | ------------------------------------------------------- | ----------- | ------------------------------------------------------------------- |
+| 9crown   | 9CROWN | 9                                                       | Crown       | <img src="/files/-MCcRifacIIEL3iqcm9u" alt="" data-size="original"> |
+| 9gun     | 9GUN   | 9                                                       | Gun         | <img src="/files/-MCcWKiEUsgowDqLWmXf" alt="" data-size="original"> |
+| 9gun2    | 9GUN2  | 9                                                       | Gun         | <img src="/files/EtMtMx8SMs7jwEKcjkEG" alt="" data-size="original"> |
+| 9homeboy | 9HOMBY | 9                                                       | Homeboy     | <img src="/files/-MCcWPJ1cGz2zGPaqc-H" alt="" data-size="original"> |
+| 9bullet  | 9BULLT | 9                                                       | Bullet      | <img src="/files/-MCcWSLQVk3_QY0Ws-fW" alt="" data-size="original"> |
+| 9rasta   | 9RASTA | 9                                                       | Rasta       | <img src="/files/-MCcWUyWRcMSz6eaRbYE" alt="" data-size="original"> |
+
+## Right chest
+
+| Texture | Model  | [Body Part](/scm-documentation/sa/player-body-parts.md) | Tattoo Name | Image                                                               |
+| ------- | ------ | ------------------------------------------------------- | ----------- | ------------------------------------------------------------------- |
+| 10ls    | 10LS   | 10                                                      | Los Santos  | <img src="/files/-MCcWYwR5p7P_lAcCeAg" alt="" data-size="original"> |
+| 10ls2   | 10LS2  | 10                                                      | Los Santos  | <img src="/files/-MCcWa-y9Ou4HK1kdxMN" alt="" data-size="original"> |
+| 10ls3   | 10LS3  | 10                                                      | Los Santos  | <img src="/files/-MCcWbwlDEkIaKysZGMj" alt="" data-size="original"> |
+| 10ls4   | 10LS4  | 10                                                      | Los Santos  | <img src="/files/-MCcWe7Q5aGuGRs4kDyU" alt="" data-size="original"> |
+| 10ls5   | 10LS5  | 10                                                      | Los Santos  | <img src="/files/-MCcWftGezsR3FHUzIFu" alt="" data-size="original"> |
+| 10og    | 10OG   | 10                                                      | O.G.        | <img src="/files/-MCcWiquP321m73BlvLX" alt="" data-size="original"> |
+| 10weed  | 10WEED | 10                                                      | Grove       | <img src="/files/-MCcWmcn7wPMg6ja_ti0" alt="" data-size="original"> |
+
+## Stomach
+
+| Texture    | Model   | [Body Part](/scm-documentation/sa/player-body-parts.md) | Tattoo Name | Image                                                               |
+| ---------- | ------- | ------------------------------------------------------- | ----------- | ------------------------------------------------------------------- |
+| 11grove    | 11GROVE | 11                                                      | Grove       | <img src="/files/-MCcWrYg8V8wlKyMQDTY" alt="" data-size="original"> |
+| 11grove2   | 11GROV2 | 11                                                      | Grove       | <img src="/files/-MCcWu3zg1QDonU6un4U" alt="" data-size="original"> |
+| 11grove3   | 11GROV3 | 11                                                      | Grove       | <img src="/files/-MCcWwgbfE4vk2ivCTNN" alt="" data-size="original"> |
+| 11dice     | 11DICE  | 11                                                      | Dice        | <img src="/files/-MCcWymB09iSQJq4ep7M" alt="" data-size="original"> |
+| 11dice2    | 11DICE2 | 11                                                      | Dice        | <img src="/files/-MCcX0NPuFj2D8DxSuvP" alt="" data-size="original"> |
+| 11jail     | 11JAIL  | 11                                                      | Jail        | <img src="/files/-MCcX2vGy4HGDelVJqNS" alt="" data-size="original"> |
+| 11godsgift | 11GGIFT | 11                                                      | God's Gift  | <img src="/files/-MCcX5S3OH16PlBHNSFZ" alt="" data-size="original"> |
+
+## Lower back
+
+| Texture    | Model   | [Body Part](/scm-documentation/sa/player-body-parts.md) | Tattoo Name | Image                                                               |
+| ---------- | ------- | ------------------------------------------------------- | ----------- | ------------------------------------------------------------------- |
+| 12angels   | 12ANGEL | 12                                                      | Angel       | <img src="/files/-MCcX9O_fJ5XMmLE6_9w" alt="" data-size="original"> |
+| 12mayabird | 12MAYBR | 12                                                      | Mayan Bird  | <img src="/files/-MCcXC5Imj7HMhz_T6OP" alt="" data-size="original"> |
+| 12dagger   | 12DAGER | 12                                                      | Dagger      | <img src="/files/-MCcXDjntjagFryTOtAQ" alt="" data-size="original"> |
+| 12bandit   | 12BNDIT | 12                                                      | Masks       | <img src="/files/-MCcXGsrXMYj9iy7LzNz" alt="" data-size="original"> |
+| 12cross7   | 12CROSS | 12                                                      | Cross       | <img src="/files/-MCcXItO9j8sD585rJho" alt="" data-size="original"> |
+| 12mayaface | 12MYFAC | 12                                                      | Mayan Face  | <img src="/files/-MCcXKiziO7B4pX3M2y9" alt="" data-size="original"> |
