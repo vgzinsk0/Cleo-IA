@@ -1,0 +1,12 @@
+Error Code: 0049
+Title: Not enough parameters for opcode
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0049
+========================================================================
+
+The compiler can't get a required number of parameters for the current opcode.
+It may happen if fewer parameters are provided or some of them are invalid. The number of parameters for each opcode is set in the INI file and can be seen in the status bar when the Show opcode info option is enabled.
+Possible solutions: provide the required number of parameters:
+`
+0001: wait // error, expected one parameter
+0001: wait 0 // OK
+`

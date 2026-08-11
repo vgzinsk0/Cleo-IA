@@ -1,0 +1,16 @@
+Error Code: 0025
+Title: Incorrect counter range
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0025
+========================================================================
+
+A FOR loop gets an invalid range of values to iterate. It may happen when
+- in FOR..to the initial value is greater than the final one
+or
+- in FOR..downto the final value is greater than the initial one.
+Possible solutions: provide a correct range for the loop:
+`
+FOR 0@ = 0 to 5
+END
+FOR 0@ = 5 downto 0
+END
+`

@@ -1,0 +1,7 @@
+Error Code: 0012
+Title: Incorrect jump instruction
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0012
+========================================================================
+
+The disassembler finds a jump instruction that points at the address unreachable in the given script.
+Possible solutions: toggle the IGNORE_UNKNOWN debug option.

@@ -1,0 +1,13 @@
+Error Code: 0041
+Title: Invalid mission id
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0041
+========================================================================
+
+A mission number is negative, or is greater or equal to the total missions number.
+Possible solutions: change the id number:
+`
+DEFINE MISSIONS 1
+DEFINE MISSION -1 at @label // error, id can not be negative
+DEFINE MISSION 1 at @label // error, id is greater or equal than the total number
+DEFINE MISSION 0 // correct
+`

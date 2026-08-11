@@ -1,0 +1,13 @@
+Error Code: 0019
+Title: Unknown array type
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0019
+========================================================================
+
+You did not specify the array type, or provided an invalid value (for example, a number).
+Possible solutions: use a valid type name:
+`pascal
+var
+$var: array 10 of Double // incorrect
+$var: array 10 of Float // correct
+end
+`

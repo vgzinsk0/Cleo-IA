@@ -1,0 +1,11 @@
+Error Code: 0027
+Title: String is too long
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0027
+========================================================================
+
+The compiler finds a string literal that exceeds the length limit.
+Possible solutions: cut the string to meet the limit or try to use double quotes instead of single quotes:
+`
+'long text' // error
+"long text" // OK
+`

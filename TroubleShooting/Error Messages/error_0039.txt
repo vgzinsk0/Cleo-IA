@@ -1,0 +1,11 @@
+Error Code: 0039
+Title: Invalid element definition
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0039
+========================================================================
+
+The compiler can't read a mission or external script definition in the header. It may happen if either an id or label is missing or invalid.
+Possible solutions: fix the definition:
+`
+DEFINE MISSION "0" at @label // error, integer id expected
+DEFINE MISSION 0 at @label // OK
+`

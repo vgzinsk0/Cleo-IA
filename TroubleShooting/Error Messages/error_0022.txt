@@ -1,0 +1,11 @@
+Error Code: 0022
+Title: Loop counter is not a variable
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0022
+========================================================================
+
+The compiler finds that a FOR loop's counter is not a variable.
+Possible solutions: use a variable as the counter of the loop iterations:
+`
+FOR $MyCounter = 1 to 10
+END
+`

@@ -1,0 +1,11 @@
+Error Code: 0038
+Title: Unknown type of array
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0038
+========================================================================
+
+The compiler finds an array element whose type is unknown.
+Possible solutions: use one of the known array types: integer (i), float (f) or string (s or v):
+`
+0@(10@,4h) // error, 'h' is unknown
+0@(10@,4i) // OK, 'i' is known
+`

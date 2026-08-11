@@ -1,0 +1,11 @@
+Error Code: 0035
+Title: Expected word
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0035
+========================================================================
+
+The compiler expects to find a particular word during header parsing, but found something different.
+Possible solutions: check the line where it throws and update spelling.
+`
+DEFINE MISION 1 at @LABEL // error: expected MISSION
+DEFINE MISSION 1 at @LABEL // OK
+`

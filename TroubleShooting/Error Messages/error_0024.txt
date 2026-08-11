@@ -1,0 +1,7 @@
+Error Code: 0024
+Title: Error reading integer number
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0024
+========================================================================
+
+The compiler expects an integer number, but finds something different (e.g. a floating-point value).
+Possible solutions: provide an integer value.

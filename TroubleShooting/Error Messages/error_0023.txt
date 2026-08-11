@@ -1,0 +1,23 @@
+Error Code: 0023
+Title: Unexpected instruction
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0023
+========================================================================
+
+The compiler finds an incorrect syntax. It could be an error in a FOR loop or a malformed variable declaration.
+Possible solutions: check the documentation and provide the correct syntax:
+Variable declaration:
+`pascal
+var <variable>: <type>
+`
+or
+`pascal
+var
+<variable>: <type>
+end
+`
+FOR loop syntax:
+`pascal
+FOR <loop variable> = <initial value> TO/DOWNTO <final value> [step = 1]
+<the loop body>
+END
+`

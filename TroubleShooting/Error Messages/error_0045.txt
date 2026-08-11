@@ -1,0 +1,12 @@
+Error Code: 0045
+Title: Invalid array syntax: variable name is missing
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0045
+========================================================================
+
+The array element is missing either the name or the index variable.
+Possible solutions: check the array syntax and provide all required variables:
+`
+($index,2i) = 0 // error
+$array(,2i) = 0 // error
+$array($index,2i) = 0 // OK
+`

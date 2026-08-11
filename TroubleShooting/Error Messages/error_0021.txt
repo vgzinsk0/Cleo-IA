@@ -1,0 +1,11 @@
+Error Code: 0021
+Title: Incorrect variable name
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0021
+========================================================================
+
+The compiler expects an integer number for local variable names.
+Possible solutions: use a valid integer number that meets the local variables limit for this game:
+`
+var@s = 'test' // incorrect
+0@s = 'test' // correct
+`

@@ -1,0 +1,13 @@
+Error Code: 0018
+Title: Invalid array size
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0018
+========================================================================
+
+You did not specify the size of the array in the declaration, or provided an invalid value (for example, a string instead of a number).
+Possible solutions: use a valid integer value:
+`pascal
+var $coords: array of Float // incorrect, size is missing
+`
+`pascal
+var $coords: array 10 of Float // correct
+`

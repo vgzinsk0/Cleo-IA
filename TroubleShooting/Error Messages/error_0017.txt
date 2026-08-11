@@ -1,0 +1,7 @@
+Error Code: 0017
+Title: Unknown type of variable
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0017
+========================================================================
+
+The compiler can't recognize the type of a variable. In most cases, it happens as the variable is not declared, or is declared with another type.
+Possible solutions: give the variable a type using the var keyword

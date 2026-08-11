@@ -1,0 +1,11 @@
+Error Code: 0020
+Title: Variable is not declared as array
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0020
+========================================================================
+
+You're using a short array notation, but the array is not declared.
+Possible solutions: declare the array using the var keyword:
+`pascal
+var $items: array 10 of Int
+$var[0] = 0
+`

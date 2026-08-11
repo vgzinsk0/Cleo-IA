@@ -1,0 +1,7 @@
+Error Code: 0013
+Title: Unknown directive
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0013
+========================================================================
+
+The compiler finds an unknown or unexpected command. It can be some gibberish word at the start of a line where the compiler expects an opcode or a keyword.
+Possible solutions: edit the command in question, probably there is a typo.
