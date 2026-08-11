@@ -1,0 +1,26 @@
+# Player Body Parts
+
+```
+087B: set_player $PLAYER_CHAR texture "VEST" model "VEST" body_part <id>
+```
+
+| ID | Description                                                                     |
+| -- | ------------------------------------------------------------------------------- |
+| 0  | [Torso](/scm-documentation/sa/clothes.md#torso)                                 |
+| 1  | [Head](/scm-documentation/sa/haircuts.md)                                       |
+| 2  | [Legs](/scm-documentation/sa/clothes.md#legs)                                   |
+| 3  | [Shoes](/scm-documentation/sa/clothes.md#legs)                                  |
+| 4  | [Lower left arm](/scm-documentation/sa/tattoos.md#lower-left-arm)               |
+| 5  | [Upper left arm](/scm-documentation/sa/tattoos.md#upper-left-arm)               |
+| 6  | [Upper right arm](/scm-documentation/sa/tattoos.md#upper-right-arm)             |
+| 7  | [Lower right arm](/scm-documentation/sa/tattoos.md#lower-right-arm)             |
+| 8  | [Back top](/scm-documentation/sa/tattoos.md#back-top)                           |
+| 9  | [Left chest](/scm-documentation/sa/tattoos.md#left-chest)                       |
+| 10 | [Right chest](/scm-documentation/sa/tattoos.md#right-chest)                     |
+| 11 | [Stomach](/scm-documentation/sa/tattoos.md#stomach)                             |
+| 12 | [Lower back](/scm-documentation/sa/tattoos.md#lower-back)                       |
+| 13 | [Necklace](/scm-documentation/sa/clothes.md#necklaces)                          |
+| 14 | [Bracelet/Watch](/scm-documentation/sa/clothes.md#watches)                      |
+| 15 | [Glasses](/scm-documentation/sa/clothes.md#glasses)                             |
+| 16 | [Hats](/scm-documentation/sa/clothes.md#hats)                                   |
+| 17 | [Special clothes as Valet, Gimp suit](/scm-documentation/sa/clothes.md#special) |
