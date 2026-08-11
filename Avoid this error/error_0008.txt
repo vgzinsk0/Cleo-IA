@@ -1,0 +1,17 @@
+===========================================================================
+ERROR_0008: OPCODE NOT FOUND IN STANDARD EXTENSIONS (MISSING {$USE CLEO})
+===========================================================================
+
+1. MISSING EXTENSION DIRECTIVE:
+- Using CLEO-specific opcodes or keywords like 'is_key_pressed' (Opcode 0AB0) without enabling the CLEO extension set causes the compiler error: "Opcode 0AB0 is not found in the standard opcodes and current script extensions."
+- Sanny Builder 4 requires explicit extension registration when using custom CLEO features in SBL v1.1.
+
+2. CORRECT EXTENSION DECLARATION:
+- Always include both the file header directive '{$CLEO .cs}' and the extension loader '{$USE CLEO}' at the very top of your script.
+- Header Example:
+  {$CLEO .cs}
+  {$USE CLEO}
+  script_name 'MYMOD'
+
+3. REINFORCEMENT:
+- Before using keyboard checks, memory allocation, or custom CLEO opcodes (0AB0, 0AC6, 00BC, etc.), ensure '{$USE CLEO}' is declared at line 0002.

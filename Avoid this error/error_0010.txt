@@ -1,0 +1,23 @@
+===========================================================================
+ERROR_0010: DEBOUNCE FLAG UNHANDLED IN KEYPRESS CONDITIONAL LOOPS
+===========================================================================
+
+1. LOGICAL INFINITE TOGGLE LOOP ERROR:
+- Checking keypresses inside an infinite loop ('while true') without a debounce state variable (flag) causes the condition to execute repeatedly every frame (~60 times per second), flickering state toggles instantaneously.
+
+2. CORRECT DEBOUNCE LOGIC IMPLEMENTATION:
+- Maintain a local state variable (e.g., 6@: Int) to track whether the key is currently held down or released.
+- Example:
+  if is_key_pressed 45
+  then
+      if 6@ == 0
+      then
+          6@ = 1
+          // Toggle action here
+      end
+  else
+      6@ = 0
+  end
+
+3. REINFORCEMENT:
+- Every keypress detection logic MUST include state latching and unlatching in the 'else' block to prevent rapid multi-triggering.

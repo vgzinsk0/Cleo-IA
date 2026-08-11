@@ -1,0 +1,25 @@
+===========================================================================
+ERROR_0007: UNKNOWN DIRECTIVE ELSE (SBL v1.1 IF-THEN-ELSE SYNTAX)
+===========================================================================
+
+1. DIRECTIVE SYNTAX MISMATCH:
+- In Sanny Builder 4 using SBL v1.1 mode, writing an 'else' block without an explicit 'then' following the 'if' condition causes the compiler to throw "Diretiva desconhecida else" (Unknown directive else).
+- Legacy CLEO scripting allowed inline 'if' conditions directly preceding 'else', but SBL v1.1 enforces strict block structured syntax.
+
+2. CORRECT CONDITIONAL STRUCTURE:
+- Always pair every conditional 'if' statement with a 'then' directive on a new line before writing the conditional body or 'else' branch.
+- Example:
+  if is_key_pressed 45
+  then
+      if 6@ == 0
+      then
+          // Code block
+      else
+          // Code block
+      end
+  else
+      6@ = 0
+  end
+
+3. REINFORCEMENT:
+- Never place 'else' without ensuring the preceding 'if' block was opened with 'then' and properly structured with 'end'.

@@ -1,0 +1,18 @@
+===========================================================================
+ERROR_0011: LOCAL VARIABLE DECLARATION AND SCOPE MISMATCH IN SBL v1.1
+===========================================================================
+
+1. UNTYPED OR UNDECLARED LOCAL VARIABLE USAGE:
+- Using local variables (e.g., 0@, 1@, 6@) without explicit variable declaration in the 'var ... end' block can lead to type mismatch or compiler warnings in SBL v1.1 mode.
+
+2. CORRECT VARIABLE DECLARATION BLOCK:
+- Declare all local variables at the beginning of the script specifying their types (Int, Float, etc.) and purpose.
+- Example:
+  var
+      0@ : Int // Status flag (1 = ON, 0 = OFF)
+      1@ : Int // CPed Pointer
+      6@ : Int // Keypress Debounce Flag
+  end
+
+3. REINFORCEMENT:
+- Ensure all local variables used in logic branches are pre-declared in the 'var' section to guarantee strict type safety in Sanny Builder 4.
