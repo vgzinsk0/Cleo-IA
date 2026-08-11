@@ -1,0 +1,7 @@
+Error Code: 0002
+Title: Unknown array type
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0002
+========================================================================
+
+The disassembler can't recognize the type of an array in a script file. It may happen because of wrong compilation.
+Possible solutions: enable the IGNORE_UNKNOWN debug option.

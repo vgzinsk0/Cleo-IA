@@ -1,0 +1,7 @@
+Error Code: 0010
+Title: Unknown opcode
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0010
+========================================================================
+
+The compiler finds an opcode that has not been defined in the INI file.
+Possible solutions: update the code to use the known opcode. If you're sure this opcode exists, update opcode definitions or use the $OPCODE directive to let the compiler know how to compile it.

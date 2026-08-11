@@ -1,0 +1,7 @@
+Error Code: 0004
+Title: Unknown parameter type
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0004
+========================================================================
+
+The disassembler can't recognize the type of an opcode parameter. It may happen if the file was compiled with errors or protected, or the number of parameters for this opcode in the script does not match the current configuration.
+Possible solutions: enable the IGNORE_UNKNOWN debug option.

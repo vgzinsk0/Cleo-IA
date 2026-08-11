@@ -1,0 +1,7 @@
+Error Code: 0009
+Title: Opcodes list not found
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0009
+========================================================================
+
+Disassembler or compiler can't work without opcodes definitions (see 0001).
+Possible solutions: check if the file set in the edit mode configuration exists.

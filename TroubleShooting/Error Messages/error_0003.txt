@@ -1,0 +1,7 @@
+Error Code: 0003
+Title: Error reading script.img
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0003
+========================================================================
+
+The script.img archive accompanying the main.scm file is broken or has unknown format. It may happen if this archive was compiled with a different main.scm file. Check if both files were compiled at the same time.
+Possible solutions: replace the script.img with the correct file.

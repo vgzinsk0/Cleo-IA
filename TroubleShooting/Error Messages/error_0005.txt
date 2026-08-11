@@ -1,0 +1,7 @@
+Error Code: 0005
+Title: Invalid edit mode
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0005
+========================================================================
+
+The disassembler is given a script in the GTA 3 or Vice City format while the current edit mode is GTA SA.
+Possible solutions: change the edit mode to the correct one.
