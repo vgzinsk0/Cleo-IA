@@ -1,0 +1,62 @@
+# Weapon IDs
+
+```
+01B2: give_actor $PLAYER_ACTOR weapon <id> ammo 60 
+```
+
+| ID                  | Group | Name                | Model ID | Model Name     | Icon                                                                |
+| ------------------- | ----- | ------------------- | -------- | -------------- | ------------------------------------------------------------------- |
+| 10                  | 11    | Purple Dildo        | 321      | #gun\_dildo1   | <img src="/files/-MCUknr7iHgWGLVqwpcl" alt="" data-size="original"> |
+| 11                  | 11    | White Dildo         | 322      | #gun\_dildo2   | <img src="/files/-MCUlIIQbes5u5r63rak" alt="" data-size="original"> |
+| 12                  | 11    | Long White Dildo    | 323      | #gun\_vibe1    | <img src="/files/-MCUlN_OvwGBZxbe6bd0" alt="" data-size="original"> |
+| 13                  | 11    | White Dildo 2       | 324      | #gun\_vibe2    | <img src="/files/-MCUlPR-ESJeP5X71kii" alt="" data-size="original"> |
+| 14                  | 11    | Flowers             | 325      | #flowera       | <img src="/files/-MCUlSD2Wp5qC7DkmGOR" alt="" data-size="original"> |
+| 15                  | 11    | Cane                | 326      | #gun\_cane     | <img src="/files/-MCUlbAkrdUjbpvyjJnL" alt="" data-size="original"> |
+| **Melee**           |       |                     |          |                |                                                                     |
+| 0                   | 1     | Unarmed             |          |                | <img src="/files/-MCUlog41eChCkM75Jd3" alt="" data-size="original"> |
+| 1                   | 1     | Brass Knuckles      | 331      | #brassknuckle  | <img src="/files/-MCUm1D6WlBuGz2MOzkh" alt="" data-size="original"> |
+| 2                   | 2     | Golf Club           | 333      | #golfclub      | <img src="/files/-MCUm3jFTziFIQ7VKLq9" alt="" data-size="original"> |
+| 3                   | 2     | Night Stick         | 334      | #nitestick     | <img src="/files/-MCUm6Yna51VvYaG13XB" alt="" data-size="original"> |
+| 4                   | 2     | Knife               | 335      | #knifecur      | <img src="/files/-MCUm8VHOpJTYd_q_4-R" alt="" data-size="original"> |
+| 5                   | 2     | Baseball Bat        | 336      | #bat           | <img src="/files/-MCUmARH-uArfoX0WSeH" alt="" data-size="original"> |
+| 6                   | 2     | Shovel              | 337      | #shovel        | <img src="/files/-MCUmCv5NsjRWtu2nsc2" alt="" data-size="original"> |
+| 7                   | 2     | Pool cue            | 338      | #poolcue       | <img src="/files/-MCUmFS1sSjcxTBqdy7O" alt="" data-size="original"> |
+| 8                   | 2     | Katana              | 339      | #katana        | <img src="/files/-MCUmHIk2sMAG-7wTyBV" alt="" data-size="original"> |
+| 9                   | 2     | Chainsaw            | 341      | #chnsaw        | <img src="/files/-MCUmJ6jTrRqQorSSADh" alt="" data-size="original"> |
+| **Projectiles**     |       |                     |          |                |                                                                     |
+| 16                  | 9     | Grenades            | 342      | #grenade       | <img src="/files/-MCUmR77md1KTrMZT8Rp" alt="" data-size="original"> |
+| 17                  | 9     | Tear Gas            | 343      | #teargas       | <img src="/files/-MCUmUB7NZDJ1lMDigen" alt="" data-size="original"> |
+| 18                  | 9     | Molotovs            | 344      | #molotov       | <img src="/files/-MCUmWzz_lbBpniZ3tbE" alt="" data-size="original"> |
+| **Handguns**        |       |                     |          |                |                                                                     |
+| 22                  | 3     | Pistol              | 346      | #colt45        | <img src="/files/-MCUma9QgEEqzxnJB3DU" alt="" data-size="original"> |
+| 23                  | 3     | Silenced Pistol     | 347      | #silenced      | <img src="/files/-MCUmcgcQYKpOLQ0Ab1J" alt="" data-size="original"> |
+| 24                  | 3     | Desert Eagle        | 348      | #desert\_eagle | <img src="/files/-MCUmeSu5RxSyvFKoVau" alt="" data-size="original"> |
+| **Shotguns**        |       |                     |          |                |                                                                     |
+| 25                  | 4     | Shotgun             | 349      | #chromegun     | <img src="/files/-MCUmgpurWw9diGkk9xY" alt="" data-size="original"> |
+| 26                  | 4     | Sawn Off Shotgun    | 350      | #sawnoff       | <img src="/files/-MCUmj04MeG1XPlDXz8J" alt="" data-size="original"> |
+| 27                  | 4     | Combat Shotgun      | 351      | #shotgspa      | <img src="/files/-MCUml8qFfXr2YALvNlt" alt="" data-size="original"> |
+| **Sub-Machineguns** |       |                     |          |                |                                                                     |
+| 28                  | 5     | Micro Uzi (Mac 10)  | 352      | #micro\_uzi    | <img src="/files/-MCUmnRDqWMWwiDPKcMq" alt="" data-size="original"> |
+| 29                  | 5     | MP5                 | 353      | #mp5lng        | <img src="/files/-MCUmstisUsHrfAdQXlN" alt="" data-size="original"> |
+| 32                  | 5     | Tec9                | 372      | #tec9          | <img src="/files/-MCUmus3mLcYCYHgpQK-" alt="" data-size="original"> |
+| **Machineguns**     |       |                     |          |                |                                                                     |
+| 30                  | 6     | AK47                | 355      | #ak47          | <img src="/files/-MCUmwrPnt_aeLXKAGv-" alt="" data-size="original"> |
+| 31                  | 6     | M4                  | 356      | #m4            | <img src="/files/-MCUmyg9ruMZnCXE93I9" alt="" data-size="original"> |
+| **Rifles**          |       |                     |          |                |                                                                     |
+| 33                  | 7     | Rifle               | 357      | #cuntgun       | <img src="/files/-MCUn1-5DQcNAQnr4GNN" alt="" data-size="original"> |
+| 34                  | 7     | Sniper Rifle        | 358      | #sniper        | <img src="/files/-MCUn2qbO6CquSHxg5wu" alt="" data-size="original"> |
+| **Specials**        |       |                     |          |                |                                                                     |
+| 35                  | 8     | RPG                 | 359      | #rocketla      | <img src="/files/-MCUn6Jn78hFsow5trzY" alt="" data-size="original"> |
+| 36                  | 8     | Missile Launcher    | 360      | #heatseek      | <img src="/files/-MCUnGlb2kxdGX6cjMIE" alt="" data-size="original"> |
+| 37                  | 8     | Flame Thrower       | 361      | #flame         | <img src="/files/-MCUnJRpT25LwiepYnqL" alt="" data-size="original"> |
+| 38                  | 8     | Minigun             | 362      | #minigun       | <img src="/files/-MCUnLQv-7ejw3mW8Vcp" alt="" data-size="original"> |
+| 39                  | 9     | Sachet Charges      | 363      | #satchel       | <img src="/files/-MCUnO5vbpMDrvMVCfaX" alt="" data-size="original"> |
+| 40                  | 13    | Detonator           | 364      | #bomb          | <img src="/files/-MCUnSMw-qNlmdRrI9UP" alt="" data-size="original"> |
+| 41                  | 10    | Spray Paint         | 365      | #spraycan      | <img src="/files/-MCUnUk6R9VUwD9TsCh8" alt="" data-size="original"> |
+| 42                  | 10    | Fire Extinguisher   | 366      | #fire\_ex      | <img src="/files/-MCUnWeL6b0Ql6-lfW9v" alt="" data-size="original"> |
+| 43                  | 10    | Camera              | 367      | #camera        | <img src="/files/-MCUnYI4oH4QuBOKErHa" alt="" data-size="original"> |
+| 44                  | 12    | Nightvision Goggles | 368      | #nvgoggles     | <img src="/files/-MCUnsQXFnvabRTBPsDN" alt="" data-size="original"> |
+| 45                  | 12    | Thermal Goggles     | 369      | #irgoggles     | <img src="/files/-MCUnsQXFnvabRTBPsDN" alt="" data-size="original"> |
+| 46                  | 12    | Parachute           | 371      | #gun\_para     | <img src="/files/-MCUo39oiZ2CYd4I384Z" alt="" data-size="original"> |
+| **Other**           |       |                     |          |                |                                                                     |
+|                     |       | jetpack             | 370      | #jetpack       | <img src="/files/-MCUo6GBSjcYS4iPuwJM" alt="" data-size="original"> |
