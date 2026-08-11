@@ -1,0 +1,187 @@
+# CLEO 5+ Common Errors and Solutions (v5.0 - v5.4.0)
+
+This document catalogs critical errors, incompatibilities, and bugs specific to CLEO 5+ and Sanny Builder 4, along with definitive solutions.
+
+---
+
+## 1. Null Pointer Error (Invalid pointer '0x0' / SET_LVAR_INT)
+
+### Problem Description
+When using legacy opcodes like `0A8D` (read_memory) or `0A8C` (write_memory) with large hexadecimal addresses, the CLEO 5+ compiler may corrupt the pointer value, resulting in:
+- Runtime error: `SET_LVAR_INT` corruption
+- Invalid memory access at address `0x0`
+- Immediate game crash or undefined behavior
+
+### Root Cause
+Legacy opcodes were designed for older CLEO versions and do not properly handle 32-bit address space in CLEO 5+. The compiler truncates or misinterprets large hex values, producing null or invalid pointers.
+
+### Definitive Solution
+**NEVER use opcodes 0A8D/0A8C in CLEO 5+.** Replace them with native inline memory operations:
+
+**WRONG (Legacy - Causes Crash):**
+```cleo
+0A8D: read_memory 0xB7CE28 size 4 store_to 0@
+0A8C: write_memory 0xB7CE28 size 4 value 50000
+```
+
+**CORRECT (CLEO 5+ Native):**
+```cleo
+current_money = read_memory 0xB7CE28 size 4 virtual_protect 0
+write_memory 0xB7CE28 size 4 value 50000 virtual_protect 0
+```
+
+### Prevention
+- Audit all scripts for legacy memory opcodes
+- Use Sanny Builder 4's syntax highlighting to identify deprecated opcodes
+- Test memory operations in isolated environments before deployment
+
+---
+
+## 2. Invalid Jump Loops (JF Error / Loop Crash)
+
+### Problem Description
+Using `jump` or `goto` statements inside structured conditional blocks (`if/then/end`, `while/do/end`) causes:
+- Logic frame corruption
+- Watchdog timeout trigger (`DebugUtils.Limits.Time` in cleo.ini)
+- Game freeze for 2-5 seconds followed by crash
+- Error message: "Script has stopped working"
+
+### Root Cause
+CLEO 5+ uses a structured execution model where conditional blocks maintain internal state. Jumping out of these blocks bypasses cleanup routines, leaving the script engine in an inconsistent state. The watchdog detects the stalled execution and terminates the script forcefully.
+
+### Definitive Solution
+**NEVER use jump/goto to exit structured blocks.** Use proper control flow:
+
+**WRONG (Causes Watchdog Crash):**
+```cleo
+if condition
+    jf @skip
+    // code
+    jump @loop_start  // DANGEROUS: Exits if-block improperly
+end
+```
+
+**CORRECT (Structured Flow):**
+```cleo
+while true
+    wait 0
+    if condition
+        // code
+        continue  // Properly continues loop without breaking structure
+    end
+    // additional code
+end
+```
+
+### Best Practices
+- Use `break` to exit loops early
+- Use `continue` to skip iterations
+- Use boolean flags for complex flow control
+- Keep all jumps within the same structural scope
+
+---
+
+## 3. Sanny Builder 4 Syntax Matching Restrictions
+
+### Problem Description
+Scripts written with legacy syntax from GTA III/Vice City era fail to compile or behave incorrectly in Sanny Builder 4 due to stricter parsing rules:
+
+Common failures:
+- Mismatched quote types in strings
+- Incorrect opcode parameter counts
+- Missing type declarations
+- Deprecated thread syntax (`thread 'NAME'` vs `script_name 'NAME'`)
+
+### Root Cause
+Sanny Builder 4 enforces strict syntax matching aligned with CLEO 5+ architecture. Legacy scripts often rely on implicit type conversions and relaxed formatting that are no longer supported.
+
+### Definitive Solutions
+
+#### A. Thread Declaration
+**WRONG (Legacy - Causes Error 0013):**
+```cleo
+thread "MYSCRIPT"
+```
+
+**CORRECT (CLEO 5+):**
+```cleo
+{$CLEO .cs}
+script_name 'MYSCRPT'
+```
+
+#### B. String Literals
+**WRONG (Mixed quotes cause compilation failure):**
+```cleo
+print_big 'MESSAGE time 5000 flag 1  // Missing closing quote
+print_string "Debug message time 1000 flag 1  // Wrong quote type for short string
+```
+
+**CORRECT:**
+```cleo
+print_big 'MSG' time 5000 flag 1
+print_string "This is a long debug message" time 1000 flag 1
+```
+
+#### C. Opcode Parameters
+**WRONG (Missing or extra parameters):**
+```cleo
+0001: wait  // Missing time parameter
+0002: jump 0@ 1@  // Extra parameter
+```
+
+**CORRECT:**
+```cleo
+wait 0
+jump @label
+```
+
+### Migration Checklist
+1. Replace all `thread` declarations with `script_name`
+2. Audit string literals for correct quote usage
+3. Verify opcode parameter counts against CLEO 5+ documentation
+4. Remove all legacy memory opcodes (0A8D/0A8C)
+5. Replace unstructured jumps with proper control flow
+6. Test each script individually before bundling
+
+---
+
+## 4. Additional Known Issues
+
+### Model Request Without Wait
+**Problem:** Requesting models without proper loading checks causes crashes.
+**Solution:** Always use:
+```cleo
+request_model #MODEL
+while not has_model_loaded #MODEL
+    wait 0
+end
+// Use model
+mark_model_as_no_longer_needed #MODEL
+```
+
+### Variable Limit Exceeded
+**Problem:** Using more than 32 local variables causes undefined behavior.
+**Solution:** Reuse variables, use arrays, or offload data to external storage.
+
+### Plugin Version Mismatch
+**Problem:** Scripts compiled for CLEO 5.0 may fail on 5.4+ due to API changes.
+**Solution:** Always specify version directive:
+```cleo
+{$VERSION CLEO_5.4}
+```
+
+---
+
+## Summary: What NOT to Do in CLEO 5+
+
+| ❌ NEVER DO THIS | ✅ DO THIS INSTEAD |
+|-----------------|-------------------|
+| `thread "NAME"` | `script_name 'NAME'` |
+| `0A8D/0A8C` opcodes | `read_memory`/`write_memory` inline |
+| `jump` inside `if/while` blocks | `break`/`continue`/boolean flags |
+| Mixed quote types in strings | Single quotes for short, double for long |
+| Model requests without wait loops | Always check `has_model_loaded` |
+| More than 32 local variables | Reuse variables or use arrays |
+| No version directive | `{$VERSION CLEO_5.4}` |
+
+Following these guidelines ensures stable, crash-free scripts compatible with CLEO 5.0 through 5.4.0 and beyond.

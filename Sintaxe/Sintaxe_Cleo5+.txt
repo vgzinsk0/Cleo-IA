@@ -1,0 +1,119 @@
+# CLEO 5+ Advanced Syntax Reference (v5.0 - v5.4.0)
+
+## 1. Virtual Modules and Imports/Exports
+
+CLEO 5 introduces a modular architecture allowing scripts to share functions and data seamlessly.
+
+### Module Declaration
+Use the `{$CLEO .mod}` directive to mark a file as a module rather than a standalone script:
+```cleo
+{$CLEO .mod}
+```
+
+### Importing Functions
+To use functions from another module or plugin:
+```cleo
+import function_name from "module_name"
+// Example:
+import GetPlayerMoney from "utils.mod"
+```
+
+### Exporting Functions
+To make a function available to other scripts:
+```cleo
+export function FunctionName(param1, param2): return_type
+    // function body
+end
+```
+
+Modules enable code reuse and cleaner architecture by separating logic into dedicated files.
+
+---
+
+## 2. Modern String Handling
+
+CLEO 5+ enforces strict string literal syntax for clarity and memory safety.
+
+### Short Strings (15 characters max)
+Use **single quotes** for short strings, typically for GXT entries or brief labels:
+```cleo
+'LABEL'     // Up to 7-8 chars for GXT
+'SHORTTXT'  // Max ~15 chars
+```
+
+### Long Strings (Debug/Extended Text)
+Use **double quotes** for longer strings, debug messages, or file paths:
+```cleo
+"This is a long debug message that exceeds the short string limit"
+"C:\Games\GTA San Andreas\cleo\config.ini"
+```
+
+**Important:** Mixing quote types incorrectly will cause compilation errors in Sanny Builder 4.
+
+---
+
+## 3. Advanced C++ Plugin Compatibility
+
+CLEO 5+ scripts interact natively with compiled C++ plugins placed in the `cleo_plugins` folder.
+
+### Native Plugin Integration
+Plugins registered in `cleo_plugins` expose functions that can be called directly:
+```cleo
+// Assuming a plugin exposes MemoryOperations
+write_memory 0x123456 size 4 value 0xABCD virtual_protect 0
+```
+
+### No Legacy Opcodes Required
+Modern plugins eliminate the need for unstable opcodes like `0A8D`/`0A8C`. All memory operations are handled through clean, typed commands.
+
+### Automatic Loading
+Plugins with `.cleo` extension in `cleo_plugins` are auto-loaded at game startup. Scripts can immediately use their exposed APIs without additional initialization.
+
+---
+
+## 4. Inline Memory Operations
+
+CLEO 5+ provides native inline syntax for direct memory access, replacing legacy opcodes entirely.
+
+### Reading Memory
+```cleo
+variable = read_memory 0xADDRESS size 4 virtual_protect 0
+// Example:
+current_money = read_memory 0xB7CE28 size 4 virtual_protect 0
+```
+
+### Writing Memory
+```cleo
+write_memory 0xADDRESS size 4 value 0xVALUE virtual_protect 0
+// Example:
+write_memory 0xB7CE28 size 4 value 50000 virtual_protect 0
+```
+
+### Parameters Explained
+- `size`: Number of bytes to read/write (1, 2, 4, etc.)
+- `virtual_protect`: Set to `1` to temporarily change memory protection (use cautiously), `0` for standard access
+
+### Advantages Over Legacy Opcodes
+- No pointer corruption risks
+- Cleaner syntax
+- Better compiler optimization
+- Full compatibility with CLEO 5+ memory manager
+
+---
+
+## 5. Additional CLEO 5+ Features
+
+### Conditional Compilation
+```cleo
+{$VERSION CLEO_5.4}
+{$STRICT ON}
+```
+
+### Enhanced Debugging
+Use `print_string` with double-quoted strings for detailed runtime diagnostics:
+```cleo
+print_string "Debug: Model loaded successfully" time 1000 flag 1
+```
+
+### Thread-Safe Operations
+All native CLEO 5+ commands are thread-safe by default, enabling complex multi-script interactions without race conditions.
