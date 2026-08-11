@@ -1,0 +1,21 @@
+===========================================================================
+ERROR_0016: INCORRECT CWEAPON ARRAY POINTER DEREFERENCING IN CPED STRUCT
+===========================================================================
+
+1. STRUCT LAYOUT MISUNDERSTANDING:
+- In GTA San Andreas (v1.0 US), the 'CWeapon' array (13 slots, 28 bytes each) is embedded DIRECTLY inside the 'CPed' structure starting at offset 0x5A0.
+- Executing 'read_memory (CPed + 0x5A0)' treats the first 4 bytes of weapon slot 0 as a memory pointer, causing a dereference error (invalid memory address or returning 0).
+
+2. INCORRECT PATTERN:
+  // WRONG: Reading offset 0x5A0 as if it were a pointer address to an array
+  9@ = 1@ + 0x5A0
+  3@ = read_memory 9@ size 4 virtual_protect 0 // FAILS!
+
+3. CORRECT PATTERN:
+  // CORRECT: Calculate offset directly from CPed base pointer (1@)
+  9@ = 2@ * 28            // Slot index * 28 bytes
+  4@ = 1@ + 0x5A0         // Direct start of CWeapon array inside CPed
+  4@ += 9@                // Target CWeapon slot address
+
+4. REINFORCEMENT FOR AI GENERATION:
+- NEVER perform 'read_memory' on CPed + 0x5A0 to find the CWeapon array address. The offset 0x5A0 IS the physical start of the array inside the CPed memory block.
