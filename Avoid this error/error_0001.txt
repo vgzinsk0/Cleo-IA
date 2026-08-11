@@ -1,5 +1,5 @@
 ===========================================================================
-STRICT SYNTAX RULES FOR THREADS AND LOCAL VARIABLES (SANNY BUILDER 4 / CLEO 5)
+STRICT SYNTAX RULES FOR THREADS (SANNY BUILDER 4 / CLEO 5)
 ===========================================================================
 
 1. THREAD INITIALIZATION AND DECLARATION:
