@@ -1,0 +1,1524 @@
+================================================================================
+  GTA SAN ANDREAS v1.0 US (GTA_SA.EXE) - MEMORY ADDRESSES / OFFSETS
+  Fonte: GTAMods Wiki - https://gtamods.com/wiki/Memory_Addresses_(SA)
+  Compilado por: Manus AI
+================================================================================
+
+NOTA IMPORTANTE: Todos os offsets abaixo foram confirmados para o GTA San
+Andreas (GTA_SA.EXE) versao 1.0 US. Este arquivo NAO contem enderecos de
+funcoes (para isso, ver "Function Memory Addresses (SA)").
+
+ATENCAO: Nenhum endereco abaixo funciona no GTA: San Andreas v2.0 ou v3.0
+(Steam). Todos os enderecos da v2.0 em diante foram alterados ou movidos.
+
+FORMATO DAS LINHAS:
+  [Endereco de Memoria] - [Tipo de Dado/Tamanho] - [Descricao Detalhada]
+
+================================================================================
+[BASE MEMORY] - Sem Categoria Definida (No category yet)
+================================================================================
+
+0xB7CE50 - [dword] - Dinheiro do Jogador (Money)
+0xBAA420 - [byte] - Nivel de Procurado (Wanted Level)
+0x8CDEE4 - [dword] - Nivel de procurado maximo (Max wanted level)
+0x8D5104 - [byte] - Nivel de desfoque atual (Current blur level)
+0x8CB7A5 - [byte] - ID da Estacao de Radio atual (Current Radiostation-ID)
+0xB700F0 - [dword] - ID do carro atual (do vehicles.ide) - nao funciona para motos/bicicletas
+0xB7CB49 - [byte] - Congelamento do jogo como quando esta no menu:
+    Valores: 0 = normal / 1 = tudo para (everything stops)
+0xB7CB49 - [byte] - Exibicao do menu (Menu show):
+    Valores: 0 = sair / 1 = mostrar
+0x863984 - [float] - Gravidade (valor padrao: 1.0f/125.0f = 0.008f)
+0xB7CB64 - [float] - Velocidade do jogo em percentual (Game speed in percent)
+0xB7CEE4 - [byte/boolean] - Corrida infinita ativa (Is infinite run)
+0xB7CEE6 - [byte/boolean] - Jogador a prova de fogo (Is player fireproof)
+0x96C009 - [byte/boolean] - Pay n' Spray gratuito (Is paynspray free)
+0xA444A4 - [byte/boolean] - Radar esmaecido/cinza (Is radar greyed out)
+0x8D2530 - [float] - Multiplicador de densidade de pedestres (Pedestrian density multiplier)
+0x8A5B20 - [float] - Multiplicador de densidade de veiculos (Vehicle density multiplier)
+0xB6F065 - [byte/boolean] - Widescreen (a visao exibida durante cutscenes, nao a opcao de display)
+0xA4A948 - [dword] - Pontuacao do desafio de Lowrider (Lowrider Challenge score)
+0xA4EC20 - [dword] - Pontuacao do minigame de Danca (Dancing minigame score)
+0xB790B8 - [byte] - Numero de fotografias tiradas (4 bytes)
+0xA9AD74 - [byte] - Numero de Tags (sprays) pintados (4 bytes)
+0xB791E4 - [byte] - Numero de Ferraduras (Horseshoes number, 4 bytes)
+0xB791EC - [byte] - Numero de Ostras (Oysters number, 4 bytes)
+
+NOTA: Para os numeros acima, se voce altera-los para a quantidade maxima, aparece
+uma mensagem pop-up e voce ganha um bonus (como armas nos savehouses do CJ).
+
+0x716642 - [float] - Alterar nuvens solidas (Change solid clouds)
+0x716655 - [float] - Desabilitar nuvens solidas (Disable solid clouds)
+
+NOTA: Ambos os valores tem padrao de 200. Se voce alterar um deles para 100.000,
+voce tera poucas nuvens, um efeito muito mais bonito. Se alterar ambos para
+100.000, voce nunca vera nuvens.
+
+0xB79078 - [byte] - Pessoas deixadas de taxi (numero usado para as estatisticas, 4 bytes)
+0xA49C30 - [byte] - Pessoas deixadas de taxi (numero usado para dar sua recompensa, 4 bytes)
+0xB79040 - [byte] - Numero de visitas a Safehouses (4 bytes)
+0xA49EFC - [dword] - Progresso da Denise
+0xB79210 - [dword] - Progresso da Denise (exibido na tela de estatisticas)
+0xA49F00 - [dword] - Progresso da Michelle
+0xB79214 - [dword] - Progresso da Michelle (exibido na tela de estatisticas)
+0xA49F04 - [dword] - Progresso da Helena
+0xB79218 - [dword] - Progresso da Helena (exibido na tela de estatisticas)
+0xA49F08 - [dword] - Progresso da Barbara
+0xB7921C - [dword] - Progresso da Barbara (exibido na tela de estatisticas)
+0xA49F0C - [dword] - Progresso da Katie
+0xB79220 - [dword] - Progresso da Katie (exibido na tela de estatisticas)
+0xA49F10 - [dword] - Progresso da Millie
+0xB79224 - [dword] - Progresso da Millie (exibido na tela de estatisticas)
+
+NOTA: Estes doze enderecos acima estao dentro do bloco SCM, e sao validos apenas
+para o SCM original. Definir um valor de 100 (ou seja, 100%) concede todos os
+presentes daquela namorada (chaves do carro, guarda-roupa etc.). Recomenda-se
+definir os mesmos valores para os pares de enderecos para que os dados sejam
+exibidos corretamente. Caso contrario, voce pode obter exibicao sem progresso
+ou progresso sem exibicao.
+
+0xB79108 - [dword] - Numero de garotas namoradas (Number of girls dated)
+0xB79100 - [dword] - Numero atual de namoradas (Current number of girlfriends)
+0xB79104 - [dword] - Numero de encontros desastrosos (Number of disastrous dates)
+0xB79110 - [dword] - Numero de encontros bem-sucedidos (Number of successful dates)
+0xB79060 - [dword] - Numero de Unique Jumps encontrados
+0xB79064 - [dword] - Numero de Unique Jumps realizados
+0xBA6774 - [dword] - Alvo no mapa (Map target):
+    Valores: 0 = desabilitado / 1 = habilitado
+0x86329C - [ptr] - Lista de nomes de comandos validos (List of valid command names)
+0xC17054 - [ptr] - Ponteiro para o handle da janela principal do jogo (normalmente 0xC8CF88, pois o ponteiro e estatico)
+0xBA3798 - [ptr] - Inicio da estrutura ZoneInfo (Beginning of ZoneInfo structure)
+0xBA1DF0 - [ptr] - Inicio da estrutura ZonePop (Beginning of ZonePop structure)
+0xA94B68 - [ptr] - Array de ponteiros para RwTexture, correspondente ao opcode 038F
+0xA444A0 - [byte] - HUD habilitado por opcode 0826 (Is HUD enabled):
+    Valores: 0 = desabilitado / 1 = habilitado
+0x969110 - [char(30)] - Buffer dos ultimos 30 caracteres digitados (chars anteriores ficam nos proximos bytes)
+0xBAA7A0 - [char(150)] - Caixa de texto (box superior-esquerdo). NOTA: Escrever uma string mostrara uma caixa de mensagem com duracao de 1-2 segundos
+
+================================================================================
+[TIME / TIMERS]
+================================================================================
+
+0xB70158 - [dword] - Timer relacionado ao clima e ao tempo, em ms
+0xB610E0 - [dword] - Timer global em ms (somente leitura / read only)
+0xB7CB84 - [dword] - Timer global em ms (enquanto nao estiver no menu, leitura/escrita)
+0xA5153C - [dword] - Timer de missao de um numero ate 0 (4 bytes)
+0xB7015C - [dword] - Define quantos ms compoe 1 segundo (padrao 1000; defina 1 para "dor de cabeca"; numero de ms por segundo)
+0xB7014E - [byte] - Dia da semana atual (1 a 7)
+0xB79038 - [dword] - Quantos dias ja se passaram no jogo
+0xB70153 - [byte] - Hora atual (Current Hour)
+0xB70152 - [byte] - Minuto atual (Current Minute)
+0xA49D54 - [dword] - Timer para missoes de dirigir/voar (em ms)
+0xA51974 - [dword] - Timer para missoes de barco/moto (em ms)
+0xA5197C - [dword] - Timer para missoes de motorista de taxi (em ms)
+0xA51980 - [dword] - Timer da barra de gorjetas para missoes de taxi (em segundos)
+0xA519A8 - [dword] - Timer para missoes de paramedico (em ms)
+0xA519BC - [dword] - Timer para missoes de bombeiro (em ms)
+0xA519D8 - [dword] - Timer para missoes de vigilantismo (em ms)
+0xA51A3C - [dword] - Timer para a corrida Bloodring
+
+================================================================================
+[DIRECTX / RENDERING]
+================================================================================
+
+0xC97C1C - [ptr] - Copia do handle da janela usada para inicializar o dispositivo DirectX
+0xC97C20 - [ptr] - Ponteiro para a interface IDirect3D9
+0xC97C28 - [ptr] - Ponteiro para a interface IDirect3DDevice9
+0xC9C040 - [ptr] - Instancia global da estrutura D3DPRESENT_PARAMETERS
+
+================================================================================
+[STATS]
+================================================================================
+
+0xB790B4 - [dword] - Energia (Energy)
+0xB791A4 - [dword] - Capacidade pulmonar (Lung capacity)
+0xB793D4 - [float] - Gordura (Fat)
+0xB793D8 - [float] - Stamina
+0xB793DC - [float] - Musculo (Muscle)
+0xB793E0 - [float] - Saude (Health)
+0xB793E4 - [float] - Atracao/Charisma (Sex Appeal)
+0xB79480 - [float] - Respeito (Respect)
+0xB79494 - [float] - Pistola (Pistol)
+0xB79498 - [float] - Pistola silenciada (Silenced pistol)
+0xB7949C - [float] - Desert Eagle
+0xB794A0 - [float] - Shotgun
+0xB794A4 - [float] - Sawn-off shotgun
+0xB794A8 - [float] - Combat shotgun
+0xB794AC - [float] - Machine Pistol
+0xB794B0 - [float] - SMG
+0xB794B4 - [float] - AK47
+0xB794B8 - [float] - M4
+0xB794BC - [float] - Rifle
+
+================================================================================
+[SKILLS]
+================================================================================
+
+0xB790A0 - [dword] - Habilidade de Dirigir (Driving)
+0xB7919C - [dword] - Habilidade de Voo (Flying)
+0xB791B4 - [dword] - Habilidade de Motos (Bike)
+0xB791B8 - [dword] - Habilidade de Ciclismo (Cycling)
+0xB791C4 - [dword] - Sorte no jogo/apostas (Luck at gambling)
+0xB794C4 - [float] - Habilidade de Jogo de Azar (Gambling)
+
+================================================================================
+[HTML STATS FILE]
+================================================================================
+
+0x8663A0 - [char*] - Nome do arquivo de estatisticas (Default: 'stats.html')
+0x86636C - [char*] - Titulo do arquivo de estatisticas (Default: '<title>Grand Theft Auto San Andreas Stats</title>')
+
+================================================================================
+[CHEATS]
+================================================================================
+
+NOTA: Todos os enderecos abaixo sao [byte] e podem ser ativados (1) ou desativados (0).
+
+0x969130 - [byte] - Cheat: Weapon Set 1
+0x969131 - [byte] - Cheat: Weapon Set 2
+0x969132 - [byte] - Cheat: Weapon Set 3
+0x969133 - [byte] - Cheat: Saude + Colete + 250K (Health+Armor+250K)
+0x969134 - [byte] - Cheat: Aumentar nivel de procurado em 2 estrelas
+0x969135 - [byte] - Cheat: Limpar nivel de procurado
+0x969136 - [byte] - Cheat: Clima Ensolarado (Sunny Weather)
+0x969137 - [byte] - Cheat: Clima Muito Ensolarado (Very Sunny Weather)
+0x969138 - [byte] - Cheat: Clima Nublado (Overcast Weather)
+0x969139 - [byte] - Cheat: Clima Chuvoso (Rainy Weather)
+0x96913A - [byte] - Cheat: Clima Nevoento (Foggy Weather)
+0x96913B - [byte] - Cheat: Relogio Mais Rapido (Faster Clock)
+0x96913C - [byte] - Cheat: Gameplay Mais Rapido (Faster Gameplay)
+0x96913D - [byte] - Cheat: Gameplay Mais Lento (Slower Gameplay)
+0x96913E - [byte] - Cheat: Peds atacam uns aos outros com tacos de golfe
+0x96913F - [byte] - Cheat: Recompensa na cabeca (Have Bounty on Head)
+0x969140 - [byte] - Cheat: Todos armados (Everyone is Armed)
+0x969141 - [byte] - Cheat: Spawnar Rhino (NAO TESTADO)
+0x969142 - [byte] - Cheat: Spawnar Bloodring Banger (NAO TESTADO)
+0x969143 - [byte] - Cheat: Spawnar Rancher (NAO TESTADO)
+0x969144 - [byte] - Cheat: Spawnar Racecar A (NAO TESTADO)
+0x969145 - [byte] - Cheat: Spawnar Racecar B (NAO TESTADO)
+0x969146 - [byte] - Cheat: Spawnar Romero (NAO TESTADO)
+0x969147 - [byte] - Cheat: Spawnar Stretch (NAO TESTADO)
+0x96914A - [byte] - Cheat: Explodir todos os carros
+0x96914B - [byte] - Cheat: Apenas rodas (carros invisiveis / Wheels Only)
+0x96914C - [byte] - Cheat: Direcao Perfeita/Insana (Perfect/Insane Handling)
+0x96914D - [byte] - Cheat: Suicidio (Suicide)
+0x96914E - [byte] - Cheat: Todos os semaforos verdes (All Green Lights)
+0x96914F - [byte] - Cheat: Motoristas agressivos (Aggressive Drivers)
+0x969150 - [byte] - Cheat: Trafego Rosa (Pink Traffic)
+0x969151 - [byte] - Cheat: Trafego Preto (Black Traffic)
+0x969152 - [byte] - Cheat: Carros podem dirigir sobre a agua
+0x969153 - [byte] - Cheat: Barcos podem voar
+0x969154 - [byte] - Cheat: CJ fica Gordo (CJ is Fat)
+0x969155 - [byte] - Cheat: Musculo Maximo (Max Muscle)
+0x969156 - [byte] - Cheat: CJ fica Magro (CJ is Skinny)
+0x969157 - [byte] - Cheat: Elvis em todo lugar (Elvis Everywhere)
+0x969158 - [byte] - Cheat: Peds atacam com foguetes
+0x969159 - [byte] - Cheat: Tema de Praia (Beach Theme)
+0x96915A - [byte] - Cheat: Membros de gangues em todo lugar
+0x96915B - [byte] - Cheat: Gangues controlam as ruas
+0x96915C - [byte] - Cheat: Tema Ninja (Ninja Theme)
+0x96915D - [byte] - Cheat: Ima de prostitutas (Slut Magnet)
+0x96915E - [byte] - Cheat: Trafego de carros baratos
+0x96915F - [byte] - Cheat: Trafego de carros rapidos
+0x969160 - [byte] - Cheat: Carros podem voar
+0x969161 - [byte] - Cheat: Bunny Hop gigante (Huge Bunny Hop)
+0x969162 - [byte] - Cheat: Spawnar Hydra (NAO TESTADO)
+0x969163 - [byte] - Cheat: Spawnar Vortex Hovercraft (NAO TESTADO)
+0x969164 - [byte] - Cheat: Modo Tanque / Smash'n Boom
+0x969165 - [byte] - Cheat: Todos os carros com nitro
+0x969166 - [byte] - Cheat: Carros sao arremessados quando atingidos
+0x969167 - [byte] - Cheat: Sempre meia-noite (Always Midnight)
+0x969168 - [byte] - Cheat: Parar relogio do jogo - Ceu Laranja
+0x969169 - [byte] - Cheat: Tempestade com trovoada (Thunderstorm)
+0x96916A - [byte] - Cheat: Tempestade de areia (Sandstorm)
+0x96916C - [byte] - Cheat: Mega Pulo (Mega Jump)
+0x96916D - [byte] - Cheat: Saude Infinita (Infinite Health)
+0x96916E - [byte] - Cheat: Oxigenio Infinito (Infinite Oxygen)
+0x96916F - [byte] - Cheat: Ganhar Paraquedas (Get Parachute)
+0x969170 - [byte] - Cheat: Ganhar Jetpack (Get Jetpack)
+0x969171 - [byte] - Cheat: Travar nivel de procurado (definir 1 trava o nivel atual)
+0x969172 - [byte] - Cheat: Nivel de procurado de seis estrelas
+0x969173 - [byte] - Cheat: Mega Soco (Mega Punch)
+0x969174 - [byte] - Cheat: Nunca fica com fome (Never get Hungry)
+0x969175 - [byte] - Cheat: Motim de Peds / Modo Caos (Peds Riot)
+0x969176 - [byte] - Cheat: Tema Casa de Diversoes (Funhouse Theme)
+0x969177 - [byte] - Cheat: Gameplay Mais Lento (Slower Gameplay)
+0x969178 - [byte] - Cheat: Municao Infinita, sem recarga
+0x969179 - [byte] - Cheat: Mirar em armas completo enquanto dirige
+0x96917A - [byte] - Cheat: Trafego reduzido (Decreased Traffic)
+0x96917B - [byte] - Cheat: Tema Country (Country Theme)
+0x96917C - [byte] - Cheat: Recrutar qualquer um (9mm)
+0x96917D - [byte] - Cheat: Recrutar qualquer um (AK47)
+0x96917E - [byte] - Cheat: Recrutar qualquer um (Foguetes/Rockets)
+0x96917F - [byte] - Cheat: Respeito Maximo (Max Respect)
+0x969180 - [byte] - Cheat: Sex Appeal Maximo (Max Sex Appeal)
+0x969181 - [byte] - Cheat: Stamina Maxima (Max Stamina)
+0x969183 - [byte] - Cheat: Nivel Hitman em todas as armas
+0x969184 - [byte] - Cheat: Spawnar Hunter (NAO TESTADO)
+0x969185 - [byte] - Cheat: Spawnar Quad (NAO TESTADO)
+0x969186 - [byte] - Cheat: Spawnar Tanker Truck (NAO TESTADO)
+0x969187 - [byte] - Cheat: Spawnar Dozer (NAO TESTADO)
+0x969188 - [byte] - Cheat: Spawnar Stunt Plane (NAO TESTADO)
+0x969189 - [byte] - Cheat: Spawnar Monster Truck (NAO TESTADO)
+0x96918B - [byte] - Cheat: Todos os taxis com nitro
+
+CHEATS - ESTADO DE TRAPACA ([dword]):
+0x96918C - [dword] - Ja trapaceou alguma vez ou nao (Has ever Cheated or not)
+0xBAA472 - [dword] - Esta trapaceando agora ou nao (Has now Cheated or not)
+0xB79044 - [dword] - Contagem de trapacas (Cheated Count)
+
+CHEATS - ESTADO 'CHEATED' ([byte]):
+0x96918C - [byte] - Estado 'Cheated':
+    Valores: 0 = desabilitado / 1 = habilitado
+
+NOTA: Se definido como 1, voce recebera uma mensagem de aviso ao salvar o jogo.
+Porem, este byte nao e definido se voce usar um cheat enabler.
+
+================================================================================
+[DISPLAY SETTINGS]
+================================================================================
+
+0xBA6784 - [dword] - Brilho (Brightness)
+0xBA6792 - [byte] - Legendas dos botoes/legendas (Legend)
+0xBA676C - [byte] - Modo do Radar (Radar Mode):
+    Valores: 0 = mapas e blips / 1 = apenas blips / 2 = desligado
+0xBA6769 - [byte] - Modo do HUD (Hud Mode):
+    Valores: 0 = desligado / 1 = ligado
+0xBA678C - [byte] - Legendas/Subtitulos (Subtitles)
+0xBA6830 - [byte] - Armazenar fotos da galeria (Store gallery photos)
+0xBA6788 - [float] - Distancia de desenhop (Draw Distance)
+0xBA6794 - [byte] - Limitador de FPS (Frame limiter)
+0xBA6793 - [byte] - Widescreen
+0xA9AE54 - [byte] - Qualidade dos Efeitos Visuais (Visual FX Quality)
+0xBA680C - [byte] - Mip Mapping
+0xBA6814 - [byte] - Valores de Antialiasing:
+    Valores: 1 = 0x (desligado) / 2 = 1x / 3 = 2x / 4 = 3x
+0xBA6820 - [byte] - Valores de Resolucao:
+    Valores: 11 = 640x480 / 12 = 800x400 / 13 = 800x600 / 15 = 1024x768
+    (Depende do driver grafico/hardware.)
+
+================================================================================
+[SOUND CONFIGURATION]
+================================================================================
+
+0xBA6798 - [byte] - Volume do Radio [0 a 64]
+0xBA6797 - [byte] - Volume de SFX [0 a 64]
+0xBA6799 - [byte] - Equalizador do Radio (Radio Equalizer)
+0xBA6795 - [byte] - Auto-tune do Radio (Radio Auto-tune)
+0xBA67F8 - [byte] - Modo de Usertrack/Reproducao:
+    Valores: 0 = radio / 1 = aleatorio
+0xBA680D - [byte] - Usertrack/Varredura automatica de midia (Automatic Media Scan)
+0xBA679A - [byte] - ID da Estacao de Radio:
+    Valores: 1 a 13 (veja nomes das estacoes abaixo)
+
+NOTA SOBRE AS ESTACOES DE RADIO (graca a AlienX):
+    1  = Playback FM
+    2  = K Rose
+    3  = K-DST
+    4  = Bounce FM
+    5  = SF-UR
+    6  = Radio Los Santos
+    7  = Radio X
+    8  = CSR 103.9
+    9  = K-JAH West
+    10 = Master Sounds 98.3
+    11 = WCTR Talk Radio
+    12 = User Track Player
+    13 = Radio Desligado
+
+NOTA (AlienX): O Radio Station ID parece ser apenas um identificador de menu;
+isso NAO muda de fato a estacao de radio durante o jogo!
+
+NOTA ADICIONAL: O opcode para trocar as estacoes de radio do jogador nao funciona
+em linha com os IDs de estacao acima; os IDs usados pelo codigo SCM ainda sao
+desconhecidos - nao use os IDs acima para o Opcode do SCM, nao vai funcionar.
+
+================================================================================
+[CONTROLLER CONFIGURATION]
+================================================================================
+
+0xBA6818 - [byte] - Configuracao do Controle:
+    Valores: 0 = mouse + teclado / 1 = joypad
+0xB6EC1C - [float] - Sensibilidade do Mouse (Mouse sensitivity)
+0xC1CC02 - [byte] - Dirigir com o mouse (Steer with mouse)
+0xC1CC03 - [byte] - Voar com o mouse (Fly with mouse)
+0xB6EC2E - [byte] - Offset REAL do modo de mira (nao o do menu):
+    Valores: 0 = joypad / 1 = mouse + teclado
+
+================================================================================
+[STRUCTURES - TIPOS E ENUMS]
+================================================================================
+
+ESTRUTURA: CVector // Total 8 bytes (NAO: 3 floats = 12 bytes na pratica)
+    FLOAT x; // offset +0
+    FLOAT y; // offset +4
+    FLOAT z; // offset +8
+
+ESTRUTURA: CVector2D // Total 4 bytes
+    FLOAT x; // offset +0
+    FLOAT y; // offset +4
+
+ENUM: eWeaponState // Total 4 bytes
+    WEAPONSTATE_READY            = 0
+    WEAPONSTATE_FIRING           = 1
+    WEAPONSTATE_RELOADING        = 2
+    WEAPONSTATE_OUT_OF_AMMO      = 3
+    WEAPONSTATE_MELEE_MADECONTACT= 4
+
+ESTRUTURA: CWeapon // Total 28 bytes
+    +0x00 - eWeaponType m_nType;
+    +0x04 - eWeaponState m_nState;
+    +0x08 - unsigned int m_nAmmoInClip;
+    +0x0C - unsigned int m_nTotalAmmo;
+    +0x10 - unsigned int m_nTimeForNextShot;
+    +0x14 - char field_14;
+    +0x15 - char field_15;
+    +0x16 - char field_16;
+    +0x17 - char field_17;
+    +0x18 - FxSystem_c *m_pFxSystem; (particulas de flamethrower, spraycan, extinguisher)
+
+ENUM: eWeaponType (IDs de Armas)
+    (Slot 0: Sem arma)
+    0  = Fist (Punho)
+    (Slot 1: Melee)
+    1  = Brass Knuckles (Soco-ingles)
+    2  = Golf Club
+    3  = Nitestick
+    4  = Knife (Faca)
+    5  = Baseball Bat (Taco de baseball)
+    6  = Shovel (Pa)
+    7  = Pool Cue (Taco de sinuca)
+    8  = Katana
+    9  = Chainsaw (Motosserra)
+    15 = Cane (Bengala)
+    (Slot 2: Handguns)
+    22 = Pistol
+    23 = Silenced Pistol
+    24 = Desert Eagle
+    (Slot 3: Shotguns)
+    25 = Shotgun
+    26 = Sawn-Off Shotgun
+    27 = SPAS-12
+    (Slot 4: Sub-Machineguns)
+    28 = Micro Uzi
+    29 = MP5
+    32 = TEC-9
+    (Slot 5: Machineguns)
+    30 = AK47
+    31 = M4
+    (Slot 6: Rifles)
+    33 = Country Rifle
+    34 = Sniper Rifle
+    (Slot 7: Heavy Weapons)
+    35 = Rocket Launcher
+    36 = Heat Seeking RPG
+    37 = Flame Thrower (Lanca-chamas)
+    38 = Minigun
+    (Slot 8: Projectiles)
+    16 = Grenade (Granada)
+    18 = Molotov Cocktail
+    39 = Remote Explosives (C4/Explosivos remotos)
+    (Sem slot: disparados de hunter/hydra/missile launcher)
+    (Este tipo e armazenado no pool de foguetes como rocket type, mas e a
+    continuacao desta lista)
+    19 = Normal rockets (foguetes normais)
+    20 = Heatseeking rockets (foguetes teleguiados)
+    58 = Flares (Sinalizadores)
+    (Slot 9: Special1)
+    42 = Fire Extinguisher (Extintor)
+    43 = Camera
+    (Slot 10: Gifts)
+    14 = Flowers (Flores)
+    (Slot 11: Special2)
+    44 = NV Goggles (Oculos de visao noturna)
+    45 = IR Goggles (Oculos de infravermelho)
+    46 = Parachute (Paraquedas)
+    (Slot 12: Detonators)
+    40 = Detonator (para explosivos remotos)
+
+ENUM: eEntityStatus (Descricao)
+    0x02 STATUS_PLAYER            = 0  (jogador esta dirigindo; inclui carrocas e trailers acoplados)
+    0x0A STATUS_PLAYER_PLAYBACKFROMBUFFER = 1 (todos os veiculos em playback de replay)
+    0x12 STATUS_SIMPLE            = 2  (veiculos controlados por NPC, "carro sobre trilhos", sem fisica completa)
+    0x1A STATUS_PHYSICS           = 3  (veiculos controlados por NPC: missoes, policia, interagidos pelo jogador)
+    0x22 STATUS_ABANDONED         = 4  (veiculo sem motorista; todos os edificios, peds e objetos)
+    0x2A STATUS_WRECKED           = 5  (veiculo explodiu/afundou; nao conta afundamento)
+    0x32 STATUS_TRAIN_MOVING      = 6  (nao observado - status padrao de carroca mas muda rapido para 4)
+    0x3A STATUS_TRAIN_NOT_MOVING  = 7  (ped entra pelo lado do passageiro de carroca de passageiros)
+    0x42 STATUS_REMOTE_CONTROLLED = 8  (jogador tem controle remoto de veiculo RC)
+    0x4A STATUS_PLAYER_DISABLED   = 9  (motorista jogador saindo, wasted, busted ou sequestrado)
+    0x52 STATUS_TRAILER           = 10 (trailer de veiculo NPC com fisica, veiculo NPC rebocado)
+    0x5A STATUS_SIMPLE_TRAILER    = 11 (nao observado - trailer de veiculo NPC sem fisica)
+    0x62 STATUS_GHOST             = 12 (veiculo de missao muito distante, area sem colisao carregada)
+
+ENUM: eEntityType
+    0x20 ENTITY_TYPE_NOTHING     = 0
+    0x21 ENTITY_TYPE_BUILDING    = 1
+    0x22 ENTITY_TYPE_VEHICLE     = 2
+    0x23 ENTITY_TYPE_PED         = 3
+    0x24 ENTITY_TYPE_OBJECT      = 4
+    0x25 ENTITY_TYPE_DUMMY       = 5
+    0x26 ENTITY_TYPE_NOTINPOOLS  = 6
+
+================================================================================
+[POINTERS & STRUCTURES] - Outros Enderecos Dinamicos (nao-estaticos)
+================================================================================
+
+--- PEDS (PEDESTRIANOS) - GERAL ---
+
+NOTA SOBRE TAMANHO DE BLOCO: Cada objeto ped tem 1988 bytes (0x7C4).
+Em muitos casos, voce pode usar o dword do player address como valor de CPed.
+
+0xB6F5F0 - [ptr] - Ponteiro do Jogador (CPed)
+0xB7CD98 - [ptr] - Ponteiro do Jogador, offset direto para o inicio do pool de peds (CPed)
+0xB74498 - [dword] - Numero maximo de CPeds (normalmente 140)
+0xB74490 - [ptr] - Ponteiro para informacoes de uso do pool de peds, contendo:
+    +0x00 - Ponteiro para o primeiro ped do pool
+    +0x04 - Ponteiro para um byte map indicando quais peds estao em uso
+    +0x08 - [dword] Numero maximo de peds no pool
+    +0x0C - [dword] Numero atual de peds no pool
+
+OFFSETS INTERNOS DO CPed (para cada ped no pool):
+CPed+0x14 - [ptr] - Ponteiro para estrutura de posicao XYZ (e rotacao)
+    (CPed+0x14)+0x00 a +0x2C = [dword] E a matriz de rotacao (rotation matrix)
+    (CPed+0x14)+0x30 = [CVector] Posicao (Position)
+CPed+0x2F - [byte] - Status de localizacao:
+    Valores: 0 = fora / 3 = dentro de um edificio
+CPed+0x40 - [struct] - Estrutura de flags fisicos (Physical flags):
+    +0x00 = Movement physics flags:
+        Bit 1 = Desconhecido / Bit 2 = Apply Gravity / Bit 3 = Disable Collision Force /
+        Bit 4 = Collidable / Bit 5 = Disable Turn Force / Bit 6 = Disable Move Force /
+        Bit 7 = Infinite Mass / Bit 8 = Disable Z
+    +0x01 = Surface physics flags:
+        1 = Submerso na agua / 2 = Em superficie solida / 4 = Quebrado /
+        8 = Desconhecido / 16 = Desconhecido / 32 = Don't Apply Speed /
+        64 = Desconhecido / 128 = Desconhecido
+    +0x02 = Special physics flags:
+        1 = Soft (noclip) / 2 = Congelar / 4 = Bullet-Proof /
+        8 = Fire-Proof / 16 = Collision-Proof (previne dano de queda) /
+        32 = Melee-Proof / 64 = Melee-Proof+Bullet-Proof+Collision-Proof /
+        128 = Explosion-Proof
+    +0x03 = Collision physics flag:
+        1 = Desconhecido / 2 = Attached To Entity / 4 = Desconhecido /
+        8 = Touching Water / 16 = Pode sofrer colisao / 32 = Destroyed /
+        64 = Desconhecido / 128 = Desconhecido
+CPed+0xBC - [dword] - Array de 6 ponteiros (Array of pointers[6])
+CPed+0xD8 - [float] - Quanto dano o ped sofreu (How much damage ped taken)
+CPed+0x15C - [byte] - Alguns estados de animacao:
+    Valores: 0 = aterrissando de um pulo / 61 = socando / 102 = parado / 154 = sprint / 205 = correndo
+CPed+0x46C - [byte] - Verificacao do jogador:
+    Valores: 0 = No ar/na agua / 1 = No carro / 2 = Entrando em interior / 3 = A pe / 8 = Nadando
+CPed+0x46D - [byte] - Estado de pulo (Jump state):
+    Valores: 32 = aterrissado/ocioso / 34 = no ar / 36 = aterrissando
+CPed+0x46F - [byte] - Estado de agachamento (Crouch state):
+    Valores: 128 = em pe / 132 = agachado
+CPed+0x470 - [byte] - Propriedades do ped (Ped properties):
+    Valores: 0 = Nenhuma / 3 = Invisivel / 12 = Imunidade na cabeca / 20 = Afogando na agua
+CPed+0x474 - [byte] - Outras propriedades do ped (Other ped properties):
+    Valores: 0 = Nenhuma / 2 = Invisivel / 9 = Nao criar pickup apos a morte
+CPed+0x47C - [ptr] - Ponteiro para struct de animacao (anim struct)
+    +0xE0 - [dword] - Ponteiro para veiculo mais proximo (se o ped esta no carro, precisa se aproximar)
+    +0x120 - [dword] - Ponteiro para veiculo mais proximo (longo alcance)
+CPed+0x4DF - [byte] - Estado de reproducao da animacao atual (Current anim play-state):
+    Valores: 0 = nada / 61 = iniciando/parando / 62 = em loop
+CPed+0x504 - [word] - Intensidade do flash do cano da arma (Muzzle flash intensity):
+    Valores: 0 a 10000 = ligado / 65536 = desligado
+CPed+0x530 - [dword] - Estado (State):
+    Valores: 0 = saindo de um carro, caindo de uma moto ou similar / 1 = caso normal / 50 = dirigindo / 55 = wasted / 63 = busted
+CPed+0x534 - [byte] - Estado de corrida (Runningstate):
+    Valores: 0 = enquanto dirige / 1 = parado / 4 = comecando a correr / 6 = correndo / 7 = correndo rapido (sprint) pressionando a tecla de sprint
+CPed+0x540 - [float] - Saude (Health)
+CPed+0x544 - [float] - Saude maxima (Max health)
+CPed+0x548 - [float] - Colete/Armadura (Armor)
+CPed+0x558 - [float] - Rotacao atual (angulo Z / Current rotation)
+CPed+0x55C - [float] - Rotacao alvo (angulo Z / Target rotation)
+CPed+0x560 - [float] - Velocidade de rotacao (angulo Z / Rotation speed)
+CPed+0x568 - [dword] - Carro atual com o qual esta em contato (Current Car in contact)
+CPed+0x584 - [dword] - Entidade atual com a qual esta em contato (Current Entity in contact)
+CPed+0x58C - [dword] - Ultimo ou atual carro dirigido (CarPointer)
+CPed+0x598 - [byte] - Trava do jogador (Player lock - defina 1 para travar os controles, nao pode se mover)
+CPed+0x5A0 - [ptr] - Inicio da struct CWeapon[13] (array de 13 armas)
+CPed+0x718 - [byte] - Slot de arma atual (Current weapon slot, 1 byte)
+CPed+0x740 - [dword] - ID da arma atual (do default.dat / Current Weapon ID)
+CPed+0x760 - [dword] - Arma com a qual voce foi danificado (Weapon you were damaged with)
+CPed+0x764 - [dword] - Ponteiro para o ped que lhe danificou
+CPed+0x79C - [dword] - CPed alvo (Targetted CPed)
+
+--- VEHICLES (VEICULOS) ---
+
+NOTA SOBRE TAMANHO DE BLOCO: Cada objeto veiculo tem 2584 bytes (0x0A18).
+Os veiculos comecam no endereco 0xC502AA0.
+
+0xB6F980 - [ptr] - Ponteiro direto para o inicio do pool (CVehicle)
+0xBA18FC - [ptr] - Ponteiro do veiculo atual (Current vehicle pointer):
+    Valores: 0 = a pe / >0 = dentro do carro
+0x969084 - [ptr] - Primeiro veiculo em que voce entrou (First vehicle you got into)
+
+NOTA: Para obter o proximo veiculo (o segundo), adicione +0x4 tantas vezes
+quantas quiser. Eles sao 0 se voce ainda nao entrou em um primeiro/segundo/
+terceiro carro etc.
+
+0xB74494 - [ptr] - Ponteiro para informacoes de uso do pool de veiculos, contendo:
+    +0x00 - Ponteiro para o primeiro veiculo do pool
+    +0x04 - Ponteiro para um byte map indicando quais veiculos estao em uso
+    +0x08 - [dword] Numero maximo de veiculos no pool
+    +0x0C - [dword] Numero atual de veiculos no pool
+
+OFFSETS INTERNOS DO CVehicle (para cada veiculo no pool):
+Car+0x14 - [byte/ptr] - Contem ponteiro para a matriz de rotacao/posicao (84 bytes):
+    +0x00 - [CVector] Vetor Direcao Right do espaco-mundo (eixo X)
+    +0x10 - [CVector] Vetor Direcao Forward do espaco-mundo (eixo Y)
+    +0x20 - [CVector] Vetor Direcao Up do espaco-mundo (eixo Z)
+    +0x30 - [CVector] Posicao do espaco-mundo (World Space Position)
+Car+0x22 - [word] - ID do Veiculo do vehicles.ide
+Car+0x36 - [byte] - Tipo de entidade (Entity type):
+    Valores: 2 = Jogador como motorista / 18 = Motorista quieto /
+    26 = Motorista suspeito (quando colide levemente ou fortemente, diferente de policiais que nunca sao quietos) /
+    34 = Sem motorista / 42 = Destruido / 74 = Motorista jogador saindo ou sendo wasted, busted ou hijacked
+Car+0x40 - [struct] - Estrutura de flags fisicos (Physical flags):
+    +0x00 = Movement physics flags:
+        Bit 1 = Heavy car (cleo opcode 01EC:) / Bit 2 = Apply Gravity /
+        Bit 3 = Disable Collision Force / Bit 4 = Collidable /
+        Bit 5 = Disable Turn Force / Bit 6 = Disable Move Force /
+        Bit 7 = Infinite Mass / Bit 8 = Disable Z
+    +0x01 = Surface physics flags:
+        1 = Submerso na agua / 2 = Em superficie solida / 4 = Quebrado /
+        8 = Desconhecido / 16 = Desconhecido / 32 = Don't Apply Speed /
+        64 = Desconhecido / 128 = Desconhecido
+    +0x02 = Special physics flags:
+        1 = n/a (jogo previne isto) / 2 = Collision-proof / 4 = Bullet-proof /
+        8 = Fire-proof / 16 = Damage-proof (de colisoes etc.) /
+        32 = Melee-proof / 64 = n/a / 128 = Explosion-proof
+    +0x03 = Collision physics flag:
+        1 = Desconhecido / 2 = Attached To Entity / 4 = Desconhecido /
+        8 = Touching Water / 16 = Pode sofrer colisao / 32 = Destroyed /
+        64 = Desconhecido / 128 = Desconhecido
+Car+0x44 - [CVector] - Angulos de velocidade (Speed angles)
+Car+0x50 - [CVector] - Angulos de giro (Spin angles)
+
+NOTA: Nao confunda os Spin Angles: eles NAO sao rotacoes, mas os angulos de
+quao rapido seu veiculo gira na direcao do eixo dado.
+
+Car+0x8C - [float] - Massa (kg) do handling.cfg
+Car+0x90 - [float] - Turn Mass do handling.cfg
+Car+0x94 - [float] - Grip Divider:
+    Valores: 1.0 = 1x gGrip / 10.1 = 10x gGrip / 100.0 = g/100Grip
+Car+0x98 - [float] - Multiplicador Massa-para-Grip. Ou seja, Forca G durante voo/suspensao/dirigindo (aceleracao em direcao ao solo)
+Car+0xA0 - [float] - Nivel de Grip normalizado (Normalized Grip Level)
+Car+0xA4 - [CVector] - Centro de Massa (Center of Mass)
+Car+0xD8 - [float] - Aumenta quando ocorre uma colisao
+Car+0x428 - [byte] - Estado do Motor (se esta funcionando ou travado / Engine State):
+    Valores: 0 = travado (stalled) / 16 = ok
+Car+0x42D - [byte] - Sirene ligada/desligada
+Car+0x434 - [byte] - Cor da Carroceria (como no carcols.dat, preto sendo o 0 / Body Color)
+Car+0x435 - [byte] - Cor do Estripe (como no carcols.dat, preto sendo o 0 / Stripe Color)
+Car+0x436 - [byte] - Cor da Carroceria #2 (Body Color #2)
+Car+0x437 - [byte] - Cor do Estripe #2 (Stripe Color #2)
+Car+0x438 - [dword] - dados de modificacao como no garage info (nao funciona?)
+Car+0x43C - [dword] - dados de modificacao como no garage info (nao funciona?)
+Car+0x440 - [dword] - dados de modificacao como no garage info (nao funciona?)
+Car+0x444 - [dword] - dados de modificacao como no garage info (nao funciona?)
+Car+0x448 - [dword] - dados de modificacao como no garage info (nao funciona?)
+Car+0x44C - [dword] - dados de modificacao como no garage info (nao funciona?)
+Car+0x450 - [dword] - dados de modificacao como no garage info (nao funciona?)
+Car+0x454 - [dword] - dados de modificacao como no garage info (nao funciona?)
+Car+0x458 - [float] - Tamanho da roda do carro do vehicle.ide (Car Wheel Size)
+Car+0x45C - [dword] - Tempo restante para o alarme do carro tocar, em ms
+Car+0x460 - [dword] - Ponteiro para o motorista (driver)
+Car+0x464 - [dword] - Ponteiro para passageiro 1 (assento dianteiro-direito)
+Car+0x468 - [dword] - Ponteiro para passageiro 2 (assento traseiro-esquerdo)
+Car+0x46C - [dword] - Ponteiro para passageiro 3 (assento traseiro-direito)
+Car+0x470 - [dword] - Ponteiro para passageiro 4 (usado para onibus)
+Car+0x474 - [dword] - Ponteiro para passageiro 5 (usado para onibus)
+Car+0x478 - [dword] - Ponteiro para passageiro 6 (usado para onibus)
+Car+0x47C - [dword] - Ponteiro para passageiro 7 (usado para onibus)
+Car+0x480 - [dword] - Ponteiro para passageiro 8 (usado para onibus)
+Car+0x484 - [dword] - Ponteiro para passageiro 9 (usado para onibus)
+Car+0x494 - [float] - Angulo de direcao 1 (Steer angle 1)
+Car+0x498 - [float] - Angulo de direcao 2 (Steer angle 2)
+Car+0x49C - [float] - Pedal do acelerador (Gas pedal)
+Car+0x4A0 - [float] - Pedal do freio (Brake pedal)
+Car+0x4A8 - [byte] - Coloca uma bomba no carro (Car-bomb):
+    Valores: 0 = Sem bomba / 1 = Carro tem bomba temporal, mas nao armada /
+    2 = Carro tem bomba na ignicao, mas nao armada / 3 = Controle remoto definido /
+    4 = Bomba temporal armada / 5 = Bomba de ignicao armada
+
+NOTA: Voce pode definir os valores acima para 0 ou 1 para colocar uma bomba no
+carro. Outras flags sao definidas quando voce arma a bomba. Se voce definir o
+valor para 4 ou 5, ou armar a bomba via gameplay normal, nao adianta tentar
+mudar este valor de volta.
+
+Car+0x4AB - [byte] - Numero de peds (normalmente policiais) tentando se esconder atras deste carro
+Car+0x8A4 - [float] - Contagem de Nitro (Nitro Count):
+    Valores: 1.0 = Nitro cheio (caso o numero de NOS seja 0, significa vazio) / -1.0 = Nitro descarregado
+Car+0x48A - [byte] - Numero de NOS disponiveis no veiculo:
+    Valores: 1~10 = Tem NOS disponivel / 0 = Nao tem NOS disponivel
+Car+0x4B0 - [float] - Nivel de sujeira da carroceria (Body dirt level):
+    Valores: 0.0 = totalmente limpo / 15.0 = sujeira maxima visivel
+Car+0x4C0 - [float] - Saude/Dano restante do carro (Health/Car Damage Left):
+    Valores: <250.0 = em chamas / 1000.0 = sem dano
+Car+0x4F8 - [dword] - Estado de trava das portas do carro (Car Door Locked State):
+    Valores: 1 = aberto / 2 = trancado
+Car+0x514 - [dword] - Sirene alternativa (buzina / honking):
+    Valores: 0 = desligado / 1 = ligado
+
+NOTA: E redefinido automaticamente de volta para 0. Para evitar isso, aplique
+NOP em 0x6E0A3B (6 bytes).
+
+Car+0x584 - [dword] - Interruptor dos farois (Headlights switch):
+    Valores: 0 = desligado / 1 = ligado
+
+NOTA: Mesmo caso que acima, e redefinido automaticamente - aplique NOP em
+0x6E1EDE (6 bytes).
+
+Car+0x590 - [byte] - Tipo de carro (Car type):
+    Valores: 0 = carro/aviao / 5 = barco / 6 = trem / 9 = moto/bike
+Car+0x5A4 - [float] - Velocidade do trem (Train speed):
+    Valores: -0.1 = em frente / 0.1 = em re
+Car+0x5A5 - [byte] - Status do Pneu do carro (Esquerdo-Dianteiro / Left-Front):
+    Valores: 0 = ok / 1 = furado / 2 = usado por avioes quando o trem de pouso esta recolhido
+Car+0x5A6 - [byte] - Status do Pneu do carro (Esquerdo-Traseiro / Left-Rear):
+    Valores: 0 = ok / 1 = furado / 2 = usado por avioes quando o trem de pouso esta recolhido
+Car+0x5A7 - [byte] - Status do Pneu do carro (Direito-Dianteiro / Right-Front):
+    Valores: 0 = ok / 1 = furado / 2 = usado por avioes quando o trem de pouso esta recolhido
+Car+0x5A8 - [byte] - Status do Pneu do carro (Direito-Traseiro / Right-Rear):
+    Valores: 0 = ok / 1 = furado / 2 = usado por avioes quando o trem de pouso esta recolhido
+Car+0x65C - [byte] - Status do Pneu da moto (Dianteiro / Bike Tire Front):
+    Valores: 0 = ok / 1 = furado
+Car+0x65D - [byte] - Status do Pneu da moto (Traseiro / Bike Tire Rear):
+    Valores: 0 = ok / 1 = furado
+Car+0x65E - [byte] - Status do Pneu da bicicleta (Dianteiro / Bicycle Tire Front):
+    Valores: 0 = ok / 1 = estourado (shot)
+Car+0x65F - [byte] - Status do Pneu da bicicleta (Traseiro / Bicycle Tire Rear):
+    Valores: 0 = ok / 1 = estourado (shot)
+
+NOTA: Voce nao pode de fato atirar nas rodas de uma BMX. Se voce definir o valor
+1 nos dois offsets acima, ela anda como se as rodas estivessem estouradas.
+Provavelmente nao funcionam.
+
+Car+0x6C8 - [byte] - Identificador de moto/bike (Is the bike identifier):
+
+NOTA: E definido como 1 se o veiculo for uma moto (ou BMX).
+
+Car+0x720 - [float] - Altura da suspensao Frontal-Esquerda
+Car+0x724 - [float] - Altura da suspensao Traseira-Esquerda
+Car+0x728 - [float] - Altura da suspensao Frontal-Traseira (deveria ser Frontal-Direita)
+Car+0x72C - [float] - Altura da suspensao Traseira-Direita
+Car+0x7BC - [float] - Timer de queimadura em ms (para motos / Burn Timer for bikes)
+
+NOTA: Tambem existe uma copia dos valores de suspensao em -0x10, mas sao mais
+"suaves". Eles variam de 0 a 1 (1 = totalmente estendido/no ar, 0 = totalmente
+comprimido).
+
+Car+0x7E4 - [float] - Altura da suspensao Frontal-Esquerda
+Car+0x7E8 - [float] - Altura da suspensao Traseira-Esquerda
+Car+0x7EC - [float] - Altura da suspensao Frontal-Direita
+Car+0x7F0 - [float] - Altura da suspensao Traseira-Direita
+Car+0x86C - [word] - Carga atual do veiculo (funciona para dumper, packer, dozer, forklift etc.)
+Car+0x870 - [word] - Ultimo valor de carga do veiculo. Usado para detectar se o veiculo deve ter som de levantar/abaixar carga. apos detectar recebe o valor do offset 0x86C da struct do carro
+Car+0x8E4 - [float] - Timer de queimadura em ms (para carros / Burn Timer for cars)
+
+POSICAO DO CARRO (exemplo: se a posicao do carro comeca em 0xC5F5DB4):
+Car+0x00 - [CVector] - Nivel em relacao ao chao (Level to the ground)
+Car+0x10 - [CVector] - Para onde estou olhando (Where am I looking)
+Car+0x20 - [CVector] - Dados de voo dinamicos (Dyn flight data)
+Car+0x30 - [CVector] - CarPos (posicao do carro)
+
+Os offsets seguintes sao floats, como posicoes de portas e outras partes do
+carro que se soltam com dano. Precisamos recalcular e definir suas localizacoes
+se teletransportarmos um carro de um local a outro. Caso contrario, o carro gira
+descontroladamente:
+
+Car+0x724 - [CVector] - Detachables1
+Car+0x750 - [CVector] - Detachables2
+Car+0x77C - [CVector] - Detachables3
+Car+0x7A8 - [CVector] - Detachables4
+
+As localizacoes dos objetos destacaveis sao diferentes para carros e motos,
+apenas porque o objeto da moto e menor que o do carro. O objeto carro e usado
+para todos os veiculos (incluindo heli), exceto motos.
+
+OFFSETS PARA DESTACAVEIS (Detachables):
+Car+0x5FC - [CVector] - BikeDetachPosAdr(0)
+Car+0x660 - [CVector] - BikeDetachPosAdr(1)
+Car+0x68C - [CVector] - BikeDetachPosAdr(2)
+Car+0x6B8 - [CVector] - BikeDetachPosAdr(3)
+Car+0x6E4 - [CVector] - BikeDetachPosAdr(4)
+Car+0x724 - [CVector] - CarDetachPosAdr(0)
+Car+0x750 - [CVector] - CarDetachPosAdr(1)
+Car+0x77C - [CVector] - CarDetachPosAdr(2)
+Car+0x7A8 - [CVector] - CarDetachPosAdr(3)
+
+O trailer do tanker e tratado da mesma forma que os veiculos. Seu ponteiro e
+definido no offset:
+Car+0x4C8 - [ptr] - Para o inicio do objeto carro. Ao teletransportar veiculos com
+trailer, precisamos teletransportar este 'veiculo' tambem. O mesmo ponteiro e
+usado quando voce esta rebocando outros veiculos.
+
+--- WANTED (NIVEL DE PROCURADO / CWanted) ---
+
+NOTA SOBRE TAMANHO DE BLOCO: 0xB7CD9C = Inicio do pool de Wanted (CWanted).
+Cada slot tem 668 bytes de dados.
+
+Wanted+0x00 - [dword] - Contador de o quanto os policiais estao irritados:
+    Valores: acima de 50 = 1 estrela / acima de 180 = 2 estrelas /
+    acima de 550 = 3 estrelas / acima de 1200 = 4 estrelas /
+    acima de 2400 = 5 estrelas / acima de 4600 = 6 estrelas
+Wanted+0x04 - [dword] - Como acima, mas 'antes da liberdade condicional' (timed wanted level decrease?)
+Wanted+0x08 - [dword] - Valor de tempo; a ultima vez que o nivel de procurado diminuiu
+Wanted+0x0C - [dword] - Valor de tempo; a ultima vez que o nivel de procurado mudou
+Wanted+0x10 - [dword] - 'Tempo de liberdade condicional' (time of parole)
+Wanted+0x14 - [float] - Multiplicador da contribuicao de crimes ao nivel de procurado (definido usando 03C7?)
+Wanted+0x18 - [byte] - Quantidade atual de policiais 'em perseguicao'
+Wanted+0x19 - [byte] - Numero maximo de policiais a pe atirando em voce simultaneamente ('em perseguicao')
+Wanted+0x1A - [byte] - Numero maximo de carros de policia em perseguicao
+Wanted+0x1B - [byte] - Quantidade de policiais atualmente 'batendo no suspeito'
+Wanted+0x1C - [word] - Chance de aparecer bloqueio de rua, faixa desconhecida (embora 127 pareca ter significado especial)
+Wanted+0x1E - [bool] - O jogador e ignorado pela policia? (definido por script)
+Wanted+0x1F - [bool] - O jogador e ignorado pela policia? (definido por garages)
+Wanted+0x20 - [bool] - O jogador e ignorado por todos?
+Wanted+0x21 - [bool] - O streamer deve carregar os modelos SWAT?
+Wanted+0x22 - [bool] - O streamer deve carregar os modelos FBI?
+Wanted+0x23 - [bool] - O streamer deve carregar os modelos do exercito?
+Wanted+0x24 - [dword] - Tempo de perseguicao atual (Current chase time)
+Wanted+0x28 - [dword] - 'Contador de tempo de perseguicao atual'
+Wanted+0x2C - [word] - Nivel de procurado atual (1-6)
+Wanted+0x2F - [word] - Nivel de procurado antes da 'liberdade condicional'
+Wanted+0x30+ - [???] - precisa pesquisar mais (need to do more)
+
+NOTA: Helicopteros ainda vao atirar se voce mudar a flag 0x19 para 0.
+
+--- PLAYER DATA (CPlayerData) ---
+
+NOTA SOBRE TAMANHO DE BLOCO: Bloco CPlayerData inicia em 0xB7CD98.
+
+0xB7CD98 - [ptr] - CPlayerData
+    +0x00 - [dword] - Ponteiro para CPed
+    +0x04 - [ptr] - Inicio do pool CPlayerData
+        +0x00 - [dword] - Ponteiro para CWanted
+        +0x04 - [dword] - Ponteiro para descricao de roupas do ped
+        +0x08 - [dword] - Ponteiro para o policial que esta te prendendo
+        +0x0C - [CVector2D] - Movimento de luta (Fight movement)
+        +0x14 - [float] - Proporcao de mistura de movimento (Move blend ratio)
+        +0x18 - [float] - Tempo que pode correr (Time can run)
+        +0x1C - [float] - Velocidade de movimento (Move speed)
+        +0x20 - [byte] - Slot de arma selecionado
+        +0x21 - [byte] - Contador de perigo de carro (Car danger counter)
+        +0x24 - [dword] - Timer parado (Stand still timer)
+        +0x28 - [dword] - Atraso de animacao de acerto (Hit animation delay)
+        +0x2C - [float] - Contador de botao de ataque (Attack button counter)
+        +0x30 - [dword] - Ponteiro para perigo de carro
+        +0x34 - [dword] - Flags do jogador (Player flags):
+            Bit 0 = Parou de se mover / Bit 1 = Adrenalina / Bit 2 = Tem alvo selecionado /
+            Bit 3 = Mira livre (Free Aiming) / Bit 4 = Pode ser danificado /
+            Bit 5 = Todos os pontos de ataque melee bloqueados / Bit 6 = Acabou de comer (snacking) /
+            Bit 7 = Precisa lidar com a respiracao / Bit 8 = Group Stuff Disabled /
+            Bit 9 = Grupo sempre segue / Bit 10 = Grupo nunca segue /
+            Bit 11 = Em veiculo nao permite troca de arma / Bit 12 = Renderizar arma
+        +0x38 - [dword] - Grupo do jogador (Player group)
+        +0x3C - [dword] - Fim do tempo de adrenalina (Adrenaline end time)
+        +0x40 - [byte] - Embriaguez (Drunkeness)
+        +0x41 - [byte] - Embriaguez em fade (Fade drunkeness)
+        +0x42 - [byte] - Nivel de droga (Drug level)
+        +0x43 - [byte] - Limite de script para tamanho de gangues
+        +0x44 - [float] - Respiracao (Breath)
+        +0x48 - [dword] - Ponteiro para animacao de arma melee
+        +0x4C - [dword] - Ponteiro extra para animacao de arma melee
+        +0x50 - [float] - Direcao de movimento FPS (FPS move heading)
+        +0x54 - [float] - Inclinação de olhar (Look pitch)
+        +0x58 - [float] - Velocidade do skate (?)
+        +0x5C - [float] - Inclinação do skate (?)
+        +0x60 - [dword] - Ponteiro para atomico especial
+        +0x64 - [float] - Velocidade de giro da arma (Gun spin speed)
+        +0x68 - [float] - Angulo de giro da arma (Gun spin angle)
+        +0x6C - [dword] - Ultima vez atirando (Last time firing)
+        +0x70 - [dword] - Osso alvo (Target bone)
+        +0x74 - [CVector] - Offset do osso alvo (Target bone offset)
+        +0x80 - [dword] - Passagens de onibus coletadas (Bus fares collected)
+        +0x84 - [bool] - Sprint do jogador desabilitado
+        +0x85 - [bool] - Nao permitir troca de arma
+        +0x86 - [byte] - Forcar iluminacao de interior (Force interior lighting)
+        +0x88 - [word] - Pad pressionado para baixo em ms (Pad down pressed in ms)
+        +0x8A - [word] - Pad pressionado para cima em ms (Pad up pressed in ms)
+        +0x8C - [byte] - Molhamento (Wetness)
+        +0x8D - [bool] - Gang do jogador ativa (Player gang active)
+        +0x8E - [byte] - Cobertura de agua em percentual (Water cover in percent)
+        +0x90 - [float] - Altura da agua (Water height)
+        +0x94 - [dword] - Tempo de pressao do botao de missel teleguiado (Fire HS missile pressed time)
+        +0x98 - [dword] - Ponteiro para o ultimo alvo de missel teleguiado
+        +0x9C - [dword] - Indice do modelo do ultimo edificio atingido (Last building shot)
+        +0xA0 - [dword] - Ultima vez de LOS (line of sight) do missel teleguiado (Last HS missile los time)
+        +0xA0 - [byte] - Ultimo LOS do missel teleguiado (Last HS missile los)
+        +0xA4 - [dword] - Ponteiro para o ped prostituta atual
+        +0xA8 - [dword] - Ponteiro para o ultimo ped prostituta (Last prostitute ped shagged)
+    +0xB0 - [dword] - Ponteiro para veiculo remoto (Remote vehicle)
+    +0xB4 - [dword] - Ponteiro para veiculo em observacao (Spectating vehicle)
+    +0xB8 - [dword] - Dinheiro (Money)
+    +0xBC - [dword] - Dinheiro exibido (Displayed money)
+    +0xC0 - [dword] - Colecionaveis coletados (Collectables picked up)
+    +0xC4 - [dword] - Numero total de colecionaveis (Total number collectables)
+    +0xC8 - [dword] - Timer de ultima colisao do veiculo do jogador (Last bump player vehicle timer)
+    +0xCC - [dword] - Timer de taxi (Taxi timer)
+    +0xD0 - [dword] - Contador de tempo em veiculo (Vehicle time counter)
+    +0xD4 - [bool] - Pontuacao do timer de taxi (Taxi timer score)
+    +0xD5 - [bool] - Tentando sair do veiculo (Trying to exit vehicle)
+    +0xD8 - [dword] - Ponteiro para o ultimo veiculo alvo (Last target vehicle)
+    +0xDC - [byte] - Estado do jogador (Player state)
+    +0xDD - [bool] - Apos explosao do veiculo remoto (After remote vehicle explosion)
+    +0xDE - [bool] - Criar explosao do veiculo remoto (Create remote vehicle explosion)
+    +0xDF - [bool] - Fade apos explosao do veiculo remoto (Fade after remote vehicle explosion)
+    +0xE0 - [dword] - Tempo da explosao do veiculo remoto
+    +0xE4 - [dword] - Ultima vez que perdeu energia (Last time energy lost)
+    +0xE8 - [dword] - Ultima vez que perdeu armadura (Last time armour lost)
+    +0xEC - [dword] - Ultima vez que arma pesada foi disparada (?)
+    +0xF0 - [dword] - Vezes de capotar em sequencia (Times upside down in a row)
+    +0xF4 - [dword] - Vezes preso em sequencia (Times stuck in a row)
+    +0xF8 - [dword] - Contador de duas rodas com o carro (Car two wheel counter)
+    +0xFC - [float] - Distancia de duas rodas com o carro (Car two wheel distance)
+    +0x100 - [dword] - Contador de menos de tres rodas com o carro
+    +0x104 - [dword] - Contador de roda traseira da moto (Bike rear wheel counter)
+    +0x108 - [float] - Distancia de roda traseira da moto (Bike rear wheel distance)
+    +0x10C - [dword] - Contador de roda dianteira da moto (Bike front wheel counter)
+    +0x110 - [float] - Distancia de roda dianteira da moto (Bike front wheel distance)
+    +0x114 - [dword] - Contador de buffer temporario (Temp buffer counter)
+    +0x118 - [dword] - Melhor tempo de duas rodas de carro em ms
+    +0x11C - [dword] - Melhor distancia de duas rodas de carro em m
+    +0x120 - [dword] - Melhor tempo de wheelie de moto em ms
+    +0x124 - [dword] - Melhor distancia de wheelie de moto em m
+    +0x128 - [dword] - Melhor tempo de stoppie de moto em ms
+    +0x12C - [dword] - Melhor distancia de stoppie de moto em m
+    +0x130 - [word] - Densidade de carros para a zona atual (Car density for current zone)
+    +0x134 - [float] - Densidade de ruas ao redor do jogador (Road density around player)
+    +0x138 - [dword] - Tempo da ultima explosao de carro causada
+    +0x13C - [dword] - Multiplicador de explosao (Explosion multiplier)
+    +0x140 - [dword] - Estrago/Devolucao causados (Havoc caused)
+    +0x144 - [word] - Numero de horas sem comer (Number of hours didn't eat)
+    +0x148 - [float] - Valor de perseguicao atual (Current chase value)
+    +0x14C - [bool] - Nao fica cansado (corrida infinita / Infinite run)
+    +0x14D - [bool] - Recarga rapida (Fast reload)
+    +0x14E - [bool] - A prova de fogo (Fire proof)
+    +0x14F - [byte] - Saude maxima (Max health)
+    +0x150 - [byte] - Armadura maxima (Max armour)
+    +0x151 - [bool] - Sair da cadeia gratis e manter armas (Get out of jail free & keep weapons)
+    +0x152 - [bool] - Cuidado medico gratuito e manter armas (Free health care & keep weapons)
+    +0x153 - [bool] - Pode fazer drive-by
+    +0x154 - [byte] - Status de audio de 'busted'
+    +0x156 - [word] - Numero da ultima mensagem de busted
+    +0x158 - [dword] - Crosshair ativado (Crosshair activated)
+    +0x15C - [CVector2D] - Alvo do crosshair (Crosshair target)
+    +0x164 - [char(32)] - Nome do skin (Skin name)
+    +0x184 - [dword] - Ponteiro para RwTexture do skin
+    +0x188 - [bool] - Paraquedas referenciado (Parachute referenced)
+    +0x18C - [dword] - Timer de exigencia de paraquedas (Require parachute timer)
+
+--- CAMERA (CCamera) ---
+
+0xB6F028 - [ptr] - Inicio do Bloco da Camera (CCamera / Camera Block Start)
+0x52B730 - [ptr] - Inicio da sub-rotina 'MOVer' da camera:
+    +0xC3 = travar a camera (retn / lock camera)
+0xB6F0DC - [dword] - Visao Atual (Current View):
+    Valores: 0 = bumper view / 1 = visao externa proxima / 2 = visao externa media /
+    3 = visao externa mais distante / 4 = nada = igual a ultima? / 5 = visao cinematografica /
+    6 a INF = igual a 4?
+0xB6F0E0 - [float] - Distancia de visao do carro / comprimento do braco (Car View Distance)
+0xB6F0E8 - [float] - Distancia de visao verdadeira (True View Distance / true arm length)
+
+--- IGNORED (CIgnored) ---
+
+NOTA SOBRE TAMANHO DE BLOCO: 0xB7CD9C = Ponteiro de Ignored (CIgnored).
+
+Ignored+0x1E  - [byte/boolean] - Jogador ignorado pelos policiais (Is player ignored by cops)
+Ignored+0x298 - [byte/boolean] - Jogador ignorado por todos (Is player ignored by everyone)
+
+--- POOLS ---
+
+NOTA: Veja as funcoes de "Data Pools" na secao Function Memory Addresses (SA).
+
+0x550F10 - [ptr] - Funcao AllocatePools.
+
+0xB74484 - [ptr] - Pool PtrNode Single
+0xB74488 - [ptr] - Pool PtrNode Double
+0xB7448C - [ptr] - Pool EntryInfoNode
+0xB74490 - [ptr] - Pool Peds
+0xB74494 - [ptr] - Pool Vehicles
+0xB74498 - [ptr] - Pool Buildings
+0xB7449C - [ptr] - Pool Objects
+0xB744A0 - [ptr] - Pool Dummys
+0xB744A4 - [ptr] - Pool ColModel
+0xB744A8 - [ptr] - Pool Task
+0xB744AC - [ptr] - Pool Event
+0xB744B0 - [ptr] - Pool PointRoute
+0xB744B4 - [ptr] - Pool PatrolRoute
+0xB744B8 - [ptr] - Pool NodeRoute
+0xB744CC - [ptr] - Pool TaskAllocator
+0xB744C0 - [ptr] - Pool PedIntelligence
+0xB744C4 - [ptr] - Pool PedAttractors
+
+================================================================================
+[HANDLING]
+================================================================================
+
+NOTA SOBRE TAMANHO DE BLOCO: 0xC2B9DC = Inicio do Bloco de Handling.
+Cada slot tem 224 bytes de dados.
+
+Handling+0x00 - [dword] - Indice/Identificador (Index/Identifier)
+Handling+0x04 - [float] - fMass
+Handling+0x08 - [float] - 1.0 / fMass
+Handling+0x0C - [float] - fTurnMass
+Handling+0x10 - [float] - fDragMult
+Handling+0x14 - [CVector] - CentreOfMass (Centro de Massa)
+Handling+0x20 - [byte] - nPercentSubmerged
+Handling+0x24 - [float] - fMass * 8.0000001e-1 / nPercentSubmerged
+Handling+0x28 - [float] - fTractionMultiplier
+Handling+0x74 - [byte] - TransmissionData.nDriveType (Tipo de tracao)
+Handling+0x75 - [byte] - TransmissionData.nEngineType (Tipo de motor)
+Handling+0x76 - [byte] - TransmissionData.nNumberOfGears (Numero de marchas)
+Handling+0x7C - [float] - TransmissionData.fEngineAcceleration (Multiplicado por 3.9999999e-4)
+Handling+0x80 - [float] - TransmissionData.fEngineInertia
+Handling+0x84 - [float] - TransmissionData.fMaxVelocity (Multiplicado por 5.5555599e-3)
+Handling+0x94 - [float] - fBrakeDeceleration (Multiplicado por 3.9999999e-4)
+Handling+0x98 - [float] - fBrakeBias
+Handling+0x9C - [byte] - bABS
+Handling+0xA0 - [float] - fSteeringLock
+Handling+0xA4 - [float] - fTractionLoss
+Handling+0xA8 - [float] - fTractionBias
+Handling+0xAC - [float] - fSuspensionForceLevel
+Handling+0xB0 - [float] - fSuspensionDampingLevel
+Handling+0xB4 - [float] - fSuspensionHighSpdComDamp
+Handling+0xB8 - [float] - Limite superior da suspensao (Suspension upper limit)
+Handling+0xBC - [float] - Limite inferior da suspensao (Suspension lower limit)
+Handling+0xC0 - [float] - Bias da suspensao entre frente e tras
+Handling+0xC4 - [float] - Multiplicador anti-mergulho da suspensao (Suspension anti-dive multiplier)
+Handling+0xC8 - [float] - fCollisionDamageMultiplier { memory fCollisionDamageMultiplier = fCollisionDamageMultiplier * (1.0 / fMass) * 2000.0 }
+Handling+0xCC - [hex] - modelFlags
+Handling+0xD0 - [hex] - handlingFlags
+Handling+0xD4 - [float] - fSeatOffsetDistance
+Handling+0xD8 - [dword] - nMonetaryValue
+Handling+0xDC - [byte] - Farois dianteiros (Front lights)
+Handling+0xDD - [byte] - Luzes traseiras (Rear lights)
+Handling+0xDE - [byte] - Grupo de animacao do veiculo (Vehicle anim group)
+
+================================================================================
+[CONTROLS]
+================================================================================
+
+NOTA: 0xB73458 = Inicio do bloco de controles (Start of controls block).
+
+Controls+0x20 - [word] - Acelerar (Accelerate):
+    Valores: 0 = desligado / 255 = ligado
+Controls+0x22 - [word] - Frear (Brake)
+
+================================================================================
+[ROCKETS]
+================================================================================
+
+NOTA SOBRE TAMANHO DE BLOCO: 0xC891A8 = Inicio do pool de foguetes.
+Cada slot tem 36 bytes de dados. Ha 32 elementos no pool.
+O pool de foguetes contem informacoes sobre foguetes lancados (por exemplo,
+foguetes do Hydra).
+
+Rockets+0x00 - [dword] - Tipo do foguete (Rocket type):
+    Valores: 16 = nenhum / 17 = gas lacrimogeneo (tear gas) / 19 = normal /
+    20 = teleguiado (heatseeking) / 39 = explosivos remotos / 58 = sinalizador (flare)
+Rockets+0x04 - [dword] - Ponteiro para a entidade lancadora (Pointer to launching entity)
+Rockets+0x08 - [dword] - Ponteiro para o veiculo alvo (quando teleguiado), 0 caso contrario
+Rockets+0x10 - [byte] - O foguete existe? (Does rocket exist?):
+    Valores: 0 = explodiu/nao existe / 1 = viajando
+Rockets+0x14 - [CVector] - Posicao (Position)
+
+================================================================================
+[BULLETS]
+================================================================================
+
+NOTA: 0xC88740 = Inicio do pool de balas (Bullet pool start).
+NOTA: Funciona apenas para a Sniper Rifle.
+
+Bullets+0x0C - [byte] - Bala existe (Bullet exists):
+    Valores: 0 = Nao existe / 1 = Existe
+Bullets+0x10 - [CVector] - Posicao (Position)
+
+================================================================================
+[RACE CHECKPOINTS]
+================================================================================
+
+NOTA: 0xC7F158 = Inicio do bloco de checkpoints. Cada bloco tem 38 bytes,
+mas sempre ha apenas dois por vez.
+Os checkpoints do bloco sao usados nos minigames de "corridas ilegais de rua".
+
+Checkpoints+0x00 - [byte] - Tipo do checkpoint (Type of checkpoint)
+Checkpoints+0x02 - [byte] - Valor de cor RGBA (RGBA color value)
+Checkpoints+0x04 - [CVector] - Posicao (Position)
+Checkpoints+0x10 a +0x18 - [float] - Matriz de Rotacao (direcao deste checkpoint para o proximo, todos floats)
+Checkpoints+0x20 - [float] - Raio do checkpoint (Checkpoint radius)
+
+================================================================================
+[GARAGES AND PARKING]
+================================================================================
+
+NOTA: A localizacao de memoria das garages pode variar dependendo do script
+SCM que voce usar. Ha 50 garages no jogo.
+
+Cada garage possui: posicao, detalhes, informacao de uso, localizacao no jogo,
+localizacao da porta, largura, profundura, altura, direcao para onde olha,
+coordenadas do canto inferior esquerdo, coordenadas do canto superior direito,
+uso pelo jogador, propriedade (safe house) a qual pertence, numero de veiculos
+que podem ser estacionados dentro, estado da porta (fechada, abrindo, aberta,
+fechando).
+
+Estes sao encontrados no objeto garage de 212 bytes. As localizacoes de memoria
+onde as garages comecam sao:
+    0x96C048 (inicio da primeira garage)
+    +0xD4 (offset para a segunda garage - adicione novamente este offset para a
+           terceira garage, novamente para a quarta, etc.)
+    0x96C120 (inicio da ultima garage)
+
+(Testado usando o EXE v1.0 alemao original nao-patcheado com opcao de idioma
+ingles selecionada, e arquivo SCM original.)
+(UZI-I testou a Garage do Jogador e o Pay'n'Spray usando o EXE Hoodlum Crack
+com um SCM em branco.)
+
+OFFSETS DO OBJETO GARAGE (Garage object, 212 bytes):
+Garage+0x00 - [CVector] - Coordenada do canto inferior esquerdo da Garage (Coord of Lower Left corner)
+Garage+0x0C - [CVector2D] - Valor do vetor de direcao 1
+Garage+0x14 - [CVector2D] - Valor do vetor de direcao 2
+Garage+0x1C - [float] - Coordenada Z superior da garage (Top Z Coord.)
+Garage+0x20 - [float] - Largura normalizada da garage (Normalized Width)
+Garage+0x24 - [float] - Profundidade normalizada da garage (Normalized Depth)
+Garage+0x28 - [float] - Coordenada da borda esquerda (X) (Left Border)
+Garage+0x2C - [float] - Coordenada da borda direita (X) (Right Border)
+Garage+0x30 - [float] - Coordenada da borda frontal (Y) (Front Border)
+Garage+0x34 - [float] - Coordenada da borda traseira (Y) (Back Border)
+Garage+0x38 - [float] - Posicao da porta da garage (Garage Door Position)
+Garage+0x3C - [dword] - desconhecido (Timer)
+Garage+0x40 - [dword] - desconhecido (nao salvo)
+Garage+0x44 - [chars] - Nome da Garage (7 bytes + nul)
+Garage+0x4C - [byte] - Tipo da Garage (Garage Type)
+Garage+0x4D - [byte] - Estado da porta da Garage (Garage Door State):
+    Valores: 0 = fechada / 1 = aberta / 2 = fechando / 3 = abrindo
+Garage+0x4E - [byte] - Flags da porta (Door Flags):
+    Valores: 0x01 = mod shop usado (?) / 0x02 = porta inativa /
+    0x04 = Pay'n'Spray usado (?) / 0x08 = porta pequena (reflexiva?) /
+    0x10 = porta para cima e para dentro / 0x20 = camera segue o jogador /
+    0x40 = flag de porta fechada / 0x80 = girlfriend PnS
+Garage+0x4F - [byte] - Tipo original (Original Type)
+
+NOTA: O vetor de direcao 3 e completamente omitido; acredito que porque as
+garages sao sempre niveladas ao chao. Acredito que e tambem por isso que os
+valores Z dos vetores de direcao sao omitidos. Os vetores de direcao marcados
+acima podem ser Quaternions.
+
+ENDERECOS ESTATICOS DOS BLOCOS DE GARAGE (e a qual garage pertencem):
+0x96C048 - Commerce Region, Loading Bay Garage (Life's a Beach)
+0x96C120 - LSPD Police Impound Garage
+0x96C1F8 - Mission Garage perto de El Corona (Los Desperados)
+0x96C2D0 - Eight Ball Autos perto de El Corona
+0x96C3A8 - Mission Garage perto de El Corona (Cesar Vialpando)
+0x96C480 - Player Garage: El Corona
+0x96C558 - LS Burglary Garage perto de Playa del Seville
+0x96C630 - LowRider Tuning Garage em Willowfield
+0x96C708 - Pay 'n' Spray em Idlewood
+0x96C7E0 - Player Garage: Johnson House
+0x96C8B8 - Pay 'n' Spray em Temple
+0x96C990 - Transfender em Temple
+0x96CA68 - Pay 'n' Spray em Santa Maria Beach
+0x96CB40 - Player Garage: Santa Maria Beach
+0x96CC18 - Player Garage: Mulholland
+0x96CCF0 - Wheel Archangels em Ocean Flats
+0x96CDC8 - Mission Garage em Ocean Flats (T-Bone Mendez)
+0x96CEA0 - Player Garage: Hashbury
+0x96CF78 - Transfender perto da Wang Cars em Doherty
+0x96D050 - Pay 'n' Spray perto da Wang Cars em Doherty
+0x96D128 - SF Burglary Garage, Loading Bay perto de Doherty
+0x96D200 - Player Garage: Doherty
+0x96D2D8 - Mission Garage em Doherty
+0x96D3B0 - Woozie's Mission Garage em Chinatown (Ran Fa Li)
+0x96D488 - Michelle's Pay 'n' Spray em Downtown
+0x96D560 - Player Garage: Calton Heights
+0x96D638 - SFPD Police Impound Garage
+0x96D710 - Pay 'n' Spray em Juniper Hollow
+0x96D7E8 - Player Garage: Paradiso
+0x96D8C0 - LVPD Police Impound Garage
+0x96D998 - Airport Plane Garage em Las Venturas
+0x96DA70 - LV Burglary Garage perto de Camel's Toe
+0x96DB48 - Pay 'n' Spray perto do Royal Casino
+0x96DC20 - Transfender em come-a-lot
+0x96DCF8 - Player Garage: Rockshore West
+0x96DDD0 - Welding Wedding Bomb-workshop em Emerald Isle
+0x96DEA8 - Pay 'n' Spray em Redsands East
+0x96DF80 - Player Garage: Redsands West
+0x96E058 - Player Garage: Prickle Pine
+0x96E130 - Player Garage: Whitewood Estates
+0x96E208 - Pay 'n' Spray em El Quebrados
+0x96E2E0 - Pay 'n' Spray em Fort Carson
+0x96E3B8 - Player Garage: Fort Carson
+0x96E490 - Player Garage: Verdant Meadows
+0x96E568 - Mission Garage em El Castillo del Diablo (Interdiction)
+0x96E640 - Airport Garage em Verdant Meadows
+0x96E718 - Mission Garage em Angel Pine (Puncture Wounds)
+0x96E7F0 - Pay 'n' Spray em Dillimore
+0x96E8C8 - Player Garage: Palomino Creek
+0x96E9A0 - Player Garage: Dillimore
+
+LOCALIZACOES DE MEMORIA ESTATICAS PARA OS CARROS DAS GARAGES:
+0x96ABD8 - Johnson House Car 1
+0x96AC18 - Johnson House Car 2
+0x96AC58 - Johnson House Car 3
+0x96AC98 - Johnson House Car 4
+0x96ACD8 - Santa Maria Beach Car 1
+0x96AD18 - Santa Maria Beach Car 2
+0x96AD58 - Santa Maria Beach Car 3
+0x96AD98 - Santa Maria Beach Car 4
+0x96ADD8 - Rockshore West Car 1
+0x96AE18 - Rockshore West Car 2
+0x96AE58 - Rockshore West Car 3
+0x96AE98 - Rockshore West Car 4
+0x96AED8 - Fort Carson Car 1
+0x96AF18 - Fort Carson Car 2
+0x96AF58 - Fort Carson Car 3
+0x96AF98 - Fort Carson Car 4
+0x96AFD8 - Verdant Meadows Car 1
+0x96B018 - Verdant Meadows Car 2
+0x96B058 - Verdant Meadows Car 3
+0x96B098 - Verdant Meadows Car 4
+0x96B0D8 - Dillimore Car 1
+0x96B118 - Dillimore Car 2
+0x96B158 - Dillimore Car 3
+0x96B198 - Dillimore Car 4
+0x96B1D8 - Prickle Pine Car 1
+0x96B218 - Prickle Pine Car 2
+0x96B258 - Prickle Pine Car 3
+0x96B298 - Prickle Pine Car 4 (na pagina original consta "Car 3", corrigido para 4)
+0x96B2D8 - Whitewood Estates Car 1
+0x96B318 - Whitewood Estates Car 2
+0x96B358 - Whitewood Estates Car 3
+0x96B398 - Whitewood Estates Car 4
+0x96B3D8 - Palomino Creek Car 1
+0x96B418 - Palomino Creek Car 2
+0x96B458 - Palomino Creek Car 3
+0x96B498 - Palomino Creek Car 4
+0x96B4D8 - Redlands West Car 1
+0x96B518 - Redlands West Car 2
+0x96B558 - Redlands West Car 3
+0x96B598 - Redlands West Car 4
+0x96B5D8 - El Corona Car 1
+0x96B618 - El Corona Car 2
+0x96B658 - El Corona Car 3
+0x96B698 - El Corona Car 4
+0x96B6D8 - MulHolland Car 1
+0x96B718 - MulHolland Car 2
+0x96B758 - MulHolland Car 3
+0x96B798 - MulHolland Car 4
+0x96B7D8 - LSPD Impound Car 1
+0x96B818 - LSPD Impound Car 2
+0x96B858 - LSPD Impound Car 3
+0x96B898 - LSPD Impound nao usado
+0x96B8D8 - SFPD Impound Car 1
+0x96B918 - SFPD Impound Car 2
+0x96B958 - SFPD Impound Car 3
+0x96B998 - SFPD Impound nao usado
+0x96B9D8 - LVPD Impound Car 1
+0x96BA18 - LVPD Impound Car 2
+0x96BA58 - LVPD Impound Car 3
+0x96BA98 - LVPD Impound usado (na pagina original "usued", typo)
+0x96BAD8 - Calton Heights Car 1
+0x96BB18 - Calton Heights Car 2
+0x96BB58 - Calton Heights Car 3
+0x96BB98 - Calton Heights Car 4
+0x96BBD8 - Paradiso Car 1
+0x96BC18 - Paradiso Car 2
+0x96BC58 - Paradiso Car 3
+0x96BC98 - Paradiso Car 4
+0x96BCD8 - Doherty Car 1
+0x96BD18 - Doherty Car 2
+0x96BD58 - Doherty Car 3
+0x96BD98 - Doherty Car 4
+0x96BDD8 - Hashbury Car 1
+0x96BE18 - Hashbury Car 2
+0x96BE58 - Hashbury Car 3
+0x96BE98 - Hashbury Car 4
+0x96BED8 - Verdant Meadows Airport Car 1
+0x96BF18 - Verdant Meadows Airport Car 2
+0x96BF58 - Verdant Meadows Airport Car 3
+0x96BF98 - Verdant Meadows Airport Car 4
+
+OFFSETS DO CARRO PARCADO NA GARAGE (Stored car object):
+CarPark+0x00 - [CVector] - Coordenada (Coord)
+CarPark+0x0E - [word] - Codigo BPDPEPFP
+CarPark+0x10 - [word] - ID do Carro (Car ID)
+CarPark+0x2F - [byte] - Ordinal da cor da carroceria (Body Color ordinal)
+CarPark+0x30 - [byte] - Ordinal da cor do estripe (Stripe Color ordinal)
+CarPark+0x3C - [float] - Angulo do carro (Car Angle)
+
+================================================================================
+[INTERFACE]
+================================================================================
+
+0xBAB22C - [byte] - Barra de saude / texto vermelho / marcador de inimigo / qualquer coisa de cor vermelha (RGBA, 4 bytes)
+0xBAB230 - [byte] - Cor da fonte do dinheiro / nome de entrada do veiculo / texto verde / qualquer coisa de cor verde (RGBA, 4 bytes)
+0xBAB238 - [byte] - Cor do texto branco (White text color, RGBA, 4 bytes)
+0xBAB240 - [byte] - Borda do titulo do menu principal (Main menu title border, RGBA, 4 bytes)
+0xBAB244 - [byte] - Cor do nivel de procurado (Wanted level color, RGBA, 4 bytes)
+0xBAB24C - [byte] - Cor do texto da estacao de radio (Radio station text color, RGBA, 4 bytes)
+0xBAB258 - [byte] - Cor do blip/texto amarelo (Yellow blip/text color, RGBA, 4 bytes)
+
+================================================================================
+[MENU]
+================================================================================
+
+NOTA: 0xBA6748 = Endereco base do menu.
+
+Menu+0x15D - [byte] - ID do menu atual (Current Menu ID)
+Menu+0x78D - [byte] - Mostrar destaque do item de menu ao pairar (Show menu item hover)
+Menu+0x054 - [dword] - Item de menu selecionado (Selected menu item)
+Menu+0x0E9 - [byte] - Alternador do menu principal (menu de inicializacao/menu durante o jogo)
+Menu+0x084 - [dword] - Idioma (Language)
+Menu+0x15F - [byte] - Savegame selecionado (Selected savegame)
+Menu+0x024 - [dword] - Modo do radar (Radar mode)
+Menu+0x064 - [float] - Zoom do mapa (Map zoom)
+Menu+0x068 - [float] - Posicao x do mapa (Map x position)
+Menu+0x06C - [float] - Posicao y do mapa (Map y position)
+Menu+0x05C - [byte] - Jogador no menu? (Player in menu?)
+
+================================================================================
+[MENU IDs]
+================================================================================
+
+NOTA: IDs de menu conhecidos (obter o ID em 0xBA68A5):
+
+0  = Stats
+1  = Iniciar jogo (Start game)
+2  = Brief
+3  = Opcoes de Audio (Audio options)
+4  = Configuracoes de Display (Display settings)
+5  = Mapa (Map)
+6  = Pergunta: iniciar novo jogo (Question start new game)
+7  = Selecao de jogo (Game selection)
+8  = Pergunta: carregar mission pack (Question load mission pack)
+9  = Carregar jogo (Load game)
+10 = Deletar jogo (Delete game)
+11 = Pergunta: carregar save game (Question load save game)
+12 = Pergunta: deletar jogo (Question delete game)
+13 = Carrega o primeiro savegame? *crash
+14 = Delecao bem-sucedida (Delete successful)
+15 = Delecao bem-sucedida (Delete successful)
+16 = Salvar jogo (Save game)
+17 = Pergunta: salvar (Question save)
+18 = Salvamento bem-sucedido (Save successful)
+19 = Salvamento bem-sucedido (Save successful)
+20 = Jogo salvo com sucesso (Save game ok)
+21 = Jogo carregado com sucesso (Load game ok)
+22 = Jogo afetado, nao salvar (Game affected, do not save)
+23 = Display: configuracoes padrao (Display default settings)
+24 = Audio: configuracoes padrao (Audio default settings)
+25 = Controle: configuracoes padrao (Controller default settings)
+26 = Opcoes de user track (User track options)
+28 = Idioma (Language)
+29 = Salvamento bem-sucedido (Save game ok)
+30 = Salvamento malsucedido (Save unsuccessful)
+31 = Carregar jogo (salvamento malsucedido / Load game - save unsuccessful)
+32 = Carregamento malsucedido, arquivo corrompido (Load unsuccessful, file corrupted)
+33 = Opcoes (Options)
+34 = Menu principal (Main menu)
+35 = Sair do jogo (Quit game)
+36 = Configuracao de controle (Controller setup)
+37 = Redefinir controles (Redefine controls)
+38 = Controles a pe / de veiculo (Foot/vehicle controls)
+39 = Configuracoes do mouse (Mouse settings)
+40 = Configuracoes do joypad (Joypad settings)
+41 = Menu principal durante jogo em execucao (Game running main menu)
+42 = Sair do jogo (Quit game)
+43 = Vazio (Empty)
+
+================================================================================
+[SCM RELATED]
+================================================================================
+
+--- SCM - BASE ---
+
+0xA49960 - [ptr] - Inicio do bloco SCM (0xA49960 + (4 * numero_da_var) e aquela variavel em particular)
+0xA7A6A0 - [ptr] - Inicio do bloco de missao (69000 bytes)
+0x464080 - [ptr] - GetOpcodeParameters()
+0xA447F4 - [ptr] - Contagem de comandos (Command count)
+0x469F00 - [ptr] - CRunningScript_ProcessOneCommand
+0x464080 - [ptr] - CRunningScript_CollectParameters
+0x4859D0 - [ptr] - CRunningScript_UpdateCompareFlag
+0x469390 - [ptr] - Struct Game_Script_Thread
+0xA43C78 - [ptr] - Onde a rotina acima armazena os valores de parametros de opcode. Maximo de 16 parametros para um opcode, parece
+0x8A6168 - [ptr] - Jumptable "Mestre": cada dword aponta para uma das 27 funcoes diferentes, cada uma tratando aproximadamente 100 opcodes
+0x466C50 - [ptr] - Opcodes 0000-0063. Array de dword, cada um apontando para a funcao daquele opcode
+0x468364 - [ptr] - Opcodes 0064-00C4. Array de dword, cada um apontando para a funcao daquele opcode
+0x469E4C - [ptr] - Opcodes 00D6-0129. Array de byte, cada byte e um indice para o array de dword em 0x469DD4, que aponta para a funcao do opcode
+0x47D1B4 - [ptr] - Opcodes 0137-018F. Array de byte, cada byte e um indice para o array de dword em 0x47D0F4, que aponta para a funcao do opcode
+0x47DFE0 - [ptr] - Opcodes 0190-01F3. Array de byte, cada byte e um indice para o array de dword em 0x47DF58, que aponta para a funcao do opcode
+0x47F304 - [ptr] - Opcodes 01F4-0256. Array de byte, cada byte e um indice para o array de dword em 0x47F24C, que aponta para a funcao do opcode
+0x47FA04 - [ptr] - Opcodes 0292-02B8. Array de byte, cada byte e um indice para o array de dword em 0x47F9BC, que aponta para a funcao do opcode
+0x480FD8 - [ptr] - Opcodes 02BE-031D. Array de byte, cada byte e um indice para o array de dword em 0x480F10, que aponta para a funcao do opcode
+0x4836B8 - [ptr] - Opcodes 0320-0382. Array de byte, cada byte e um indice para o array de dword em 0x483600, que aponta para a funcao do opcode
+
+--- SCM - THREADS ---
+
+NOTA SOBRE TAMANHO DE BLOCO: 0xA8B430 = Inicio do pool de threads. Ha duas
+filas: as threads ativas e as inativas. Cada thread tem tamanho de 224 (0xE0)
+bytes.
+
+0xA8B42C - [ptr] - Ponteiro para a primeira thread SCM ativa
+0xA8B428 - [ptr] - Ponteiro para a primeira thread SCM inativa
+
+Thread+0x00 - [void*] - Ponteiro para a proxima thread na fila (next thread in queue)
+Thread+0x04 - [void*] - Ponteiro para a thread anterior na fila (previous thread in queue)
+Thread+0x08 - [char] - Nome da thread dado pelo opcode 03A4 (char 8)
+Thread+0x10 - [dword] - IP base da thread (usado nas missoes e scripts externos para calcular um endereco global de um offset de jump local)
+Thread+0x14 - [dword] - IP atual (Current IP)
+Thread+0x18 - [dword] - Pilha de retorno (stores the current IP when a gosub executed, dword 8)
+Thread+0x38 - [word] - Ultimo indice do item da pilha de retorno (Last item index of the return stack)
+Thread+0x3C - [dword] - Array de variaveis locais (Local variables array, dword 32)
+Thread+0xBC - [dword] - Timers de incremento automatico (Automatically incrementing timers, dword 2)
+Thread+0xC4 - [boolean] - Flag de thread ativa (Thread active flag)
+Thread+0xC5 - [boolean] - Resultado do IF (IF result)
+Thread+0xC6 - [boolean] - Flag de missao (Mission flag)
+Thread+0xC7 - [boolean] - Flag de script externo (External script flag)
+Thread+0xC8 - [boolean] - Flag desconhecida (no menu?). Usada em 03E5
+Thread+0xC9 - [boolean] - Flag desconhecida (ID de um script atribuido?)
+Thread+0xCC - [dword] - Tempo de wakeup (setado por 0001)
+Thread+0xD0 - [word] - Numero do IF (setado por 00D6)
+Thread+0xD2 - [boolean] - Flag NOT (se uma condicao a verificar e negativa - quaisquer opcodes maiores que 0x7FFF)
+Thread+0xD3 - [boolean] - Flag de check de wasted/busted habilitada (setada por 0111); APENAS PARA MISSOES
+Thread+0xD4 - [boolean] - Flag de jogador wasted ou busted; APENAS PARA MISSOES
+Thread+0xD8 - [dword] - Skip scene IP (usado pelos opcodes 0707, 0701)
+Thread+0xDC - [boolean] - Flag de missao (Mission flag)
+
+--- SCM - EXTERNAL SCRIPTS INFO ---
+
+NOTA SOBRE TAMANHO DE BLOCO: 0xA47B60 = Inicio do pool de informacoes de
+scripts externos. Ha 82 elementos com 32 bytes cada.
+
+ExtScript+0x00 - [dword] - Script IP
+ExtScript+0x04 - [word] - Status (pode ser obtido pelo opcode 0926)
+ExtScript+0x06 - [word] - Indice no SCM (um numero como definido no header do scm)
+ExtScript+0x08 - [char] - Nome (Name, char 20)
+ExtScript+0x1C - [dword] - Tamanho (Size)
+
+0xA485A0 - [dword] - Tamanho do maior script externo (Size of the largest external script)
+0xA485A4 - [dword] - Contagem total de scripts (Total scripts count)
+
+--- SCM - RESTART LOCATIONS ---
+
+NOTA: Veja tambem: opcodes 016C e 016D / bloco 8 do arquivo de save.
+Um jogo nao-modificado tem 7 localizacoes de restart para "busted" e 8 para
+"wasted". A estrutura de memoria sugere um limite de 10 para ambos.
+
+0xA43268 - [dword] - Numero de estruturas de busted (number of busted structures)
+0xA4326C - [dword] - Numero de estruturas de wasted (number of wasted structures)
+0xA43270 - [float[10]] - Numeros de cidade para estruturas de busted (1 = LS / 2 = Country+SF / 3 = Desert+LV)
+0xA43298 - [float[10]] - Angulos para estruturas de busted
+0xA432C0 - [float[10]] - Numeros de cidade para estruturas de wasted (1 = LS / 2 = Country+SF / 3 = Desert+LV)
+0xA432E8 - [float[10]] - Angulos para estruturas de wasted
+0xA43310 - [float] - float nao usado, apenas definido ate (0.005 * 0.0625 = 0.0003125); 1/0.0003125 = 3200.0
+0xA43318 - [float[3][10]] - x,y,z - coordenadas de respawn para estruturas de wasted
+0xA43390 - [float[3][10]] - x,y,z - coordenadas de respawn para estruturas de busted
+0xA43408 - [byte[12]] - desconhecido; correspondendo aos 12 bytes desconhecidos do bloco 8 do save; 0x01 apos estruturas de busted
+0xA43414 - [byte[12]] - desconhecido; correspondendo aos 12 bytes desconhecidos do bloco 8 do save; 0x0F apos estruturas de busted
+0xA43420 - [end] - Fim da estrutura
+
+NOTAS:
+- Os numeros de cidade e angulos tem as estruturas de busted primeiro, mas as
+  coordenadas tem as estruturas de wasted primeiro.
+- Nao ha certeza sobre o final desta estrutura; nada reconhecivel do bloco 8
+  do save foi identificado apos 0xA43420.
+
+--- SCM - MISC ---
+
+NOTA SOBRE TAMANHO DE BLOCO: 0xA4892C = Inicio do pool que armazena os handles
+de veiculos que capotaram. Ha 6 elementos, cada um com:
+
+FlippedVeh+0x00 - [dword] - Handle do veiculo para verificar se capotou. Armazenado pelo opcode 0190.
+FlippedVeh+0x04 - [dword] - Tempo em ms passado desde o momento em que o veiculo capotou. Usado pelo opcode 018F
+
+NOTA SOBRE TAMANHO DE BLOCO: 0xA90850 = Inicio da lista de limpeza de missao
+(mission cleanup list). Esta lista mantem os handles de quaisquer entidades
+criadas durante uma missao. Quando o opcode 00D8 e executado (normalmente no
+final de qualquer missao), o jogo le esta lista e destroi tudo que esta
+armazenado la. Numero maximo de itens na lista e 75. Cada item tem a seguinte
+estrutura:
+
+MissionCleanup+0x00 - [byte] - Tipo de entidade (Entity type):
+    Valores: 1 = veiculo / 2 = actor / 3 = object / 4 = particle /
+    5 = group (opcode 062F) / 7 = AS_origin (opcode 061D) /
+    8 = action_sequence / 9 = decision maker / 11 = searchlight /
+    13 = txd_dictionary
+MissionCleanup+0x04 - [dword] - handle da entidade (um indice no pool apropriado)
+
+================================================================================
+[WEATHER CODES]
+================================================================================
+
+0xC81318 - [word] - Trava de clima (Weather lock, by AlienX)
+0xC8131C - [word] - Proximo clima (Upcoming weather)
+0xC81320 - [word] - Clima atual (Current weather)
+
+NOTA: Os valores abaixo se alinham com as secoes no data/timecyc.dat.
+Existem varios tipos de climas (incluindo subaquatico), e o clima atual afeta
+a distancia de visao, a cor do ceu, a intensidade da nevoa e outras coisas
+assim. A aparencia de cada clima tambem depende do tempo.
+
+TABELA DE VALORES DE CLIMA (Weather Values):
+0  = EXTRASUNNY_LA
+1  = SUNNY_LA
+2  = EXTRASUNNY_SMOG_LA
+3  = SUNNY_SMOG_LA
+4  = CLOUDY_LA
+5  = SUNNY_SF
+6  = EXTRASUNNY_SF
+7  = CLOUDY_SF
+8  = RAINY_SF
+9  = FOGGY_SF
+10 = SUNNY_VEGAS
+11 = EXTRASUNNY_VEGAS (ondas de calor)
+12 = CLOUDY_VEGAS
+13 = EXTRASUNNY_COUNTRYSIDE
+14 = SUNNY_COUNTRYSIDE
+15 = CLOUDY_COUNTRYSIDE
+16 = RAINY_COUNTRYSIDE
+17 = EXTRASUNNY_DESERT
+18 = SUNNY_DESERT
+19 = SANDSTORM_DESERT
+20 = UNDERWATER (esverdeado, nevoento)
+21 = EXTRACOLOURS_1 (muito escuro, skyline degradado, roxo) - usado para interiores?
+22 = EXTRACOLOURS_2 (muito escuro, skyline degradado, verde) - usado para interiores?
+
+Os seguintes nao sao mencionados naquele arquivo, mas podem ser usados assim
+mesmo:
+23 a 26 = variacoes de laranja palido
+27 a 29 = variacoes de azul fresco
+30 a 32 = variacoes de teal escuro e nublado
+33 = marrom escuro e nublado
+34 = azul/roxo, regular
+35 = marrom opaco
+36 a 38 = laranja brilhante e nevoento
+39 = extremamente brilhante
+40 a 42 = azul/roxo nublado
+43 = nuvens toxicas escuras
+44 = ceu preto/branco
+45 = ceu preto/roxo
+
+AVISO: Definir estes valores para qualquer coisa acima disso resultara em
+tela preta, piscadas, vermelho intenso etc.
+
+================================================================================
+[DEPENDENCIES]
+================================================================================
+
+NOTA: Car ptr = player ptr quando a pe (on foot).
+
+NOTA: Isto depende de qual endereco para o ponteiro esta sendo usado; se o
+ponteiro do carro parecer o mesmo que o ponteiro do jogador a pe, entao voce
+pode estar usando um ponteiro de alvo relacionado a camera.
+
+NOTA SOBRE TAMANHO DE BLOCO (confirmando os tamanhos das estruturas dinamicas):
+- CPed block size    = 0x7C4 bytes (1988 bytes)
+- CVehicle block size = 0x0A18 bytes (2584 bytes)
+
+================================================================================
+FIM DO DOCUMENTO
+Fonte: https://gtamods.com/wiki/Memory_Addresses_(SA)
+================================================================================
