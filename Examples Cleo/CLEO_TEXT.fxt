@@ -1,0 +1,62 @@
+# WMP.fxt 
+# supports: wpm 2.0 dev only
+# Created by The_Siggi
+# 
+PWPMER ~r~ERROR! ~n~Invalid script behavior
+PWPM00 Brassknuckle
+PWPM01 Golf club
+PWPM02 Nightstick
+PWPM03 Knife
+PWPM04 Bat
+PWPM05 Shovel
+PWPM06 Poolcue
+PWPM07 Katana
+PWPM08 Chainsaw
+PWPM09 RPG
+PWPM10 Heatseek
+PWPM11 Flamethrower
+PWPM12 Gatling
+PWPM13 Molotov cocktail
+PWPM14 Teargas
+PWPM15 Satchels
+PWPM16 Spraycan
+PWPM17 Extinguisher
+PWPM18 Camera
+PWPM19 Nightvision goggles
+PWPM20 Thermal goggles
+PWPM21 Parachute
+PWPM22 Dildo
+PWPM23 White dildo
+PWPM24 Long white dildo
+PWPM25 White dildo 2
+PWPM26 Flowers
+PWPM27 Cane
+PWMPH1 Main menu
+PWPMHM Melee Weapons
+PWMPHS SMGs
+PWMPHH Heavy weapons
+PWMPHE Equipment
+PWMPHG Gifts
+PWMPN1 1                        
+PWMPN2 10
+PWMPN3 50
+PWMPN4 100
+PWMPN5 200
+PWMPN6 500  
+PWMPN7 1000
+PWMPN8 5000  
+PWMPNI infinite
+PWMPJE Jetpack
+PWPMX1 Health
+PWPMX2 Armour   
+PWPMX3 Health 'n' Armour
+PWPMX4 Use LEFT/RIGHT arrow keys to adjust armour.~k~~PED_SPRINT~ to confirm. ~k~~VEHICLE_ENTER_EXIT~ to cancel.
+PWPMX5 ~r~Cancelled armour settings.~w~
+PWPMX6 Armour set to ~b~~1~~w~.
+PWPMX7 Use LEFT/RIGHT arrow keys to adjust Health.~k~~PED_SPRINT~ to confirm. ~k~~VEHICLE_ENTER_EXIT~ to cancel.
+PWPMX8 ~r~Cancelled health settings.~w~
+PWPMX9 Health set to ~b~~1~~w~.
+ERROR1 ~r~ERROR:~ Unknown script behaviour
+ERROR2 ~r~ERROR:~ Script has ben ended!
+ERROR3 ~r~ERROR:~ Unknown Script behaviour: Model loading issue!
+# Copyright© 2010 by The_Siggi 
