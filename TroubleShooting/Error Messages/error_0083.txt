@@ -1,0 +1,16 @@
+Error Code: 0083
+Title: Unknown model ID
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0083
+========================================================================
+
+The compiler is unable to resolve the model id using the .ide files configured for the current edit mode.
+It may happen in a header-less script (e.g. a CLEO script or any script compiled with the {$EXTERNAL} directive) where all models must be compiled with their in-game id.
+Possible solutions: use a model id instead of the name. To find the id use the Sanny's built-in conversion tool (Ctrl+Alt+H):
+`
+{$CLEO}
+0107: $o = create_object #KEYCARD at 0 0 0 // error, can't find KEYCARD
+0107: $o = create_object 1581 at 0 0 0 // OK
+`
+{% hint style="info" %}
+Make sure a path to the game directory is set in the options for the model id resolution to work properly.
+{% endhint %}

@@ -1,0 +1,15 @@
+Error Code: 0102
+Title: Switch statement needs a variable
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0102
+========================================================================
+
+Compiler expected a variable to follow the switch keyword but found something else.
+This error may occur if you use a number or string literal after switch.
+Possible solutions:
+- check your code and make sure you use a variable in the switch statement:
+`
+switch <var>
+...
+end
+`
+<var> can be an integer, float, string variable and also ADMA-variable starting with &. See the documentation on switch for more information.

@@ -1,0 +1,24 @@
+Error Code: 0104
+Title: Expected a value for the switch case
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0104
+========================================================================
+
+Compiler expected a value to follow the case keyword but found something else.
+This error may occur if left case alone on the line:
+`pascal
+switch 0@
+case
+end
+`
+Possible solutions:
+- make sure you follow the switch statement syntax and provide a value compatible with the switch variable, i.e. a number or a string. Values can be comma-delimited if they work for the same case.
+`pascal
+switch 0@
+case 1, 2, 3
+0ace: "Value is 1, 2, or 3"
+case 5
+0ace: "Value is 5"
+default
+0ace: "Value is not 1, 2, 3, or 5"
+end
+`

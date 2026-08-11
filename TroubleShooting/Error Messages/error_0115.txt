@@ -1,0 +1,14 @@
+Error Code: 0115
+Title: Invalid variable name. Name is reserved by another class or function
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0115
+========================================================================
+
+Compiler found a variable name that matches a reserved word, or another class or function. Each variable must be unique.
+List of available class names can be found in current edit mode's classes.db file.
+List of other reserved words can be found in compiler.ini located in Sanny's data directory.
+`cpp
+int car // Error: car is defined in classes.db
+int inc // Error: inc is defined in compiler.ini
+`
+Possible solutions:
+- rename the variable to give it a unique name

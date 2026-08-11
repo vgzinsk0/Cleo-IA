@@ -1,0 +1,8 @@
+Error Code: 0082
+Title: Invalid syntax
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0082
+========================================================================
+
+The compiler finds a syntactic element that can't be used in the current context.
+For example, it happens if the word else is found outside of a conditional statement.
+Possible solutions: check the related documentation and make the code syntax valid.

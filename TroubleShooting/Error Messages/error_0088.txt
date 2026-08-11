@@ -1,0 +1,8 @@
+Error Code: 0088
+Title: Global variable is out of range
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0088
+========================================================================
+
+A global variable does not fit in the allowed range.
+You can use global variables in the range from $2 to $3FFF in GTA III, VC and San Andreas. The maximum variable is $6655 in Liberty City Stories, and$6399 in Vice City Stories.
+Possible solutions: change the variable name to be a positive integer value in the allowed range for the given game. Alternatively you may disable the option Ranges check.

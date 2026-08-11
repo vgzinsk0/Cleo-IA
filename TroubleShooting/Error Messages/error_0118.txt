@@ -1,0 +1,18 @@
+Error Code: 0118
+Title: Unexpected value to return
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0118
+========================================================================
+
+Compiler found a value that can't be returned from a function. Functions can only return numbers (integer or float), strings, or single variables. Arrays or other complex values are not supported. Also, you can't put random words after return keyword:
+`pascal
+function foo
+return value // Error: Unexpected value to return: value
+end
+`
+Possible solutions:
+- for each corresponding return type, provide a correct value that is either a number or a string, or a variable of the same type
+`pascal
+function foo
+return 42
+end
+`

@@ -1,0 +1,7 @@
+Error Code: 0060
+Title: No input file
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0060
+========================================================================
+
+The input file has been closed during the compiling process.
+Possible solutions: re-open the file and compile again.

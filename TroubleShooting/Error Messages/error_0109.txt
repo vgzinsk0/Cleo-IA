@@ -1,0 +1,31 @@
+Error Code: 0109
+Title: Expected variables to store function result
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0109
+========================================================================
+
+Compiler expected a certain number of variables to store the result of the function but got different number.
+If a function returns one value, the following code will be invalid:
+`pascal
+function returnOne: int
+return 1
+end
+int x,y
+returnOne() // error, expected 1 variable, got 0
+x,y = returnOne() // error, expected 1 variable, got 2
+`
+Possible solutions:
+- on the left-hand side of the expression, provide variables to store each value returned from the function, if there are any
+`pascal
+function returnNone
+end
+function returnOne: int
+return 1
+end
+function returnTwo: int, int
+return 1 2
+end
+int x, y
+returnNone()
+x = returnOne()
+x, y = returnTwo()
+`

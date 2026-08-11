@@ -1,0 +1,22 @@
+Error Code: 0100
+Title: Invalid operator
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0100
+========================================================================
+
+Compiler found an operator that is not supported in the current context. At the moment this error is being thrown when anything other than the assignment operator = is used after the list of variables:
+`c
+int a, b
+a, b > 5 // error, > is invalid
+`
+Possible solutions:
+- check your expression. Use the = operator after a comma-separated list of variables:
+`c
+int a, b
+a, b = Car.GetColors(car)
+`
+- use one variable with other operators:
+`c
+int a, b
+a > 5
+b > 5
+`

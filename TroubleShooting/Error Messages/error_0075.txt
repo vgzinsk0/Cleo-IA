@@ -1,0 +1,15 @@
+Error Code: 0075
+Title: Incorrect hexadecimal value
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0075
+========================================================================
+
+There is a symbol in the HEX..END statement that is not a hexadecimal numeral. Valid hexadecimal numerals are digits 0 through 9 and letters A through F. String literals must be enclosed in double quotes.
+Possible solutions: change the mentioned value:
+`
+hex
+Hi  // error, Hi is not hexadecimal
+end
+hex
+"Hi" // OK
+end
+`

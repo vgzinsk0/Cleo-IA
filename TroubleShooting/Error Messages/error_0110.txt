@@ -1,0 +1,31 @@
+Error Code: 0110
+Title: Function must return N values
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0110
+========================================================================
+
+Compiler found that number of values in return statement does not match function signature. It can happen if return has more or fewer values.
+For example, if function has not declared any return type, it's incorrect to return values from it:
+`pascal
+function foo
+return 1 // error, foo should return nothing
+end
+`
+Similarly, it is incorrect to return nothing, when the function has declared a return type:
+`pascal
+function bar: int
+return
+end
+`
+Possible solutions:
+- check a number of returned values following a return keyword. Make sure this number matches the number of return types declared in the function's signature
+- if the function may, under some condition, return nothing (a fallible function), its return type must be prepended with an optional keyword:
+`pascal
+function bar: optional int
+if ...
+then
+return 1
+else
+return
+end
+end
+`

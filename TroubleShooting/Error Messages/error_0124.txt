@@ -1,0 +1,19 @@
+Error Code: 0124
+Title: Foreign functions can't return more than one value
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0124
+========================================================================
+
+Compiler found a foreign function definition with more than one return type:
+`pascal
+function foo<cdecl>(): int, int // error: Foreign functions can not return more than one value.
+`
+Possible solutions:
+- remove extra return types:
+`pascal
+function foo<cdecl>(): int
+`
+- if this is not a foreign function, but a local SCM function that can return multiple types, remove angle brackets:
+`pascal
+function foo(): int, int
+`
+Note that is this case you must also provide a function body.

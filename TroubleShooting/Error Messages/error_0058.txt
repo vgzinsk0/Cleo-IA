@@ -1,0 +1,11 @@
+Error Code: 0058
+Title: Invalid parameter
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0058
+========================================================================
+
+A command has been given an invalid parameter. For example, it may happen if a number is used in SQR, while the compiler expects a variable.
+Possible solutions: check the command and use valid syntax:
+`
+sqr(10) // error, variable expected
+sqr($var) // OK
+`

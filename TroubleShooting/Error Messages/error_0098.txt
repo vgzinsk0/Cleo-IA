@@ -1,0 +1,8 @@
+Error Code: 0098
+Title: Unknown operator
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0098
+========================================================================
+
+The compiler found an unknown character sequence where a valid operator was expected.
+Possible solutions:
+- Check the syntax and provide a known and valid operator. Valid operators are: <, <=, =, >, >=, ==, <>, +=, -=, *=, /=, &=, |=, ^=, ~=, %=, >>=, <<=, #=, +=@, -=@.

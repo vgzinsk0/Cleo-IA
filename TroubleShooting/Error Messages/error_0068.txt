@@ -1,0 +1,7 @@
+Error Code: 0068
+Title: Forbidden character in identifier
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0068
+========================================================================
+
+The compiler finds an forbidden character in a variable name, label, or any other identifier. Only digits, letters and the underscore (_) are allowed.
+Possible solutions: update the name to include only allowed characters.

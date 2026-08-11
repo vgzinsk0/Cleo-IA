@@ -1,0 +1,21 @@
+Error Code: 0074
+Title: Disabled option
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0074
+========================================================================
+
+The compiler finds a conditional statement with a logical operator (AND or OR) but the required Check conditions option is turned off. Using logical operators is only allowed when this option is enabled.
+Possible solutions: enable Check conditions in the options or replace the operator with an appropriate integer number:
+`
+if and    // error, option disabled
+0@ == 1
+1@ == 1
+then
+//
+end
+if 1    // OK
+0@ == 1
+1@ == 1
+then
+//
+end
+`

@@ -1,0 +1,13 @@
+Error Code: 0108
+Title: Unsupported argument type
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0108
+========================================================================
+
+Compiler expected a known type of the parameter in the function signature, but provided name is not known.
+E.g. in
+`pascal
+function foo(value: something)
+`
+something might not be a valid type. Compiler expects int, float, string or a class name (e.g. Player).
+Possible solution:
+- use a valid type name. Check Function documentation for more information.

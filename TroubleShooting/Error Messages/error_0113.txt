@@ -1,0 +1,14 @@
+Error Code: 0113
+Title: Duplicate function declaration
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0113
+========================================================================
+
+Compiler found a duplicate function declaration in current scope. Each function should have a unique name and duplicates are not allowed:
+`pascal
+function foo
+end
+function foo // Error: Duplicate function declaration foo.
+end
+`
+Possible solutions:
+- rename the function to give it a unique name

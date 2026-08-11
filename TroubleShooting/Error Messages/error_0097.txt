@@ -1,0 +1,13 @@
+Error Code: 0097
+Title: Too many actual parameters
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0097
+========================================================================
+
+The compiler found more arguments than it is required for the current instruction.
+The number of arguments for the current instruction can be found in Sanny Builder Library. It is also visible in the status bar when the Show opcode info option is enabled.
+Some instructions have a variable number of arguments. For example, 004F: start_new_script @label [arguments] accepts extra arguments to set the initial values of local variables in the new script. The number of variable arguments is also limited and is equal to the total number of local variables available to the scripts of the target game.
+Possible solutions: provide the required number of parameters:
+`pascal
+0001: wait 0 1 // error, expected one parameter
+0001: wait 0 // OK
+`

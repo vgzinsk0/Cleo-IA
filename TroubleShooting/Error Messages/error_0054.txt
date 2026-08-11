@@ -1,0 +1,12 @@
+Error Code: 0054
+Title: Label not found
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0054
+========================================================================
+
+The compiler can't find the label anywhere in the script.
+Possible solutions: update the reference to match the existing label:
+`
+jump @start // error
+jump @begin // OK
+:begin
+`

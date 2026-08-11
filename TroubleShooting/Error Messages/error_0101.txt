@@ -1,0 +1,41 @@
+Error Code: 0101
+Title: Variable is not a class instance
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0101
+========================================================================
+
+Compiler found a possible class method used with a variable, but the variable type is unknown:
+`pascal
+if
+$player.isPlaying
+then
+...
+end
+`
+In order to correctly identify the command used here, the compiler should know what class the $player variable represents.
+Possible solutions:
+- Define the type of the variable explicitly using a var keyword:
+`pascal
+var $player: Player
+if
+$player.isPlaying // compiles as 0256: is_player_playing $player
+then
+...
+end
+`
+- Define the type of the variable explicitly using the Player class name:
+`pascal
+Player $player
+if
+$player.isPlaying // compiles as 0256: is_player_playing $player
+then
+...
+end
+`
+- Use a combination of the class name and class method:
+`pascal
+if
+Player.IsPlaying($player) // compiles as 0256: is_player_playing $player
+then
+...
+end
+`

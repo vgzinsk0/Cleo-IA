@@ -1,0 +1,12 @@
+Error Code: 0087
+Title: Invalid variable
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0087
+========================================================================
+
+The compiler finds an ADMA variable that is not a multiple of 4 and the edit mode targets Liberty City Stories or Vice City Stories.
+Data types in these games only allow addressing variables storage by offsets that are multiples of 4.
+Possible solutions: change the variable to be a multiple of 4:
+`
+&3 = 0 // error
+&4 = 0 // OK
+`

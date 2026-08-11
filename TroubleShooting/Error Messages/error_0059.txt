@@ -1,0 +1,7 @@
+Error Code: 0059
+Title: Invalid opcode definition
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0059
+========================================================================
+
+An opcode definition has an invalid number of parameters.
+Possible solutions: update the INI file.

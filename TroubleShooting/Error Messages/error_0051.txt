@@ -1,0 +1,7 @@
+Error Code: 0051
+Title: Error writing script.img header
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0051
+========================================================================
+
+The compiler crashed while trying to compile the script.img header.
+Possible solutions: recompile the script. If the error happens again, report the issue.

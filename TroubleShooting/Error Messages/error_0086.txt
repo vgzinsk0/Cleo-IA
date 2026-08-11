@@ -1,0 +1,11 @@
+Error Code: 0086
+Title: Invalid array index
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0086
+========================================================================
+
+The script engine of Liberty City Stories and Vice City Stories games only allows local variables to be array indexes.
+Possible solutions: replace the global variable with a local variable:
+`
+$array($index,1) // error
+$array(0@,1) // OK
+`

@@ -1,0 +1,11 @@
+Error Code: 0079
+Title: Invalid parameter in Alloc command
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0079
+========================================================================
+
+The first parameter in the Alloc command is not a global variable. This command only works with global variables.
+Possible solutions: provide a global variable:
+`
+Alloc(10@, 10) // error
+Alloc($var, 10) // OK
+`

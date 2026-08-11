@@ -1,0 +1,12 @@
+Error Code: 0089
+Title: Opcode not found
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0089
+========================================================================
+
+The compiler found a command that is not available with vanilla game and the extensions used in this script.
+Possible solutions: add a directive {$USE <extension_name>} where <extension_name> is one of the available extensions defining this command.
+For example, opcode 0BA2 in GTA III is only available with CLEO 2.0 and MemoryModule plugin. In order to make you aware of this extra dependency the compiler throws this error if it can't find {$USE memory}. For existing scripts adding this directive will be a one-time change to let it compile again.
+`
+{$USE memory}
+`
+If you're unsure which extension the command belongs to, go to Sanny Builder Library and find it there.

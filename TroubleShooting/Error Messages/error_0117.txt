@@ -1,0 +1,17 @@
+Error Code: 0117
+Title: Invalid function name
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0117
+========================================================================
+
+Compiler found a function declaration with the name that is not a valid identifier. A function name must be alphanumeric starting with a letter or an underscore (_).
+Examples:
+`pascal
+function 123 // Error: Invalid function name 123. Name must be a valid identifier.
+end
+`
+Possible solutions:
+- Rename the function so that its name is a valid identifier:
+`pascal
+function f123
+end
+`

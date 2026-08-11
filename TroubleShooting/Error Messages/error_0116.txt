@@ -1,0 +1,17 @@
+Error Code: 0116
+Title: Invalid variable name
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0116
+========================================================================
+
+Compiler found a variable with a name that is not allowed. It can be a name that contains punctuation characters, a numeric name without a $ or & prefix.
+Examples:
+`pascal
+int 5
+var , : int
+`
+Possible solutions:
+- rename the variable to give it a valid name. Valid name can be a combination of alphanumeric characters, starting with a letter or an underscore (_). For DMA and ADMA global variables names can be fully numeric but must start with $ or & (e.g. $100, &24):
+`pascal
+int i5
+var v : int
+`

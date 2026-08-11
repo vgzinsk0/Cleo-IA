@@ -1,0 +1,6 @@
+Error Code: 0093
+Title: Only headless scripts can export code
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0093
+========================================================================
+
+

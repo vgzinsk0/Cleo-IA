@@ -1,0 +1,13 @@
+Error Code: 0064
+Title: Mission label not found
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0064
+========================================================================
+
+The compiler can't find the starting label of a mission.
+Possible solutions: make sure that each mission declared in the header exists in the source file. Either add a missed mission, or remove the declaration:
+`
+DEFINE MISSIONS 1
+DEFINE MISSION 0 AT @MISSION_0
+:MAIN
+// error, MISSION_0 not found
+`

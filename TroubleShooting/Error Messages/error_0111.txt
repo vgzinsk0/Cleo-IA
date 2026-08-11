@@ -1,0 +1,40 @@
+Error Code: 0111
+Title: Function not found in current scope
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0111
+========================================================================
+
+Compiler found what looked like a function call but couldn't find a matching definition in the current scope. It can be either because the function with such name was never declared or declared in a scope of another function.
+E.g.
+`pascal
+function foo
+function bar: int
+return 5
+end
+end
+int x = bar() // bar not found, because bar is defined and available only in function foo`
+`
+Possible solutions:
+- Check the function name spelling. It is possible that you've used a wrong name:
+`pascal
+function foo
+end
+var x = fo() // error, fo not found
+var x = foo() // OK
+`
+- Check that the function is declared in either the global scope, or a scope of the current function:
+`pascal
+// global scope
+function baz: int
+return 5
+end
+function foo
+// function scope
+int x = bar() // OK, bar is available in current scope
+int y = baz() // OK, baz is available in current scope
+function bar: int
+return 5
+end
+end
+int x = bar() // bar not found
+int y = baz() // OK
+`

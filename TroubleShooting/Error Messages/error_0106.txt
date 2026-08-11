@@ -1,0 +1,25 @@
+Error Code: 0106
+Title: Expected a function argument type
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0106
+========================================================================
+
+Compiler expected a valid identifier to follow a colon (:) in the function signature but found something else.
+E.g. consider this example:
+`pascal
+function foo(value: )
+`
+value parameter must have a type, so the compiler expected something like:
+`pascal
+function foo(value: int)
+`
+Possible solutions:
+- add one of the known types after the colon:
+`pascal
+function foo(value: int)
+function bar: float
+`
+- if a function does not have any arguments, use empty braces () or omit them entirely:
+`pascal
+function foo()
+function bar
+`

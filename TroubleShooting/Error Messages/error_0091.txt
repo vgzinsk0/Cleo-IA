@@ -1,0 +1,10 @@
+Error Code: 0091
+Title: Not enough memory to allocate a local variable
+Source: https://docs.sannybuilder.com/troubleshooting/errors/0091
+========================================================================
+
+The compiler fails to allocate an index for a new local variable. There is a limit to the number of variables that can be used within a script. Exceeding this limit will result in a run-time error.
+This limitation applies to both individual variables and arrays declarations.
+Possible solutions:
+- Optimize your script. Review your script's logic and attempt to use fewer variables. This can involve reusing variables when possible and eliminating redundant declarations.
+- Disable the "Ranges check" option.
