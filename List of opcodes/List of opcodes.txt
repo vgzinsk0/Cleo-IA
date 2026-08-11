@@ -1,0 +1,1518 @@
+List of opcodes
+Jump to navigationJump to search
+This is a list of all opcodes, including nops and unsupported ones, in GTA III, Vice City, and San Andreas. Brief descriptions and notes are added to the list for quick and easy access to information.
+
+Opcode	Games	P	Parameter type	Brief description	Notes
+0000	GTA III Vice City San Andreas	0	nop	no operation	special use in CLEO
+0001	GTA III Vice City San Andreas	1	int	wait	
+0002	GTA III Vice City San Andreas	1	int	jump to label	
+0003	GTA III Vice City San Andreas	1	int	shake camera	
+0004	GTA III Vice City San Andreas	2	global var, int	set global to integer (G = I)	
+0005	GTA III Vice City San Andreas	2	global var, flt	set global to float (G = F)	
+0006	GTA III Vice City San Andreas	2	local var, int	set local to integer (L = I))	
+0007	GTA III Vice City San Andreas	2	local var, flt	set local to float (L = F))	
+0008	GTA III Vice City San Andreas	2	global var, int	add integer to global (G += I)	
+0009	GTA III Vice City San Andreas	2	global var, flt	add float to global (G += F)	
+000A	GTA III Vice City San Andreas	2	local var, int	add integer to local (L += I)	
+000B	GTA III Vice City San Andreas	2	local var, flt	add float to local (L += F)	
+000C	GTA III Vice City San Andreas	2	global var, int	subtract integer from global (G -= I)	
+000D	GTA III Vice City San Andreas	2	global var, flt	subtract float from global (G -= F)	
+000E	GTA III Vice City San Andreas	2	local var, int	subtract integer from local (L -= I)	
+000F	GTA III Vice City San Andreas	2	local var, flt	subtract float from local (L -= F)	
+0010	GTA III Vice City San Andreas	2	global var, int	multiply global by integer (G *= I)	
+0011	GTA III Vice City San Andreas	2	global var, flt	multiply global by float (G *= F)	
+0012	GTA III Vice City San Andreas	2	local var, int	multiply local by integer (L *= I)	
+0013	GTA III Vice City San Andreas	2	local var, flt	multiply local by float (L *= F)	
+0014	GTA III Vice City San Andreas	2	global var, int	divide global by integer (G /= I)	
+0015	GTA III Vice City San Andreas	2	global var, flt	divide global by float (G /= F)	
+0016	GTA III Vice City San Andreas	2	local var, int	divide local by integer (L /= I)	
+0017	GTA III Vice City San Andreas	2	local var, flt	divide local by float (L /= F)	
+0018	GTA III Vice City San Andreas	2	global var, int	check global greater than integer (G > I)	
+0019	GTA III Vice City San Andreas	2	local var, int	check local greater than integer (L > I)	
+001A	GTA III Vice City San Andreas	2	int, global var	check integer greater than global (I > G)	
+001B	GTA III Vice City San Andreas	2	int, local var	check integer greater than local (I > L)	
+001C	GTA III Vice City San Andreas	2	global var, global var	check global integer greater than global int (G > G int)	
+001D	GTA III Vice City San Andreas	2	local var, local var	check local integer greater than local int (L > L int)	
+001E	GTA III Vice City San Andreas	2	global var, local var	check global integer greater than local int (G > L int)	
+001F	GTA III Vice City San Andreas	2	local var, global var	check local integer greater than global int (L > G int)	
+0020	GTA III Vice City San Andreas	2	global var, flt	check global greater than float (G > F)	
+0021	GTA III Vice City San Andreas	2	local var, flt	check local greater than float (L > F)	
+0022	GTA III Vice City San Andreas	2	flt, global var	check float greater than global (F > G)	
+0023	GTA III Vice City San Andreas	2	flt, local var	check float greater than local (F > L)	
+0024	GTA III Vice City San Andreas	2	global var flt, global var flt	check global float greater than global float (G > G flt)	
+0025	GTA III Vice City San Andreas	2	local var flt, local var flt	check local float greater than local float (L > L flt)	
+0026	GTA III Vice City San Andreas	2	global var flt, local var flt	check global float greater than local float (G > L flt)	
+0027	GTA III Vice City San Andreas	2	local var flt, global var flt	check local float greater than global float (L > G flt)	
+0028	GTA III Vice City San Andreas	2	global var flt, int	check global greater than or equal to integer (G >= I)	
+0029	GTA III Vice City San Andreas	2	local var, int	check local greater than or equal to integer (L >= I)	
+002A	GTA III Vice City San Andreas	2	int, global var	check int greater than or equal to global (I >= G)	
+002B	GTA III Vice City San Andreas	2	int, local var	check integer greater than or equal to local (I >= L)	
+002C	GTA III Vice City San Andreas	2	global var int, global var int	check global integer greater than or equal to global integer (G >= G int)	
+002D	GTA III Vice City San Andreas	2	local var int, local var int	check local integer greater than or equal to local integer (L >= L int)	
+002E	GTA III Vice City San Andreas	2	global var int, local var int	check global integer greater than or equal to local integer (G >= L int)	
+002F	GTA III Vice City San Andreas	2	local var int, global var int	check local integer greater than or equal to local integer (L >= G int)	
+0030	GTA III Vice City San Andreas	2	global var, flt	check global greater than or equal to float (G >= F)	
+0031	GTA III Vice City San Andreas	2	local var, flt	check local greater than or equal to float (L >= F)	
+0032	GTA III Vice City San Andreas	2	flt, global var	check float greater than or equal to global (F >= G)	
+0033	GTA III Vice City San Andreas	2	flt, local var	check float greater than or equal to local (F >= L)	
+0034	GTA III Vice City San Andreas	2	global var flt, global var flt	check global float greater than or equal to global float (G >= G flt)	
+0035	GTA III Vice City San Andreas	2	local var flt, local var flt	check local float greater than or equal to local float (L >= L flt)	
+0036	GTA III Vice City San Andreas	2	global var flt, local var flt	check global float greater than or equal to local float (G >= L flt)	
+0037	GTA III Vice City San Andreas	2	local var flt, global var flt	check local float greater than or equal to global float (L >= G flt)	
+0038	GTA III Vice City San Andreas	2	global var, int	check global equal to integer (G == I)	
+0039	GTA III Vice City San Andreas	2	local var, int	check local equal to integer (L == I)	
+003A	GTA III Vice City San Andreas	2	global var int, global var int	check global integer equal to global integer (G == G int)	
+003B	GTA III Vice City San Andreas	2	local var int, local var int	check local integer equal to local integer (L == L int)	
+003C	GTA III Vice City San Andreas	2	global var int, local var int	check global integer equal to local integer (G == L int)	
+003D	unsupported	-			
+003E	unsupported	-			
+003F	unsupported	-			
+0040	unsupported	-			
+0041	unsupported	-			
+0042	GTA III Vice City San Andreas	2	global var, flt	check global equal to float (G == F)	
+0043	GTA III Vice City San Andreas	2	local var, flt	check local equal to float (L == F)	
+0044	GTA III Vice City San Andreas	2	global var flt, global var flt	check global float equal to global float (G == G flt)	
+0045	GTA III Vice City San Andreas	2	local var flt, local var flt	check local float equal to local float (L == L flt)	
+0046	GTA III Vice City San Andreas	2	global var flt, local var flt	check global float equal to local float (G == L flt)	
+0047	unsupported	-			
+0048	unsupported	-			
+0049	unsupported	-			
+004A	unsupported	-			
+004B	unsupported	-			
+004C	GTA III	1	int	jump to label if true	
+004D	GTA III Vice City San Andreas	1	int	jump to label if false	
+004E	GTA III Vice City San Andreas	0		terminate this script	
+004F	GTA III Vice City San Andreas	-1	int	start new script with args	
+0050	GTA III Vice City San Andreas	1	int	gosub	
+0051	GTA III Vice City San Andreas	0		return	
+0052	GTA III Vice City San Andreas	6		nop	
+0053	GTA III Vice City San Andreas	5	int, flt, flt, flt, var	create player	parameters rearranged in SB
+0054	GTA III Vice City	4	player handle, var, var, var	get player coordinates	
+0055	GTA III Vice City	4	player handle, int, int, int	set player coordinates	
+0056	GTA III Vice City	6	player handle, flt, flt, flt, flt, int	is player in area 2d	parameters rearranged in SB
+0057	GTA III Vice City	8	player handle, flt, flt, flt, flt, flt, flt, int	is player in area 3d	parameters rearranged in SB
+0058	GTA III Vice City San Andreas	2	global var int, global var int	add global integer to global integer (G += G int)	
+0059	GTA III Vice City San Andreas	2	global var flt, global var flt	add global float to global float (G += G flt)	
+005A	GTA III Vice City San Andreas	2	int, int	add local integer to local integer (L += L int)	
+005B	GTA III Vice City San Andreas	2	float, float	add local float to local float (L += L flt)	
+005C	GTA III Vice City San Andreas	2	int, int	add global integer to local integer (L += G int)	
+005D	GTA III Vice City San Andreas	2	float, float	add global float to local float (L += G flt)	
+005E	GTA III Vice City San Andreas	2	int, int	add local integer to global integer (G += L int)	
+005F	GTA III Vice City San Andreas	2	float, float	add local float to global float (G += L flt)	
+0060	GTA III Vice City San Andreas	2	int, int	subtract global integer from global integer (G -= G int)	
+0061	GTA III Vice City San Andreas	2	float, float	subtract global float from global float (G -= G flt)	
+0062	GTA III Vice City San Andreas	2	int, int	subtract local integer from local integer (L -= L int)	
+0063	GTA III Vice City San Andreas	2	float, float	subtract local float from local float (L -= L flt)	
+0064	GTA III Vice City San Andreas	2	int, int	subtract global integer from local integer (L -= G int)	
+0065	GTA III Vice City San Andreas	2	float, float	subtract global float from local float (L -= G flt)	
+0066	GTA III Vice City San Andreas	2	int, int	subtract local integer from global integer (G -= L int)	
+0067	GTA III Vice City San Andreas	2	float, float	subtract local float from global float (G -= L flt)	
+0068	GTA III Vice City San Andreas	2	global, global	multiply global int by global int (G *= G int)	
+0069	GTA III Vice City San Andreas	2	global, global	multiply global float by global float (G *= G flt)	
+006A	GTA III Vice City San Andreas	2	local, local	multiply local int by local int (L *= L int)	
+006B	GTA III Vice City San Andreas	2	local, local	multiply local float by local float (L *= L flt)	
+006C	GTA III Vice City San Andreas	2	local, float	multiply local by float (L *= F)	
+006D	GTA III Vice City San Andreas	2	global, float	multiply global by float (G *= F)	
+006E	GTA III Vice City San Andreas	2	global, local	multiply global int by local int (G *= L int)	
+006F	GTA III Vice City San Andreas	2	global, local	multiply global float by local float (G *= L flt)	
+0070	GTA III Vice City San Andreas	2	global, global	divide global int by global int (G /= G int)	
+0071	GTA III Vice City San Andreas	2	global, global	divide global float by global float (G /= G flt)	
+0072	GTA III Vice City San Andreas	2	local, local	divide local int by local int (L /= L int)	
+0073	GTA III Vice City San Andreas	2	local, local	divide local float by local float (L /= L flt)	
+0074	GTA III Vice City San Andreas	2	local, global	divide local int by global int (L /= G int)	
+0075	GTA III Vice City San Andreas	2	local, global	divide local float by global float (L /= G flt)	
+0076	GTA III Vice City San Andreas	2	global, local	divide global int by local int (G /= L int)	
+0077	GTA III Vice City San Andreas	2	global, local	divide global float by local float (G /= L flt)	
+0078	GTA III Vice City San Andreas	2	global, float	add timed val to global float	
+0079	GTA III Vice City San Andreas	2	local, float	add timed val to local float	
+007A	GTA III Vice City San Andreas	2	global, global	add timed global to global float	
+007B	GTA III Vice City San Andreas	2	local, local	add timed local to local float	
+007C	GTA III Vice City San Andreas	2	local, global	add timed global to local float	
+007D	GTA III Vice City San Andreas	2	global, local	add timed local to global float	
+007E	GTA III Vice City San Andreas	2	global, float	sub timed val from global float	
+007F	GTA III Vice City San Andreas	2	local, float	sub timed val from local float	
+0080	GTA III Vice City San Andreas	2	global, global	sub timed global from global float	
+0081	GTA III Vice City San Andreas	2	local, local	sub timed local from local float	
+0082	GTA III Vice City San Andreas	2	local, global	sub timed global from local float	
+0083	GTA III Vice City San Andreas	2	global, local	sub timed local from global float	
+0084	GTA III Vice City San Andreas	2	global var int, global var int	set global integer equal to global integer (G = G int)	
+0085	GTA III Vice City San Andreas	2	local var int, local var int	set local integer equal to local integer (L = L int)	
+0086	GTA III Vice City San Andreas	2	global var flt, global var flt	set global float equal to global float (G = G flt)	
+0087	GTA III Vice City San Andreas	2	local var flt, local var flt	set local float equal to local float (L = L flt)	
+0088	GTA III Vice City San Andreas	2	global var flt, local var flt	set global float equal to local float (G = L flt)	
+0089	GTA III Vice City San Andreas	2	local var flt, global var flt	set local float equal to global float (L = G flt)	
+008A	GTA III Vice City San Andreas	2	global var int, local var int	set global integer equal to local integer (G = L int)	
+008B	GTA III Vice City San Andreas	2	local var int, global var int	set local integer equal to global integer (L = G int)	
+008C	GTA III Vice City San Andreas	2	global var int, global var flt	convert global float to global int	
+008D	GTA III Vice City San Andreas	2	global var flt, global var int	convert global int to global float	
+008E	GTA III Vice City San Andreas	2	local var int, global var flt	convert global float to local int	
+008F	GTA III Vice City San Andreas	2	local var flt, global var int	convert global int to local float	
+0090	GTA III Vice City San Andreas	2	global var int, local var flt	convert local float to global int	
+0091	GTA III Vice City San Andreas	2	global var flt, local var int	convert local int to global float	
+0092	GTA III Vice City San Andreas	2	local var int, local var flt	convert local float to local int	
+0093	GTA III Vice City San Andreas	2	local var flt, local var int	convert local int to local float	
+0094	GTA III Vice City San Andreas	1	global var int	absolute value of global int	
+0095	GTA III Vice City San Andreas	1	local var int	absolute value of local int	
+0096	GTA III Vice City San Andreas	1	global var flt	absolute value of global float	
+0097	GTA III Vice City San Andreas	1	local var flt	absolute value of local float	
+0098	GTA III Vice City San Andreas	1	flt	generate random float	
+0099	GTA III Vice City San Andreas	1	int	generate random integer	
+009A	GTA III Vice City San Andreas	6	int, int, flt, flt, flt, var	create char	parameters rearranged in SB
+009B	GTA III Vice City San Andreas	1	char handle	delete char	
+009C	GTA III Vice City	2	char handle, int	set char to wander path	
+009D	unsupported	-			
+009E	GTA III
+Vice City	4
+6	char handle, flt, flt, flt
+char handle, flt, flt, flt, flt, int	set char path	
+009F	GTA III Vice City	1	char handle	char set idle	
+00A0	GTA III Vice City San Andreas	4	char handle, var, var, var	get char coordinates	
+00A1	GTA III Vice City San Andreas	4	char handle, flt, flt, flt	set char coordinates	
+00A2	GTA III	1	char handle	is char still alive	available for VC and SA through 8118, restored in VC
+00A3	GTA III Vice City San Andreas	6	char handle, flt, flt, flt, flt, int	is char in area 2d	
+00A4	GTA III Vice City San Andreas	8	char handle, flt, flt, flt, flt, flt, flt, int	is char in area 3d	
+00A5	GTA III Vice City San Andreas	5	int, flt, flt, flt, var	create car	parameters rearranged in SB
+00A6	GTA III Vice City San Andreas	1	car handle	delete car	
+00A7	GTA III Vice City San Andreas	4	car handle, flt, flt, flt	car goto coordinates	
+00A8	GTA III Vice City San Andreas	1	car handle	car wander randomly	
+00A9	GTA III Vice City San Andreas	1	car handle	car set idle	
+00AA	GTA III Vice City San Andreas	4	car handle, var, var, var	get car coordinates	
+00AB	GTA III Vice City San Andreas	4	car handle, flt, flt, flt	set car coordinates	
+00AC	GTA III	1	car handle	is car still alive	restored in VC
+00AD	GTA III Vice City San Andreas	2	car handle, flt	set car cruise speed	
+00AE	GTA III Vice City San Andreas	2	car handle, int	set car driving style	
+00AF	GTA III Vice City San Andreas	2	car handle, int	set car mission	
+00B0	GTA III Vice City San Andreas	6	car handle, flt, flt, flt, flt, int	is car in area 2d	
+00B1	GTA III Vice City San Andreas	8	car handle, flt, flt, flt, flt, flt, flt, int	is car in area 3d	
+00B2	unsupported	-			
+00B3	unsupported	-			
+00B4	unsupported	-			
+00B5	unsupported	-			
+00B6	unsupported	-			
+00B7	unsupported	-			
+00B8	unsupported	-			
+00B9	unsupported	-			
+00BA	GTA III Vice City San Andreas	3	string, int, int	print big	
+00BB	GTA III Vice City San Andreas	3	string, int, int	print	
+00BC	GTA III Vice City San Andreas	3	string, int, int	print now	
+00BD	GTA III	3	string, int, int	print soon	
+00BE	GTA III Vice City San Andreas	0		clear prints	
+00BF	GTA III Vice City San Andreas	2	var, var	get time of day	
+00C0	GTA III Vice City San Andreas	2	int, int	set time of day	
+00C1	GTA III Vice City San Andreas	3	int, int, var	get minutes to time of day	parameters rearranged in SB
+00C2	GTA III Vice City San Andreas	4	flt, flt, flt, flt	is point on screen	
+00C3	GTA III Vice City San Andreas	0		enter debug mode (nop)	
+00C4	GTA III Vice City San Andreas	0		exit debug mode (nop)	
+00C5	GTA III	0		true	restored in VC
+00C6	GTA III	0		false	restored in VC
+00C7	unsupported	-			
+00C8	unsupported	-			
+00C9	unsupported	-			
+00CA	unsupported	-			
+00CB	unsupported	-			
+00CC	unsupported	-			
+00CD	unsupported	-			
+00CE	unsupported	-			
+00CF	unsupported	-			
+00D0	unsupported	-			
+00D1	unsupported	-			
+00D2	unsupported	-			
+00D3	unsupported	-			
+00D4	unsupported	-			
+00D5	unsupported	-			
+00D6	GTA III Vice City San Andreas	1	int	if	
+00D7	GTA III Vice City San Andreas	1	int	start new script	like 004F but only one parameter
+00D8	GTA III Vice City San Andreas	0		mission has finished	
+00D9	GTA III Vice City San Andreas	2	char handle, var	store car char is in	mission only, parameters rearranged in SB
+00DA	GTA III Vice City	2	player handle, var	store car player is in	mission only, parameters rearranged in SB
+00DB	GTA III Vice City San Andreas	2	char handle, car handle	is char in car	
+00DC	GTA III Vice City	2	player handle, car handle	is player in car	
+00DD	GTA III Vice City San Andreas	2	char handle, int	is char in model	
+00DE	GTA III Vice City	2	player handle, int	is player in model	
+00DF	GTA III Vice City San Andreas	1	char handle	is char in any car	
+00E0	GTA III Vice City	1	player handle	is player in any car	
+00E1	GTA III Vice City San Andreas	2	int, int	is button pressed	
+00E2	GTA III San Andreas	3	int, int, var	get button pressed	restored in VC
+00E3	GTA III Vice City	6	player handle, flt, flt, flt, flt, int	locate player by any means 2d	parameters rearranged in SB
+00E4	GTA III Vice City	6	player handle, flt, flt, flt, flt, int	locate player on foot 2d	parameters rearranged in SB
+00E5	GTA III Vice City	6	player handle, flt, flt, flt, flt, int	locate player in car 2d	parameters rearranged in SB
+00E6	GTA III Vice City	6	player handle, flt, flt, flt, flt, int	locate player stopped by any means 2d	parameters rearranged in SB
+00E7	GTA III Vice City	6	player handle, flt, flt, flt, flt, int	locate player stopped on foot 2d	parameters rearranged in SB
+00E8	GTA III Vice City	6	player handle, flt, flt, flt, flt, int	locate player stopped in car 2d	parameters rearranged in SB
+00E9	GTA III Vice City	5	player handle, char handle, flt, flt, int	locate player by any means near char 2d	parameters rearranged in SB
+00EA	GTA III Vice City	5	player handle, char handle, flt, flt, int	locate player on foot near char 2d	parameters rearranged in SB
+00EB	GTA III Vice City	5	player handle, char handle, flt, flt, int	locate player in car near char 2d	parameters rearranged in SB
+00EC	GTA III Vice City San Andreas	6	char handle, flt, flt, flt, flt, int	locate char by any means 2d	parameters rearranged in SB
+00ED	GTA III Vice City San Andreas	6	char handle, flt, flt, flt, flt, int	locate char on foot 2d	parameters rearranged in SB
+00EE	GTA III Vice City San Andreas	6	char handle, flt, flt, flt, flt, int	locate char in car 2d	parameters rearranged in SB
+00EF	GTA III Vice City San Andreas	6	char handle, flt, flt, flt, flt, int	locate stopped char by any means 2d	parameters rearranged in SB
+00F0	GTA III Vice City San Andreas	6	char handle, flt, flt, flt, flt, int	locate stopped char on foot 2d	parameters rearranged in SB
+00F1	GTA III Vice City San Andreas	6	char handle, flt, flt, flt, flt, int	locate stopped char in car 2d	parameters rearranged in SB
+00F2	GTA III Vice City San Andreas	5	char handle, char handle, flt, flt, int	locate char by any means near char 2d	
+00F3	GTA III Vice City San Andreas	5	char handle, char handle, flt, flt, int	locate char on foot near char 2d	
+00F4	GTA III Vice City San Andreas	5	char handle, char handle, flt, flt, int	locate char in car near char 2d	
+00F5	GTA III Vice City	8	player handle, flt, flt, flt, flt, flt, flt, int	locate player by any means 3d	parameters rearranged in SB
+00F6	GTA III Vice City	8	player handle, flt, flt, flt, flt, flt, flt, int	locate player on foot 3d	parameters rearranged in SB
+00F7	GTA III Vice City	8	player handle, flt, flt, flt, flt, flt, flt, int	locate player in car 3d	parameters rearranged in SB
+00F8	GTA III Vice City	8	player handle, flt, flt, flt, flt, flt, flt, int	locate player stopped by any means 3d	parameters rearranged in SB
+00F9	GTA III Vice City	8	player handle, flt, flt, flt, flt, flt, flt, int	locate player stopped on foot 3d	parameters rearranged in SB
+00FA	GTA III Vice City	8	player handle, flt, flt, flt, flt, flt, flt, int	locate player stopped in car 3d	parameters rearranged in SB
+00FB	GTA III Vice City	6	player handle, char handle, flt, flt, flt, int	locate player by any means near char 3d	parameters rearranged in SB
+00FC	GTA III Vice City	6	player handle, char handle, flt, flt, flt, int	locate player on foot near char 3d	parameters rearranged in SB
+00FD	GTA III Vice City	6	player handle, char handle, flt, flt, flt, int	locate player in car near char 3d	parameters rearranged in SB
+00FE	GTA III Vice City San Andreas	8	char handle, flt, flt, flt, flt, flt, flt, int	locate char by any means 3d	parameters rearranged in SB
+00FF	GTA III Vice City San Andreas	8	char handle, flt, flt, flt, flt, flt, flt, int	locate char on foot 3d	parameters rearranged in SB
+0100	GTA III Vice City San Andreas	8	char handle, flt, flt, flt, flt, flt, flt, int	locate char in car 3d	
+0101	GTA III Vice City San Andreas	8	char handle, flt, flt, flt, flt, flt, flt, int	locate char stopped by any means 3d	
+0102	GTA III Vice City San Andreas	8	char handle, flt, flt, flt, flt, flt, flt, int	locate char stopped on foot 3d	
+0103	GTA III Vice City San Andreas	8	char handle, flt, flt, flt, flt, flt, flt, int	locate char stopped in car 3d	
+0104	GTA III Vice City San Andreas	6	char handle, char handle, flt, flt, flt, flt, int	locate char by any means near char 3d	
+0105	GTA III Vice City San Andreas	6	char handle, char handle, flt, flt, flt, flt, int	locate char on foot near char 3d	
+0106	GTA III Vice City San Andreas	6	char handle, char handle, flt, flt, flt, flt, int	locate char in car near char 3d	
+0107	GTA III Vice City San Andreas	5	int, flt, flt, flt, var	create object	parameters rearranged in SB
+0108	GTA III Vice City San Andreas	1	object handle	delete object	
+0109	GTA III Vice City San Andreas	2	player handle, int	give player money	
+010A	GTA III Vice City San Andreas	2	player handle, int	is money value greater	
+010B	GTA III Vice City San Andreas	2	player handle, var	store money value	parameters rearranged in SB
+010C	GTA III Vice City	5	player handle, flt, flt, flt, flt	give remote controlled RC Bandit to player	
+010D	GTA III Vice City San Andreas	2	player handle, int	set player wanted level	
+010E	GTA III Vice City San Andreas	2	player handle, int	alter wanted level no drop	
+010F	GTA III Vice City San Andreas	2	player handle, int	is wanted level greater	
+0110	GTA III Vice City San Andreas	1	player handle	clear wanted level	
+0111	GTA III Vice City San Andreas	1	int	set deatharrest state	
+0112	GTA III Vice City San Andreas	0		has deatharrest executed	special use in missions
+0113	GTA III	3	player handle, int, int	add ammo to player weapon	restored in VC
+0114	GTA III Vice City San Andreas	3	char handle, int, int	add ammo to char weapon	
+0115	unsupported	-			
+0116	unsupported	-			restored in III and VC
+0117	GTA III Vice City San Andreas	1	player handle	is player dead	
+0118	GTA III Vice City San Andreas	1	char handle	is char dead	
+0119	GTA III Vice City San Andreas	1	car handle	is car dead	
+011A	GTA III Vice City	2	char handle, int	set char search threat	
+011B	unsupported	-			
+011C	GTA III Vice City	1	char handle	set char obj no obj	
+011D	unsupported	-			
+011E	unsupported	-			
+011F	unsupported	-			
+0120	unsupported	-			
+0121	GTA III Vice City	2	player handle, string	is player in zone	
+0122	GTA III Vice City San Andreas	1	player handle	is player pressing horn	
+0123	GTA III Vice City	2	char handle, player handle	has char spotted player	
+0124	unsupported	-			used in memory editing for VC[1], used in GInput
+0125	unsupported	-			used in memory editing for VC[1]
+0126	GTA III Vice City	1	char handle	is char objective passed	
+0127	unsupported	-			
+0128	unsupported	-			
+0129	GTA III Vice City San Andreas	4	car handle, int, int, var	create char inside car	parameters rearranged in SB
+012A	GTA III Vice City	4	player handle, flt, flt, flt	warp player from car to coord	
+012B	unsupported	-			
+012C	unsupported	-			
+012D	unsupported	-			
+012E	unsupported	-			
+012F	unsupported	-			
+0130	GTA III	1	player handle	has player been arrested	restored in VC
+0131	unsupported	-			
+0132	unsupported	-			
+0133	unsupported	-			
+0134	unsupported	-			
+0135	GTA III	2	car handle, var	change car lock	parameters rearranged in SB, available for VC and SA through 020A, restored in VC
+0136	GTA III	4	int, float, float, float	shake camera with point	restored in VC
+0137	GTA III Vice City San Andreas	2	car handle, int	is car model	
+0138	unsupported	-			
+0139	unsupported	-			
+013A	unsupported	-			
+013B	GTA III	6	car handle, flt, flt, flt, flt, int	is car dead in 2d area	restored in VC
+013C	GTA III	8	car handle, flt, flt, flt, flt, flt, flt, int	is car dead in 3d area	restored in VC
+013D	unsupported	-			
+013E	unsupported	-			
+013F	unsupported	-			
+0140	unsupported	-			
+0141	unsupported	-			
+0142	unsupported	-			
+0143	unsupported	-			
+0144	unsupported	-			
+0145	unsupported	-			
+0146	unsupported	-			
+0147	unsupported	-			
+0148	unsupported	-			
+0149	GTA III	1	car handle	is car crushed	
+014A	unsupported	-			
+014B	GTA III Vice City San Andreas	13	flt, flt, flt, flt, int, int, int, int, int, int, int, int, var	create car generator	parameters rearranged in SB
+014C	GTA III Vice City San Andreas	2	car generator handle, int	switch car generator	
+014D	GTA III	4	string, int, int, int	add pager message	used in Liberty City mod for VC
+014E	GTA III
+Vice City San Andreas	1
+2	global var
+global var, int	display onscreen timer	
+014F	GTA III Vice City San Andreas	1	global var	clear onscreen timer	
+0150	GTA III Vice City	2	global var, int	display onscreen counter	
+0151	GTA III Vice City San Andreas	1	global var	clear onscreen counter	
+0152	GTA III
+Vice City	11
+13	string, int, int, int, int, int, int, int, int, int, int
+string, int, int, int, int, int, int, int, int, int, int, int, int	setup zone car info	
+0153	unsupported	-			
+0154	GTA III Vice City San Andreas	2	char handle, string	is char in zone	
+0155	GTA III	3	string, int, int	set car density	restored in VC
+0156	GTA III	3	string, int, int	set ped density	restored in VC
+0157	GTA III Vice City	3	player handle, int, int	point camera at player	
+0158	GTA III Vice City San Andreas	3	car handle, int, int	point camera at car	
+0159	GTA III Vice City San Andreas	3	char handle, int, int	point camera at char	
+015A	GTA III Vice City San Andreas	0		restore camera	
+015B	GTA III San Andreas	3	int, int, int	shake pad	
+015C	GTA III
+Vice City	11
+13	string, int, int, int, int, int, int, int, int, int, int
+string, int, int, int, int, int, int, int, int, int, int, int, int	setup zone ped info	
+015D	GTA III Vice City San Andreas	1	flt	set timescale	
+015E	GTA III	1	car handle	is car in air	restored in VC
+015F	GTA III Vice City San Andreas	6	flt, flt, flt, flt, flt, flt	set fixed camera position	
+0160	GTA III Vice City San Andreas	4	flt, flt, flt, int	point camera at point	
+0161	GTA III Vice City San Andreas	4	car handle, int, int, var	add blip with properties to car	parameters rearranged in SB
+0162	GTA III Vice City	4	char handle, int, int, var	add blip with properties to char	parameters rearranged in SB
+0163	GTA III	4	object handle, int, int, var	add blip with properties to object	restored in VC
+0164	GTA III Vice City San Andreas	1	blip handle	remove blip	
+0165	GTA III Vice City San Andreas	2	blip handle, int	change blip colour	
+0166	GTA III Vice City	2	blip handle, int	change blip brightness	
+0167	GTA III Vice City San Andreas	6	flt, flt, flt, int, int, var	add blip for coordinate with properties	parameters rearranged in SB
+0168	GTA III Vice City San Andreas	2	blip handle, int	change blip scale	
+0169	GTA III Vice City San Andreas	3	int, int, int	set fading colour	
+016A	GTA III Vice City San Andreas	2	int, int	do fade	parameters rearranged in SB
+016B	GTA III Vice City San Andreas	0		get fading status	
+016C	GTA III Vice City
+San Andreas	4
+5	flt, flt, flt, flt
+flt, flt, flt, flt, int	add hospital restart	
+016D	GTA III Vice City
+San Andreas	4
+5	flt, flt, flt, flt
+flt, flt, flt, flt, int	add police restart	
+016E	GTA III Vice City San Andreas	4	flt, flt, flt, flt	override next restart	
+016F	GTA III San Andreas	10	int, flt, flt, flt, flt, flt, int, int, int, int	draw shadow	parameters rearranged in SB, restored in VC
+0170	GTA III Vice City	2	player handle, var	get player heading	parameters rearranged in SB
+0171	GTA III Vice City	2	player handle, flt	set player heading	
+0172	GTA III Vice City San Andreas	2	char handle, var	get char heading	parameters rearranged in SB
+0173	GTA III Vice City San Andreas	2	char handle, flt	set char heading	
+0174	GTA III Vice City San Andreas	2	car handle, var	get car heading	parameters rearranged in SB
+0175	GTA III Vice City San Andreas	2	car handle, flt	set car heading	
+0176	GTA III Vice City San Andreas	2	object handle, var	get object heading	parameters rearranged in SB
+0177	GTA III Vice City San Andreas	2	object handle, flt	set object heading	
+0178	GTA III	2	player handle, object handle	is player touching object	restored in VC
+0179	GTA III San Andreas	2	char handle, object handle	is char touching object	restored in VC
+017A	GTA III Vice City	3	player handle, int, int	set player weapon ammo	
+017B	GTA III San Andreas	3	char handle, int, int	set char weapon ammo	restored in VC
+017C	unsupported	-			
+017D	unsupported	-			
+017E	unsupported	-			
+017F	unsupported	-			
+0180	GTA III Vice City San Andreas	1	var	declare mission flag	
+0181	GTA III
+Vice City	2
+0	int, int
+nop	declare mission flag for contact	
+0182	GTA III	2	int, int	declare base brief id for contact	
+0183	GTA III Vice City	2	player handle, int	is player health greater	
+0184	GTA III Vice City San Andreas	2	char handle, int	is char health greater	
+0185	GTA III Vice City San Andreas	2	car handle, int	is car health greater	
+0186	GTA III Vice City San Andreas	2	car handle, var	add blip for car	parameters rearranged in SB
+0187	GTA III Vice City San Andreas	2	char handle, var	add blip for char	parameters rearranged in SB
+0188	GTA III Vice City San Andreas	2	object handle, var	add blip for object	parameters rearranged in SB
+0189	GTA III Vice City	2	flt, flt, flt, var	add blip with sphere to coordinate	parameters rearranged in SB
+018A	GTA III Vice City San Andreas	2	flt, flt, flt, var	add blip for coordinate	parameters rearranged in SB
+018B	GTA III Vice City San Andreas	2	blip handle, int	change blip display	
+018C	GTA III Vice City San Andreas	4	int, flt, flt, flt	add one off sound	
+018D	GTA III Vice City	5	flt, flt, flt, int, var	add continuous sound	parameters rearranged in SB
+018E	GTA III Vice City San Andreas	1	sound handle	remove sound	
+018F	GTA III Vice City San Andreas	1	car handle	check car is flipped for 2 seconds	
+0190	GTA III Vice City San Andreas	1	car handle	add car to flipped check	
+0191	GTA III Vice City San Andreas	1	car handle	remove car from flipped check	
+0192	GTA III Vice City	1	char handle	set char obj wait on foot	
+0193	GTA III Vice City	1	char handle	set char objective to act like ped	
+0194	GTA III Vice City	4	char handle, flt, flt, flt	set char objective to go to point	
+0195	GTA III	5	char handle, flt, flt, flt, flt	set char objective to guard area	
+0196	GTA III	1	char handle	set char objective wait in car	
+0197	GTA III Vice City	6	player handle, flt, flt, flt, flt, int	is player in area on foot 2d	parameters rearranged in SB
+0198	GTA III Vice City	6	player handle, flt, flt, flt, flt, int	is player in area in car 2d	parameters rearranged in SB
+0199	GTA III Vice City	6	player handle, flt, flt, flt, flt, int	is player stopped in area 2d	parameters rearranged in SB
+019A	GTA III Vice City	6	player handle, flt, flt, flt, flt, int	is player stopped in area on foot 2d	parameters rearranged in SB
+019B	GTA III Vice City	6	player handle, flt, flt, flt, flt, int	is player stopped in area in car 2d	parameters rearranged in SB
+019C	GTA III Vice City	8	player handle, flt, flt, flt, flt, flt, flt, int	is player in area on foot 3d	parameters rearranged in SB
+019D	GTA III Vice City	8	player handle, flt, flt, flt, flt, flt, flt, int	is player in area in car 3d	parameters rearranged in SB
+019E	GTA III Vice City	8	player handle, flt, flt, flt, flt, flt, flt, int	is player stopped in area 3d	parameters rearranged in SB
+019F	GTA III Vice City	8	player handle, flt, flt, flt, flt, flt, flt, int	is player stopped in area on foot 3d	parameters rearranged in SB
+01A0	GTA III Vice City	8	player handle, flt, flt, flt, flt, flt, flt, int	is player stopped in area in car 3d	parameters rearranged in SB
+01A1	GTA III Vice City San Andreas	6	char handle, flt, flt, flt, flt, int	is char in area on foot 2d	parameters rearranged in SB
+01A2	GTA III Vice City San Andreas	6	char handle, flt, flt, flt, flt, int	is char in area in car 2d	parameters rearranged in SB
+01A3	GTA III Vice City San Andreas	6	char handle, flt, flt, flt, flt, int	is char stopped in area 2d	parameters rearranged in SB
+01A4	GTA III Vice City San Andreas	6	char handle, flt, flt, flt, flt, int	is char stopped in area on foot 2d	parameters rearranged in SB
+01A5	GTA III Vice City San Andreas	6	char handle, flt, flt, flt, flt, int	is char stopped in area in car 2d	parameters rearranged in SB
+01A6	GTA III Vice City San Andreas	8	char handle, flt, flt, flt, flt, flt, flt, int	is char in area on foot 3d	parameters rearranged in SB
+01A7	GTA III Vice City San Andreas	8	char handle, flt, flt, flt, flt, flt, flt, int	is char in area in car 3d	parameters rearranged in SB
+01A8	GTA III Vice City San Andreas	8	char handle, flt, flt, flt, flt, flt, flt, int	is char stopped in area 3d	parameters rearranged in SB
+01A9	GTA III Vice City San Andreas	8	char handle, flt, flt, flt, flt, flt, flt, int	is char stopped in area on foot 3d	parameters rearranged in SB
+01AA	GTA III Vice City San Andreas	8	char handle, flt, flt, flt, flt, flt, flt, int	is char stopped in area in car 3d	parameters rearranged in SB
+01AB	GTA III Vice City San Andreas	6	car handle, flt, flt, flt, flt, int	is car stopped in area 2d	parameters rearranged in SB
+01AC	GTA III Vice City San Andreas	8	car handle, flt, flt, flt, flt, flt, flt, int	is car stopped in area 3d	parameters rearranged in SB
+01AD	GTA III Vice City San Andreas	6	car handle, flt, flt, flt, flt, int	locate car 2d	parameters rearranged in SB
+01AE	GTA III Vice City San Andreas	6	car handle, flt, flt, flt, flt, int	locate stopped car 2d	parameters rearranged in SB
+01AF	GTA III Vice City San Andreas	8	car handle, flt, flt, flt, flt, flt, flt, int	locate car 3d	parameters rearranged in SB
+01B0	GTA III Vice City San Andreas	8	car handle, flt, flt, flt, flt, flt, flt, int	locate stopped car 3d	parameters rearranged in SB
+01B1	GTA III Vice City	3	player handle, int, int	give weapon to player	
+01B2	GTA III Vice City San Andreas	3	char handle, int, int	give weapon to char	
+01B3	unsupported	-			
+01B4	GTA III Vice City San Andreas	2	player handle	set player control	
+01B5	GTA III Vice City San Andreas	1	int	force weather	
+01B6	GTA III Vice City San Andreas	1	int	force weather now	
+01B7	GTA III Vice City San Andreas	0		release weather	
+01B8	GTA III Vice City	2	player handle, int	set current player weapon	
+01B9	GTA III Vice City San Andreas	2	char handle, int	set current char weapon	
+01BA	unsupported	-			
+01BB	GTA III Vice City San Andreas	4	object handle, var, var, var	get object coordinates	
+01BC	GTA III Vice City San Andreas	4	object handle, flt, flt, flt	set object coordinates	
+01BD	GTA III Vice City San Andreas	1	var	get game timer	
+01BE	GTA III Vice City	4	char handle, flt, flt, flt	turn char to face coord	
+01BF	GTA III	4	player handle, flt, flt, flt	turn player to face coord	
+01C0	GTA III Vice City San Andreas	2	player handle, var	store wanted level	parameters rearranged in SB
+01C1	GTA III Vice City San Andreas	1	car handle	is car stopped	
+01C2	GTA III Vice City San Andreas	1	char handle	mark char as no longer needed	
+01C3	GTA III Vice City San Andreas	1	car handle	mark car as no longer needed	
+01C4	GTA III Vice City San Andreas	1	object handle	mark object as no longer needed	
+01C5	GTA III Vice City San Andreas	1	char handle	dont remove char	
+01C6	GTA III	1	car handle	dont remove car	restored in VC
+01C7	GTA III Vice City San Andreas	1	object handle	dont remove object	
+01C8	GTA III Vice City San Andreas	5	car handle, int, int, int, var	create char as passenger	parameters rearranged in SB
+01C9	GTA III Vice City	2	char handle, char handle	set char obj kill char on foot	
+01CA	GTA III Vice City	2	char handle, player handle	set char obj kill player on foot	
+01CB	GTA III Vice City	2	char handle, char handle	set char obj kill char by any means	
+01CC	GTA III Vice City	2	char handle, player handle	set char obj kill player by any means	
+01CD	GTA III	2	char handle, char handle	set char flee char on foot till safe	
+01CE	GTA III Vice City	2	char handle, player handle	set char flee player on foot till safe	
+01CF	GTA III Vice City	2	char handle, char handle	char avoid char on foot always	
+01D0	GTA III Vice City	2	char handle, player handle	char avoid player on foot always	
+01D1	GTA III Vice City	2	char handle, char handle	set char obj goto char on foot	
+01D2	GTA III Vice City	2	char handle, player handle	set char goto player on foot	
+01D3	GTA III Vice City	2	char handle, car handle	set char obj leave car	
+01D4	GTA III Vice City	2	char handle, car handle	set char obj enter car as passenger	
+01D5	GTA III Vice City	2	char handle, car handle	set char obj enter car as driver	
+01D6	unsupported	-			
+01D7	unsupported	-			
+01D8	Vice City	2	char handle, object handle	set char obj destroy object	
+01D9	GTA III Vice City	2	char handle, car handle	set char obj destroy car	
+01DA	GTA III	5	char handle, flt, flt, flt, flt	task actor walk to area	
+01DB	unsupported	-			
+01DC	unsupported	-			
+01DD	unsupported	-			
+01DE	GTA III Vice City	2	char handle, char handle	set char as leader	
+01DF	GTA III Vice City	2	char handle, player handle	set player as leader	
+01E0	GTA III Vice City	1	char handle	leave group	
+01E1	GTA III Vice City	3	char handle, int, int	set char obj follow route	
+01E2	GTA III Vice City	4	int, flt, flt, flt	add route point	
+01E3	GTA III Vice City San Andreas	4	string, int, int, int	print with number big	
+01E4	GTA III Vice City San Andreas	4	string, int, int, int	print with number	
+01E5	GTA III Vice City San Andreas	4	string, int, int, int	print with number now	
+01E6	unsupported	-			
+01E7	GTA III Vice City San Andreas	6	flt, flt, flt, flt, flt, flt	switch roads on	
+01E8	GTA III Vice City San Andreas	6	flt, flt, flt, flt, flt, flt	switch roads off	
+01E9	GTA III Vice City San Andreas	2	car handle, var	get number of passengers	parameters rearranged in SB
+01EA	GTA III Vice City San Andreas	2	car handle, var	get maximum number of passengers	parameters rearranged in SB
+01EB	GTA III Vice City San Andreas	1	flt	set car density multiplier	
+01EC	GTA III Vice City San Andreas	2	car handle, int	set car heavy	
+01ED	GTA III Vice City	1	char handle	clear char threat search	
+01EE	GTA III	10	flt, flt, flt, flt, flt, flt, flt, flt, flt, flt	activate crane	restored in VC
+01EF	GTA III	2	flt, flt	deactivate crane	restored in VC
+01F0	GTA III Vice City San Andreas	1	int	set max wanted level	
+01F1	unsupported	-			
+01F2	unsupported	-			
+01F3	GTA III Vice City San Andreas	1	car handle	is car in air proper	
+01F4	GTA III Vice City San Andreas	1	car handle	is car upsidedown	
+01F5	GTA III Vice City San Andreas	2	player handle, var	get player char	parameters rearranged in SB
+01F6	GTA III Vice City San Andreas	0		cancel override restart	
+01F7	GTA III Vice City San Andreas	2	player handle, int	set police ignore player	
+01F8	GTA III	5	string, int, int, int, int	print pager text with number	
+01F9	GTA III Vice City San Andreas	9	string, int, int, int, int, int, int, int, int	start rampage	
+01FA	GTA III Vice City San Andreas	1	var	read rampage status	
+01FB	GTA III Vice City San Andreas	2	flt, var	get square root	
+01FC	GTA III Vice City	5	player handle, car handle, flt, flt, int	locate player by any means car 2d	
+01FD	GTA III Vice City	5	player handle, car handle, flt, flt, int	locate player on foot car 2d	
+01FE	GTA III Vice City	5	player handle, car handle, flt, flt, int	locate player in car car 2d	
+01FF	GTA III Vice City	6	player handle, car handle, flt, flt, flt, int	locate player by any means car 3d	
+0200	GTA III Vice City	6	player handle, car handle, flt, flt, flt, int	locate player on foot car 3d	
+0201	GTA III Vice City	6	player handle, car handle, flt, flt, flt, int	locate player in car car 3d	
+0202	GTA III Vice City San Andreas	5	char handle, car handle, flt, flt, int	locate char by any means car 2d	
+0203	GTA III Vice City San Andreas	5	char handle, car handle, flt, flt, int	locate char on foot car 2d	
+0204	GTA III Vice City San Andreas	5	char handle, car handle, flt, flt, int	locate char in car car 2d	
+0205	GTA III Vice City San Andreas	6	char handle, car handle, flt, flt, flt, int	locate char by any means car 3d	
+0206	GTA III Vice City San Andreas	6	char handle, car handle, flt, flt, flt, int	locate char on foot car 3d	
+0207	GTA III Vice City San Andreas	6	char handle, car handle, flt, flt, flt, int	locate char in car car 3d	
+0208	GTA III Vice City San Andreas	2	flt, flt, var	generate random float in range	parameters rearranged in SB
+0209	GTA III Vice City San Andreas	2	int, int, var	generate random int in range	parameters rearranged in SB
+020A	GTA III Vice City San Andreas	2	car handle, int	lock car doors	
+020B	GTA III Vice City San Andreas	1	car handle	explode car	
+020C	GTA III Vice City San Andreas	4	flt, flt, flt, int	add explosion	parameters rearranged in SB
+020D	GTA III Vice City San Andreas	1	car handle	is car upright	
+020E	GTA III Vice City	2	char handle, char handle	turn char to face char	
+020F	GTA III Vice City	2	char handle, player handle	turn char to face player	
+0210	GTA III Vice City	2	player handle, char handle	turn player to face char	
+0211	GTA III Vice City	3	char handle, flt, flt	set char obj goto coord on foot	
+0212	unsupported	-			
+0213	GTA III Vice City San Andreas	6	int, int, flt, flt, flt, var	create pickup	parameters rearranged in SB
+0214	GTA III Vice City San Andreas	1	pickup handle	has pickup been collected	
+0215	GTA III Vice City San Andreas	1	pickup handle	remove pickup	
+0216	GTA III Vice City San Andreas	2	car handle, int	set taxi lights	
+0217	GTA III Vice City San Andreas	3	string, int, int	print text big q	
+0218	GTA III	4	string, int, int, int	print text with number big q	restored in VC
+0219	GTA III
+Vice City	8
+10	flt, flt, flt, flt, flt, flt, int, var
+flt, flt, flt, flt, flt, flt, flt, flt, int, var	create garage	parameters rearranged in SB
+021A	GTA III	9	flt, flt, flt, flt, flt, flt, int, int, var	create garage with car model	
+021B	GTA III Vice City San Andreas	2	garage handle, car handle	set target car for mission garage	
+021C	GTA III Vice City	1	garage handle	is car in mission garage	
+021D	GTA III	1	int	set free bombs	restored in VC
+021E	unsupported	-			
+021F	GTA III	1	int	set all taxi lights	restored in VC
+0220	GTA III	1	car handle	does car have car bomb	restored in VC
+0221	GTA III Vice City San Andreas	2	player handle, int	set player cannot exit car	
+0222	GTA III Vice City	2	player handle, int	set player health	
+0223	GTA III Vice City San Andreas	2	char handle, int	set char health	
+0224	GTA III Vice City San Andreas	2	car handle, int	set car health	
+0225	GTA III Vice City	2	player handle, var	get player health	parameters rearranged in SB
+0226	GTA III Vice City San Andreas	2	char handle, var	get char health	parameters rearranged in SB
+0227	GTA III Vice City San Andreas	2	car handle, var	get car health	parameters rearranged in SB
+0228	GTA III	2	car handle, int	is car armed with bomb	restored in VC
+0229	GTA III Vice City San Andreas	3	car handle, int, int	change car colour	
+022A	GTA III Vice City San Andreas	6	flt, flt, flt, flt, flt, flt	switch ped paths on	
+022B	GTA III Vice City San Andreas	6	flt, flt, flt, flt, flt, flt	switch ped paths off	
+022C	GTA III Vice City	2	char handle, char handle	char look at char always	
+022D	GTA III Vice City	2	char handle, player handle	char look at player always	
+022E	GTA III Vice City	2	player handle, char handle	player look at char always	
+022F	GTA III Vice City	1	char handle	stop char looking	
+0230	GTA III Vice City	1	player handle	stop player looking	
+0231	GTA III	1	int	set second police helicopter	
+0232	unsupported	-			
+0233	unsupported	-			
+0234	unsupported	-			
+0235	Vice City	3	int, int, int	set gang models	
+0236	GTA III Vice City	2	int, int	set gang car	
+0237	GTA III Vice City
+San Andreas	3
+4	int, int, int
+int, int, int, int	set gang weapons	
+0238	GTA III	5	player handle, flt, flt, flt, flt	set char obj run to area	
+0239	GTA III Vice City	3	char handle, flt, flt	set char obj run to coord	
+023A	GTA III	2	player handle, object handle	is player touching object on foot	restored in VC
+023B	GTA III San Andreas	2	char handle, object handle	is char touching object on foot	restored in VC
+023C	GTA III Vice City San Andreas	2	int, string	load special character	parameters rearranged in SB in San Andreas
+023D	GTA III Vice City San Andreas	1	string	has special character loaded	
+023E	GTA III	2	car handle, int	flash car	restored in VC
+023F	GTA III	2	char handle, int	flash char	restored in VC
+0240	GTA III	2	object handle, int	flash object	restored in VC
+0241	GTA III Vice City San Andreas	1	player handle	is player in remote mode	
+0242	GTA III	2	car handle	arm car with bomb	restored in VC
+0243	GTA III Vice City	2	char handle, int	set char personality	
+0244	GTA III Vice City San Andreas	3	flt, flt, flt	set cutscene offset	
+0245	GTA III Vice City San Andreas	2	char handle, int	set anim group for char	
+0246	GTA III	2	player handle, int	set anim group for player	
+0247	GTA III Vice City San Andreas	1	int	request model	
+0248	GTA III Vice City San Andreas	1	int	has model loaded	
+0249	GTA III Vice City San Andreas	1	int	mark model as no longer needed	
+024A	GTA III Vice City	3	flt, flt, var	get phone	
+024B	GTA III	2	phone handle, string	set repeated phone message	restored in VC
+024C	GTA III	2	phone handle, string	set phone message	restored in VC
+024D	GTA III	1	phone handle	has phone displayed message	restored in VC
+024E	GTA III Vice City	1	phone handle	turn phone off	
+024F	GTA III Vice City San Andreas	9	flt, flt, flt, flt, int, int, int, int, int	create corona	
+0250	GTA III	6	flt, flt, flt, int, int, int	draw light	restored in VC
+0251	GTA III	0		store weather state	
+0252	GTA III	0		restore weather state	
+0253	GTA III Vice City San Andreas	0		save current time	
+0254	GTA III Vice City San Andreas	0		restore current time	
+0255	GTA III	4	flt, flt, flt, flt	restart critical mission	restored in VC
+0256	GTA III Vice City San Andreas	1	player handle	is player playing	
+0257	unsupported	-			
+—					
+0291	GTA III Vice City	2	char handle, int	set char heed threats	
+0292	GTA III	2	player handle, int	set player attack when provoked	
+0293	GTA III Vice City San Andreas	1	var	get controller mode	
+0294	GTA III Vice City San Andreas	2	car handle, int	set can respray car	
+0295	GTA III	1	car handle	is car taxi vehicle	restored in VC
+0296	GTA III Vice City San Andreas	1	int	unload special character	
+0297	GTA III Vice City
+San Andreas	0
+1	
+player handle	reset number of models killed by player	
+0298	GTA III Vice City
+San Andreas	2
+3	int, var
+player handle, int, var	get number of models killed by player	parameters rearranged in SB
+0299	GTA III
+San Andreas	1	garage handle
+string	activate garage	restored in VC
+029A	GTA III	1	int	switch taxi timer	
+029B	GTA III Vice City San Andreas	5	int, flt, flt, flt, object handle	create object no offset	parameters rearranged in SB
+029C	GTA III	1	car handle	is boat	restored in VC
+029D	GTA III	5	char handle, flt, flt, flt, flt	task actor drive then walk to area	
+029E	unsupported	-			
+029F	GTA III Vice City	1	player handle	is player stopped	
+02A0	GTA III	1	char handle	is char stopped	restored in VC
+02A1	GTA III	2	int, int	message wait	restored in VC
+02A2	GTA III	5	int, int, flt, flt, flt	add particle effect	restored in VC
+02A3	GTA III Vice City San Andreas	1	int	switch widescreen	
+02A4	GTA III	3	car handle, int, var	add sprite blip for car	restored in VC
+02A5	GTA III	3	char handle, int, var	add sprite blip for char	restored in VC
+02A6	GTA III	3	object handle, int, var	add sprite blip for object	restored in VC
+02A7	GTA III Vice City San Andreas	5	flt, flt, flt, int, var	add sprite blip for contact point	parameters rearranged in SB
+02A8	GTA III Vice City San Andreas	5	flt, flt, flt, int, var	add sprite blip for coord	parameters rearranged in SB
+02A9	GTA III Vice City San Andreas	2	char handle, int	set char only damaged by player	
+02AA	GTA III Vice City San Andreas	2	car handle, int	set car only damaged by player	
+02AB	GTA III Vice City San Andreas	6	char handle, int, int, int, int, int	set char proofs	
+02AC	GTA III Vice City San Andreas	6	car handle, int, int, int, int, int	set car proofs	
+02AD	GTA III Vice City	7	player handle, flt, flt, flt, flt, flt, int	is player in angled area 2d	
+02AE	GTA III Vice City	7	player handle, flt, flt, flt, flt, flt, int	is player in angled area on foot 2d	
+02AF	GTA III Vice City	7	player handle, flt, flt, flt, flt, flt, int	is player in angled area in car 2d	
+02B0	GTA III Vice City	7	player handle, flt, flt, flt, flt, flt, int	is player stopped in angled area 2d	
+02B1	GTA III Vice City	7	player handle, flt, flt, flt, flt, flt, int	is player stopped in angled area on foot 2d	
+02B2	GTA III Vice City	7	player handle, flt, flt, flt, flt, flt, int	is player stopped in angled area in car 2d	
+02B3	GTA III Vice City	9	player handle, flt, flt, flt, flt, flt, flt, flt, int	is player in angled area 3d	
+02B4	GTA III Vice City	9	player handle, flt, flt, flt, flt, flt, flt, flt, int	is player in angled area on foot 3d	
+02B5	GTA III Vice City	9	player handle, flt, flt, flt, flt, flt, flt, flt, int	is player in angled area in car 3d	
+02B6	GTA III Vice City	9	player handle, flt, flt, flt, flt, flt, flt, flt, int	is player stopped in angled area 3d	
+02B7	GTA III Vice City	9	player handle, flt, flt, flt, flt, flt, flt, flt, int	is player stopped in angled area on foot 3d	
+02B8	GTA III Vice City	9	player handle, flt, flt, flt, flt, flt, flt, flt, int	is player stopped in angled area in car 3d	
+02B9	GTA III San Andreas	1	garage handle	deactivate garage	restored in VC
+02BA	GTA III	2	garage handle, var	get number of cars collected by garage (unsupported)	
+02BB	GTA III	2	garage handle, car handle	has specified car been taken to garage (unsupported)	
+02BC	GTA III	1	int	set swat required	restored in VC
+02BD	unsupported	-			restored in III and VC, used in Liberty City mod for VC
+02BE	unsupported	-			restored in III and VC
+02BF	GTA III Vice City San Andreas	1	car handle	is car in water	
+02C0	GTA III Vice City San Andreas	6	flt, flt, flt, var, var, var	get closest char node	parameters rearranged in SB
+02C1	GTA III Vice City San Andreas	6	flt, flt, flt, var, var, var	get closest car node	parameters rearranged in SB
+02C2	GTA III Vice City San Andreas	4	car handle, flt, flt, flt	car goto coordinates accurate	
+02C3	GTA III	1	int	start pacman race	restored in VC
+02C4	GTA III	0		save player coords	nothing reads the data
+02C5	GTA III	1	var	get number of power pills eaten	restored in VC
+02C6	GTA III	0		clear pacman	restored in VC
+02C7	GTA III	5	flt, flt, flt, flt, int	start pacman scramble	parameters rearranged in SB, restored in VC
+02C8	GTA III	1	var	get number of power pills carried	restored in VC
+02C9	GTA III	0		clear number of power pills carried	restored in VC
+02CA	GTA III Vice City San Andreas	1	car handle	is car on screen	
+02CB	GTA III Vice City San Andreas	1	char handle	is char on screen	
+02CC	GTA III Vice City San Andreas	1	object handle	is object on screen	
+02CD	GTA III	2	int, int	gosub file	restored in VC
+02CE	GTA III Vice City San Andreas	4	flt, flt, flt, var	get ground z for 3d coord	parameters rearranged in SB
+02CF	GTA III Vice City San Andreas	4	flt, flt, flt, var	start script fire	parameters rearranged in SB
+02D0	GTA III Vice City San Andreas	1	fire handle	is fire extinguished	
+02D1	GTA III Vice City San Andreas	1	fire handle	remove fire	
+02D2	GTA III	2	car handle, int	set comedy controls	
+02D3	GTA III Vice City San Andreas	4	car handle, flt, flt, flt	boat goto coords	
+02D4	GTA III Vice City San Andreas	1	car handle	boat stop	
+02D5	GTA III Vice City	6	player handle, flt, flt, flt, flt, int	is player shooting in area	
+02D6	GTA III San Andreas	6	char handle, flt, flt, flt, flt, int	is char shooting in area	restored in VC
+02D7	GTA III Vice City	2	player handle, int	is current player weapon	
+02D8	GTA III Vice City San Andreas	2	char handle, int	is current char weapon	
+02D9	GTA III	0		clear number of power pills eaten	restored in VC
+02DA	GTA III	3	flt, flt, flt	add power pill	restored in VC
+02DB	GTA III Vice City San Andreas	2	car handle, flt	set boat cruise speed	
+02DC	GTA III	5	flt, flt, flt, flt, var	get random char in area	
+02DD	GTA III
+Vice City San Andreas	3
+5	string, var
+string, int, int, int, var	get random char in zone	parameters rearranged in GTA III in SB
+02DE	GTA III Vice City	1	player handle	is player in taxi	
+02DF	GTA III Vice City	1	player handle	is player shooting	
+02E0	GTA III Vice City San Andreas	1	char handle	is char shooting	
+02E1	GTA III Vice City San Andreas	5	flt, flt, flt, int, var	create money pickup	parameters rearranged in SB
+02E2	GTA III Vice City San Andreas	2	char handle, int	set char accuracy	
+02E3	GTA III Vice City San Andreas	2	car handle, var	get car speed	parameters rearranged in SB
+02E4	GTA III Vice City San Andreas	1	string	load cutscene	
+02E5	GTA III Vice City	2	int, var	create cutscene object	parameters rearranged in SB
+02E6	GTA III Vice City	2	object handle, string	set cutscene anim	
+02E7	GTA III Vice City San Andreas	0		start cutscene	
+02E8	GTA III Vice City San Andreas	1	var	get cutscene time	
+02E9	GTA III Vice City San Andreas	0		has cutscene finished	
+02EA	GTA III Vice City San Andreas	0		clear cutscene	
+02EB	GTA III Vice City San Andreas	0		restore camera jumpcut	
+02EC	GTA III Vice City	3	flt, flt, flt	create hidden package pickup	
+02ED	GTA III Vice City San Andreas	1	int	set total hidden packages	
+02EE	GTA III	6	flt, flt, flt, flt, flt, flt	is projectile in area	restored in VC
+02EF	GTA III	6	flt, flt, flt, flt, flt, flt	destroy projectile in area	IF and SET, restored in VC
+02F0	GTA III	3	flt, flt, flt	drop mine	restored in VC
+02F1	GTA III	3	flt, flt, flt	drop nautical mine	restored in VC
+02F2	GTA III Vice City San Andreas	2	char handle, int	is char model	
+02F3	GTA III Vice City	2	int, string	load special model	
+02F4	GTA III	3	object handle, int, object handle	create cutscene head	parameters rearranged in SB
+02F5	GTA III	2	object handle, string	set cutscene head anim	
+02F6	GTA III Vice City San Andreas	2	float, var	get sine	parameters rearranged in SB
+02F7	GTA III Vice City San Andreas	2	float, var	get cosine	parameters rearranged in SB
+02F8	GTA III Vice City San Andreas	2	car handle, var	get car forward x	
+02F9	GTA III Vice City San Andreas	2	car handle, var	get car forward y	
+02FA	GTA III Vice City San Andreas	2	garage handle, int	change garage type	
+02FB	GTA III	10	flt, flt, flt, flt, flt, flt, flt, flt, flt, flt	create crusher crane	restored in VC
+02FC	GTA III	5	string, int, int, int, int	print with 2 numbers	restored in VC
+02FD	GTA III Vice City San Andreas	5	string, int, int, int, int	print with 2 numbers now	
+02FE	GTA III	5	string, int, int, int, int	print with 2 numbers soon	
+02FF	GTA III Vice City San Andreas	6	string, int, int, int, int, int	print with 3 numbers	
+0300	GTA III	6	string, int, int, int, int, int	print with 3 numbers now	restored in VC
+0301	unsupported	-			
+0302	GTA III Vice City San Andreas	7	string, int, int, int, int, int, int	print with 4 numbers	
+0303	GTA III San Andreas	7	string, int, int, int, int, int, int	print with 4 numbers now	restored in VC
+0304	unsupported	-			
+0305	GTA III	8	string, int, int, int, int, int, int, int	print with 5 numbers	restored in VC
+0306	GTA III	8	string, int, int, int, int, int, int, int	print with 5 numbers now	restored in VC
+0307	unsupported	-			
+0308	GTA III Vice City San Andreas	9	string, int, int, int, int, int, int, int, int	print with 6 numbers	
+0309	GTA III	9	string, int, int, int, int, int, int, int, int	print with 6 numbers now	restored in VC
+030A	unsupported	-			
+030B	GTA III	3	char handle, char handle, int	set formation	
+030C	GTA III Vice City San Andreas	1	int	player made progress	
+030D	GTA III Vice City San Andreas	1	int	set max progress	
+030E	GTA III Vice City	1	flt	register jump distance	
+030F	GTA III Vice City	1	flt	register jump height	
+0310	GTA III Vice City	1	int	register jump flips	
+0311	GTA III Vice City	1	int	register jump spins	
+0312	GTA III Vice City	1	int	register jump stunt	
+0313	GTA III Vice City	0		register unique jump found	
+0314	GTA III Vice City	1	int	set unique jumps total	
+0315	GTA III Vice City	0		register passenger dropped off taxi	
+0316	GTA III Vice City	1	int	register money made taxi	
+0317	GTA III Vice City San Andreas	0		register mission given	
+0318	GTA III Vice City San Andreas	1	string	register mission passed	
+0319	GTA III Vice City	2	char handle, int	set char running	
+031A	GTA III Vice City San Andreas	0		remove all script fires	
+031B	GTA III	2	car handle, int	is car primary color	restored in VC
+031C	GTA III	2	car handle, int	is car secondary color	restored in VC
+031D	GTA III Vice City San Andreas	2	char handle, int	has char been damaged by weapon	
+031E	GTA III Vice City San Andreas	2	car handle, int	has car been damaged by weapon	
+031F	GTA III Vice City	2	char handle, char handle	is char in chars group	
+0320	GTA III Vice City	2	char handle, player handle	is char in players group	
+0321	GTA III Vice City San Andreas	1	char handle	explode char head	
+0322	GTA III Vice City	1	player handle	explode player head	
+0323	GTA III Vice City San Andreas	2	car handle, int	anchor boat	
+0324	GTA III Vice City	3	string, int, int	set pedgroup info	
+0325	GTA III Vice City San Andreas	2	car handle, var	start car fire	parameters rearranged in SB
+0326	GTA III Vice City San Andreas	2	char handle, var	start char fire	parameters rearranged in SB
+0327	GTA III Vice City San Andreas	6	flt, flt, flt, flt, int, var	get random car of type in area	parameters rearranged in SB
+0328	GTA III	3	string, int, var	get random car of type in zone	
+0329	GTA III Vice City	1	garage handle	has respray happened	
+032A	GTA III Vice City San Andreas	1	int	set behind camera mode	
+032B	GTA III Vice City San Andreas	7	int, int, int, flt, flt, flt, var	create pickup with ammo	parameters rearranged in SB
+032C	GTA III Vice City	2	car handle, car handle	set car ram car	
+032D	GTA III	2	car handle, car handle	set car block car	restored in VC
+032E	GTA III	1	char handle	set char obj catch train	
+032F	unsupported	-			
+0330	GTA III Vice City San Andreas	2	player handle, int	set player never gets tired	
+0331	GTA III Vice City San Andreas	2	player handle, int	set player fast reload	
+0332	GTA III Vice City San Andreas	2	char handle, int	set char bleeding	
+0333	GTA III	1	car handle	set car funny suspension	
+0334	GTA III	2	car handle, int	set car big wheels	
+0335	GTA III Vice City San Andreas	1	int	set free resprays	
+0336	GTA III Vice City	2	player handle, int	set player visible	
+0337	GTA III Vice City San Andreas	2	char handle, int	set char visible	
+0338	GTA III San Andreas	2	car handle, int	set car visible	restored in VC
+0339	GTA III Vice City San Andreas	11	flt, flt, flt, flt, flt, flt, int, int, int, int, int	is area occupied	
+033A	GTA III	0		start incoming cessna	
+033B	GTA III	0		has incoming cessna been completed	
+033C	GTA III	0		has incoming cessna been shot down	
+033D	GTA III	1	player handle	put out fire on player	
+033E	GTA III Vice City San Andreas	3	flt, flt, string	display text	
+033F	GTA III Vice City San Andreas	2	flt, flt	set text scale	
+0340	GTA III Vice City San Andreas	4	int, int, int, int	set text colour	
+0341	GTA III Vice City San Andreas	1	int	set text justify	
+0342	GTA III Vice City San Andreas	1	int	set text centre	
+0343	GTA III Vice City San Andreas	1	flt	set text line width	
+0344	GTA III San Andreas	1	flt	set text centre size	
+0345	GTA III Vice City San Andreas	1	int	set text background	
+0346	GTA III	4	int, int, int, int	set text background colour	restored in VC
+0347	GTA III	1	int	set text background only text	
+0348	GTA III Vice City San Andreas	1	int	set text proportional	
+0349	GTA III San Andreas	1	int	set text font	restored in VC
+034A	GTA III	0		industrial passed	used in Liberty City mod for VC
+034B	GTA III	0		commercial passed	used in Liberty City mod for VC
+034C	GTA III	0		suburban passed	used in Liberty City mod for VC
+034D	GTA III Vice City San Andreas	4	object handle, flt, flt, int	rotate object	IF and SET
+034E	GTA III Vice City San Andreas	8	object handle, flt, flt, flt, flt, flt, flt, int	slide object	IF and SET
+034F	GTA III Vice City San Andreas	1	char handle	remove char elegantly	
+0350	GTA III Vice City San Andreas	2	char handle, int	set char stay in same place	
+0351	GTA III	0		is nasty game	restored in VC
+0352	GTA III Vice City	2	char handle, string	undress char	
+0353	GTA III Vice City	1	char handle	dress char	
+0354	GTA III	1	flt	start chase scene	used in Liberty City mod for VC
+0355	GTA III	0		stop chase scene	used in Liberty City mod for VC
+0356	GTA III San Andreas	7	int, flt, flt, flt, flt, flt, flt	is explosion in area	restored in VC
+0357	GTA III	2	int, string	is explosion in zone	restored in VC
+0358	GTA III	0		start drop off cessna	
+0359	GTA III	0		has drop off cessna been shot down	
+035A	GTA III	3	var, var, var	find drop off cessna coordinates	
+035B	GTA III	4	flt, flt, flt, var	create floating package	parameters rearranged in SB
+035C	GTA III Vice City San Andreas	5	object handle, car handle, flt, flt, flt	place object relative to car	
+035D	GTA III Vice City
+San Andreas	1
+2	object handle
+object handle, int	make object targettable	
+035E	GTA III Vice City	2	player handle, int	add armour to player	
+035F	GTA III Vice City San Andreas	2	char handle, int	add armour to char	
+0360	GTA III Vice City San Andreas	1	garage handle	open garage	
+0361	GTA III Vice City San Andreas	1	garage handle	close garage	
+0362	GTA III Vice City San Andreas	4	char handle, flt, flt, flt	warp char from car to coord	
+0363	GTA III Vice City San Andreas	6	flt, flt, flt, flt, int, int	set visibility of closest object of type	
+0364	GTA III San Andreas	2	char handle, char handle	has char spotted char	
+0365	GTA III Vice City	1	char handle	set char obj hail taxi	
+0366	GTA III Vice City San Andreas	1	object handle	has object been damaged	
+0367	GTA III	9	string, int, int, int, int, int, int, int, int	start headshot rampage	restored in VC
+0368	GTA III	10	flt, flt, flt, flt, flt, flt, flt, flt, flt, flt	create ev crane	restored in VC
+0369	GTA III Vice City	2	player handle, car handle	warp player into car	
+036A	GTA III Vice City San Andreas	2	char handle, car handle	warp char into car	
+036B	unsupported	-			
+036C	unsupported	-			
+036D	GTA III Vice City San Andreas	5	string, int, int, int, int	print text with 2 numbers big	
+036E	GTA III	6	string, int, int, int, int, int	print text with 3 numbers big	restored in VC
+036F	GTA III	7	string, int, int, int, int, int, int	print text with 4 numbers big	restored in VC
+0370	GTA III	8	string, int, int, int, int, int, int, int	print text with 5 numbers big	restored in VC
+0371	GTA III	9	string, int, int, int, int, int, int, int, int	print text with 6 numbers big	restored in VC
+0372	GTA III Vice City	3	char handle, int, int	set char wait state	
+0373	GTA III Vice City San Andreas	0		set camera behind player	
+0374	GTA III	1	int	set motion blur	
+0375	GTA III	4		print string in string	
+0376	GTA III Vice City San Andreas	4	flt, flt, flt, var	create random char	parameters rearranged in SB
+0377	GTA III Vice City	1	char handle	set char obj steal any car	
+0378	GTA III	3		set 2 repeated phone messages	restored in VC
+0379	GTA III	3		set 2 phone messages	restored in VC
+037A	GTA III	4		set 3 repeated phone messages	restored in VC
+037B	GTA III	4		set 3 phone messages	restored in VC
+037C	GTA III	5		set 4 repeated phone messages	restored in VC
+037D	GTA III	5		set 4 phone messages	restored in VC
+037E	GTA III Vice City	6	flt, flt, flt, flt, flt, flt	is sniper bullet in area	
+037F	GTA III	0		give player detonator	restored in VC
+0380	unsupported	-			
+0381	GTA III Vice City San Andreas	4	object handle, flt, flt, flt	set object velocity	
+0382	GTA III Vice City San Andreas	2	object handle, int	set object collision	
+0383	GTA III Vice City	1	car handle	is ice cream jingle on	
+0384	GTA III Vice City San Andreas	4	string, string, int, int	print string in string now	
+0385	San Andreas	4	string, string, int, int	print string in string soon	
+0386	GTA III	6		set 5 repeated phone messages	restored in VC
+0387	GTA III	6		set 5 phone messages	restored in VC
+0388	GTA III	7		set 6 repeated phone messages	restored in VC
+0389	GTA III	7		set 6 phone messages	restored in VC
+038A	GTA III Vice City San Andreas	6	flt, flt, flt, flt, flt, flt	is point obscured by a mission entity	
+038B	GTA III Vice City San Andreas	0		load all models now	
+038C	GTA III Vice City San Andreas	4	object handle, flt, flt, flt	add to object velocity	
+038D	GTA III Vice City San Andreas	9	int, flt, flt, flt, flt, int, int, int, int	draw texture	
+038E	GTA III Vice City San Andreas	8	flt, flt, flt, flt, int, int, int, int	draw rectangle	
+038F	GTA III Vice City San Andreas	2	int, string	get texture from txd	parameters rearranged in SB in San Andreas
+0390	GTA III Vice City San Andreas	1	string	load txd	
+0391	GTA III Vice City San Andreas	0		release txd	
+0392	GTA III Vice City San Andreas	2	object handle, int	set object dynamic	
+0393	GTA III
+San Andreas	2
+3	char handle, flt
+char handle, string, flt	set char animation speed	restored in VC
+0394	GTA III Vice City San Andreas	1	int	play mission passed tune	
+0395	GTA III Vice City San Andreas	5	flt, flt, flt, flt, int	clear area	parameters rearranged in SB
+0396	GTA III Vice City San Andreas	1	global var	freeze onscreen timer	
+0397	GTA III Vice City San Andreas	2	car handle, int	switch car siren	
+0398	GTA III	7	flt, flt, flt, flt, flt, flt, flt	switch ped roads on angled	
+0399	GTA III	7	flt, flt, flt, flt, flt, flt, flt	switch ped roads off angled	
+039A	GTA III	7	flt, flt, flt, flt, flt, flt, flt	switch roads on angled	
+039B	GTA III	7	flt, flt, flt, flt, flt, flt, flt	switch roads off angled	
+039C	GTA III Vice City San Andreas	2	car handle, int	set car watertight	
+039D	GTA III Vice City	12	int, flt, flt, flt, flt, flt, flt, flt, int, int, int, int	add moving particle effect	parameters rearranged in SB
+039E	GTA III Vice City San Andreas	2	char handle, int	set char cant be dragged out	
+039F	GTA III Vice City San Andreas	3	car handle, flt, flt	turn car to face coord	
+03A0	GTA III	3	car handle, flt, flt	is crane lifting car	restored in VC
+03A1	GTA III Vice City San Andreas	4	flt, flt, flt, flt	show sphere at coord	
+03A2	GTA III Vice City San Andreas	2	car handle, int	set car status	
+03A3	GTA III Vice City San Andreas	1	char handle	is char male	
+03A4	GTA III Vice City San Andreas	1	string	script name	
+03A5	GTA III	3	garage handle, int, int	change garage type with car model	restored in VC
+03A6	GTA III	3	var, var, var	find incoming cessna coordinates	
+03A7	GTA III Vice City San Andreas	1	nop	no operation (saved integer to debug file)	
+03A8	GTA III Vice City San Andreas	1	nop	no operation (saved float to debug file)	used in mobile GTA III debug
+03A9	GTA III Vice City San Andreas	0	nop	no operation (save newline to debug file)	used in mobile GTA III debug
+03AA	GTA III Vice City	3	flt, flt, flt	police radio message	
+03AB	GTA III Vice City San Andreas	2	car handle, int	set car strong	
+03AC	GTA III Vice City	1	int	remove route	
+03AD	GTA III Vice City	1	int	switch rubbish	
+03AE	GTA III Vice City	6	flt, flt, flt, flt, flt, flt	remove particle effects in area	
+03AF	GTA III Vice City San Andreas	1	int	switch streaming	
+03B0	GTA III Vice City San Andreas	1	garage handle	is garage open	
+03B1	GTA III Vice City San Andreas	1	garage handle	is garage closed	
+03B2	GTA III	0		start catalina heli	
+03B3	GTA III	0		catalina heli take off	
+03B4	GTA III	0		remove catalina heli	
+03B5	GTA III	0		has catalina heli been shot down	
+03B6	GTA III Vice City San Andreas	6	flt, flt, flt, flt, int, int	swap nearest building model	
+03B7	GTA III Vice City San Andreas	1	int	switch world processing	
+03B8	GTA III Vice City	1	player handle	remove all player weapons	
+03B9	GTA III	1	car handle	grab catalina heli	
+03BA	GTA III Vice City San Andreas	6	flt, flt, flt, flt, flt, flt	clear area of cars	
+03BB	GTA III Vice City	1	garage handle	set garage door to rotate	
+03BC	GTA III Vice City San Andreas	5	flt, flt, flt, flt, var	add sphere	parameters rearranged in SB
+03BD	GTA III Vice City San Andreas	1	sphere handle	remove sphere	
+03BE	GTA III	0		catalina heli hover above	
+03BF	GTA III Vice City San Andreas	2	player handle, int	set everyone ignore player	
+03C0	GTA III Vice City San Andreas	2	char handle, var	store car char is in no save	parameters rearranged in SB
+03C1	GTA III Vice City	2	player handle, var	store car player is in no save	parameters rearranged in SB
+03C2	GTA III	1	phone handle	is phone displaying message	restored in VC
+03C3	GTA III
+Vice City San Andreas	2
+3	global var, string
+global var, int, string	display onscreen timer with string	
+03C4	GTA III Vice City San Andreas	3	global var, int, string	display onscreen counter with string	
+03C5	GTA III Vice City San Andreas	4	flt, flt, flt, flt	create random car for car park	
+03C6	GTA III	1	int	is collision in memory	restored in VC
+03C7	GTA III Vice City San Andreas	1	flt	set wanted multiplier	
+03C8	GTA III Vice City San Andreas	0		set camera in front of player	
+03C9	GTA III	1	car handle	is car visibly damaged	restored in VC
+03CA	GTA III Vice City San Andreas	1	object handle	does object exist	
+03CB	GTA III Vice City San Andreas	3	flt, flt, flt	load scene	
+03CC	GTA III Vice City San Andreas	3	car handle, flt, int	add stuck car check	
+03CD	GTA III Vice City San Andreas	1	car handle	remove stuck car check	
+03CE	GTA III Vice City San Andreas	1	car handle	is car stuck	
+03CF	GTA III
+Vice City San Andreas	1
+2	string
+int, string	load mission audio	parameters rearranged in SB
+03D0	GTA III
+Vice City San Andreas	0
+1	
+int	has mission audio loaded	
+03D1	GTA III
+Vice City San Andreas	0
+1	
+int	play mission audio	
+03D2	GTA III
+Vice City San Andreas	0
+1	
+int	has mission audio finished	
+03D3	GTA III Vice City San Andreas	7	flt, flt, flt, var, var, var, var	get closest car node with heading	
+03D4	GTA III Vice City	2	garage handle, car handle	has import garage slot been filled	
+03D5	GTA III Vice City San Andreas	1	string	clear this print	
+03D6	GTA III Vice City San Andreas	1	string	clear this big print	
+03D7	GTA III
+Vice City San Andreas	3
+4	flt, flt, flt
+int, flt, flt, flt	set mission audio position	
+03D8	GTA III Vice City San Andreas	0		activate save menu	
+03D9	GTA III Vice City San Andreas	0		did save complete successfully	
+03DA	GTA III Vice City	1	garage handle	set garage camera follows player	
+03DB	GTA III	4	object handle, int, int, var	add blip with properties for pickup	restored in VC
+03DC	GTA III Vice City San Andreas	2	pickup handle, var	add blip for pickup	parameters rearranged in SB
+03DD	GTA III	3	pickup handle, int, var	add blip sprite for pickup	restored in VC
+03DE	GTA III Vice City San Andreas	1	flt	set ped density multiplier	
+03DF	GTA III Vice City	1	int	force random ped type	
+03E0	GTA III San Andreas	1	int	set text draw before fade	
+03E1	GTA III Vice City	1	var	get number of packages found	
+03E2	GTA III
+Vice City	1
+1	int
+char handle	register el burro time
+task char exit any car	
+03E3	GTA III Vice City San Andreas	1	int	set next texture antialiased	
+03E4	GTA III Vice City San Andreas	1	int	set text right justify	
+03E5	GTA III Vice City San Andreas	1	string	print help	
+03E6	GTA III Vice City San Andreas	0		clear help	
+03E7	GTA III Vice City San Andreas	1	int	flash hud object	
+03E8	unsupported	-			
+03E9	GTA III	1	char handle	is char in control	restored in VC
+03EA	GTA III Vice City	1	int	set generate cars around camera	
+03EB	GTA III Vice City San Andreas	0		clear small prints	
+03EC	GTA III	0		has ev crane collected all cars	restored in VC
+03ED	GTA III Vice City San Andreas	2	car handle, int	set upsidedown car not damaged	
+03EE	GTA III Vice City San Andreas	1	player handle	can player start mission	
+03EF	GTA III Vice City San Andreas	1	player handle	make player safe for cutscene	only use before cutscenes
+03F0	GTA III Vice City San Andreas	1	int	use text commands	
+03F1	GTA III Vice City	2	int, int	set threat for ped type	
+03F2	GTA III Vice City	2	int, int	clear threat for ped type	
+03F3	GTA III Vice City San Andreas	3	car handle, var, var	get car colours	
+03F4	GTA III Vice City San Andreas	1	int	set all cars can be damaged	
+03F5	GTA III Vice City San Andreas	2	car handle, int	set car can be damaged	
+03F6	unsupported	-			
+03F7	GTA III	1	int	load collision	
+03F8	GTA III	1	var	get body cast health	used in Liberty City mod for VC
+03F9	GTA III Vice City	3	char handle, char handle, int	set chars chatting	
+03FA	unsupported	-			
+03FB	GTA III	2	car handle, int	set car stays in current level	restored in VC
+03FC	GTA III	2	char handle, int	set char stays in current level	restored in VC
+03FD	GTA III
+Vice City San Andreas	1
+2	int
+player handle, int	register 4x4 one time
+set player handling responsiveness	
+03FE	GTA III
+Vice City San Andreas	1
+2	int
+char handle, int	register 4x4 two time
+set char money	
+03FF	GTA III	1	int	register 4x4 three time	
+0400	GTA III
+Vice City San Andreas	1
+7	int
+object handle, flt, flt, flt, var, var, var	register 4x4 mayhem time
+get offset from object in world coords	parameters rearranged in SB
+0401	GTA III Vice City	0		register life saved	
+0402	GTA III Vice City	0		register criminal caught	
+0403	GTA III Vice City	1	int	register ambulance level	
+0404	GTA III Vice City	0		register fire extinguished	
+0405	GTA III Vice City	1	phone handle	enable phone	
+0406	GTA III	1	int	register longest dodo flight	
+0407	GTA III
+Vice City San Andreas	1
+7	int
+car handle, flt, flt, flt, var, var, var	register defuse bomb time
+get offset from car in world coords	parameters rearranged in SB
+0408	GTA III Vice City	1	int	set total number of rampages	
+0409	GTA III Vice City	0		blow up rc buggy	
+040A	GTA III	1	int	remove car from chase scene	
+040B	GTA III Vice City	0		is French game	
+040C	GTA III Vice City San Andreas	0		is German game	
+040D	GTA III
+Vice City San Andreas	0
+1	
+int	clear mission audio	
+040E	GTA III	1	int	set fade in after next arrest	
+040F	GTA III	1	int	set fade in after next death	
+0410	GTA III	2	int, int	set gang ped model preference	restored in VC
+0411	GTA III Vice City	2	char handle, int	set char use pednode seek	
+0412	GTA III	2	car handle, int	switch vehicle weapons	
+0413	GTA III	2	player handle, int	set get out of jail free	restored in VC
+0414	GTA III Vice City San Andreas	2	player handle, int	set free health care	
+0415	GTA III	2	car handle, int	is car door closed	restored in VC
+0416	GTA III Vice City	0	nop	no operation	
+0417	GTA III Vice City San Andreas	1	int	launch mission	
+0418	GTA III Vice City San Andreas	2	object handle, int	set object draw last	
+0419	GTA III Vice City	3	player handle, int, var	get ammo in player weapon	parameters rearranged in SB
+041A	GTA III	3	char handle, int, var	get ammo in char weapon	
+041B	GTA III	0		increment rampage passed	restored in VC
+041C	GTA III	2	char handle, int	set char say	restored in VC
+041D	GTA III Vice City San Andreas	1	flt	set near clip	
+041E	GTA III Vice City San Andreas	2	int, int	set radio channel	
+041F	GTA III	1	int	override hospital level	restored in VC
+0420	GTA III	1	int	override police station level	restored in VC
+0421	GTA III	1	int	force rain	restored in VC
+0422	GTA III	2	garage handle, car handle	does garage contain car	restored in VC
+0423	GTA III Vice City San Andreas	2	car handle, flt	set car improve handling	
+0424	GTA III Vice City San Andreas	0		are measurements in meters	
+0425	GTA III Vice City San Andreas	2	flt, var	convert meters to feet	parameters rearranged in SB
+0426	GTA III	6	flt, flt, flt, flt, flt, flt	mark roads between levels	
+0427	GTA III	6	flt, flt, flt, flt, flt, flt	mark ped roads between levels	
+0428	GTA III Vice City San Andreas	2	car handle, int	set car avoid level transitions	
+0429	GTA III	2	char handle, int	set char avoid level transitions	
+042A	GTA III	2	int, int	is threat for ped type	restored in VC
+042B	GTA III Vice City San Andreas	6	flt, flt, flt, flt, flt, flt	clear area of chars	
+042C	GTA III Vice City San Andreas	1	int	set total missions	
+042D	GTA III Vice City San Andreas	2	int, var	convert meters to feet int	parameters rearranged in SB
+042E	GTA III Vice City San Andreas	2	int, int/flt	register fastest time	
+042F	GTA III Vice City	2	int, int/flt	register highest score	
+0430	San Andreas	3	char handle, car handle, int	warp char into car as passenger	
+0431	GTA III Vice City San Andreas	2	car handle, int	is car passenger seat free	
+0432	GTA III San Andreas	3	car handle, int, var	get char in passenger seat	restored in VC
+0433	GTA III Vice City San Andreas	2	char handle, int	set char is criminal	
+0434	GTA III Vice City San Andreas	0		start credits	
+0435	GTA III Vice City San Andreas	0		stop credits	
+0436	GTA III Vice City San Andreas	0		are credits finished	
+0437	GTA III Vice City	8	int, flt, flt, flt, flt, flt, flt, flt	scatter single particle	parameters rearranged in SB
+0438	GTA III	2	char handle, int	set char ignore level transitions	restored in VC
+0439	GTA III	2	int, car handle	turn chase car into script car	
+043A	GTA III	0		start boat foam animation	
+043B	GTA III	1	object handle	update boat foam animation	
+043C	GTA III Vice City San Andreas	1	int	set music does fade	
+043D	GTA III	1	int	set intro is playing	
+043E	GTA III Vice City	2	player handle, char handle	set player hooker	
+043F	GTA III Vice City	0		play end of game tune	
+0440	GTA III Vice City	0		stop end of game tune	
+0441	GTA III Vice City San Andreas	2	car handle, var	get car model	parameters rearranged in SB
+0442	GTA III Vice City	2	player handle, car handle	is player sitting in car	
+0443	GTA III Vice City	1	player handle	is player sitting in any car	
+0444	GTA III	2	fire handle, int	set script fire audio	restored in VC
+0445	GTA III Vice City San Andreas	0		are any car cheats activated	
+0446	GTA III Vice City San Andreas	2	char handle, int	set char dismemberment	
+0447	GTA III	1	player handle	is player lifting a phone	restored in VC
+0448	GTA III Vice City San Andreas	2	char handle, car handle	is char sitting in car	
+0449	GTA III Vice City San Andreas	1	char handle	is char sitting in any car	
+044A	GTA III Vice City	1	player handle	is player on foot	
+044B	GTA III Vice City San Andreas	1	char handle	is char on foot	
+044C	GTA III	1	int	load collision with screen	
+044D	GTA III Vice City	1	string	load splash screen	
+044E	GTA III	2	car handle, int	set car ignore level transitions	restored in VC
+044F	GTA III	2	car handle, int	make car a bit stronger	restored in VC
+0450	GTA III Vice City	1	car handle	set car on path to player	
+0451	GTA III Vice City	0		load end of game tune	
+0452	GTA III	0		enable player control camera	restored in VC
+0453	GTA III Vice City San Andreas	4	object handle, flt, flt, flt	set object rotation	
+0454	GTA III Vice City San Andreas	3	var, var, var	get debug camera coordinates	
+0455	GTA III	3	var, var, var	get debug camera front vector	
+0456	GTA III	1	player handle	is player targetting any char	
+0457	GTA III Vice City San Andreas	2	player handle, char handle	is player targetting char	
+0458	GTA III San Andreas	2	player handle, object handle	is player targetting object	
+0459	GTA III Vice City San Andreas	1	string	terminate all scripts with this name	
+045A	GTA III Vice City San Andreas	4	flt, flt, string, int	display text with number	
+045B	GTA III Vice City San Andreas	5	flt, flt, string, int, int	display text with 2 numbers	
+045C	GTA III Vice City San Andreas	0		fail current mission	
+045D	GTA III
+Vice City	6
+0	flt, flt, flt, flt, int, var
+nop	get random object of type in area
+no operation	
+045E	GTA III	5	object handle, object handle, flt, flt, flt	place object relative to object	
+045F	GTA III Vice City	1	car handle	make all occupants of specified car to exit the car	
+0460	GTA III Vice City San Andreas	2	flt, int	set interpolation parameters	
+0461	GTA III	9		get closest car node with heading towards point	
+0462	GTA III	9		get closest car node with heading away point	
+0463	GTA III Vice City San Andreas	3	var, var, var	get debug camera point at	
+0464	GTA III Vice City San Andreas	8	char handle, car handle, flt, flt, flt, int, flt, int	attach char to car	
+0465	GTA III Vice City San Andreas	1	char handle	detach char from car	
+0466	GTA III Vice City San Andreas	2	car handle, int	set car change lane	
+0467	GTA III Vice City San Andreas	1	char handle	clear char last weapon damage	
+0468	GTA III Vice City San Andreas	1	car handle	clear car last weapon damage	
+0469	GTA III Vice City	10	flt, flt, flt, flt, int, int, int, int, int, var	get law enforcement in area	parameters rearranged in SB
+046A	GTA III	2	string, var	get law enforcement in zone	
+046B	GTA III Vice City	2	char handle, car handle	task leave car by any means	
+046C	GTA III Vice City San Andreas	2	car handle, var	get driver of car	parameters rearranged in SB
+046D	GTA III Vice City San Andreas	2	char handle, var	get char number of followers	parameters rearranged in SB
+046E	GTA III Vice City San Andreas	6	player handle, flt, flt, flt, flt, int	give remote controlled model to player	
+046F	GTA III Vice City	2	player handle, var	get current player weapon	
+0470	GTA III Vice City San Andreas	2	char handle, var	get current char weapon	parameters rearranged in SB
+0471	GTA III Vice City San Andreas	5	char handle, object handle, flt, flt, int	locate char any means object 2d	
+0472	GTA III Vice City San Andreas	5	char handle, object handle, flt, flt, int	locate char on foot object 2d	
+0473	GTA III Vice City San Andreas	5	char handle, object handle, flt, flt, int	locate char in car object 2d	
+0474	GTA III Vice City San Andreas	6	char handle, object handle, flt, flt, flt, int	locate char any means object 3d	
+0475	GTA III Vice City San Andreas	6	char handle, object handle, flt, flt, flt, int	locate char on foot object 3d	
+0476	GTA III Vice City San Andreas	6	char handle, object handle, flt, flt, flt, int	locate char in car object 3d	
+0477	GTA III Vice City San Andreas	3	car handle, int, int	set car driving behavior	
+0478	GTA III	2	car handle, int	set car handbrake turn right	
+0479	GTA III	2	car handle, int	set car handbrake stop	
+047A	GTA III Vice City San Andreas	1	char handle	is char on any bike	
+047B	GTA III	5	flt, flt, flt, flt, int	locate sniper bullet 2d	
+047C	GTA III	7	flt, flt, flt, flt, flt, flt, int	locate sniper bullet 3d	
+047D	GTA III	2	int, var	get number of seats in model	restored in VC
+047E	GTA III Vice City	1	player handle	is player on any bike	
+047F	GTA III	1	char handle	is char lying down	
+0480	GTA III Vice City San Andreas	2	char handle, int	is char looking at death of char with pedtype	
+0481	GTA III Vice City	1	flt	set enter car range multiplier	
+0482	GTA III Vice City	1	flt	set threat reaction range multiplier	last opcode available for GTA III PC
+0483	Vice City	2	char handle, int	set char chase attack timer	
+0484	Vice City San Andreas	2	player handle, var	get remote controlled car	parameters rearranged in SB
+0485	Vice City San Andreas	0		check if game is PC version	
+0486	unsupported	-			
+0487	unsupported	-			
+0488	Vice City San Andreas	1	int	is model available	
+0489	Vice City San Andreas	2	char handle, int	shut character up	
+048A	Vice City San Andreas	1	int	set enable rc detonate	
+048B	Vice City San Andreas	2	car handle, int	set car random route seed	
+048C	Vice City San Andreas	3	flt, flt, flt	is any pickup at coords	
+048D	unsupported	-			
+048E	unsupported	-			
+048F	Vice City San Andreas	1	char handle	remove all char weapons	
+0490	Vice City	2	player handle, int	has player got weapon	
+0491	San Andreas	2	char handle, int	has char got weapon	
+0492	unsupported	-			
+0493	Vice City	2	car handle, int	set tank detonate cars	
+0494	Vice City San Andreas	5	int, var, var, var, var	get joystick data	
+0495	Vice City San Andreas	1	car handle	is car on fire	
+0496	Vice City San Andreas	2	car handle, int	is car tyre burst	
+0497	unsupported	-			
+0498	unsupported	-			
+0499	unsupported	-			
+049A	unsupported	-			
+049B	unsupported	-			
+049C	Vice City	3	int, flt, var	initialise script path	parameters rearranged in SB
+049D	Vice City	2	object handle, path handle	attach object to script path	parameters rearranged in SB
+049E	Vice City	2	path handle, flt	set script path speed	
+049F	Vice City	2	path handle, flt	set script path distance	
+04A0	unsupported	-			
+04A1	Vice City San Andreas	1	path handle	clear script path	
+04A2	Vice City
+San Andreas	5
+6	car handle, flt, flt, flt, int
+car handle, flt, flt, flt, flt, flt	set heli fly to coord	
+04A3	Vice City San Andreas	2			
+04A4	Vice City San Andreas	2			
+04A5	Vice City San Andreas	4	char handle, flt, flt, flt	get random drop position from char	
+04A6	Vice City San Andreas	6	flt, flt, flt, int, int, var	create protection pickup	parameters rearranged in SB
+04A7	San Andreas	1	char handle	is char in any boat	restored in VC
+04A8	Vice City	1	player handle	is player in any boat	
+04A9	San Andreas	1	char handle	is char in any heli	restored in VC
+04AA	Vice City	1	player handle	is player in any heli	
+04AB	San Andreas	1	char handle	is char in any plane	restored in VC
+04AC	Vice City	1	player handle	is player in any plane	
+04AD	Vice City San Andreas	1	char handle	is char in water	
+04AE	Vice City San Andreas	2			
+04AF	Vice City San Andreas	2			
+04B0	Vice City San Andreas	2			
+04B1	Vice City San Andreas	2			
+04B2	Vice City San Andreas	2			
+04B3	Vice City San Andreas	2			
+04B4	Vice City San Andreas	2			
+04B5	Vice City San Andreas	2			
+04B6	Vice City San Andreas	2			
+04B7	Vice City San Andreas	2			
+04B8	Vice City San Andreas	5	char handle, int, var, var, var	get char weapon in slot	
+04B9	Vice City San Andreas	12	flt, flt, flt, flt, flt, var, var, var, var, var, var, var	get closest straight road	
+04BA	Vice City San Andreas	2	car handle, flt	set car forward speed	
+04BB	Vice City San Andreas	1	int	set interior	
+04BC	Vice City	1	string	set cutscene animation to loop	
+04BD	Vice City San Andreas	2	car handle, int	mark car as convoy car	
+04BE	Vice City	1	player handle	reset player chaos level	
+04BF	Vice City	2	player handle, var	get player chaos level	parameters rearranged in SB
+04C0	Vice City San Andreas	6	flt, flt, flt, flt, flt, flt	create police roadblock	
+04C1	Vice City San Andreas	0		release police roadblock	
+04C2	Vice City	2	char handle, char handle	task char go to char	
+04C3	unsupported	-			
+04C4	Vice City San Andreas	7	char handle, flt, flt, flt, var, var, var	get offset from char in world coords	parameters rearranged in SB
+04C5	Vice City San Andreas	1	char handle	has char been photographed	
+04C6	Vice City	2	char handle, char handle	task aim gun at char	
+04C7	Vice City	1	int	set green scanlines	
+04C8	San Andreas	1	char handle	is char in flying vehicle	restored in VC
+04C9	Vice City	1	player handle	is player in flying vehicle	
+04CA	unsupported	-			
+04CB	unsupported	-			
+04CC	unsupported	-			restored in VC
+04CD	unsupported	-			restored in VC
+04CE	Vice City San Andreas	5	flt, flt, flt, int, var	create icon marker	parameters rearranged in SB
+04CF	Vice City	1	int	add to money spent on fashion stat	
+04D0	Vice City San Andreas	2	car handle, flt	force heli looking angle	
+04D1	Vice City San Andreas	1	car handle	reset heli looking angle	
+04D2	Vice City
+San Andreas	5
+6	car handle, flt, flt, flt, int
+car handle, flt, flt, flt, flt, flt	set plane fly to coord	
+04D3	Vice City San Andreas	7	flt, flt, flt, int, var, var, var	get Nth closest car node	
+04D4	unsupported	-			
+04D5	Vice City San Andreas	9	flt, flt, flt, flt, int, int, int, int, int	draw corona	
+04D6	Vice City San Andreas	1	int	set enable rc detonate on contact	
+04D7	Vice City San Andreas	2	char handle, int	freeze char position	
+04D8	Vice City San Andreas	2	char handle, int	set char drowns in water	
+04D9	Vice City San Andreas	2	object handle, int	set object records collisions	
+04DA	Vice City San Andreas	1	object handle	has object collided with anything	
+04DB	Vice City San Andreas	0		remove rc buggy	
+04DC	unsupported	-			
+04DD	Vice City San Andreas	2	char handle, var	get char armour	parameters rearranged in SB
+04DE	unsupported	-			
+04DF	Vice City San Andreas	2	car handle, int	set heli stabiliser	
+04E0	Vice City San Andreas	2	car handle, int	set car straight line distance	
+04E1	Vice City San Andreas	1	car handle	open and freeze car trunk	
+04E2	Vice City	2	player handle, int	shut player up	
+04E3	Vice City San Andreas	3	player handle, int, int	set player mood	
+04E4	Vice City San Andreas	2	flt, flt	request collision	
+04E5	Vice City San Andreas	6	object handle, flt, flt, flt, flt, int	locate object 2d	
+04E6	Vice City San Andreas	8	object handle, flt, flt, flt, flt, flt, flt, int	locate object 3d	
+04E7	Vice City San Andreas	1	object handle	is object in water	
+04E8	unsupported	-			
+04E9	Vice City San Andreas	6	object handle, flt, flt, flt, flt, int	is object in area 2d	
+04EA	Vice City San Andreas	8	object handle, flt, flt, flt, flt, flt, flt, int	is object in area 3d	
+04EB	Vice City San Andreas	3	char handle, int, int	task duck	
+04EC	Vice City	13	string, int, int, int, int, int, int, int, int, int, int, int, int	set zone car class info	
+04ED	Vice City San Andreas	1	string	request anims	
+04EE	Vice City San Andreas	1	string	have anims loaded	
+04EF	Vice City San Andreas	1	string	remove anims	
+04F0	Vice City San Andreas	1	char handle	is char waiting for world collision	
+04F1	Vice City San Andreas	1	car handle	is car waiting for world collision	
+04F2	unsupported	-			
+04F3	Vice City	1	char handle	set char shuffle into drivers seat	
+04F4	Vice City San Andreas	8	char handle, object handle, flt, flt, flt, int, flt, int	attach char to object	
+04F5	Vice City	3	char handle, player handle, int	set char as player friend	
+04F6	unsupported	-			
+04F7	Vice City San Andreas	4	global var, int, int, string	display nth onscreen counter with string	
+04F8	Vice City San Andreas	13	int, flt, flt, flt, flt, flt, flt, flt, flt, flt, flt, flt, flt	define police trigger	
+04F9	Vice City San Andreas	2	int, int	set sky colors	
+04FA	Vice City San Andreas	1	int	reset interior colors	
+04FB	unsupported	-			
+04FC	Vice City San Andreas	7	player handle, var, var, var, var, var, var	store stunt data	
+04FD	unsupported	-			
+04FE	Vice City San Andreas	2	car handle, int	burst car tyre	
+04FF	Vice City	1	char handle	is char obj no obj	
+0500	Vice City
+San Andreas	2
+3	player handle, string
+player handle, string, string	change player skin	
+0501	Vice City San Andreas	2	player handle, int	set player can do drive by	
+0502	Vice City	3	char handle, flt, flt	task flee to point	
+0503	Vice City San Andreas	3	flt, flt, flt	create rappel	
+0504	unsupported	-			
+0505	unsupported	-			
+0506	Vice City San Andreas	3	int, int, int	set car model components	
+0507	Vice City	1	int	set camera interference	
+0508	Vice City San Andreas	1	car handle	close all car doors	
+0509	Vice City San Andreas	5	flt, flt, flt, flt, var	get distance between coords 2d	parameters rearranged in SB
+050A	Vice City San Andreas	7	flt, flt, flt, flt, flt, flt, var	get distance between coords 3d	parameters rearranged in SB
+050B	Vice City	1	car handle	pop car boot	
+050C	unsupported	-			
+050D	Vice City	1	char handle	is char shot in vehicle	
+050E	Vice City San Andreas	2	object handle, car handle	detach object from car	
+050F	San Andreas	1	var	get max wanted level	restored in III and VC
+0510	Vice City	5	char handle, flt, flt, flt, flt	is char wander path clear	
+0511	unsupported	-			restored in III and VC
+0512	Vice City San Andreas	1	string	print help forever	
+0513	San Andreas	2	string, int	print help forever with number	restored in VC
+0514	Vice City	3	char handle, int, int	set char can be damaged by gang members	
+0515	Vice City	1	label	load and launch mission exclusive	
+0516	unsupported	-			
+0517	Vice City San Andreas	5	string, flt, flt, flt, var	create locked property pickup	parameters rearranged in SB
+0518	Vice City San Andreas	6	string, flt, flt, flt, int, var	create forsale property pickup	parameters rearranged in SB
+0519	Vice City San Andreas	2	car handle, int	freeze car position	
+051A	Vice City San Andreas	2	char handle, char handle	has char been damaged by char	
+051B	San Andreas	2	char handle, car handle	has char been damaged by car	
+051C	San Andreas	2	car handle, char handle	has car been damaged by char	
+051D	San Andreas	2	car handle, car handle	has car been damaged by car	
+051E	San Andreas	1	var	get radio channel	
+051F	unsupported	-			
+0520	unsupported	-			
+0521	Vice City	1	char handle	is char drowning in water	
+0522	Vice City	0		disable cutscene shadows	
+0523	Vice City	3	flt, flt, flt	has glass been shattered nearby	
+0524	Vice City	3	object handle, object handle, int	attach object to bone	only works on cutscene objects
+0525	Vice City	3	object handle, object handle, string	attach object to component of object	only works on cutscene objects
+0526	Vice City San Andreas	2	char handle, int	set char to stay in car when jacked	
+0527	unsupported	-			
+0528	Vice City	1	int	add to money spent on weapon stat	
+0529	Vice City	1	int	add to money spent on property stat	
+052A	unsupported	-			
+052B	Vice City	2	char handle, int	task use mobile phone	
+052C	Vice City San Andreas	2	player handle, int	set drunk cam	
+052D	unsupported	-			restored in VC
+052E	unsupported	-			
+052F	unsupported	-			
+0530	unsupported	-			restored in VC
+0531	Vice City	1	int	add to stores knocked off stat	
+0532	unsupported	-			restored in VC
+0533	Vice City	1	int	add to assassination contracts stat	
+0534	Vice City	1	int	add to pizzas delivered stat	
+0535	unsupported	-			restored in VC
+0536	Vice City	1	int	add to drug deals made ("ice cream sold") stat	
+0537	unsupported	-			restored in VC
+0538	unsupported	-			restored in VC
+0539	unsupported	-			
+053A	unsupported	-			
+053B	unsupported	-			
+053C	Vice City	2	char handle, int	set char in players group can fight	
+053D	Vice City	1	char handle	clear char wait state	
+053E	Vice City San Andreas	6	int, flt, flt, flt, flt, var	get random car of specific type in area (no save)	parameters rearranged in SB
+053F	Vice City San Andreas	2	car handle, int	set can burst car tires	
+0540	Vice City	2	player handle, int	set player auto aim	
+0541	Vice City San Andreas	1	car handle	fire vehicle gun	
+0542	Vice City	1	int	add property to property owned stat	
+0543	Vice City	1	int	add bloodring kills stat	
+0544	Vice City	1	int	set longest time in Blood Ring	
+0545	Vice City	0		remove everything for huge cutscene	
+0546	Vice City	2	player handle, car handle	is player touching vehicle	restored in III
+0547	San Andreas	2	char handle, car handle	is char touching vehicle	restored in III and VC
+0548	Vice City	6	player handle, int, int, flt, flt, flt	check for ped model around player	
+0549	Vice City	1	char handle	clear char follow path	
+054A	Vice City San Andreas	2	char handle, int	set char can be shot in vehicle	
+054B	Vice City	2	object handle, car handle	attach cutscene object to vehicle	only works on cutscene objects
+054C	Vice City San Andreas	1	string	load mission text	
+054D	Vice City	1	int	set tonights event	
+054E	Vice City San Andreas	1	char handle	clear char last damage entity	
+054F	San Andreas	1	car handle	clear car last damage entity	
+0550	Vice City San Andreas	2	object handle, int	freeze object position	
+0551	Vice City	1	int	set Kaufman Cabs radio	
+0552	Vice City	1	int	set riot noise	
+0553	unsupported	-			
+0554	unsupported	-			
+0555	San Andreas	2	char handle, int	remove weapon from char	
+0556	Vice City	8	flt, flt, flt, flt, flt, flt, flt, flt	create cab	
+0557	Vice City	0		release cab	
+0558	unsupported	-			
+0559	unsupported	-			
+055A	Vice City	1	int	set secondary trash	
+055B	Vice City	5	int, flt, flt, flt, var	create clothes pickup	parameters rearranged in SB
+055C	unsupported	-			
+055D	Vice City San Andreas	2	player handle, int	make player fire proof	
+055E	Vice City San Andreas	2	player handle, int	increase player max health	
+055F	Vice City San Andreas	2	player handle, int	increase player max armour	
+0560	Vice City San Andreas	2	car handle, var	create random char as driver	
+0561	Vice City San Andreas	3	car handle, int, var	create random char as passenger	parameters rearranged in SB
+0562	Vice City	2	char handle, int	set char ignore threats behind objects	
+0563	Vice City San Andreas	2	player handle, int	ensure player has a drive-by weapon	
+0564	Vice City San Andreas	1	car handle	set helicopter simulate crash land	only works on helicopters
+0565	Vice City San Andreas	4	flt, flt, flt, int	add explosion with no sound	
+0566	Vice City San Andreas	2	object handle, int	set object area visible	
+0567	unsupported	-			
+0568	Vice City San Andreas	2	char handle, int	set char never targetted	
+0569	Vice City	1	string	load uncompressed animation	
+056A	Vice City San Andreas	0		has cutscene finished	
+056B	Vice City	2	char handle, int	set char to crouch when threatened	
+056C	Vice City San Andreas	1	char handle	is char in any police vehicle	
+056D	Vice City San Andreas	1	char handle	does char exist	
+056E	San Andreas	1	car handle	does car exist	
+056F	unsupported	-			restored in VC
+0570	Vice City San Andreas	5	int, flt, flt, flt, var	create asset radar marker with icon	parameters rearranged in SB
+0571	Vice City	1	char handle	is char stuck	
+0572	Vice City San Andreas	1	int	set all taxis have jump boost and nitro	nitro unavailable in VC
+0573	Vice City	2	char handle, int	set char stop shoot dont seek entity	
+0574	Vice City San Andreas	2	car handle, int	freeze car position and dont load collision	
+0575	San Andreas	2	char handle, int	freeze char position and dont load collision	
+0576	unsupported	-			
+0577	unsupported	-			
+0578	Vice City	1	int	register vigilante level	
+0579	Vice City	1	char handle	clear all char anims	
+057A	Vice City	2	garage handle, int	set maximum number of cars in garage	
+057B	Vice City	0		wanted stars are flashing	
+057C	Vice City	1	int	set allow hurricanes	
+057D	Vice City	1	int	play announcement	
+057E	Vice City San Andreas	1	int	set player is in stadium	
+057F	Vice City	2	player handle, var	get bus fares collected by player	
+0580	Vice City	3	char handle, car handle, var	set char obj buy ice cream	parameters rearranged in SB
+0581	Vice City San Andreas	1	int	display radar	
+0582	Vice City San Andreas	2	int, int	register best position	
+0583	Vice City San Andreas	2	player handle, string	is player in info zone	
+0584	Vice City	1	char handle	clear char ice cream purchase	
+0585	Vice City	0		is in car fire button pressed	available for III and SA through 00E1
+0586	Vice City	1	char handle	has char attempted attractor	
+0587	Vice City San Andreas	2	car handle, int	set load collision for car flag	
+0588	Vice City San Andreas	2	char handle, int	set load collision for char flag	
+0589	unsupported	-			
+058A	Vice City San Andreas	6	flt, flt, flt, flt, flt, flt	add big gun flash	
+058B	Vice City	1	char handle	has char bought ice cream	
+058C	Vice City San Andreas	1	var	get progress percentage	
+058D	Vice City	4	flt, flt, flt, flt	set shortcut pickup point	
+058E	Vice City	4	flt, flt, flt, flt	set shortcut dropoff point for mission	
+058F	Vice City	8	char handle, flt, flt, flt, flt, int, int, int	get random ice cream customer in area	
+0590	unsupported	-			
+0591	Vice City	4	flt, flt, flt, flt	unlock all car doors in area	
+0592	Vice City	2	int, int	set gang to attack player with cops	
+0593	Vice City	2	char handle, int	set char frightened in jacked car	
+0594	Vice City San Andreas	2	car handle, int	set vehicle to fade in	
+0595	Vice City San Andreas	0		register oddjob mission passed	
+0596	Vice City	1	player handle	is player in shortcut taxi	
+0597	Vice City San Andreas	1	char handle	is char ducking	
+0598	Vice City	3	object handle, flt, int	create dust effect for cutscene heli	
+0599	Vice City	1	int	register fire level	
+059A	Vice City San Andreas	0		is Australian game	
+059B	Vice City	1	car handle	disarm car bomb	
+059C	Vice City San Andreas
+Vice City	2
+0	global var, int
+ 	set onscreen counter flash when first displayed
+is Japanese game	last opcode available for Vice City JP and Steam
+059D	Vice City San Andreas	1	int	shuffle card decks	restored in VC Steam
+059E	Vice City San Andreas	1	var	fetch next card	restored in VC Steam
+059F	Vice City San Andreas	4	object handle, var, var, var	get object velocity	
+05A0	Vice City San Andreas	0		is debug camera on	
+05A1	Vice City San Andreas	4	object handle, flt, flt, flt	add to object rotation velocity	
+05A2	Vice City San Andreas	4	object handle, flt, flt, flt	set object rotation velocity	
+05A3	Vice City San Andreas	1	object handle	is object static	
+05A4	Vice City San Andreas	5	flt, flt, flt, flt, var	get angle between 2D vectors	
+05A5	Vice City San Andreas	8	flt, flt, flt, flt, flt, flt, flt, flt	do 2d rectangles collide	
+05A6	Vice City San Andreas	4	object handle, var, var, var	get object rotation velocity	
+05A7	Vice City San Andreas	4	object handle, var, var, var	add velocity relative to object velocity	
+05A8	Vice City San Andreas	2	object handle, var	get object speed	last opcode available for Vice City PC
+Some abbreviations and phrases used in this list:
+
+int
+integer value
+flt
+floating-point value
+var
+variable to store a value or handle, either global or local unless specified
+char
+character including actor and ped, apart from the player and special actor
+car
+vehicle including car, bike, helicopter, plane, etc. unless specified
+parameters rearranged...
+opcodes' parameters were rearranged from their original order mainly for sake of readability
+restored in...
+opcode has been correctly or mostly simulated to work through the Opcodes Restoration Project plugin
+used in...
+opcode has been used for the specified mod
