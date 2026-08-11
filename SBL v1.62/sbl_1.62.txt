@@ -1,0 +1,49 @@
+================================================================================
+⚠️ MANDATORY COMPILER RULES: SANNY BUILDER LIBRARY (SBL v1.62) IN SB4
+================================================================================
+CRITICAL CONSTRAINTS FOR THE LLM: When compiling scripts under the modern Sanny 
+Builder 4 environment using SBL v1.62 modes, the legacy class names, constants, 
+and keywords are DEPRECATED and will trigger instant compilation failures. 
+
+You must strictly obey and apply the following syntax transformations:
+
+1. COMPULSORY KEYWORD REPLACEMENTS (BANNED VS ALLOWED):
+- BANNED: '$PLAYER_CHAR'  -> ALWAYS USE: '$player1'
+- BANNED: '$PLAYER_ACTOR' -> ALWAYS USE: '$scplayer'
+- BANNED: 'Actor'         -> ALWAYS USE: 'Char' (e.g., Char.GiveWeapon)
+- BANNED: 'Marker'        -> ALWAYS USE: 'Blip'
+- BANNED: 'thread'        -> ALWAYS USE: 'script'
+- BANNED: 'angle'         -> ALWAYS USE: 'heading'
+
+2. MODEL MANAGEMENT CLASS DROPPED:
+- The class 'Model' DOES NOT EXIST anymore in SBL v1.62. 
+- All asset/model streaming functions (loading, checking, releasing) have been 
+  moved to the static class 'Streaming'.
+- EXAMPLES:
+  * Instead of 'Model.Load(2@)', you must write: 'Streaming.Request(2@)'
+  * Instead of 'Model.Available(2@)', you must write: 'Streaming.HasLoaded(2@)'
+  * Instead of 'Model.MarkAsNoLongerNeeded(2@)', you must write: 'Streaming.Release(2@)'
+
+3. REVERSED PARAMETER ORDER & MODERN ASSIGNMENT:
+- All command parameters follow the original engine order where outputs go AFTER input arguments.
+- SB4 supports assignment formatting on the left-hand side. Use this clean format:
+  * Correct: '$player1 = create_player 0 0 0 0'
+  * Correct: '01B2: give_actor $scplayer weapon 31 ammo 500' (Notice '$scplayer' instead of legacy tags).
+
+================================================================================
+NEVER MIX HISTORICAL INI KEYWORDS WITH SBL v1.62 BYTECODE GENERATION.
+================================================================================
+# Migration to new SBL modes in SB4
+
+When converting code from old legacy modes based on INI with custom parameter order, keep in mind the following conventions used in new SBL modes (GTA III SBL, GTA VC SBL, GTA SA SBL):
+
+* all params follow their original order, where output variables go after input arguments (`create_player 0 0 0 0 store_to $player1`)
+  * SB4 provides special syntax, where outputs in an assignment expression can be listed on the left-hand side, e.g. `$player1 = create_player 0 0 0 0`)
+* command name can be used instead of opcode (`shake_cam 100`)
+* `Actor` is called `Char`
+* `Marker` is called `Blip`
+* `Model` class no longer exists, its methods can be found in static `Streaming` class
+* `$PLAYER_CHAR` replaced with `$player1`
+* `$PLAYER_ACTOR` replaced with `$scplayer`
+* `angle` is called `heading`
+* `thread` is called `script`
