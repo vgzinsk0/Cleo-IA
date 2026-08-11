@@ -1,0 +1,22 @@
+===========================================================================
+ERROR_0015: INLINE ARITHMETIC IN MEMORY OPCODES (READ_MEMORY / WRITE_MEMORY)
+===========================================================================
+
+1. COMPILER FAILURE:
+- Writing mathematical expressions directly inside memory instructions (e.g., '2@ = read_memory (1@ + 0x718) size 1 virtual_protect 0') causes SBL v1.1 parser to treat arithmetic operators (+, *, -) as parameter separators.
+- This results in compiler error: "Too many actual parameters. Expected 4 params." (Opcode 0A8D / 0A8C).
+
+2. INCORRECT USAGE:
+  2@ = read_memory (1@ + 0x718) size 1 virtual_protect 0
+  write_memory (4@ + 0x08) size 4 value 9999 virtual_protect 0
+
+3. CORRECT USAGE:
+  // Pre-calculate intermediate address in an auxiliary variable (e.g., 9@)
+  9@ = 1@ + 0x718
+  2@ = read_memory 9@ size 1 virtual_protect 0
+
+  9@ = 4@ + 0x08
+  write_memory 9@ size 4 value 9999 virtual_protect 0
+
+4. REINFORCEMENT FOR AI GENERATION:
+- NEVER calculate offsets inline inside parentheses within 'read_memory' or 'write_memory'. ALWAYS calculate the exact target memory address in a dedicated local variable before calling memory opcodes.
