@@ -1,0 +1,5 @@
+
+2. SAFE LOCAL VARIABLE MANAGEMENT (RESTRICTION ON OVERWRITING):
+- NEVER reuse the same local variable for two different logical functions within the same script structure (e.g., using 0@ for the Toggle status and then assignment of memory addresses like 0@ = 0xC69754).
+- Overwriting basic control variables destroys the script logic, leading to execution loops failing, stack corruption, and immediate game crash.
+- ALWAYS dedicate unique variables (0@ to 31@) for separate roles: one for toggle state, separate ones for static memory offsets, and unique slots for saving memory values (backup registers).
