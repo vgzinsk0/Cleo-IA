@@ -1,4 +1,4 @@
-# 🚀 Cleo-IA - O Guia Supremo de Codificação SCM / CLEO 5.4 para GTA SA v1.0 US
+# 🚀 Cleo-IA - O Guia de CLEO 5.4 para GTA SA v1.0 US/SAMP
 
 Salve! Este repositório é uma base de conhecimento massiva e ultra-estruturada que eu criei com um objetivo claro: **dar um super cérebro para Inteligências Artificiais** (como o Qwen Coder) para que elas programem scripts CLEO perfeitos, sem inventar comandos e sem dar crash no jogo.
 
