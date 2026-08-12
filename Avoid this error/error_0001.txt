@@ -1,9 +1,0 @@
-===========================================================================
-STRICT SYNTAX RULES FOR THREADS (SANNY BUILDER 4 / CLEO 5)
-===========================================================================
-
-1. THREAD INITIALIZATION AND DECLARATION:
-- NEVER use the standalone directive 'thread "NAME"' or 'thread 'NAME'' inside code block headers. It is invalid syntax and triggers the error: "Unknown directive thread [NAME]" (Error 0013).
-- ALWAYS initialize the script identity using the official 'script_name' command wrapped in single quotes.
-- CORRECT EXAMPLE:
-  script_name 'MYMOD'
