@@ -1,5 +1,5 @@
 ===========================================================================
-ERROR_0008: CRITICAL SPACING REGULATION FOR COMPILER DIRECTIVES IN SB4
+ERROR_0017: CRITICAL SPACING REGULATION FOR COMPILER DIRECTIVES IN SB4
 ===========================================================================
 
 1. STRICT DIRECTIVE SYNTAX (ERROR 0098):
