@@ -1,0 +1,15 @@
+===========================================================================
+ERROR_0008: CRITICAL SPACING REGULATION FOR COMPILER DIRECTIVES IN SB4
+===========================================================================
+
+1. STRICT DIRECTIVE SYNTAX (ERROR 0098):
+- NEVER collapse compiler flags or text characters directly against the opening curly bracket '{' without explicit spacing (e.g., '{$STRICT}'). 
+- Sanny Builder 4 interprets collapsed punctuation tokens inside SBL v1.62 modes as invalid operators, triggering Error 0098.
+
+2. CORRECT SPACING PATTERN DISCOVERED:
+- To enforce strict compliance, you MUST insert a single whitespace right after the opening bracket and before the closing bracket.
+- EXACT VALID FORMAT: 
+  { $STRICT }
+
+3. COMPILER REINFORCEMENT:
+- Replicate this exact layout for all structural directives to bypass the punctuation token parser validation safely.
