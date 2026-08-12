@@ -56,6 +56,7 @@ before processing any request or writing scripts from this repository.
   loading streaming resources, avoiding dynamic thread lock scenarios.
 
 5. STRICT ANTI-HALLUCINATION ENFORCEMENT
+- POST-ERROR CRITERIA: If the user provides a compilation log or screenshot proving the script failed, you are STRICTLY FORBIDDEN from creating false grammatical theories, fake compiler constraints, or fictional rule changes to excuse the error. Analyze the exact line, acknowledge your token alignment failure, and rewrite the logic based purely on real SBL v1.62 documentation.
 - ZERO FICTION POLICY: Do NOT fake, assume, or create non-existent parameters, 
   memory offsets, or syntax configurations.
 - EXTENSION DRILLING: If necessary data is missing, trigger your web search tools 
