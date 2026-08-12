@@ -1,0 +1,226 @@
+================================================================================
+CLEO 5 & SBL v1.62 ADVANCED MODDING & REVERSE ENGINEERING SPECIFICATION
+Target Engine: RenderWare (GTA San Andreas v1.0 US / SAMP)
+Purpose: Zero-Hallucination Technical Guidelines for LLMs & Script Developers
+================================================================================
+
+1. CLEO+.cleo (Expanded modern opcode framework)
+--------------------------------------------------------------------------------
+1. COMPONENT NAME & ARCHITECTURE SUMMARY:
+- File Name: CLEO+.cleo
+- Low-Level Architecture: Acts as an expanded native opcode framework that intercepts the opcode dispatch table of the base game and CLEO core, injecting a high-performance vector of modern helper routines. It expands the SCM virtual machine capability by registering custom opcode handlers that execute directly in native assembly blocks, bypassing slow script-bound logic loops.
+
+2. WHEN TO USE (CRITERIA):
+- Use when complex mathematical validation, custom entity state querying (e.g., checking if a ped is entering a vehicle, tracking specific custom weapon states, checking screen coordinates relative to world objects), or fast conditional branching is required without writing heavy loops in SCM bytecode.
+
+3. HOW TO USE & INLINE SYNTAX (SBL v1.62 / SB4):
+// Example: Checking if player is aiming a weapon and getting target entity
+IF 
+    Player.WantsToAim(0)
+THEN
+    GET_PLAYER_TARGET_ENTITY(0, 1) // 1 for Ped/Vehicle/Object
+END
+
+4. CRITICAL RESTRICTIONS & ANTI-BUG WARNINGS:
+- PROHIBITED: Do not mix raw legacy 0A93/0A94 memory reads when CLEO+ built-in property getters are available; it causes redundant instruction cycles.
+- WARNING: Always check if the CLEO+ plugin version matches the minimum required version (v1.2.0+) in script headers to prevent unhandled opcode exceptions.
+
+
+2. NewOpcodes.cleo (Legacy-to-modern memory bridging)
+--------------------------------------------------------------------------------
+1. COMPONENT NAME & ARCHITECTURE SUMMARY:
+- File Name: NewOpcodes.cleo
+- Low-Level Architecture: Functions as a bridging middleware layer that exposes modern memory access patterns, string manipulations, and thread controls to legacy SCM scripts, routing high-level abstractions directly to optimized C++ memory routines.
+
+2. WHEN TO USE (CRITERIA):
+- Use when modernizing older script bases that rely on deprecated memory reading patterns, or when mapping safe structural offsets across different game versions or compatibility layers.
+
+3. HOW TO USE & INLINE SYNTAX (SBL v1.62 / SB4):
+// Example: Modern memory read and write without legacy 0A8C/0A8D
+0A8C: write_memory 0xB7CB38 size 4 value 1 virtual_protect 1
+0A8D: read_memory 0xB7CB38 size 4 virtual_protect 1 store_to 0@
+
+4. CRITICAL RESTRICTIONS & ANTI-BUG WARNINGS:
+- PROHIBITED: Do not write to read-only text segments (.text section of gta_sa.exe) without explicitly setting page permissions via virtual protection flags.
+- WARNING: Ensure pointer alignment matches the data size (4 bytes for dword, 1 byte for char) to avoid bus errors or silent corruption on specific host architectures.
+
+
+3. SA.Audio.cleo (External audio streams and 3D positioning)
+--------------------------------------------------------------------------------
+1. COMPONENT NAME & ARCHITECTURE SUMMARY:
+- File Name: SA.Audio.cleo
+- Low-Level Architecture: Hooks into RenderWare's and Miles Sound System's audio pipeline, allowing dynamic loading, stream mixing, and 3D positional audio manipulation for external audio containers (MP3, WAV, OGG) independent of the native sound bank archives (SAAT/AE_*.stream).
+
+3. WHEN TO USE (CRITERIA):
+- Use when implementing custom radio stations, dynamic spatial sound effects attached to dynamic entities (vehicles/peds), or voice-over streams synchronized with cinematic timelines.
+
+3. HOW TO USE & INLINE SYNTAX (SBL v1.62 / SB4):
+// Example: Loading and playing a 3D positioned audio file
+0_CREATE_AUDIO_STREAM "cleo\soundtrack\custom_track.mp3" store_to 1@
+0_SET_AUDIO_STREAM_3D_POSITION 1@ x y z
+0_PLAY_AUDIO_STREAM 1@
+
+4. CRITICAL RESTRICTIONS & ANTI-BUG WARNINGS:
+- PROHIBITED: Never forget to release audio stream handles using the cleanup opcode upon script termination or mission abort. Failing to do so causes unmanaged heap leaks in the audio buffer pool.
+- WARNING: Keep stream paths relative to the `cleo/` directory using correct backslash or forward slash formatting supported by the plugin parser.
+
+
+4. SA.DebugUtils.cleo (Developer diagnostic tools and screen logs)
+--------------------------------------------------------------------------------
+1. COMPONENT NAME & ARCHITECTURE SUMMARY:
+- File Name: SA.DebugUtils.cleo
+- Low-Level Architecture: Implements an overlay rendering hook that interfaces directly with the Direct3D device swap chain and font management systems to output real-time variable inspection streams, string prints, and performance metrics directly onto the viewport.
+
+2. WHEN TO USE (CRITERIA):
+- Use during active script debugging, validating runtime memory pointers, tracking loop performance, and outputting formatted logs directly onto the game screen without writing to external log files.
+
+3. HOW TO USE & INLINE SYNTAX (SBL v1.62 / SB4):
+// Example: Printing a debug text line on screen with coordinate parameters
+0_PRINT_DEBUG_STRING "Player Ped Pointer:" 10.0 100.0
+0_PRINT_DEBUG_INT 1@ 250.0 100.0
+
+4. CRITICAL RESTRICTIONS & ANTI-BUG WARNINGS:
+- PROHIBITED: Do not leave heavy debug printing loops enabled in release builds, as continuous D3D string rendering overhead degrades frame pacing.
+- WARNING: Ensure that string lengths passed to screen print functions do not exceed maximum line width limits to prevent buffer clipping or text overflow crashes.
+
+
+5. SA.FileSystemOperations.cleo (Native OS file/directory manipulation)
+--------------------------------------------------------------------------------
+1. COMPONENT NAME & ARCHITECTURE SUMMARY:
+- File Name: SA.FileSystemOperations.cleo
+- Low-Level Architecture: Bridges the script virtual machine with Win32 file I/O APIs (`CreateFile`, `ReadFile`, `WriteFile`, `FindFirstFile`), allowing sandboxed reading, writing, and directory scanning within the game directory structure.
+
+2. WHEN TO USE (CRITERIA):
+- Use when saving custom mod configuration files, reading large dynamic text databases, checking for the existence of external mod assets, or managing logging output systems.
+
+3. HOW TO USE & INLINE SYNTAX (SBL v1.62 / SB4):
+// Example: Safe file existence check and line reading
+IF 
+    0_FILE_EXISTS "cleo\config\settings.dat"
+THEN
+    0_OPEN_FILE "cleo\config\settings.dat" mode 1 store_to 2@
+    0_READ_FROM_FILE 2@ size 4 store_to 3@
+    0_CLOSE_FILE 2@
+END
+
+4. CRITICAL RESTRICTIONS & ANTI-BUG WARNINGS:
+- PROHIBITED: Never perform synchronous heavy file I/O operations inside the main game tick loop (`mission_cleanup` or continuous ticks), as blocking disk access causes micro-stutters.
+- WARNING: Always verify file handle validity before attempting read/write operations to prevent null-pointer exceptions in the Win32 subsystem.
+
+
+6. SA.GameEntities.cleo (Advanced dynamic pointers for Chars, Vehicles, and Objects)
+--------------------------------------------------------------------------------
+1. COMPONENT NAME & ARCHITECTURE SUMMARY:
+- File Name: SA.GameEntities.cleo
+- Low-Level Architecture: Directly interacts with GTA San Andreas pool managers (`CPools`), granting direct access to base addresses of `CPed`, `CVehicle`, and `CObject` structures with automatic handle-to-pointer validation.
+
+2. WHEN TO USE (CRITERIA):
+- Use when writing advanced hook scripts that need to manipulate actor bone matrices, vehicle handling data, custom health/armor values, or internal entity flags without relying on standard slow SCM entity IDs.
+
+3. HOW TO USE & INLINE SYNTAX (SBL v1.62 / SB4):
+// Example: Getting ped memory structure pointer from handle
+GET_CHIP_POINTER_FROM_PED_HANDLE 0@ store_to 1@ // 1@ now holds CPed struct address (e.g., 0x7E3560)
+0_READ_MEM_ADDR 1@ offset 0x540 size 4 store_to 2@ // read ped health value directly from offset
+
+4. CRITICAL RESTRICTIONS & ANTI-BUG WARNINGS:
+- PROHIBITED: Never read or write to an entity pointer without first verifying if the entity handle is still active and valid in the pool. Pools recycle handles rapidly upon entity deletion, leading to use-after-free crashes.
+- WARNING: Hardcoded offsets (e.g., `0x540` for health) are version-dependent; ensure scripts target exclusively GTA SA v1.0 US.
+
+
+7. SA.IniFiles.cleo (Structured data parsing for external configuration files)
+--------------------------------------------------------------------------------
+1. COMPONENT NAME & ARCHITECTURE SUMMARY:
+- File Name: SA.IniFiles.cleo
+- Low-Level Architecture: Implements a fast parsing engine for standard INI configuration structures, mapping keys, sections, and values directly to internal string, integer, or floating-point script variables.
+
+2. WHEN TO USE (CRITERIA):
+- Use when creating modular mods that require user-customizable settings, keybind mappings, or tunable gameplay parameters loaded at script initialization time.
+
+3. HOW TO USE & INLINE SYNTAX (SBL v1.62 / SB4):
+// Example: Reading an integer setting from an INI file
+0_READ_INI_INTEGER "cleo\mod_settings.ini" section "General" key "MaxSpeed" store_to 1@
+
+4. CRITICAL RESTRICTIONS & ANTI-BUG WARNINGS:
+- PROHIBITED: Do not parse large INI files repeatedly inside high-frequency loops; cache configuration values into local variables during script initialization.
+- WARNING: Handle missing keys gracefully by assigning fallback default values if the INI read operation returns a failure code.
+
+
+8. SA.Input.cleo (Windows hardware hooks for keyboard, mouse, and gamepads)
+--------------------------------------------------------------------------------
+1. COMPONENT NAME & ARCHITECTURE SUMMARY:
+- File Name: SA.Input.cleo
+- Low-Level Architecture: Hooks direct input and window message pumps (Win32 API hook on `WndProc` and DirectInput state polling structures), allowing precise capture of raw hardware events independently of game action bindings.
+
+2. WHEN TO USE (CRITERIA):
+- Use when developing complex user interfaces, custom menus, developer consoles, or specialized hotkeys that require tracking modifier keys (Ctrl, Shift, Alt) or unmapped mouse buttons.
+
+3. HOW TO USE & INLINE SYNTAX (SBL v1.62 / SB4):
+// Example: Checking if a specific virtual key is pressed down
+IF 
+    0_IS_KEY_PRESSED 0x70 // F1 key virtual code
+THEN
+    // Execute custom menu action
+END
+
+4. CRITICAL RESTRICTIONS & ANTI-BUG WARNINGS:
+- PROHIBITED: Do not poll keyboard states inside poorly conditioned continuous loops without debounce delays, as single keystrokes will trigger multiple rapid executions.
+- WARNING: Ensure focus checks are integrated so input hooks do not interfere when the game window is minimized or chatting in multiplayer contexts (SAMP).
+
+
+9. SA.Math.cleo (High-performance geometric, trigonometric, matrix, and 3D vector engine)
+--------------------------------------------------------------------------------
+1. COMPONENT NAME & ARCHITECTURE SUMMARY:
+- File Name: SA.Math.cleo
+- Low-Level Architecture: Leverages optimized SSE/FPU instruction blocks to execute fast vector math calculations, matrix transformations, dot products, cross products, and trigonometric operations directly in native memory.
+
+2. WHEN TO USE (CRITERIA):
+- Use when computing complex spatial coordinates, raycasting, calculating distance vectors between multiple moving objects, or orienting custom 3D RenderWare objects in world space.
+
+3. HOW TO USE & INLINE SYNTAX (SBL v1.62 / SB4):
+// Example: Calculating 3D distance between two coordinate points using hardware math
+0_CALCULATE_3D_DISTANCE x1 y1 z1 x2 y2 z2 store_to 1@ // 1@ = float distance
+
+4. CRITICAL RESTRICTIONS & ANTI-BUG WARNINGS:
+- PROHIBITED: Never pass uninitialized floating-point variables into vector operations, as NaN (Not a Number) values will propagate through matrix transformations and crash the math coprocessor or render pipeline.
+- WARNING: Keep vector dimension parameters consistent with expected coordinate systems (RenderWare uses left-handed coordinates).
+
+
+10. SA.MemoryOperations.cleo (The engineering core for direct memory injections)
+--------------------------------------------------------------------------------
+1. COMPONENT NAME & ARCHITECTURE SUMMARY:
+- File Name: SA.MemoryOperations.cleo
+- Low-Level Architecture: Serves as the core low-level manipulation engine providing direct memory allocation (`VirtualAlloc`), protection modification (`VirtualProtect`), pattern scanning, function hooking (`Detours`/`JMP` patching), and pointer arithmetic without legacy opcode bottlenecks.
+
+2. WHEN TO USE (CRITERIA):
+- Use when executing dynamic code injections, writing assembly patches, patching game protection/limits, or setting up native function hooks for advanced modding features.
+
+3. HOW TO USE & INLINE SYNTAX (SBL v1.62 / SB4):
+// Example: Patching memory protection and writing bytes directly
+0_WRITE_MEMORY_PROTECTED 0x60FB30 value 0x90 size 1 // NOP out an instruction
+0_ALLOCATE_MEMORY 1024 store_to 1@ // Allocate safe heap block
+
+4. CRITICAL RESTRICTIONS & ANTI-BUG WARNINGS:
+- PROHIBITED: Never write to arbitrary memory addresses without restoring original bytes upon script termination or unload, as persistent bad patches cause immediate access violation crashes.
+- WARNING: Extreme care must be taken with pointer arithmetic; off-by-one errors in memory injection offsets will corrupt game state structures instantly.
+
+
+11. SA.Text.cleo (On-screen text rendering and priority string stream handlers)
+--------------------------------------------------------------------------------
+1. COMPONENT NAME & ARCHITECTURE SUMMARY:
+- File Name: SA.Text.cleo
+- Low-Level Architecture: Intercepts RenderWare font rendering pipelines and the game's text draw pool (`CFont`), allowing dynamic string formatting, custom font scaling, color manipulation, and priority text rendering outside the standard `gxt` text restriction blocks.
+
+2. WHEN TO USE (CRITERIA):
+- Use when rendering dynamic user interfaces, HUD elements, multiplayer chat overlays, floating labels above entities, or custom notification banners.
+
+3. HOW TO USE & INLINE SYNTAX (SBL v1.62 / SB4):
+// Example: Rendering custom text on screen with color and scaling parameters
+0_DRAW_CUSTOM_TEXT "SBL v1.62 Active" 100.0 200.0 0.5 0.5 255 255 255 255
+
+4. CRITICAL RESTRICTIONS & ANTI-BUG WARNINGS:
+- PROHIBITED: Do not call text drawing functions outside the main frame rendering thread or drawing callbacks, as text render buffers must synchronize with the D3D frame cycle.
+- WARNING: Avoid string buffer overflow when formatting dynamic runtime variables into text draw buffers; always enforce strict character count limits.
+
+================================================================================
+END OF SPECIFICATION - SBL v1.62 / CLEO 5 MODDING FRAMEWORK
+================================================================================
